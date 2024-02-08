@@ -46,9 +46,9 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           // debugShowCheckedModeBanner: false,
           theme: AppTheme.lightTheme,
-          // onGenerateRoute: AppRouter.generateRoute,
-          // initialRoute: ScreenName.splashScreen,
-          home: const FilteredRentScreen(),
+          onGenerateRoute: AppRouter.generateRoute,
+          initialRoute: ScreenName.splashScreen,
+          // home: const FilteredRentScreen(),
         );
       },
     );

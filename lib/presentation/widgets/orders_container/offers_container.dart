@@ -245,7 +245,7 @@ class _PastContainerState extends State<PastContainer>
                   padding: EdgeInsets.zero,
                   borderRadius: 8,
                   child: Text(
-                    "Accept Offer",
+                    "Reject Offer",
                     style: CustomThemes.primaryTextStyle(context).copyWith(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w700,

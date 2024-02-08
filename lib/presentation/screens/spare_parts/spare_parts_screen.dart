@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/core/constants/extensions.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 
@@ -37,6 +38,7 @@ class _SparePartsScreenState extends State<SparePartsScreen> {
             isSelected: selectedIndex == 0,
             onTap: (){
               selectedIndex = 0;
+              Navigator.pushNamed(context, ScreenName.spareByPartsScreen);
               setState(() {
 
               });
@@ -67,7 +69,15 @@ class _SparePartsScreenState extends State<SparePartsScreen> {
                 fontWeight: FontWeight.w700,
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              if(selectedIndex==0){
+
+                Navigator.pushNamed(context, ScreenName.spareByPartsScreen);
+              }else{
+
+                Navigator.pushNamed(context, ScreenName.spareByQuotationScreen);
+              }
+            },
           )
         ],
       ).symmetricPadding(horizontal: 16,vertical: 40),

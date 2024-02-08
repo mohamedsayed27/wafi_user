@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/core/constants/extensions.dart';
 
 import '../../../core/app_theme/app_colors.dart';
@@ -46,7 +47,7 @@ class SupportScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "Orders",
+                        "Support",
                         style: CustomThemes.whiteColoTextTheme(context)
                             .copyWith(
                                 fontSize: 16.sp,
@@ -123,7 +124,9 @@ class ItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: (){},
+      onTap: (){
+        Navigator.pushNamed(context, ScreenName.chatScreen);
+      },
       trailing: const Icon(
         Icons.arrow_forward_ios,
       ),

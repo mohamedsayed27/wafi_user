@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/core/assets_path/images_path.dart';
 import 'package:wafi_user/core/constants/extensions.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_divider.dart';
@@ -116,7 +117,9 @@ class ProfileScreen extends StatelessWidget {
           ItemWidget(
             title: "Edit Profile",
             svgPath: SvgPath.editProfile,
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, ScreenName.editProfileScreen);
+            },
           ),
           ItemWidget(
             title: "Notifications",

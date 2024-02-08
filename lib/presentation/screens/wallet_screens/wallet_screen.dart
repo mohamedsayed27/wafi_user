@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/core/app_theme/app_colors.dart';
 import 'package:wafi_user/core/app_theme/custom_themes.dart';
 import 'package:wafi_user/core/assets_path/svg_path.dart';
@@ -87,7 +88,9 @@ class WalletScreen extends StatelessWidget {
                   )
                 ]),
             child: ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, ScreenName.savedCardsScreen);
+              },
               leading: Text(
                 "Saved Cards",
                 style: CustomThemes.greyColor1CTextStyle(context).copyWith(

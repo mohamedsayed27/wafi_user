@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/core/app_theme/app_colors.dart';
 import 'package:wafi_user/core/assets_path/svg_path.dart';
 
@@ -163,7 +164,9 @@ class EditProfileScreen extends StatelessWidget {
             isNotVisible: true,
             maxlines: 1,
             suffixIcon: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, ScreenName.changePasswordScreen);
+              },
               icon: GradientSvg(
                 svgPath: SvgPath.pen,
                 height: 16.h,

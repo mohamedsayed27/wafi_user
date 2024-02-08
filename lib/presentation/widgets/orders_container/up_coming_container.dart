@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/core/app_theme/custom_themes.dart';
 import 'package:wafi_user/core/assets_path/images_path.dart';
 import 'package:wafi_user/presentation/widgets/orders_container/ordrs_container.dart';
@@ -138,7 +139,9 @@ class UpComingContainer extends StatelessWidget {
               ),
               if (!confirmed)
                 CustomGradientButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, ScreenName.offerScreen);
+                  },
                   width: 135,
                   height: 40,
                   child: Text(

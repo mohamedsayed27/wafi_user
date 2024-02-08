@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/core/assets_path/svg_path.dart';
 
 import '../../../core/app_theme/app_colors.dart';
@@ -24,55 +25,73 @@ class ServiceAndMaintenanceScreen extends StatelessWidget {
         children: [
           ServicesAndMaintenanceWidget(
             title: 'Battery Service',
-            onTap: (){},
+            onTap: (){
+              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: "Battery Service");
+            },
 
             svgPath: SvgPath.carBattery,
           ),
           ServicesAndMaintenanceWidget(
             title: 'Tires Service',
-            onTap: (){},
+            onTap: (){
+              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: "Tires Service");
+            },
 
             svgPath: SvgPath.racing,
           ),
           ServicesAndMaintenanceWidget(
             title: 'Locksmith',
-            onTap: (){},
+            onTap: (){
+              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: "Locksmith");
+            },
 
             svgPath: SvgPath.lockSmith,
           ),
           ServicesAndMaintenanceWidget(
             title: 'Fuel',
-            onTap: (){},
+            onTap: (){
+              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: "Fuel");
+            },
 
             svgPath: SvgPath.fuel,
           ),
           ServicesAndMaintenanceWidget(
             title: 'Oil',
-            onTap: (){},
+            onTap: (){
+              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: "Oil");
+            },
 
             svgPath: SvgPath.oil,
           ),
           ServicesAndMaintenanceWidget(
             title: 'Car Check-Up',
-            onTap: (){},
+            onTap: (){
+              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: "Car Check-Up");
+            },
 
             svgPath: SvgPath.carRepair,
           ),
           ServicesAndMaintenanceWidget(
             title: 'Towing Service',
-            onTap: (){},
+            onTap: (){
+              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: "Towing Service");
+            },
 
             svgPath: SvgPath.towTruck,
           ),
           ServicesAndMaintenanceWidget(
             title: 'Car Detailing',
-            onTap: (){},
+            onTap: (){
+              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: "Car Detailing");
+            },
 
             svgPath: SvgPath.carWash,
           ),
           ServicesAndMaintenanceWidget(
             title: 'Bodywork',
-            onTap: (){},
+            onTap: (){
+              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: "Bodywork");
+            },
 
             svgPath: SvgPath.service,
             isBorder: false,

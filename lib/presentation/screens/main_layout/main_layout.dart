@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/core/app_theme/app_colors.dart';
 import 'package:wafi_user/core/app_theme/custom_themes.dart';
 import 'package:wafi_user/core/assets_path/svg_path.dart';
@@ -138,7 +139,9 @@ class _MainLayoutState extends State<MainLayout> {
             ),
             child: InkWell(
               borderRadius: BorderRadius.circular(50.r),
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, ScreenName.addYorCar);
+              },
               child: Center(
                 child: SvgPicture.asset(
                   SvgPath.addCar,

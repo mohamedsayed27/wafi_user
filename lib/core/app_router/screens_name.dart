@@ -22,13 +22,14 @@ class ScreenName{
   static const orderProgressScreen = "orderProgressScreen";
   static const servicesAndMaintananceScreen = "servicesAndMaintananceScreen";
   static const servicesOnMapScreen = "servicesOnMapScreen";
-  static const filterSpareParts = "filterSpareParts";
+  static const addYorCar = "addYorCar";
   static const spareByPartsScreen = "spareByPartsScreen";
   static const MainLayoutScreen = "MainLayoutScreen";
   static const spareByQuotationScreen = "spareByQuotationScreen";
   static const sparePartsScreen = "sparePartsScreen";
   static const sparePartsDetailsScreen = "sparePartsDetailsScreen";
   static const supportChatScreen = "supportChatScreen";
+  static const changePasswordScreen = "changePasswordScreen";
   static const chatScreen = "chatScreen";
   static const termsAndConditions = "termsAndConditions";
   static const savedCardsScreen = "savedCardsScreen";
