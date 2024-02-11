@@ -53,7 +53,6 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: 'Flutter Demo',
           // debugShowCheckedModeBanner: false,
-          theme: AppTheme.lightTheme,
           // onGenerateRoute: AppRouter.generateRoute,
           // initialRoute: ScreenName.splashScreen,
           home: const InsuranceDetailsScreen(),
