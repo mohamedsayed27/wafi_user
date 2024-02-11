@@ -35,7 +35,7 @@ class SparePartsDetailsScreen extends StatelessWidget {
                 height: 180.h,
                 width: 180.w,
               ),),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 38,
           ),
           Row(
@@ -64,7 +64,7 @@ class SparePartsDetailsScreen extends StatelessWidget {
               ),
             ],
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 16,
           ),
           const DetailsWithSvgItem(
@@ -72,7 +72,7 @@ class SparePartsDetailsScreen extends StatelessWidget {
             title: "16 inch",
             svgPath: SvgPath.racing,
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 12,
           ),
           const DetailsWithSvgItem(
@@ -80,7 +80,7 @@ class SparePartsDetailsScreen extends StatelessWidget {
             title: "195/55 R16 88V",
             svgPath: SvgPath.service,
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 12,
           ),
           const DetailsWithSvgItem(
@@ -88,13 +88,13 @@ class SparePartsDetailsScreen extends StatelessWidget {
             title: "2 Years Warrenty",
             svgPath: SvgPath.warrenty,
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 16,
           ),
-          CustomDivider(
+          const CustomDivider(
             height: 8,
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 16,
           ),
           Text(
@@ -104,43 +104,43 @@ class SparePartsDetailsScreen extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 12,
           ),
           const DetailsWithSvgItem(
             title: " Collection & Delivery",
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 12,
           ),
           const DetailsWithSvgItem(
             title: " 360 Degree Health Check",
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 12,
           ),
           const DetailsWithSvgItem(
             title: " Tyre Check & Air Pressure",
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 12,
           ),
           const DetailsWithSvgItem(
             title: " Car Wash",
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 12,
           ),
           const DetailsWithSvgItem(
             title: " Oil filter replacement (Labour)",
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 16,
           ),
-          CustomDivider(
+          const CustomDivider(
             height: 8,
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 16,
           ),
           Text(
@@ -150,25 +150,25 @@ class SparePartsDetailsScreen extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 12,
           ),
           CustomSizedBox(
-            height: 160,
+            height: 165,
             width: double.infinity,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               padding: EdgeInsets.symmetric(
                 vertical: 5.h,
               ),
-              itemBuilder: (_, index) => ReviewsItemWidget(),
-              separatorBuilder: (_, index) => CustomSizedBox(
+              itemBuilder: (_, index) => const ReviewsItemWidget(),
+              separatorBuilder: (_, index) => const CustomSizedBox(
                 width: 16,
               ),
               itemCount: 5,
             ),
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 24,
           ),
           CustomGradientButton(
@@ -279,7 +279,7 @@ class ReviewsItemWidget extends StatelessWidget {
                 height: 24.h,
                 width: 24.w,
               ),
-              CustomSizedBox(width: 4,),
+              const CustomSizedBox(width: 4,),
               Text(
                 "Eugene Dean",
                 style: CustomThemes.greyColor1CTextStyle(context).copyWith(
@@ -287,26 +287,25 @@ class ReviewsItemWidget extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               RatingBar.builder(
                 initialRating: 5,
                 minRating: 1,
                 direction: Axis.horizontal,
                 allowHalfRating: true,
                 itemCount: 5,
-                itemPadding: EdgeInsets.symmetric(horizontal: 1),
+                itemPadding: const EdgeInsets.symmetric(horizontal: 1),
                 itemSize: 12.r,
                 itemBuilder: (context, _) => SvgPicture.asset(
                   SvgPath.star,
-                  colorFilter: ColorFilter.mode(Colors.amber, BlendMode.srcIn,),
+                  colorFilter: const ColorFilter.mode(Colors.amber, BlendMode.srcIn,),
                 ),
                 onRatingUpdate: (rating) {
-                  print(rating);
                 },
               )
             ],
           ),
-          CustomSizedBox(height: 12,),
+          const CustomSizedBox(height: 8,),
           Text(
             "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
             maxLines: 4,

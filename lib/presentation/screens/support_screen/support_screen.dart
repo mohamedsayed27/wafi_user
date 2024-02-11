@@ -125,22 +125,22 @@ class ItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: (){
-        Navigator.pushNamed(context, ScreenName.chatScreen);
+        Navigator.pushNamed(context, ScreenName.chatScreen,);
       },
       trailing: const Icon(
         Icons.arrow_forward_ios,
       ),
       shape:  OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.greyColor9, width: 0.2),borderRadius: BorderRadius.circular(8.r)),
-      contentPadding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 8.w),
-      leading: Column(
+          borderSide: const BorderSide(color: AppColors.greyColor9, width: 0.2),borderRadius: BorderRadius.circular(8.r)),
+      contentPadding: EdgeInsets.symmetric(vertical: 12.h,horizontal: 8.w,),
+      title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             "Spare Parts",
             style: CustomThemes.greyColor99TextStyle(context).copyWith(
-                fontSize: 14.sp, fontWeight: FontWeight.w700, height: 1),
+                fontSize: 14.sp, fontWeight: FontWeight.w700, height: 1,),
           ),
           const CustomSizedBox(
             height: 4,
@@ -148,7 +148,7 @@ class ItemWidget extends StatelessWidget {
           Text(
             "Payment stuck during ordering.",
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
-                fontSize: 14.sp, fontWeight: FontWeight.w700, height: 1),
+                fontSize: 14.sp, fontWeight: FontWeight.w700, height: 1,),
           ),
           const CustomSizedBox(
             height: 4,

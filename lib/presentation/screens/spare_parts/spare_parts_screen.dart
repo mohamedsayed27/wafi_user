@@ -38,7 +38,7 @@ class _SparePartsScreenState extends State<SparePartsScreen> {
             isSelected: selectedIndex == 0,
             onTap: (){
               selectedIndex = 0;
-              Navigator.pushNamed(context, ScreenName.spareByPartsScreen);
+              // Navigator.pushNamed(context, ScreenName.spareByPartsScreen);
               setState(() {
 
               });
