@@ -11,4 +11,5 @@ class ImagesPath{
   static const mapImage = 'assets/images/mapImage.png';
   static const dummyTire = 'assets/images/dummyTire.png';
   static const tracmax = 'assets/images/tracmax.png';
+  static const malathImage = 'assets/images/malathImage.png';
 }

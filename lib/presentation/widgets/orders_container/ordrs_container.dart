@@ -4,18 +4,18 @@ import 'package:wafi_user/core/app_theme/app_colors.dart';
 
 class OrdersContainer extends StatelessWidget {
   final Color outContainerColor;
+  final Color? innerContainerColor;
   final Widget child;
 
   const OrdersContainer({
     super.key,
     required this.outContainerColor,
-    required this.child,
+    required this.child, this.innerContainerColor,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-
       padding: EdgeInsets.only(
         top: 2.h,
       ),
@@ -31,7 +31,7 @@ class OrdersContainer extends StatelessWidget {
           vertical: 16.h,
         ),
         decoration: BoxDecoration(
-          color: AppColors.whiteColor,
+          color: innerContainerColor??AppColors.whiteColor,
           borderRadius: BorderRadius.circular(
             8.r,
           ),

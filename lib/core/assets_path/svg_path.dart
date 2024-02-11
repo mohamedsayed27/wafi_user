@@ -49,5 +49,15 @@ class SvgPath{
   static const editProfile = "assets/svg/editProfile.svg";
   static const pen = "assets/svg/pen.svg";
   static const masterCard = "assets/svg/masterCard.svg";
+  static const alert = "assets/svg/alert.svg";
+  static const policy = "assets/svg/policy.svg";
+  static const renewable = "assets/svg/renewable.svg";
+  static const insurance1 = "assets/svg/insurance1.svg";
+  static const protection = "assets/svg/protection.svg";
+  static const steeringWheel = "assets/svg/steeringWheel.svg";
+  static const billExistingCars = "assets/svg/billExistingCars.svg";
+  static const historyExistingCars = "assets/svg/historyExistingCars.svg";
+  static const insuranceExistingCars = "assets/svg/insuranceExistingCars.svg";
+  static const invoiceExistingCars = "assets/svg/invoiceExistingCars.svg";
   SvgPath._();
 }

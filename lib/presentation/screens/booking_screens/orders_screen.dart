@@ -23,7 +23,7 @@ class OrdersScreen extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              height: 180.h,
+              // height: 180.h,
               width: double.infinity,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -34,6 +34,7 @@ class OrdersScreen extends StatelessWidget {
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   CustomSizedBox(
                     height: preferredSize.height,
@@ -91,6 +92,7 @@ class OrdersScreen extends StatelessWidget {
                     ],
                     dividerColor: Colors.transparent,
                   ),
+                  const CustomSizedBox(height: 24,),
                 ],
               ),
             ),

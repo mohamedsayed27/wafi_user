@@ -109,7 +109,7 @@ class CarDriverTypeButton extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.symmetric(
               vertical: 8.h,
-              horizontal: 10.w,
+              horizontal: 8.w,
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4.r),
