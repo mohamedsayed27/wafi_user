@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_theme/app_theme.dart';
 import 'package:wafi_user/presentation/screens/car_insurance/new_insurance_screen.dart';
 import 'presentation/screens/booking_screens/orders_screen.dart';
+import 'presentation/screens/car_insurance/add_driver_screen.dart';
 import 'presentation/screens/car_insurance/existing_cars.dart';
 import 'presentation/screens/car_insurance/existing_polices.dart';
 import 'presentation/screens/car_insurance/policy_details_screen.dart';
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
       builder: (context , child){
         return MaterialApp(
           title: 'Flutter Demo',
+          theme: AppTheme.lightTheme,
           // debugShowCheckedModeBanner: false,
           // onGenerateRoute: AppRouter.generateRoute,
           // initialRoute: ScreenName.splashScreen,
