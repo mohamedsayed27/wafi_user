@@ -201,11 +201,7 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(4.r),
                               color: AppColors.borderColor,
-                              // gradient:  LinearGradient(
-                              //   colors: AppColors.gradientColorsList,
-                              //   begin: AlignmentDirectional.topStart,
-                              //   end: AlignmentDirectional.bottomEnd,
-                              // ),
+
                             ),
                             child: Container(
                               padding: EdgeInsets.symmetric(

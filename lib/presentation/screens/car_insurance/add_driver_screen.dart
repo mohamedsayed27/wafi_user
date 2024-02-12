@@ -132,7 +132,8 @@ class _AddDriverScreenState extends State<AddDriverScreen> {
                 ),
               ),
             ),
-          )
+          ),
+
         ],
       ),
     );
