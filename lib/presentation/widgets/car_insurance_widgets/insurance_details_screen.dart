@@ -26,8 +26,8 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: CustomAppBar(
-          title: "title",
+        child: const CustomAppBar(
+          title: "Car Insurance",
         ),
       ),
       body: ListView(
@@ -36,33 +36,34 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
           vertical: 32.h,
         ),
         children: [
-          FormDropDownWidget(
+          const FormDropDownWidget(
             title: "Select Vehicle Identifier",
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 24,
           ),
-          FormItemWidget(
+          const FormItemWidget(
             title: "Sequence Number",
             hintText: "EX:-000000000",
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 24,
           ),
           Row(
             children: [
               CustomSwitchButton(
-                  isOn: isOn,
-                  onTap: () {
-                    if (isOn) {
-                      isOn = false;
-                      setState(() {});
-                    } else {
-                      isOn = true;
-                      setState(() {});
-                    }
-                  }),
-              CustomSizedBox(
+                isOn: isOn,
+                onTap: () {
+                  if (isOn) {
+                    isOn = false;
+                    setState(() {});
+                  } else {
+                    isOn = true;
+                    setState(() {});
+                  }
+                },
+              ),
+              const CustomSizedBox(
                 width: 12,
               ),
               Expanded(
@@ -76,15 +77,20 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
               ),
             ],
           ),
-          // if()CustomSizedBox(height: 24,),
+          CustomSizedBox(height: 24,),
           Visibility(
-            child: FormDropDownWidget(
-              title: "Purpose of Vehicle Use",
-            ),
             visible: !isOn,
-          ),
-          CustomSizedBox(
-            height: 24,
+            child: const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                FormDropDownWidget(
+                  title: "Purpose of Vehicle Use",
+                ),
+                CustomSizedBox(
+                  height: 24,
+                ),
+              ],
+            ),
           ),
           Ink(
             decoration: BoxDecoration(
@@ -104,10 +110,9 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomSizedBox(
-                  height: 16,
-                ),
+
                 Visibility(
+                  visible: !isOn,
                   child: Text(
                     "To be filled if driver is not the car owner",
                     style: CustomThemes.greyColor99TextStyle(context).copyWith(
@@ -115,31 +120,31 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  visible: !isOn,
                 ),
-                CustomSizedBox(
-                  height: 16,
-                ),
+
                 Visibility(
-                  child: Column(
+                  visible: isOn,
+                  child: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       FormItemWidget(
                         title: "Year of manufacture",
                         hintText: "Year of manufacture",
                       ),
+                      CustomSizedBox(
+                        height: 8,
+                      ),
                       FormItemWidget(
                         title: "Purpose of vehicle use",
                         hintText: "Purpose of vehicle use",
                       ),
+                      CustomSizedBox(
+                        height: 16,
+                      ),
                     ],
                   ),
-                  visible: isOn,
                 ),
-                CustomSizedBox(
-                  height: 16,
-                ),
-                FormDateWidget(
+                const FormDateWidget(
                   title: "Date of Birth",
                 ),
               ],
