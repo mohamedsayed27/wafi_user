@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_theme/app_theme.dart';
+import 'package:wafi_user/presentation/screens/car_insurance/car_insurance_result.dart';
 import 'presentation/screens/car_insurance/new_insurance_screen.dart';
 import 'presentation/screens/booking_screens/orders_screen.dart';
 import 'presentation/screens/car_insurance/add_driver_screen.dart';
@@ -57,7 +58,7 @@ class MyApp extends StatelessWidget {
           // debugShowCheckedModeBanner: false,
           // onGenerateRoute: AppRouter.generateRoute,
           // initialRoute: ScreenName.splashScreen,
-          home: AddDriverScreen(currentIndex: 0,),
+          home: CarInsuranceResult(),
         );
       },
     );
