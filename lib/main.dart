@@ -33,7 +33,7 @@ import 'presentation/screens/profile_screens/edit_profile_screen.dart';
 import 'presentation/screens/support_screen/chat_support_screen.dart';
 import 'presentation/screens/support_screen/support_screen.dart';
 import 'presentation/screens/wallet_screens/wallet_screen.dart';
-import 'presentation/widgets/car_insurance_widgets/insurance_details_screen.dart';
+import 'presentation/screens/car_insurance/insurance_details_screen.dart';
 
 
 
@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
           // debugShowCheckedModeBanner: false,
           // onGenerateRoute: AppRouter.generateRoute,
           // initialRoute: ScreenName.splashScreen,
-          home: const InsuranceDetailsScreen(),
+          home: AddDriverScreen(currentIndex: 0,),
         );
       },
     );

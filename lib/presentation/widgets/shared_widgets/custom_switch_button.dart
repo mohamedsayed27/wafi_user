@@ -13,7 +13,7 @@ class CustomSwitchButton extends StatelessWidget {
    const CustomSwitchButton({
     Key? key,
     this.itemWidth = 46,
-    this.itemHeight = 24,
+    this.itemHeight = 26,
     this.circleHeightAndWidth = 22, required this.isOn, this.onTap,
   }) : super(key: key);
 
@@ -48,7 +48,7 @@ class CustomSwitchButton extends StatelessWidget {
             AnimatedContainer(
               alignment: isOn ? Alignment.centerRight : Alignment.centerLeft,
               duration: const Duration(milliseconds: 150),
-              margin: EdgeInsets.symmetric(horizontal: 2.w),
+              margin: EdgeInsets.symmetric(horizontal: 2.w,vertical: 1.h),
               child: Card(
                 elevation: 0,
                 margin: EdgeInsets.zero,
