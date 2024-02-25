@@ -26,7 +26,7 @@ class CarInsuranceResult extends StatelessWidget {
       ),
       body: Column(
         children: [
-          CustomSizedBox(height: 32,),
+          const CustomSizedBox(height: 32,),
           Row(
             children: [
               Column(
@@ -39,7 +39,7 @@ class CarInsuranceResult extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  CustomSizedBox(
+                  const CustomSizedBox(
                     height: 4,
                   ),
                   Text(
@@ -51,7 +51,7 @@ class CarInsuranceResult extends StatelessWidget {
                   ),
                 ],
               ),
-              Spacer(),
+              const Spacer(),
               Container(
                 decoration: BoxDecoration(
                   boxShadow: [
@@ -65,6 +65,7 @@ class CarInsuranceResult extends StatelessWidget {
                 child: CustomElevatedButton(
                   backgroundColor: AppColors.whiteColor,
                   elevation: 5,
+                  foregroundColor: AppColors.primaryColor,
                   onPressed: () {},
                   padding: EdgeInsets.zero,
                   height: 28,
@@ -73,14 +74,14 @@ class CarInsuranceResult extends StatelessWidget {
                     SvgPath.filter,
                     height: 16,
                     width: 16,
-                    colorFilter: ColorFilter.mode(
+                    colorFilter: const ColorFilter.mode(
                       AppColors.color1C,
                       BlendMode.srcIn,
                     ),
                   ),
                 ),
               ),
-              CustomSizedBox(
+              const CustomSizedBox(
                 width: 8,
               ),
               Container(
@@ -96,6 +97,7 @@ class CarInsuranceResult extends StatelessWidget {
                 child: CustomElevatedButton(
                   backgroundColor: AppColors.whiteColor,
                   elevation: 5,
+                  foregroundColor: AppColors.primaryColor,
                   onPressed: () {},
                   padding: EdgeInsets.zero,
                   height: 28,
@@ -104,14 +106,14 @@ class CarInsuranceResult extends StatelessWidget {
                     SvgPath.sort,
                     height: 16,
                     width: 16,
-                    colorFilter: ColorFilter.mode(
+                    colorFilter: const ColorFilter.mode(
                       AppColors.color1C,
                       BlendMode.srcIn,
                     ),
                   ),
                 ),
               ),
-              CustomSizedBox(
+              const CustomSizedBox(
                 width: 8,
               ),
               Container(
@@ -128,6 +130,7 @@ class CarInsuranceResult extends StatelessWidget {
                   backgroundColor: AppColors.whiteColor,
                   elevation: 5,
                   onPressed: () {},
+                  foregroundColor: AppColors.primaryColor,
                   padding: EdgeInsets.zero,
                   height: 28,
                   width: 24,
@@ -135,7 +138,7 @@ class CarInsuranceResult extends StatelessWidget {
                     SvgPath.insurance,
                     height: 16,
                     width: 16,
-                    colorFilter: ColorFilter.mode(
+                    colorFilter: const ColorFilter.mode(
                       AppColors.color1C,
                       BlendMode.srcIn,
                     ),
@@ -146,8 +149,8 @@ class CarInsuranceResult extends StatelessWidget {
           ).symmetricPadding(horizontal: 16),
           Expanded(
             child: ListView.separated(
-              itemBuilder: (_, index) => CarInsuranceContainer(),
-              separatorBuilder: (_, index) => CustomSizedBox(
+              itemBuilder: (_, index) => const CarInsuranceContainer(),
+              separatorBuilder: (_, index) => const CustomSizedBox(
                 height: 16,
               ),
               itemCount: 3,

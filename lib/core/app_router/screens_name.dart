@@ -34,4 +34,13 @@ class ScreenName{
   static const termsAndConditions = "termsAndConditions";
   static const savedCardsScreen = "savedCardsScreen";
   static const walletScreen = "walletScreen";
+  static const existingPolicesScreen = "existingPolicesScreen";
+  static const addDriverScreen = "addDriverScreen";
+  static const carInsuranceScreen = "carInsuranceScreen";
+  static const carInsuranceResult = "carInsuranceResult";
+  static const dueForRenewl = "dueForRenewl";
+  static const expiredPolices = "expiredPolices";
+  static const insuranceDetails = "insuranceDetails";
+  static const newInsuranceScreen = "newInsuranceScreen";
+  static const policyDetailsScreen = "policyDetailsScreen";
 }

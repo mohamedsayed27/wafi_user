@@ -63,10 +63,10 @@ class _AddDriverScreenState extends State<AddDriverScreen> {
           vertical: 32.h,
         ),
         children: [
-          Material(
-            type: MaterialType.transparency,
-            child: Hero(
-              tag: "addDriver",
+          Hero(
+            tag: "addDriver",
+            child: Material(
+              type: MaterialType.transparency,
               child: Row(
                 children: List.generate(
                   titlesList.length,

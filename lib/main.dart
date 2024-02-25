@@ -55,10 +55,10 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: 'Flutter Demo',
           theme: AppTheme.lightTheme,
-          // debugShowCheckedModeBanner: false,
-          // onGenerateRoute: AppRouter.generateRoute,
-          // initialRoute: ScreenName.splashScreen,
-          home: CarInsuranceResult(),
+          debugShowCheckedModeBanner: false,
+          onGenerateRoute: AppRouter.generateRoute,
+          initialRoute: ScreenName.splashScreen,
+          // home: AddNewInsuranceScreen(),
         );
       },
     );

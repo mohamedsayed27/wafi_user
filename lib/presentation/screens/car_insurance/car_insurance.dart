@@ -4,6 +4,7 @@ import 'package:wafi_user/core/assets_path/svg_path.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart';
 
+import '../../../core/app_router/screens_name.dart';
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/constants/constants.dart';
@@ -30,7 +31,9 @@ class CarInsurance extends StatelessWidget {
           InsuranceDashboardWidget(
             title: "New Insurance",
             svgPath: SvgPath.insurance1,
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, ScreenName.newInsuranceScreen);
+            },
           ),
           const CustomSizedBox(
             height: 16,
@@ -38,7 +41,9 @@ class CarInsurance extends StatelessWidget {
           InsuranceDashboardWidget(
             title: "Existing Policy",
             svgPath: SvgPath.policy,
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, ScreenName.existingPolicesScreen);
+            },
           ),
           const CustomSizedBox(
             height: 16,
@@ -46,7 +51,9 @@ class CarInsurance extends StatelessWidget {
           InsuranceDashboardWidget(
             title: "Due For Renewal",
             svgPath: SvgPath.renewable,
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, ScreenName.dueForRenewl);
+            },
           ),
           const CustomSizedBox(
             height: 16,
@@ -54,7 +61,9 @@ class CarInsurance extends StatelessWidget {
           InsuranceDashboardWidget(
             title: "Expired Policies",
             svgPath: SvgPath.alert,
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, ScreenName.expiredPolices);
+            },
           ),
           const CustomSizedBox(
             height: 16,
@@ -62,7 +71,9 @@ class CarInsurance extends StatelessWidget {
           InsuranceDashboardWidget(
             title: "Existing Cars",
             svgPath: SvgPath.steeringWheel,
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, ScreenName.existingPolicesScreen);
+            },
           ),
         ],
       ),

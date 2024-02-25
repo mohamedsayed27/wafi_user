@@ -5,6 +5,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/form_date_item.dar
 import 'package:wafi_user/presentation/widgets/shared_widgets/form_item_widget.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradiant_color_button.dart';
 
+import '../../../core/app_router/screens_name.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/constants/constants.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
@@ -78,9 +79,11 @@ class _AddNewInsuranceScreenState extends State<AddNewInsuranceScreen> {
             height: 164,
           ),
           CustomGradientButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, ScreenName.insuranceDetails);
+              },
               child: Text(
-                "Select type of Insurance",
+                "Next",
                 style: CustomThemes.whiteColoTextTheme(context).copyWith(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w700,
