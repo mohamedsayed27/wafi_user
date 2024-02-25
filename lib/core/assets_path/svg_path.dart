@@ -61,5 +61,11 @@ class SvgPath{
   static const invoiceExistingCars = "assets/svg/invoiceExistingCars.svg";
   static const vector = "assets/svg/vector.svg";
   static const list = "assets/svg/list.svg";
+  static const filter = "assets/svg/filter.svg";
+  static const photo = "assets/svg/photo.svg";
+  static const snail = "assets/svg/snail.svg";
+  static const sort = "assets/svg/sort.svg";
+  static const info = "assets/svg/info.svg";
+  static const check1 = "assets/svg/check1.svg";
   SvgPath._();
 }

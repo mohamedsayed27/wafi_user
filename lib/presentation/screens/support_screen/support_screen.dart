@@ -42,8 +42,10 @@ class SupportScreen extends StatelessWidget {
                         child: BackButton(
                           color: AppColors.whiteColor,
                           style: ButtonStyle(
-                              padding:
-                                  MaterialStatePropertyAll(EdgeInsets.zero)),
+                            padding: MaterialStatePropertyAll(
+                              EdgeInsets.zero,
+                            ),
+                          ),
                         ),
                       ),
                       Text(
@@ -92,7 +94,8 @@ class SupportScreen extends StatelessWidget {
               child: TabBarView(
                 children: [
                   ListView.separated(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 16.h),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
                     itemBuilder: (_, index) => const ItemWidget(),
                     separatorBuilder: (_, index) => const CustomSizedBox(
                       height: 16,
@@ -100,8 +103,8 @@ class SupportScreen extends StatelessWidget {
                     itemCount: 3,
                   ),
                   ListView.separated(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 16.h),
-
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
                     itemBuilder: (_, index) => const ItemWidget(),
                     separatorBuilder: (_, index) => const CustomSizedBox(
                       height: 16,
@@ -124,15 +127,22 @@ class ItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: (){
-        Navigator.pushNamed(context, ScreenName.chatScreen,);
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          ScreenName.chatScreen,
+        );
       },
       trailing: const Icon(
         Icons.arrow_forward_ios,
       ),
-      shape:  OutlineInputBorder(
-          borderSide: const BorderSide(color: AppColors.greyColor9, width: 0.2),borderRadius: BorderRadius.circular(8.r)),
-      contentPadding: EdgeInsets.symmetric(vertical: 12.h,horizontal: 8.w,),
+      shape: OutlineInputBorder(
+          borderSide: const BorderSide(color: AppColors.greyColor9, width: 0.2),
+          borderRadius: BorderRadius.circular(8.r)),
+      contentPadding: EdgeInsets.symmetric(
+        vertical: 12.h,
+        horizontal: 8.w,
+      ),
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -140,7 +150,10 @@ class ItemWidget extends StatelessWidget {
           Text(
             "Spare Parts",
             style: CustomThemes.greyColor99TextStyle(context).copyWith(
-                fontSize: 14.sp, fontWeight: FontWeight.w700, height: 1,),
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w700,
+              height: 1,
+            ),
           ),
           const CustomSizedBox(
             height: 4,
@@ -148,7 +161,10 @@ class ItemWidget extends StatelessWidget {
           Text(
             "Payment stuck during ordering.",
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
-                fontSize: 14.sp, fontWeight: FontWeight.w700, height: 1,),
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w700,
+              height: 1,
+            ),
           ),
           const CustomSizedBox(
             height: 4,
