@@ -26,7 +26,7 @@ class LoginScreen extends StatelessWidget {
         children: [
           const ScreenTitleWidget(title: 'Login',),
           const CustomSizedBox(height: 24,),
-          const FormItemWidget(title: 'Phone Number', hintText: 'EX :- 00000000000',),
+          const FormItemWidget(title: 'Phone Number', hintText: 'EX :- +91-0000000000',),
           const CustomSizedBox(height: 16,),
           Text(
             "An OTP will be send to the entered number for verification",

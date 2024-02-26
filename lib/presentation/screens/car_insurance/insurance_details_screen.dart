@@ -193,7 +193,9 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
             height: 24,
           ),
           CustomGradientButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, ScreenName.carInsuranceResult);
+            },
             child: Text(
               "Next",
               style: CustomThemes.whiteColoTextTheme(context).copyWith(

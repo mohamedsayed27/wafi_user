@@ -31,10 +31,7 @@ class RegisterScreen extends StatelessWidget {
           const CustomSizedBox(
             height: 24,
           ),
-          const FormItemWidget(
-            title: 'Phone Number',
-            hintText: 'EX :- 00000000000',
-          ),
+          const FormItemWidget(title: 'Phone Number', hintText: 'EX :- +91-0000000000',),
           const CustomSizedBox(
             height: 16,
           ),

@@ -72,10 +72,10 @@ class _SparePartsScreenState extends State<SparePartsScreen> {
             onPressed: () {
               if(selectedIndex==0){
 
-                Navigator.pushNamed(context, ScreenName.spareByPartsScreen);
+                Navigator.pushNamed(context, ScreenName.spareByQuotationScreen);
               }else{
 
-                Navigator.pushNamed(context, ScreenName.spareByQuotationScreen);
+                Navigator.pushNamed(context, ScreenName.spareByPartsScreen);
               }
             },
           )
