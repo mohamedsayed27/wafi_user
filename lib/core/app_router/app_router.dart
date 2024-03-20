@@ -5,6 +5,14 @@ import 'package:wafi_user/presentation/screens/auth_screens/login_screen.dart';
 import 'package:wafi_user/presentation/screens/auth_screens/otp_screen.dart';
 import 'package:wafi_user/presentation/screens/auth_screens/register_screen.dart';
 import 'package:wafi_user/presentation/screens/booking_screens/offers_screen.dart';
+import 'package:wafi_user/presentation/screens/car_insurance/add_driver_screen.dart';
+import 'package:wafi_user/presentation/screens/car_insurance/car_insurance.dart';
+import 'package:wafi_user/presentation/screens/car_insurance/car_insurance_result.dart';
+import 'package:wafi_user/presentation/screens/car_insurance/due_for_renewl.dart';
+import 'package:wafi_user/presentation/screens/car_insurance/existing_polices.dart';
+import 'package:wafi_user/presentation/screens/car_insurance/expired_polices.dart';
+import 'package:wafi_user/presentation/screens/car_insurance/insurance_details_screen.dart';
+import 'package:wafi_user/presentation/screens/car_insurance/policy_details_screen.dart';
 import 'package:wafi_user/presentation/screens/car_rent/car_rent_details.dart';
 import 'package:wafi_user/presentation/screens/car_rent/choose_driver_type_screen.dart';
 import 'package:wafi_user/presentation/screens/car_rent/search_to_rent_car_screen.dart';
@@ -27,6 +35,7 @@ import 'package:wafi_user/presentation/screens/terms_and_conditions_privacy_poli
 import 'package:wafi_user/presentation/screens/wallet_screens/saved_caerds_screen.dart';
 import 'package:wafi_user/presentation/screens/wallet_screens/wallet_screen.dart';
 
+import '../../presentation/screens/car_insurance/new_insurance_screen.dart';
 import '../../presentation/screens/car_rent/confirm_rent_car_screen.dart';
 import '../../presentation/screens/car_rent/filtered_rent_screen.dart';
 import '../../presentation/screens/reservation_screens/order_progress_screen.dart';
@@ -86,6 +95,43 @@ class AppRouter {
         case ScreenName.chatScreen:
           return MaterialPageRoute(
             builder: (_) => const ChatSupportScreen(),
+          );
+        case ScreenName.existingPolicesScreen:
+          return MaterialPageRoute(
+            builder: (_) => const ExistingPolices(),
+          );
+        case ScreenName.expiredPolices:
+          return MaterialPageRoute(
+            builder: (_) => const ExpiredPolices(),
+          );
+        case ScreenName.addDriverScreen:
+          final int args = settings.arguments as int;
+          return MaterialPageRoute(
+            builder: (_) =>  AddDriverScreen(currentIndex: args),
+          );
+        case ScreenName.carInsuranceScreen:
+          return MaterialPageRoute(
+            builder: (_) => const CarInsurance(),
+          );
+        case ScreenName.carInsuranceResult:
+          return MaterialPageRoute(
+            builder: (_) => const CarInsuranceResult(),
+          );
+        case ScreenName.dueForRenewl:
+          return MaterialPageRoute(
+            builder: (_) => const DueForRenewal(),
+          );
+        case ScreenName.insuranceDetails:
+          return MaterialPageRoute(
+            builder: (_) => const InsuranceDetailsScreen(),
+          );
+        case ScreenName.newInsuranceScreen:
+          return MaterialPageRoute(
+            builder: (_) => const AddNewInsuranceScreen(),
+          );
+        case ScreenName.policyDetailsScreen:
+          return MaterialPageRoute(
+            builder: (_) => const PolicesDetailsScreen(),
           );
         case ScreenName.offerScreen:
           return MaterialPageRoute(

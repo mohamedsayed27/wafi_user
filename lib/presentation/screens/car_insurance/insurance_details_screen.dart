@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/presentation/widgets/car_insurance_widgets/add_driver_button_widget.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
@@ -154,25 +155,28 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
           const CustomSizedBox(
             height: 24,
           ),
-          Material(
-            type: MaterialType.transparency,
-            child: Hero(
-              tag: "addDriver",
+          Hero(
+            tag: "addDriver",
+            child: Material(
+              type: MaterialType.transparency,
               child: Row(
                 children: List.generate(
                   titlesList.length,
-                  (index) {
+                      (index) {
                     return index.isOdd
                         ? const CustomSizedBox(
-                            width: 24,
-                          )
+                      width: 24,
+                    )
                         : Expanded(
-                            child: GradientSelectButtonWidget(
-                              isButtonSelected: false,
-                              svgPath: titlesList[index]?["image"],
-                              title: titlesList[index]?["title"],
-                            ),
-                          );
+                      child: GradientSelectButtonWidget(
+                        onTap: (){
+                          Navigator.pushNamed(context, ScreenName.addDriverScreen,arguments: 0);
+                        },
+                        isButtonSelected: false,
+                        svgPath: titlesList[index]?["image"],
+                        title: titlesList[index]?["title"],
+                      ),
+                    );
                   },
                 ),
               ),
@@ -189,7 +193,9 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
             height: 24,
           ),
           CustomGradientButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, ScreenName.carInsuranceResult);
+            },
             child: Text(
               "Next",
               style: CustomThemes.whiteColoTextTheme(context).copyWith(

@@ -50,7 +50,7 @@ class HomeScreen extends StatelessWidget {
                     if(index==1)Navigator.pushNamed(context, ScreenName.sparePartsScreen);
                     if(index==2)Navigator.pushNamed(context, ScreenName.searchToRentCarScreen);
                     if(index==3){
-                      exit(0);
+                      Navigator.pushNamed(context, ScreenName.carInsuranceScreen);
                     }
                   },
                   child: CategoriesWidget(
