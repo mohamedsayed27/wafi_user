@@ -30,6 +30,7 @@ class CarInsurance extends StatelessWidget {
           InsuranceDashboardWidget(
             title: "New Insurance",
             svgPath: SvgPath.insurance1,
+            haveCounter: false,
             onTap: () {},
           ),
           const CustomSizedBox(
@@ -74,12 +75,14 @@ class InsuranceDashboardWidget extends StatelessWidget {
   final void Function()? onTap;
   final String title;
   final String svgPath;
+  final bool haveCounter;
 
   const InsuranceDashboardWidget({
     super.key,
     this.onTap,
     required this.title,
     required this.svgPath,
+    this.haveCounter = true,
   });
 
   @override
@@ -90,20 +93,18 @@ class InsuranceDashboardWidget extends StatelessWidget {
       child: Ink(
         padding: EdgeInsets.all(1.2.r),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8.r),
-          gradient: LinearGradient(
-            colors: AppColors.gradientColorsList,
-            begin: AlignmentDirectional.topStart,
-            end: AlignmentDirectional.bottomEnd,
-          ),
-          boxShadow: [
-            BoxShadow(
-              offset: Offset(0, 4.h),
-              blurRadius: 12.r,
-              color: AppColors.shadowColor(value: .1)
-            )
-          ]
-        ),
+            borderRadius: BorderRadius.circular(8.r),
+            gradient: LinearGradient(
+              colors: AppColors.gradientColorsList,
+              begin: AlignmentDirectional.topStart,
+              end: AlignmentDirectional.bottomEnd,
+            ),
+            boxShadow: [
+              BoxShadow(
+                  offset: Offset(0, 4.h),
+                  blurRadius: 12.r,
+                  color: AppColors.shadowColor(value: .1))
+            ]),
         child: Ink(
           padding: EdgeInsets.symmetric(
             vertical: 30.h,
@@ -131,6 +132,29 @@ class InsuranceDashboardWidget extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                 ),
               ),
+              const CustomSizedBox(
+                width: 8,
+              ),
+              Ink(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient: LinearGradient(
+                    colors: AppColors.gradientColorsList,
+                    begin: AlignmentDirectional.topStart,
+                    end: AlignmentDirectional.bottomEnd,
+                  ),
+                ),
+                padding: EdgeInsets.all(
+                  4.sp,
+                ),
+                child: Text(
+                  "2",
+                  style: CustomThemes.whiteColoTextTheme(context).copyWith(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              )
             ],
           ),
         ),

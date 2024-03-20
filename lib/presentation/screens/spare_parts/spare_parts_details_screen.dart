@@ -16,9 +16,15 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart'
 import '../../../core/constants/constants.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
 
-class SparePartsDetailsScreen extends StatelessWidget {
+class SparePartsDetailsScreen extends StatefulWidget {
   const SparePartsDetailsScreen({super.key});
 
+  @override
+  State<SparePartsDetailsScreen> createState() => _SparePartsDetailsScreenState();
+}
+
+class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
+  int counter = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,6 +67,66 @@ class SparePartsDetailsScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontFamily: FontsPath.almarai,
                     height: 1),
+              ),
+              const CustomSizedBox(
+                width: 32,
+              ),Expanded(
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w,vertical: 8.h),
+                  decoration: BoxDecoration(
+                    color: AppColors.whiteColor,
+                    borderRadius: BorderRadius.circular(8.r),
+                    border: Border.all(
+                      color: AppColors.borderColor,
+                      width: 1.w,
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      CustomSizedBox(
+                        height: 24,
+                        width: 24,
+                        child: IconButton(
+                          onPressed: () {
+                            if(counter>1){
+                              counter--;
+                              setState(() {
+
+                              });
+                            }
+                          },
+                          icon: const Icon(Icons.remove),
+                          style: IconButton.styleFrom(padding: EdgeInsets.zero),
+                        ),
+                      ),
+                      Expanded(
+                        child: Text(
+                          "$counter",
+                          textAlign: TextAlign.center,
+                          style: CustomThemes.greyColor16TextStyle(context).copyWith(
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w700,
+                            fontStyle: FontStyle.normal,
+                          ),
+                        ),
+                      ),
+                      CustomSizedBox(
+                        height: 24,
+                        width: 24,
+                        child: IconButton(
+                          onPressed: () {
+                            counter++;
+                            setState(() {
+
+                            });
+                          },
+                          icon: const Icon(Icons.add),
+                          style: IconButton.styleFrom(padding: EdgeInsets.zero),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
