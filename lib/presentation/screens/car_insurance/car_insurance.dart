@@ -32,7 +32,6 @@ class CarInsurance extends StatelessWidget {
             title: "New Insurance",
             svgPath: SvgPath.insurance1,
             haveCounter: false,
-            onTap: () {},
             onTap: () {
               Navigator.pushNamed(context, ScreenName.newInsuranceScreen);
             },
