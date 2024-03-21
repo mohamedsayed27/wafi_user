@@ -143,10 +143,10 @@ class InsuranceDashboardWidget extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              const CustomSizedBox(
+              if(haveCounter)const CustomSizedBox(
                 width: 8,
               ),
-              Ink(
+              if(haveCounter)Ink(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   gradient: LinearGradient(
@@ -156,7 +156,7 @@ class InsuranceDashboardWidget extends StatelessWidget {
                   ),
                 ),
                 padding: EdgeInsets.all(
-                  4.sp,
+                  6.sp,
                 ),
                 child: Text(
                   "2",
