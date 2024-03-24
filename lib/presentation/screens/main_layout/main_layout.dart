@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:wafi_user/core/app_router/screens_name.dart';
-import 'package:wafi_user/core/app_theme/app_colors.dart';
-import 'package:wafi_user/core/app_theme/custom_themes.dart';
-import 'package:wafi_user/core/assets_path/svg_path.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart';
 
+import '../../../core/app_router/screens_name.dart';
+import '../../../core/app_theme/app_colors.dart';
+import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/assets_path/images_path.dart';
+import '../../../core/assets_path/svg_path.dart';
 import '../../widgets/main_layout_widgets/bottom_nav_bar_widget.dart';
 import '../../widgets/main_layout_widgets/drawer_list_widget.dart';
+import '../../widgets/shared_widgets/custom_sized_box.dart';
 import '../../widgets/shared_widgets/gradient widgets.dart';
+import '../../widgets/shared_widgets/gradient_svg.dart';
 import '../booking_screens/orders_screen.dart';
 import '../carts_screen/cart_screen.dart';
 import '../home_screen/home_screen.dart';
@@ -41,12 +41,12 @@ class _MainLayoutState extends State<MainLayout> {
     return AdvancedDrawer(
       controller: advancedDrawerController,
       backdropColor: AppColors.blackColor,
-      openRatio: 0.49,
+      openRatio: 0.52,
       disabledGestures: true,
       childDecoration: BoxDecoration(borderRadius: BorderRadius.circular(32.r)),
       drawer: ListView(
-        padding: EdgeInsets.only(
-          top: 61.h
+        padding: EdgeInsetsDirectional.only(
+          top: 61.h,start: 16.w,
         ),
         children: [
           Align(
