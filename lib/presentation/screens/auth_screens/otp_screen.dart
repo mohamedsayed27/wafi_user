@@ -60,7 +60,8 @@ class OtpScreen extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                Navigator.pushNamed(context, ScreenName.otpScreen);
+                Navigator.pushNamedAndRemoveUntil(
+                    context, ScreenName.mainLayoutScreen, (route) => false);
               },
             ),
           )

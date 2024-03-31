@@ -2,6 +2,7 @@ class ScreenName{
   static const completeProfileData = "completeProfileData";
   static const loginScreen = "loginScreen";
   static const otpScreen = "otpScreen";
+  static const reviewScreen = "reviewScreen";
   static const registerScreen = "registerScreen";
   static const offerScreen = "offerScreen";
   static const ordersScreen = "ordersScreen";
@@ -20,11 +21,11 @@ class ScreenName{
   static const editProfileScreen = "editProfileScreen";
   static const confirmReservationsScreen = "confirmReservationsScreen";
   static const orderProgressScreen = "orderProgressScreen";
-  static const servicesAndMaintananceScreen = "servicesAndMaintananceScreen";
+  static const servicesAndMaintenanceScreen = "servicesAndMaintenanceScreen";
   static const servicesOnMapScreen = "servicesOnMapScreen";
   static const addYorCar = "addYorCar";
   static const spareByPartsScreen = "spareByPartsScreen";
-  static const MainLayoutScreen = "MainLayoutScreen";
+  static const mainLayoutScreen = "MainLayoutScreen";
   static const spareByQuotationScreen = "spareByQuotationScreen";
   static const sparePartsScreen = "sparePartsScreen";
   static const sparePartsDetailsScreen = "sparePartsDetailsScreen";
@@ -38,7 +39,7 @@ class ScreenName{
   static const addDriverScreen = "addDriverScreen";
   static const carInsuranceScreen = "carInsuranceScreen";
   static const carInsuranceResult = "carInsuranceResult";
-  static const dueForRenewl = "dueForRenewl";
+  static const dueForRenewal = "dueForRenewal";
   static const expiredPolices = "expiredPolices";
   static const insuranceDetails = "insuranceDetails";
   static const newInsuranceScreen = "newInsuranceScreen";

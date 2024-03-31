@@ -20,8 +20,10 @@ import 'package:wafi_user/presentation/screens/intro_screens/select_language_scr
 import 'package:wafi_user/presentation/screens/intro_screens/splash_screen.dart';
 import 'package:wafi_user/presentation/screens/intro_screens/welcome_screen.dart';
 import 'package:wafi_user/presentation/screens/main_layout/main_layout.dart';
+import 'package:wafi_user/presentation/screens/payment_methods/payment_methods_screen.dart';
 import 'package:wafi_user/presentation/screens/profile_screens/change_password_screen.dart';
 import 'package:wafi_user/presentation/screens/profile_screens/edit_profile_screen.dart';
+import 'package:wafi_user/presentation/screens/reservation_screens/confirm_reservation_screen.dart';
 import 'package:wafi_user/presentation/screens/services_and_maintanance/service_aand_maintanance_screen.dart';
 import 'package:wafi_user/presentation/screens/services_on_map_screen/services_on_map_screen.dart';
 import 'package:wafi_user/presentation/screens/spare_parts/filter_spare_parts.dart';
@@ -38,7 +40,10 @@ import 'package:wafi_user/presentation/screens/wallet_screens/wallet_screen.dart
 import '../../presentation/screens/car_insurance/new_insurance_screen.dart';
 import '../../presentation/screens/car_rent/confirm_rent_car_screen.dart';
 import '../../presentation/screens/car_rent/filtered_rent_screen.dart';
+import '../../presentation/screens/carts_screen/services_cart_screen.dart';
+import '../../presentation/screens/payment_methods/add_payment_method_screen.dart';
 import '../../presentation/screens/reservation_screens/order_progress_screen.dart';
+import '../../presentation/screens/review_screen/review_screen.dart';
 
 class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -68,15 +73,32 @@ class AppRouter {
           return MaterialPageRoute(
             builder: (_) => const OtpScreen(),
           );
+        case ScreenName.reviewScreen:
+          return MaterialPageRoute(
+            builder: (_) => const ReviewScreen(),
+          );
+        case ScreenName.paymentMethodsScreen:
+          return MaterialPageRoute(
+            builder: (_) => const PaymentMethodsScreen(),
+          );
+        case ScreenName.confirmReservationsScreen:
+          final String args = settings.arguments as String;
+          return MaterialPageRoute(
+            builder: (_) => ConfirmReservationScreen(appBarTitle: args,),
+          );
+        case ScreenName.addPaymentMethodsScreen:
+          return MaterialPageRoute(
+            builder: (_) => const AddPaymentMethodScreen(),
+          );
         case ScreenName.completeProfileData:
           return MaterialPageRoute(
             builder: (_) => const CompleteProfileDataScreen(),
           );
-        case ScreenName.MainLayoutScreen:
+        case ScreenName.mainLayoutScreen:
           return MaterialPageRoute(
             builder: (_) => const MainLayout(),
           );
-        case ScreenName.servicesAndMaintananceScreen:
+        case ScreenName.servicesAndMaintenanceScreen:
           return MaterialPageRoute(
             builder: (_) => const ServiceAndMaintenanceScreen(),
           );
@@ -117,7 +139,7 @@ class AppRouter {
           return MaterialPageRoute(
             builder: (_) => const CarInsuranceResult(),
           );
-        case ScreenName.dueForRenewl:
+        case ScreenName.dueForRenewal:
           return MaterialPageRoute(
             builder: (_) => const DueForRenewal(),
           );
@@ -171,6 +193,11 @@ class AppRouter {
         case ScreenName.changePasswordScreen:
           return MaterialPageRoute(
             builder: (_) => const ChangePasswordScreen(),
+          );
+        case ScreenName.servicesCartScreen:
+          final title = settings.arguments as String;
+          return MaterialPageRoute(
+            builder: (_) => ServicesCartScreen(servicesType: title),
           );
         case ScreenName.supportChatScreen:
           return MaterialPageRoute(

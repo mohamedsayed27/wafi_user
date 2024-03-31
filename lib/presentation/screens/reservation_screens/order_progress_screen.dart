@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import '../../../core/app_router/screens_name.dart';
 import '../../../core/assets_path/images_path.dart';
 import '../../../core/constants/extensions.dart';
 
@@ -194,7 +195,6 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
                           color: Colors.amber,
                         ),
                         onRatingUpdate: (rating) {
-                          print(rating);
                         },
                       )
                     ],
@@ -243,7 +243,7 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
                   children: [
                     StepperWidget(
                       isSelected: currentIndex > 0,
-                      title: "Provider recieved order",
+                      title: "Provider received order",
                       width: 86,
                       svgIcon: SvgPath.confirmation,
                     ),
@@ -330,7 +330,6 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
                           color: Colors.amber,
                         ),
                         onRatingUpdate: (rating) {
-                          print(rating);
                         },
                       )
                     ],
@@ -342,7 +341,10 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
                   backgroundColor: Colors.transparent,
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                   foregroundColor: AppColors.primaryColor,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(
+                        context, ScreenName.reviewScreen,);
+                  },
                   child: Text(
                     "Rate Agent",
                     style: CustomThemes.primaryTextStyle(context).copyWith(
@@ -376,7 +378,10 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
             borderRadius: 4.r,
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
             foregroundColor: AppColors.blackColor,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(
+                  context, ScreenName.paymentMethodsScreen,);
+            },
             child: Row(
               children: [
                 SvgPicture.asset(
@@ -385,7 +390,7 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
                   height: 35.h,
                 ),
                 const CustomSizedBox(
-                  width: 8,
+                  width: 16,
                 ),
                 Expanded(
                   child: Text(

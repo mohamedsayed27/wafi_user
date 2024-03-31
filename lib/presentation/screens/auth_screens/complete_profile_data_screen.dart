@@ -96,7 +96,7 @@ class CompleteProfileDataScreen extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              Navigator.pushNamed(context, ScreenName.MainLayoutScreen);
+              Navigator.pushNamed(context, ScreenName.mainLayoutScreen);
             },
           )
         ],
