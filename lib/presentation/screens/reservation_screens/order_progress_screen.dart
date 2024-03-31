@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
-import 'package:wafi_user/core/assets_path/fonts_path.dart';
-import 'package:wafi_user/core/assets_path/images_path.dart';
-import 'package:wafi_user/core/constants/extensions.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart';
+import '../../../core/assets_path/images_path.dart';
+import '../../../core/constants/extensions.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
@@ -21,8 +18,8 @@ import '../../widgets/shared_widgets/custom_divider.dart';
 import '../../widgets/shared_widgets/custom_outlined_button.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
 import '../../widgets/shared_widgets/dashed_separator.dart';
-import '../../widgets/shared_widgets/gradiant_color_button.dart';
 import '../../widgets/shared_widgets/gradient widgets.dart';
+import '../../widgets/shared_widgets/gradient_svg.dart';
 
 class OrderProgressScreen extends StatefulWidget {
   const OrderProgressScreen({super.key});
@@ -86,7 +83,7 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
               GradientWidget(
                 gradientList: AppColors.gradientColorsList,
                 child: SvgPicture.asset(
-                  SvgPath.dummySvgImage,
+                  SvgPath.mapsLocation,
                   width: 15.w,
                   height: 18.h,
                 ),
@@ -210,7 +207,7 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
                     onPressed: () {},
                     style: IconButton.styleFrom(padding: EdgeInsets.zero),
                     icon: GradientSvg(
-                      svgPath: SvgPath.dummySvgImage,
+                      svgPath: SvgPath.phone,
                       height: 32.h,
                       width: 32.w,
                     ),
@@ -248,19 +245,19 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
                       isSelected: currentIndex > 0,
                       title: "Provider recieved order",
                       width: 86,
-                      svgIcon: SvgPath.dummySvgImage,
+                      svgIcon: SvgPath.confirmation,
                     ),
                     StepperWidget(
                       isSelected: currentIndex > 1,
                       title: "Provider is on the way",
                       width: 71,
-                      svgIcon: SvgPath.dummySvgImage,
+                      svgIcon: SvgPath.pointer,
                     ),
                     StepperWidget(
                       isSelected: currentIndex > 2,
                       title: "Service has been completed",
                       width: 95,
-                      svgIcon: SvgPath.dummySvgImage,
+                      svgIcon: SvgPath.progressCheck,
                     ),
                   ],
                 )
@@ -383,7 +380,7 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
             child: Row(
               children: [
                 SvgPicture.asset(
-                  SvgPath.dummySvgImage,
+                  SvgPath.applePay,
                   width: 35.w,
                   height: 35.h,
                 ),
@@ -467,7 +464,7 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
             foregroundColor: AppColors.primaryColor,
             onPressed: () {
-              showDialog(context: context, builder: (_)=>OrderCancelDialog());
+              showDialog(context: context, builder: (_)=>const OrderCancelDialog(),);
             },
             child: Text(
               "Cancel Booking",

@@ -198,7 +198,7 @@ class _ServicesOnMapScreenState extends State<ServicesOnMapScreen> {
                                 color: AppColors.whiteColor,
                                 boxShadow: [
                                   BoxShadow(
-                                    offset: Offset(0, -8),
+                                    offset: const Offset(0, -8),
                                     color: AppColors.shadowColor(),
                                     blurRadius: 8.r,
                                   ),

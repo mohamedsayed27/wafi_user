@@ -3,6 +3,8 @@
         android:label="wafi_user"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDcWIxw6lRSHR9O8ts9R76d9Z7ZzsFmDa0"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
