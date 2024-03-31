@@ -70,5 +70,6 @@ class SvgPath{
   static const progressCheck = "assets/svg/progressCheck.svg";
   static const pointer = "assets/svg/pointer.svg";
   static const confirmation = "assets/svg/confirmation.svg";
+  static const badge = "assets/svg/badge.svg";
   SvgPath._();
 }

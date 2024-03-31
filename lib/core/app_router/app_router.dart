@@ -37,6 +37,7 @@ import 'package:wafi_user/presentation/screens/terms_and_conditions_privacy_poli
 import 'package:wafi_user/presentation/screens/wallet_screens/saved_caerds_screen.dart';
 import 'package:wafi_user/presentation/screens/wallet_screens/wallet_screen.dart';
 
+import '../../presentation/screens/car_insurance/insurance_payment.dart';
 import '../../presentation/screens/car_insurance/new_insurance_screen.dart';
 import '../../presentation/screens/car_rent/confirm_rent_car_screen.dart';
 import '../../presentation/screens/car_rent/filtered_rent_screen.dart';
@@ -202,6 +203,10 @@ class AppRouter {
         case ScreenName.supportChatScreen:
           return MaterialPageRoute(
             builder: (_) => const SupportScreen(),
+          );
+        case ScreenName.insurancePaymentScreen:
+          return MaterialPageRoute(
+            builder: (_) => const InsurancePaymentScreen(),
           );
         case ScreenName.addYorCar:
           return MaterialPageRoute(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_theme/app_theme.dart';
 import 'package:wafi_user/presentation/screens/car_insurance/car_insurance_result.dart';
+import 'package:wafi_user/presentation/screens/car_insurance/insurance_payment.dart';
 import 'package:wafi_user/presentation/screens/reservation_screens/confirm_reservation_screen.dart';
 import 'package:wafi_user/presentation/screens/reservation_screens/order_progress_screen.dart';
 import 'presentation/screens/car_insurance/new_insurance_screen.dart';
@@ -58,9 +59,9 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme: AppTheme.lightTheme,
           debugShowCheckedModeBanner: false,
-          onGenerateRoute: AppRouter.generateRoute,
-          initialRoute: ScreenName.splashScreen,
-          // home: OrderProgressScreen(),
+          // onGenerateRoute: AppRouter.generateRoute,
+          // initialRoute: ScreenName.splashScreen,
+          home: InsurancePaymentScreen(),
         );
       },
     );

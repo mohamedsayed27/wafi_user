@@ -12,8 +12,8 @@ import '../shared_widgets/custom_sized_box.dart';
 import '../shared_widgets/gradiant_color_button.dart';
 import '../shared_widgets/gradient_svg.dart';
 
-class OrderCanceledDialog extends StatelessWidget {
-  const OrderCanceledDialog({super.key});
+class SpareSubmitDialog extends StatelessWidget {
+  const SpareSubmitDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +37,9 @@ class OrderCanceledDialog extends StatelessWidget {
           ),
           GradientText(
             "Request Submitted Successfully!",
+            textAlign: TextAlign.center,
             colors: AppColors.gradientColorsList,
-            style: TextStyle(fontFamily: FontsPath.almarai, fontSize: 16.sp),
+            style: TextStyle(fontFamily: FontsPath.almarai, fontSize: 16.sp,fontWeight: FontWeight.w700,),
           ),
           const CustomSizedBox(
             height: 8,
@@ -73,7 +74,7 @@ class OrderCanceledDialog extends StatelessWidget {
             },
           ),
         ],
-      ).symmetricPadding(horizontal: 60, vertical: 24),
+      ).symmetricPadding(horizontal: 20, vertical: 24),
     );
   }
 }

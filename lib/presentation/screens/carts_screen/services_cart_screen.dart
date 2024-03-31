@@ -19,7 +19,7 @@ import '../../widgets/shared_widgets/gradient widgets.dart';
 
 class ServicesCartScreen extends StatelessWidget {
   final String servicesType;
-  const ServicesCartScreen({super.key, required this.servicesType});
+  const ServicesCartScreen({super.key, required this.servicesType,});
 
   @override
   Widget build(BuildContext context) {
@@ -281,9 +281,9 @@ class ServicesCartScreen extends StatelessWidget {
               ),
             ).onlyDirectionalPadding(start: 16),
             const CustomSizedBox(height: 8,),
-            const BillDetailsItem(title: "Battery Service", balance: "100"),
+            const BillDetailsItem(title: "Battery Service", balance: "100",),
             const CustomSizedBox(height: 2,),
-            const BillDetailsItem(title: "Service Taxes", balance: "90"),
+            const BillDetailsItem(title: "Service Taxes", balance: "90",),
             const CustomSizedBox(height: 2,),
             const CustomSizedBox(height: 16,),
             const CustomDivider(),
@@ -318,7 +318,7 @@ class ServicesCartScreen extends StatelessWidget {
                 ],
               ),
               onPressed: () {
-                Navigator.pushNamedAndRemoveUntil(context, ScreenName.mainLayoutScreen, (route) => false);
+                Navigator.pushNamedAndRemoveUntil(context, ScreenName.mainLayoutScreen, (route) => false,);
               },
             ).symmetricPadding(horizontal:16)
           ],

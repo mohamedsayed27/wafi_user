@@ -30,6 +30,7 @@ class ScreenName{
   static const sparePartsScreen = "sparePartsScreen";
   static const sparePartsDetailsScreen = "sparePartsDetailsScreen";
   static const supportChatScreen = "supportChatScreen";
+  static const insurancePaymentScreen = "insurancePaymentScreen";
   static const changePasswordScreen = "changePasswordScreen";
   static const chatScreen = "chatScreen";
   static const termsAndConditions = "termsAndConditions";
