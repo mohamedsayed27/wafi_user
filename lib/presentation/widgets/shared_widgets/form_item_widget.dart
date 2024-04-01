@@ -12,6 +12,7 @@ class FormItemWidget extends StatelessWidget {
   final String title;
   final String hintText;
   final bool isRequired;
+  final bool isOptional;
   final bool enabled;
   final Widget? suffixIcon;
   final bool isNotVisible;
@@ -23,6 +24,7 @@ class FormItemWidget extends StatelessWidget {
     required this.title,
     required this.hintText,
     this.isRequired = false,
+    this.isOptional = false,
     this.enabled = true, this.suffixIcon, this.isNotVisible = false,
   });
 
@@ -47,6 +49,11 @@ class FormItemWidget extends StatelessWidget {
                     fontSize: 16.sp,
                     color: Colors.red,
                   ),
+                ),
+              if (isOptional)
+                TextSpan(
+                  text: " (Optional)",
+                  style: CustomThemes.greyColor75TextStyle(context).copyWith(fontSize: 12.sp,fontWeight: FontWeight.w700,),
                 )
             ],
           ),

@@ -8,6 +8,7 @@ import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/assets_path/svg_path.dart';
 import '../../../core/constants/constants.dart';
+import '../../widgets/car_insurance_widgets/submit_insurance_payment_dialog.dart';
 import '../../widgets/shared_widgets/bill_details_item.dart';
 import '../../widgets/shared_widgets/custom_app_bar.dart';
 import '../../widgets/shared_widgets/custom_divider.dart';
@@ -28,12 +29,15 @@ class InsurancePaymentScreen extends StatelessWidget {
         ),
       ),
       body: ListView(
+        padding: EdgeInsets.symmetric(
+          vertical: 32.h
+        ),
         children: [
-          TitleBodyTextColumn(title: "Insurance Company", body: "Qatar Insurance Company"),
-          CustomSizedBox(height: 16,),
-          TitleBodyTextColumn(title: "Insurance Type", body: "Comprehensive Insurance"),
-          CustomSizedBox(height: 16,),
-          TitleBodyTextColumn(title: "Policy Effective Date", body: "#1254588465"),
+          const TitleBodyTextColumn(title: "Insurance Company", body: "Qatar Insurance Company"),
+          const CustomSizedBox(height: 16,),
+          const TitleBodyTextColumn(title: "Insurance Type", body: "Comprehensive Insurance"),
+          const CustomSizedBox(height: 16,),
+          const TitleBodyTextColumn(title: "Policy Effective Date", body: "#1254588465"),
           const CustomSizedBox(height: 16,),
           const CustomDivider(),
           ListTile(
@@ -142,7 +146,8 @@ class InsurancePaymentScreen extends StatelessWidget {
               ],
             ),
             onPressed: () {
-              Navigator.pushNamedAndRemoveUntil(context, ScreenName.mainLayoutScreen, (route) => false,);
+
+              showDialog(context: context, builder: (_)=>const SpareSubmitDialog());
             },
           ).symmetricPadding(horizontal: 16)
         ],
@@ -170,7 +175,7 @@ class TitleBodyTextColumn extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        CustomSizedBox(
+        const CustomSizedBox(
           height: 12,
         ),
         Text(

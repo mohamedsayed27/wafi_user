@@ -44,7 +44,7 @@ class _SpareByQuotationScreenState extends State<SpareByQuotationScreen> {
           const CustomSizedBox(
             height: 24,
           ),
-          const FormItemWidget(title: "Part Number", hintText: "", isRequired: true),
+          const FormItemWidget(title: "Part Number", hintText: "", isOptional: true),
           const CustomSizedBox(
             height: 24,
           ),
