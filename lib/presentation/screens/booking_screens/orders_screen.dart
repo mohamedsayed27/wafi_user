@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -8,6 +9,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.d
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/assets_path/svg_path.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/orders_container/pas_container.dart';
 import '../../widgets/orders_container/up_coming_container.dart';
 import '../main_layout/main_layout.dart';
@@ -58,7 +60,7 @@ class OrdersScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Orders",
+                    LocaleKeys.orders.tr(),
                     style: CustomThemes.whiteColoTextTheme(context).copyWith(
                         fontSize: 24.sp,
                         fontWeight: FontWeight.bold,
@@ -82,12 +84,12 @@ class OrdersScreen extends StatelessWidget {
                       fontSize: 14.sp,
                       fontWeight: FontWeight.bold,
                     ),
-                    tabs: const [
+                    tabs:  [
                       Tab(
-                        text: "Upcomming",
+                        text:  LocaleKeys.upcoming.tr(),
                       ),
                       Tab(
-                        text: "Past",
+                        text:  LocaleKeys.past.tr(),
                       ),
                     ],
                     dividerColor: Colors.transparent,

@@ -1,0 +1,17 @@
+{
+  "profile": "الملف الشخصي",
+  "submit": "تقديم",
+  "login": "تسجيل الدخول",
+  "phoneNumber": "رقم الهاتف",
+  "otpMessage": "سيتم إرسال رمز التحقق إلى الرقم المدخل",
+  "proceed": "المتابعة",
+  "verification": "التحقق",
+  "enterOtp": "ادخل رمز التحقق",
+  "register": "تسجيل",
+  "name": "الاسم",
+  "contactNumber": "رقم الاتصال",
+  "quotations": "الاقتباسات",
+  "orders": "الطلبيات",
+  "past": "السابقة",
+  "upcoming": "القادمة"
+}

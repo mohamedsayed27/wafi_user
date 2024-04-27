@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/core/app_theme/app_colors.dart';
 import 'package:wafi_user/core/assets_path/images_path.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/logo_app_bar.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/constants/constants.dart';
@@ -25,8 +27,8 @@ class CompleteProfileDataScreen extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
         children: [
-          const ScreenTitleWidget(
-            title: 'Profile',
+          ScreenTitleWidget(
+            title: LocaleKeys.profile.tr(),
           ),
           const CustomSizedBox(
             height: 16,
@@ -73,15 +75,15 @@ class CompleteProfileDataScreen extends StatelessWidget {
           const CustomSizedBox(
             height: 24,
           ),
-          const FormItemWidget(
-            title: 'Name',
+           FormItemWidget(
+            title: LocaleKeys.name.tr(),
             hintText: 'EX :- XXXXXXXXXXX',
           ),
           const CustomSizedBox(
             height: 16,
           ),
-          const FormItemWidget(
-            title: 'Contact Number',
+           FormItemWidget(
+            title:  LocaleKeys.contactNumber.tr(),
             hintText: 'EX :- 0000000000X',
           ),
           const CustomSizedBox(
@@ -89,7 +91,7 @@ class CompleteProfileDataScreen extends StatelessWidget {
           ),
           CustomGradientButton(
             child: Text(
-              "Submit",
+              LocaleKeys.submit.tr(),
               style: CustomThemes.whiteColoTextTheme(context).copyWith(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w700,

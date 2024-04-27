@@ -1,0 +1,17 @@
+{
+  "profile": "Profile",
+  "submit": "Submit",
+  "login": "Login",
+  "phoneNumber": "Phone Number",
+  "otpMessage": "An OTP will be sent to the entered number for verification",
+  "proceed": "Proceed",
+  "verification": "Verification",
+  "enterOtp": "Enter OTP",
+  "register": "Register",
+  "name": "Name",
+  "contactNumber": "Contact Number",
+  "quotations": "Quotations",
+  "orders": "Orders",
+  "past": "Past",
+  "upcoming": "Upcoming"
+}

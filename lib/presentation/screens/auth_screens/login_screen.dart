@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_router/screens_name.dart';
@@ -6,6 +7,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.d
 import 'package:wafi_user/presentation/widgets/shared_widgets/logo_app_bar.dart';
 
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/auth_widgets/screen_title_widget.dart';
 import '../../widgets/shared_widgets/form_item_widget.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
@@ -25,21 +27,21 @@ class LoginScreen extends StatelessWidget {
           ListView(
             padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
             children: [
-              const ScreenTitleWidget(
-                title: 'Login',
+               ScreenTitleWidget(
+                title:  LocaleKeys.login.tr(),
               ),
               const CustomSizedBox(
                 height: 24,
               ),
-              const FormItemWidget(
-                title: 'Phone Number',
+               FormItemWidget(
+                title:  LocaleKeys.phoneNumber.tr(),
                 hintText: 'EX :- 00000000000',
               ),
               const CustomSizedBox(
                 height: 16,
               ),
               Text(
-                "An OTP will be send to the entered number for verification",
+                LocaleKeys.otpMessage.tr(),
                 style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                   fontWeight: FontWeight.w400,
                   color: CustomThemes.greyColor1CTextStyle(context)
@@ -59,7 +61,7 @@ class LoginScreen extends StatelessWidget {
             right: 16.w,
             child: CustomGradientButton(
               child: Text(
-                "Proceed",
+                LocaleKeys.proceed.tr(),
                 style: CustomThemes.whiteColoTextTheme(context).copyWith(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w700,

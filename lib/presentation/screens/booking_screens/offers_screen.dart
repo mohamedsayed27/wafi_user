@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/constants/constants.dart';
 import '../../widgets/orders_container/offers_container.dart';
@@ -14,8 +16,8 @@ class OffersScreen extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "Quotations",
+        child:  CustomAppBar(
+          title:LocaleKeys.quotations.tr(),
           elevation: 0,
         ),
       ),

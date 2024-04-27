@@ -27,22 +27,23 @@ class AddDriverScreen extends StatefulWidget {
 }
 
 class _AddDriverScreenState extends State<AddDriverScreen> {
-  List<Map<String, dynamic>?> titlesList = [
-    {
-      "title": "Add Driver",
-      "image": SvgPath.vector,
-    },
-    null,
-    {
-      "title": "Other Details",
-      "image": SvgPath.list,
-    }
-  ];
+  late List<Map<String, dynamic>?> titlesList ;
 
   @override
   void initState() {
-    currentIndex = widget.currentIndex;
     super.initState();
+    currentIndex = widget.currentIndex;
+    titlesList = [
+      {
+        "title": "Add Driver",
+        "image": SvgPath.vector,
+      },
+      null,
+      {
+        "title": "Other Details",
+        "image": SvgPath.list,
+      }
+    ];
   }
 
   late int currentIndex;
