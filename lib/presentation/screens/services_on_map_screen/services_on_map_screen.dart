@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:material_floating_search_bar_2/material_floating_search_bar_2.dart';
+import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/core/app_theme/custom_themes.dart';
 import 'package:wafi_user/core/assets_path/fonts_path.dart';
 import 'package:wafi_user/core/assets_path/svg_path.dart';
@@ -117,7 +118,9 @@ class _ServicesOnMapScreenState extends State<ServicesOnMapScreen> {
                       )
                     ],
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, ScreenName.confirmReservationsScreen,arguments: widget.title,);
+                  },
                 ),
                 const CustomSizedBox(
                   height: 16,
@@ -198,7 +201,7 @@ class _ServicesOnMapScreenState extends State<ServicesOnMapScreen> {
                                 color: AppColors.whiteColor,
                                 boxShadow: [
                                   BoxShadow(
-                                    offset: Offset(0, -8),
+                                    offset: const Offset(0, -8),
                                     color: AppColors.shadowColor(),
                                     blurRadius: 8.r,
                                   ),

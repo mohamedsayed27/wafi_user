@@ -65,7 +65,7 @@ class _PasswordVisibilityWidgetState extends State<PasswordVisibilityWidget> {
       title: widget.title,
       hintText: widget.hintText,
       isNotVisible: isNotVisible,
-      maxlines: 1,
+      maxLines: 1,
       suffixIcon: TextButton(
         onPressed: () {
           isNotVisible=!isNotVisible;

@@ -6,6 +6,7 @@ import 'package:wafi_user/core/assets_path/svg_path.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart';
+import 'package:wafi_user/presentation/widgets/spare_barts/spare_submit_dialog.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
@@ -43,7 +44,7 @@ class _SpareByQuotationScreenState extends State<SpareByQuotationScreen> {
           const CustomSizedBox(
             height: 24,
           ),
-          const FormItemWidget(title: "Part Number", hintText: "", isRequired: true),
+          const FormItemWidget(title: "Part Number", hintText: "", isOptional: true),
           const CustomSizedBox(
             height: 24,
           ),
@@ -163,7 +164,9 @@ class _SpareByQuotationScreenState extends State<SpareByQuotationScreen> {
                 fontWeight: FontWeight.w700,
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              showDialog(context: context, builder: (_)=>const SpareSubmitDialog(),);
+            },
           )
         ],
       ),

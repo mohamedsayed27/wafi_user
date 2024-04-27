@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/core/app_theme/app_colors.dart';
 import 'package:wafi_user/core/app_theme/custom_themes.dart';
 import 'package:wafi_user/core/assets_path/fonts_path.dart';
@@ -312,7 +313,9 @@ class _CarInsuranceContainerState extends State<CarInsuranceContainer>
                 ),
               ),
               CustomGradientButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, ScreenName.insurancePaymentScreen);
+                },
                 padding: EdgeInsets.zero,
                 height: 48,
                 width: 100,

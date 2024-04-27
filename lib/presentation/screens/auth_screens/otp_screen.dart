@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/app_router/screens_name.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/auth_widgets/opt_field_builder.dart';
 import '../../widgets/auth_widgets/screen_title_widget.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
@@ -25,14 +27,14 @@ class OtpScreen extends StatelessWidget {
           ListView(
             padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
             children: [
-              const ScreenTitleWidget(
-                title: 'Verification',
+               ScreenTitleWidget(
+                title:  LocaleKeys.verification.tr(),
               ),
               const CustomSizedBox(
                 height: 24,
               ),
               Text(
-                "Enter OTP",
+                LocaleKeys.enterOtp.tr(),
                 style: CustomThemes.greyColor16TextStyle(context).copyWith(
                   fontWeight: FontWeight.w400,
                   fontSize: 12.sp,
@@ -53,14 +55,15 @@ class OtpScreen extends StatelessWidget {
             right: 16.w,
             child: CustomGradientButton(
               child: Text(
-                "Submit",
+                LocaleKeys.submit.tr(),
                 style: CustomThemes.whiteColoTextTheme(context).copyWith(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w700,
                 ),
               ),
               onPressed: () {
-                Navigator.pushNamed(context, ScreenName.otpScreen);
+                Navigator.pushNamedAndRemoveUntil(
+                    context, ScreenName.mainLayoutScreen, (route) => false);
               },
             ),
           )

@@ -46,7 +46,7 @@ class HomeScreen extends StatelessWidget {
               itemBuilder: (_, index) {
                 return InkWell(
                   onTap: (){
-                    if(index==0)Navigator.pushNamed(context, ScreenName.servicesAndMaintananceScreen);
+                    if(index==0)Navigator.pushNamed(context, ScreenName.servicesAndMaintenanceScreen);
                     if(index==1)Navigator.pushNamed(context, ScreenName.sparePartsScreen);
                     if(index==2)Navigator.pushNamed(context, ScreenName.searchToRentCarScreen);
                     if(index==3){

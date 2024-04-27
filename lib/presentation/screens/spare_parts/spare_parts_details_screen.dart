@@ -13,6 +13,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_divider.dar
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart';
 
+import '../../../core/app_router/screens_name.dart';
 import '../../../core/constants/constants.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
 
@@ -266,7 +267,8 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
                 ),
               ],
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, ScreenName.servicesCartScreen,arguments:"Services Titles");},
           ),
         ],
       ),

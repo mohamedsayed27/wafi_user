@@ -62,7 +62,6 @@ class OrderCancelDialog extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              Navigator.pop(context);
               showDialog(context: context, builder: (_)=>OrderCanceledDialog());
             },
           ),

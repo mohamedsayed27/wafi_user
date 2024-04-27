@@ -162,7 +162,7 @@ class EditProfileScreen extends StatelessWidget {
             title: "Password",
             hintText: "Your Password",
             isNotVisible: true,
-            maxlines: 1,
+            maxLines: 1,
             suffixIcon: IconButton(
               onPressed: () {
                 Navigator.pushNamed(context, ScreenName.changePasswordScreen);

@@ -53,7 +53,7 @@ class CarInsurance extends StatelessWidget {
             title: "Due For Renewal",
             svgPath: SvgPath.renewable,
             onTap: () {
-              Navigator.pushNamed(context, ScreenName.dueForRenewl);
+              Navigator.pushNamed(context, ScreenName.dueForRenewal);
             },
           ),
           const CustomSizedBox(

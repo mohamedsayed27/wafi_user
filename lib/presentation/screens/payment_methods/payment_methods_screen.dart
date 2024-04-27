@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wafi_user/core/app_router/screens_name.dart';
+import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_divider.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart';
@@ -153,7 +155,9 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
           ),
           ListTile(
             contentPadding: EdgeInsets.zero,
-            onTap: (){},
+            onTap: (){
+              Navigator.pushNamed(context, ScreenName.addPaymentMethodsScreen);
+            },
             visualDensity: const VisualDensity(vertical: VisualDensity.minimumDensity,horizontal: VisualDensity.minimumDensity),
             leading: GradientSvg(svgPath: SvgPath.creditCard,width: 30.w,height: 18.h,),
             title: Text(
@@ -166,7 +170,9 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
           ),
           ListTile(
             contentPadding: EdgeInsets.zero,
-            onTap: (){},
+            onTap: (){
+              Navigator.pushNamed(context, ScreenName.addPaymentMethodsScreen);
+            },
             visualDensity: const VisualDensity(vertical: VisualDensity.minimumDensity,horizontal: VisualDensity.minimumDensity),
             leading: GradientSvg(svgPath: SvgPath.creditCard,width: 30.w,height: 18.h,),
             title: Text(

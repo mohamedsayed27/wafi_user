@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/core/assets_path/svg_path.dart';
 import 'package:wafi_user/core/constants/extensions.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
@@ -18,7 +19,7 @@ import '../../widgets/shared_widgets/gradient widgets.dart';
 
 class ServicesCartScreen extends StatelessWidget {
   final String servicesType;
-  const ServicesCartScreen({super.key, required this.servicesType});
+  const ServicesCartScreen({super.key, required this.servicesType,});
 
   @override
   Widget build(BuildContext context) {
@@ -280,9 +281,9 @@ class ServicesCartScreen extends StatelessWidget {
               ),
             ).onlyDirectionalPadding(start: 16),
             const CustomSizedBox(height: 8,),
-            const BillDetailsItem(title: "Battery Service", balance: "100"),
+            const BillDetailsItem(title: "Battery Service", balance: "100",),
             const CustomSizedBox(height: 2,),
-            const BillDetailsItem(title: "Service Taxes", balance: "90"),
+            const BillDetailsItem(title: "Service Taxes", balance: "90",),
             const CustomSizedBox(height: 2,),
             const CustomSizedBox(height: 16,),
             const CustomDivider(),
@@ -316,7 +317,9 @@ class ServicesCartScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamedAndRemoveUntil(context, ScreenName.mainLayoutScreen, (route) => false,);
+              },
             ).symmetricPadding(horizontal:16)
           ],
         ),

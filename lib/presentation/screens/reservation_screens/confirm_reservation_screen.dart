@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/core/app_theme/app_colors.dart';
 import 'package:wafi_user/core/assets_path/svg_path.dart';
 import 'package:wafi_user/core/constants/extensions.dart';
@@ -49,7 +50,7 @@ class ConfirmReservationScreen extends StatelessWidget {
               GradientWidget(
                 gradientList: AppColors.gradientColorsList,
                 child: SvgPicture.asset(
-                  SvgPath.dummySvgImage,
+                  SvgPath.mapsLocation,
                   width: 15.w,
                   height: 18.h,
                 ),
@@ -116,11 +117,14 @@ class ConfirmReservationScreen extends StatelessWidget {
             borderRadius: 4.r,
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
             foregroundColor: AppColors.blackColor,
-            onPressed: () {},
+            onPressed: () {
+
+              Navigator.pushNamed(context, ScreenName.paymentMethodsScreen,);
+            },
             child: Row(
               children: [
                 SvgPicture.asset(
-                  SvgPath.dummySvgImage,
+                  SvgPath.applePay,
                   width: 35.w,
                   height: 35.h,
                 ),
@@ -201,7 +205,9 @@ class ConfirmReservationScreen extends StatelessWidget {
                 fontWeight: FontWeight.w700,
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, ScreenName.servicesCartScreen,arguments:"Services Titles");
+            },
           ).symmetricPadding(horizontal:16)
         ],
       ),
