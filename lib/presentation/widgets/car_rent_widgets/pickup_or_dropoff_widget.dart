@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
 
 
@@ -19,7 +21,7 @@ class PickUpDropOffDetailsWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Pickup",
+              LocaleKeys.pickup.tr(),
               style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w700,

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_router/screens_name.dart';
@@ -16,6 +17,7 @@ import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/assets_path/svg_path.dart';
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 
 class InsuranceDetailsScreen extends StatefulWidget {
   const InsuranceDetailsScreen({super.key});
@@ -28,12 +30,12 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
   bool isOn = false;
   List<Map<String, dynamic>?> titlesList = [
     {
-      "title": "Add Driver",
+      "title": LocaleKeys.addDriver.tr(),
       "image": SvgPath.vector,
     },
     null,
     {
-      "title": "Other Details",
+      "title": LocaleKeys.otherDetails.tr(),
       "image": SvgPath.list,
     }
   ];
@@ -43,8 +45,8 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "Car Insurance",
+        child: CustomAppBar(
+          title: LocaleKeys.carInsurance.tr(),
         ),
       ),
       body: ListView(
@@ -53,21 +55,21 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
           vertical: 32.h,
         ),
         children: [
-          const FormDropDownWidget(
-            title: "Select Vehicle Identifier",
+           FormDropDownWidget(
+            title: LocaleKeys.selectVehicleIdentifier.tr(),
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 24,
           ),
-          const FormItemWidget(
-            title: "Sequence Number",
+           FormItemWidget(
+            title: LocaleKeys.sequenceNumber.tr(),
             hintText: "EX:-000000000",
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 24,
           ),
           SwitchButtonTitleWidget(
-            title: "Ownership Transfer",
+            title: LocaleKeys.ownershipTransfer.tr(),
             isOn: isOn,
             onTap: () {
               if (isOn) {
@@ -79,16 +81,16 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
               }
             },
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 24,
           ),
           Visibility(
             visible: !isOn,
-            child: const Column(
+            child:  Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 FormDropDownWidget(
-                  title: "Purpose of Vehicle Use",
+                  title: LocaleKeys.purposeOfVehicleUse.tr(),
                 ),
                 CustomSizedBox(
                   height: 24,
@@ -117,7 +119,7 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
                 Visibility(
                   visible: !isOn,
                   child: Text(
-                    "To be filled if driver is not the car owner",
+                    LocaleKeys.fillIfDriverIsNotOwner.tr(),
                     style: CustomThemes.greyColor99TextStyle(context).copyWith(
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w700,
@@ -126,19 +128,19 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
                 ),
                 Visibility(
                   visible: isOn,
-                  child: const Column(
+                  child:  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       FormItemWidget(
-                        title: "Year of manufacture",
-                        hintText: "Year of manufacture",
+                        title: LocaleKeys.yearOfManufacture.tr(),
+                        hintText: LocaleKeys.carInsurance.tr(),
                       ),
                       CustomSizedBox(
                         height: 8,
                       ),
                       FormItemWidget(
-                        title: "Purpose of vehicle use",
-                        hintText: "Purpose of vehicle use",
+                        title: LocaleKeys.purposeOfVehicleUse.tr(),
+                        hintText:LocaleKeys.purposeOfVehicleUse.tr(),
                       ),
                       CustomSizedBox(
                         height: 16,
@@ -146,13 +148,13 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
                     ],
                   ),
                 ),
-                const FormDateWidget(
-                  title: "Date of Birth",
+                 FormDateWidget(
+                  title: LocaleKeys.dob.tr(),
                 ),
               ],
             ),
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 24,
           ),
           Hero(
@@ -164,7 +166,7 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
                   titlesList.length,
                       (index) {
                     return index.isOdd
-                        ? const CustomSizedBox(
+                        ?  CustomSizedBox(
                       width: 24,
                     )
                         : Expanded(
@@ -182,14 +184,14 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
               ),
             ),
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 24,
           ),
-          const TitledCheckBox(
+           TitledCheckBox(
             title:
-                "I agree to grant insurance house the right to inquire from any related agency about my data or any other data",
+            LocaleKeys.agreeToInquire.tr(),
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 24,
           ),
           CustomGradientButton(
@@ -197,7 +199,7 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
               Navigator.pushNamed(context, ScreenName.carInsuranceResult);
             },
             child: Text(
-              "Next",
+              LocaleKeys.next.tr(),
               style: CustomThemes.whiteColoTextTheme(context).copyWith(
                 fontWeight: FontWeight.bold,
                 fontSize: 16.sp,

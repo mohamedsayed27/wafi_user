@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -10,11 +11,13 @@ import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/assets_path/svg_path.dart';
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
 import '../main_layout/main_layout.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +59,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "Profile",
+                  LocaleKeys.profile.tr(),
                   style: CustomThemes.whiteColoTextTheme(context).copyWith(
                     fontSize: 24.sp,
                     fontWeight: FontWeight.bold,
@@ -115,19 +118,19 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
           ItemWidget(
-            title: "Edit Profile",
+            title: LocaleKeys.editProfile.tr(),
             svgPath: SvgPath.editProfile,
             onTap: () {
               Navigator.pushNamed(context, ScreenName.editProfileScreen);
             },
           ),
           ItemWidget(
-            title: "Notifications",
+            title: LocaleKeys.notifications.tr(),
             svgPath: SvgPath.notification,
             onTap: () {},
           ),
           ItemWidget(
-            title: "Settings",
+            title: LocaleKeys.settings.tr(),
             svgPath: SvgPath.settings,
             onTap: () {},
             isBorder: false,
@@ -150,7 +153,7 @@ class ItemWidget extends StatelessWidget {
       required this.title,
       required this.svgPath,
       this.isBorder = true,
-      this.onTap});
+      this.onTap,});
 
   @override
   Widget build(BuildContext context) {

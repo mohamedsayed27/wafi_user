@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_theme/app_colors.dart';
@@ -5,6 +6,7 @@ import 'package:wafi_user/core/constants/extensions.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_text_form_field.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradiant_color_button.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_theme/custom_themes.dart';
 
@@ -24,7 +26,7 @@ class OrderCanceledDialog extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            "Booking has been Cancelled!",
+            LocaleKeys.bookingCancelled.tr(),
             textAlign: TextAlign.center,
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 21.sp,
@@ -36,7 +38,7 @@ class OrderCanceledDialog extends StatelessWidget {
             height: 48,
             borderRadius: 4,
             child: Text(
-              "Okay",
+              LocaleKeys.okay.tr(),
               style: CustomThemes.whiteColoTextTheme(context).copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w700,

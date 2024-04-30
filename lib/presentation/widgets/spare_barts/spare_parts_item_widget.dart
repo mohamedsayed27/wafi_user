@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_theme/app_colors.dart';
@@ -6,6 +7,8 @@ import 'package:wafi_user/core/assets_path/images_path.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_divider.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradiant_color_button.dart';
+
+import '../../../translations/locale_keys.g.dart';
 
 class SparePartsItemWidget extends StatelessWidget {
   const SparePartsItemWidget({super.key});
@@ -101,7 +104,7 @@ class SparePartsItemWidget extends StatelessWidget {
                 height: 40,
                 onPressed: (){},
                 child: Text(
-                  "Add To Cart",
+                  LocaleKeys.addToCart.tr(),
                   style: CustomThemes.whiteColoTextTheme(context).copyWith(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.bold,

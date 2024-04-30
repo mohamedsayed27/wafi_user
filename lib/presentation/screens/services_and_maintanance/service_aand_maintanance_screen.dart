@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/core/assets_path/svg_path.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
@@ -17,80 +19,80 @@ class ServiceAndMaintenanceScreen extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: 'Service And MaintenanceScreen',
+        child:  CustomAppBar(
+          title: LocaleKeys.servicesAndMaintenance.tr(),
         ),
       ),
       body: ListView(
         children: [
           ServicesAndMaintenanceWidget(
-            title: 'Battery Service',
+            title: LocaleKeys.batteryService.tr(),
             onTap: (){
-              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: "Battery Service");
+              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: LocaleKeys.batteryService.tr());
             },
 
             svgPath: SvgPath.carBattery,
           ),
           ServicesAndMaintenanceWidget(
-            title: 'Tires Service',
+            title: LocaleKeys.tiresService.tr(),
             onTap: (){
-              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: "Tires Service");
+              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: LocaleKeys.tiresService.tr());
             },
 
             svgPath: SvgPath.racing,
           ),
           ServicesAndMaintenanceWidget(
-            title: 'Locksmith',
+            title: LocaleKeys.locksmith.tr(),
             onTap: (){
-              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: "Locksmith");
+              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: LocaleKeys.locksmith.tr());
             },
 
             svgPath: SvgPath.lockSmith,
           ),
           ServicesAndMaintenanceWidget(
-            title: 'Fuel',
+            title: LocaleKeys.fuel.tr(),
             onTap: (){
-              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: "Fuel");
+              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: LocaleKeys.fuel.tr());
             },
 
             svgPath: SvgPath.fuel,
           ),
           ServicesAndMaintenanceWidget(
-            title: 'Oil',
+            title: LocaleKeys.oil.tr(),
             onTap: (){
-              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: "Oil");
+              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: LocaleKeys.oil.tr());
             },
 
             svgPath: SvgPath.oil,
           ),
           ServicesAndMaintenanceWidget(
-            title: 'Car Check-Up',
+            title: LocaleKeys.carCheckUp.tr(),
             onTap: (){
-              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: "Car Check-Up");
+              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: LocaleKeys.carCheckUp.tr());
             },
 
             svgPath: SvgPath.carRepair,
           ),
           ServicesAndMaintenanceWidget(
-            title: 'Towing Service',
+            title: LocaleKeys.towingService.tr(),
             onTap: (){
-              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: "Towing Service");
+              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: LocaleKeys.towingService.tr());
             },
 
             svgPath: SvgPath.towTruck,
           ),
           ServicesAndMaintenanceWidget(
-            title: 'Car Detailing',
+            title: LocaleKeys.carDetailing.tr(),
             onTap: (){
-              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: "Car Detailing");
+              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: LocaleKeys.carDetailing.tr());
             },
 
             svgPath: SvgPath.carWash,
           ),
           ServicesAndMaintenanceWidget(
-            title: 'Bodywork',
+            title: LocaleKeys.bodywork.tr(),
             onTap: (){
-              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: "Bodywork");
+              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: LocaleKeys.bodywork.tr());
             },
 
             svgPath: SvgPath.service,

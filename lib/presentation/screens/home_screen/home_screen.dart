@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_router/screens_name.dart';
@@ -10,6 +11,7 @@ import 'package:wafi_user/core/constants/extensions.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradient%20widgets.dart';
 
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/home_screen_widgets/categories_widget.dart';
 import '../../widgets/home_screen_widgets/home_app_bar.dart';
 
@@ -29,7 +31,7 @@ class HomeScreen extends StatelessWidget {
           GradientWidget(
             gradientList: AppColors.gradientColorsList,
             child: Text(
-              "Our Services",
+              LocaleKeys.ourServices.tr(),
               style: TextStyle(
                 fontSize: 16.sp,
                 fontFamily: FontsPath.almarai,

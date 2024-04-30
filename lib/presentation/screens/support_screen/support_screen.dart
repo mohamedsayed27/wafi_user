@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_router/screens_name.dart';
@@ -6,6 +7,7 @@ import 'package:wafi_user/core/constants/extensions.dart';
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
 
 class SupportScreen extends StatelessWidget {
@@ -49,7 +51,7 @@ class SupportScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "Support",
+                        LocaleKeys.support.tr(),
                         style: CustomThemes.whiteColoTextTheme(context)
                             .copyWith(
                                 fontSize: 16.sp,
@@ -77,12 +79,12 @@ class SupportScreen extends StatelessWidget {
                       fontSize: 14.sp,
                       fontWeight: FontWeight.bold,
                     ),
-                    tabs: const [
+                    tabs:  [
                       Tab(
-                        text: "Open ",
+                        text: "${LocaleKeys.open.tr()} ",
                       ),
                       Tab(
-                        text: "Closed",
+                        text: LocaleKeys.closed.tr(),
                       ),
                     ],
                     dividerColor: Colors.transparent,
@@ -148,7 +150,7 @@ class ItemWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            "Spare Parts",
+            LocaleKeys.spareParts.tr(),
             style: CustomThemes.greyColor99TextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,
@@ -159,7 +161,7 @@ class ItemWidget extends StatelessWidget {
             height: 4,
           ),
           Text(
-            "Payment stuck during ordering.",
+            LocaleKeys.paymentStuckDuringOrdering.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,

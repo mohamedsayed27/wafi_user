@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -12,6 +13,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/gradient%20widgets
 
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/reservations_widgets/location_details_container.dart';
 import '../../widgets/shared_widgets/bill_details_item.dart';
 import '../../widgets/shared_widgets/custom_divider.dart';
@@ -41,7 +43,7 @@ class ConfirmReservationScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Car Location",
+                LocaleKeys.carLocation.tr(),
                 style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w700,
@@ -84,7 +86,7 @@ class ConfirmReservationScreen extends StatelessWidget {
                     gradientList: AppColors.gradientColorsList,
                     isGradient: true,
                     child: Text(
-                      "Change",
+                      LocaleKeys.change.tr(),
                       style: CustomThemes.whiteColoTextTheme(context).copyWith(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,
@@ -103,7 +105,7 @@ class ConfirmReservationScreen extends StatelessWidget {
             height: 16,
           ),
           Text(
-            "Payment Method",
+            LocaleKeys.paymentMethods.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,
@@ -133,7 +135,7 @@ class ConfirmReservationScreen extends StatelessWidget {
                 ),
                 Expanded(
                   child: Text(
-                    "Pay with Apple Pay",
+                    LocaleKeys.payWithApplePay.tr(),
                     style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w700,
@@ -155,24 +157,24 @@ class ConfirmReservationScreen extends StatelessWidget {
             height: 16,
           ),
           Text(
-            "Bill Details",
+            LocaleKeys.billDetails.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,
             ),
           ).onlyDirectionalPadding(start: 16),
           const CustomSizedBox(height: 8,),
-          const BillDetailsItem(title: "Battery Service", balance: "100"),
-          const CustomSizedBox(height: 2,),
-          const BillDetailsItem(title: "Service Taxes", balance: "90"),
-          const CustomSizedBox(height: 2,),
-          const BillDetailsItem(title: "Delivery Charges", balance: "78"),
-          const CustomSizedBox(height: 12,),
+           BillDetailsItem(title: LocaleKeys.settings.tr(), balance: "100"),
+           CustomSizedBox(height: 2,),
+           BillDetailsItem(title: LocaleKeys.serviceTaxes.tr(), balance: "90"),
+           CustomSizedBox(height: 2,),
+           BillDetailsItem(title: "Delivery Charges", balance: "78"),
+           CustomSizedBox(height: 12,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Total payable amount",
+                LocaleKeys.totalPayableAmount.tr(),
                 style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w700,
@@ -187,18 +189,18 @@ class ConfirmReservationScreen extends StatelessWidget {
               )
             ],
           ).symmetricPadding(horizontal: 16),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 24,
           ),
-          const CustomDivider(),
-          const CustomSizedBox(
+           CustomDivider(),
+           CustomSizedBox(
             height: 24,
           ),
-          const CustomSizedBox(height: 171,),
+           CustomSizedBox(height: 171,),
           CustomGradientButton(
             borderRadius: 4,
             child: Text(
-              "Confirm",
+              LocaleKeys.confirm.tr(),
               style:
               CustomThemes.whiteColoTextTheme(context).copyWith(
                 fontSize: 14.sp,

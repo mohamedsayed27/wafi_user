@@ -39,6 +39,9 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           title: 'Flutter Demo',
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
           theme: AppTheme.lightTheme,
           debugShowCheckedModeBanner: false,
           onGenerateRoute: AppRouter.generateRoute,

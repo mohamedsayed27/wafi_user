@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
@@ -8,6 +9,7 @@ import 'package:wafi_user/core/assets_path/svg_path.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/assets_path/images_path.dart';
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/custom_app_bar.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
 import '../../widgets/shared_widgets/form_item_widget.dart';
@@ -22,8 +24,8 @@ class EditProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "Edit Profile",
+        child: CustomAppBar(
+          title: LocaleKeys.editProfile.tr(),
           elevation: 0,
         ),
       ),
@@ -78,19 +80,19 @@ class EditProfileScreen extends StatelessWidget {
             ),
           ),
           const CustomSizedBox(height: 16),
-          const FormItemWidget(
-            title: "Name",
-            hintText: "User Name",
+           FormItemWidget(
+            title: LocaleKeys.name.tr(),
+            hintText: LocaleKeys.userName.tr(),
           ),
-          const CustomSizedBox(height: 16),
-          const FormItemWidget(
-            title: "Email",
-            hintText: "User Email",
+           CustomSizedBox(height: 16),
+           FormItemWidget(
+            title: LocaleKeys.email.tr(),
+            hintText: LocaleKeys.userEmail.tr(),
           ),
-          const CustomSizedBox(height: 16),
+           CustomSizedBox(height: 16),
           RichText(
             text: TextSpan(
-              text: "Phone Number",
+              text: LocaleKeys.phoneNumber.tr(),
               style: CustomThemes.greyColor16TextStyle(context).copyWith(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w700,
@@ -107,7 +109,7 @@ class EditProfileScreen extends StatelessWidget {
               //   ],
             ),
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 8,
           ),
           IntlPhoneField(
@@ -125,7 +127,7 @@ class EditProfileScreen extends StatelessWidget {
               helperStyle: CustomThemes.greyColor99TextStyle(context)
                   .copyWith(fontWeight: FontWeight.w400, fontSize: 14.sp),
               label: null,
-              hintText: "Phone Number",
+              hintText: LocaleKeys.phoneNumber.tr(),
               floatingLabelAlignment: FloatingLabelAlignment.start,
               contentPadding:
                   EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
@@ -159,8 +161,8 @@ class EditProfileScreen extends StatelessWidget {
             },
           ),
           FormItemWidget(
-            title: "Password",
-            hintText: "Your Password",
+            title: LocaleKeys.password.tr(),
+            hintText: LocaleKeys.yourPassword.tr(),
             isNotVisible: true,
             maxLines: 1,
             suffixIcon: IconButton(
@@ -174,13 +176,13 @@ class EditProfileScreen extends StatelessWidget {
               ),
             ),
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 32,
           ),
           CustomGradientButton(
             onPressed: () {},
             child: Text(
-              "Update",
+              LocaleKeys.update.tr(),
               style: CustomThemes.whiteColoTextTheme(context).copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w700,

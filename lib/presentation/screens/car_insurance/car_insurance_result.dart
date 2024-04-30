@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -9,19 +10,21 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_elevated_bu
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/car_insurance_widgets/car_insurance_container.dart';
 import '../../widgets/shared_widgets/custom_app_bar.dart';
 
 class CarInsuranceResult extends StatelessWidget {
   const CarInsuranceResult({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "Car Insurance",
+        child:  CustomAppBar(
+          title: LocaleKeys.carInsurance.tr(),
         ),
       ),
       body: Column(
@@ -33,7 +36,7 @@ class CarInsuranceResult extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Time Out In",
+                    LocaleKeys.timeOutIn.tr(),
                     style: CustomThemes.greyColor75TextStyle(context).copyWith(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w700,

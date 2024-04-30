@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_divider.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
@@ -15,7 +17,7 @@ class InsuranceTypeRadioGroup extends StatefulWidget {
 }
 
 class _InsuranceTypeRadioGroupState extends State<InsuranceTypeRadioGroup> {
-  String selectedOption = "Standard Insurance Deductible";
+  String selectedOption = LocaleKeys.standardInsuranceDeductible.tr();
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class _InsuranceTypeRadioGroupState extends State<InsuranceTypeRadioGroup> {
             // title: Text("Standard Insurance Deductible"),
             title: RichText(
               text: TextSpan(
-                  text: "Standard Insurance Deductible",
+                  text: LocaleKeys.standardInsuranceDeductible.tr(),
                   style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w700,
@@ -55,7 +57,7 @@ class _InsuranceTypeRadioGroupState extends State<InsuranceTypeRadioGroup> {
             const VisualDensity(horizontal: VisualDensity.minimumDensity),
             contentPadding: EdgeInsets.zero,
             dense: true,
-            value: "Standard Insurance Deductible",
+            value: LocaleKeys.standardInsuranceDeductible.tr(),
             fillColor: const MaterialStatePropertyAll(AppColors.primaryColor),
             groupValue: selectedOption,
             onChanged: (value) {
@@ -70,7 +72,7 @@ class _InsuranceTypeRadioGroupState extends State<InsuranceTypeRadioGroup> {
           RadioListTile(
             title: RichText(
               text: TextSpan(
-                  text: "Full Insurance",
+                  text: LocaleKeys.fullInsurance.tr(),
                   style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w700,
@@ -92,7 +94,7 @@ class _InsuranceTypeRadioGroupState extends State<InsuranceTypeRadioGroup> {
             fillColor: const MaterialStatePropertyAll(AppColors.primaryColor),
             contentPadding: EdgeInsets.zero,
             dense: true,
-            value: "Full Insurance",
+            value: LocaleKeys.fullInsurance.tr(),
             groupValue: selectedOption,
             onChanged: (value) {
               setState(() {

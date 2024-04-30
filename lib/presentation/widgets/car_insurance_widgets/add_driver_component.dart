@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_elevated_button.dart';
@@ -10,6 +11,7 @@ import 'package:wafi_user/presentation/widgets/spare_barts/check_box_with_title.
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../screens/car_insurance/add_driver_screen.dart';
 import '../../widgets/car_insurance_widgets/add_driver_button_widget.dart';
 import '../../widgets/shared_widgets/switch_button_and_title_widget.dart';
@@ -87,11 +89,11 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              TitleBodyTextRow(title: "Driver ID", body: "20154545"),
-              TitleBodyTextRow(title: "Date of Birth", body: "201-54-545"),
-              TitleBodyTextRow(title: "Full Name", body: "Nick cccc"),
+              TitleBodyTextRow(title: LocaleKeys.driverID.tr(), body: "20154545"),
+              TitleBodyTextRow(title: LocaleKeys.dateOfBirth.tr(), body: "201-54-545"),
+              TitleBodyTextRow(title: LocaleKeys.fullName.tr(), body: "Nick cccc"),
               Text(
-                "Driving Percentage",
+                LocaleKeys.drivingPercentage.tr(),
                 style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.bold,
@@ -129,15 +131,15 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
                 child: CustomOutlinedButton(
                   borderColor: AppColors.primaryColor,
                   borderRadius: 4.r,
+                  onPressed: () {},
+                  padding: EdgeInsets.symmetric(horizontal: 32.w),
                   child: Text(
-                    "Delete Driver",
+                    LocaleKeys.deleteDriver.tr(),
                     style: CustomThemes.primaryTextStyle(context).copyWith(
                       fontSize: 12.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  onPressed: () {},
-                  padding: EdgeInsets.symmetric(horizontal: 32.w),
                 ),
               ),
             ],
@@ -152,9 +154,9 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              FormItemWidget(title: "Driver ID", hintText: "**********"),
+              FormItemWidget(title: LocaleKeys.driverID.tr(), hintText: "**********"),
               FormDateWidget(
-                title: "Date of Birth",
+                title: LocaleKeys.dateOfBirth.tr(),
               ),
             ],
           ),
@@ -169,7 +171,7 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
             mainAxisSize: MainAxisSize.min,
             children: [
               SwitchButtonTitleWidget(
-                title: "Has relationship with policyholder?",
+                title: LocaleKeys.hasRelationshipWithPolicyholder.tr(),
                 isOn: isOn1,
                 onTap: () {
                   if (isOn1) {
@@ -184,12 +186,12 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
               CustomSizedBox(
                 height: 16,
               ),
-              FormItemWidget(title: "Relationship", hintText: "**********"),
+              FormItemWidget(title: LocaleKeys.relationship.tr(), hintText: "**********"),
               CustomSizedBox(
                 height: 16,
               ),
               TitledCheckBox(
-                title: "I confirm the validity of the provided relationship.",
+                title: LocaleKeys.confirmRelationshipValidity.tr(),
               )
             ],
           ),
@@ -201,7 +203,7 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
           decoration: boxDecoration,
           padding: padding,
           child: SwitchButtonTitleWidget(
-            title: "Driver home address same as policyholder address",
+            title: LocaleKeys.driverHomeAddressSame.tr(),
             isOn: isOn2,
             onTap: () {
               if (isOn2) {
@@ -221,7 +223,7 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
           decoration: boxDecoration,
           padding: padding,
           child: SwitchButtonTitleWidget(
-            title: "Does driver have Health Conditions or Restrictions",
+            title: LocaleKeys.healthConditionsRestrictions.tr(),
             isOn: isOn3,
             onTap: () {
               if (isOn3) {
@@ -264,7 +266,7 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
             mainAxisSize: MainAxisSize.min,
             children: [
               SwitchButtonTitleWidget(
-                title: "Does driver traffic violations?",
+                title: LocaleKeys.trafficViolations.tr(),
                 isOn: isOn5,
                 onTap: () {
                   if (isOn5) {
@@ -280,24 +282,24 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
                 height: 16,
               ),
               FormDropDownWidget(
-                title: "Driver Education",
+                title: LocaleKeys.driverEducation.tr(),
               ),
               CustomSizedBox(
                 height: 16,
               ),
               FormDropDownWidget(
-                title: "Accident Counts",
+                title: LocaleKeys.accidentCounts.tr(),
               ),
               CustomSizedBox(
                 height: 16,
               ),
               FormDropDownWidget(
-                title: "Children Below 16 Years",
+                title: LocaleKeys.childrenBelow16Years.tr(),
               ),
               CustomSizedBox(
                 height: 16,
               ),
-              FormItemWidget(title: "Relationship", hintText: "**********"),
+              FormItemWidget(title: LocaleKeys.relationship.tr(), hintText: "**********"),
             ],
           ),
         ),
@@ -310,7 +312,7 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
               Expanded(
                 child: CustomElevatedButton(
                   backgroundColor: AppColors.greenColor,
-                  text: "Add this Driver",
+                  text: LocaleKeys.addThisDriver.tr(),
                   onPressed: () {},
                   padding: EdgeInsets.zero,
                 ),
@@ -326,7 +328,7 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
                   borderColor: AppColors.borderColor,
                   borderRadius: 8,
                   child: Text(
-                    "Cancel",
+                    LocaleKeys.cancel.tr(),
                     style: CustomThemes.greyColor75TextStyle(context).copyWith(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w700,

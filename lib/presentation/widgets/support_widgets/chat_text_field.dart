@@ -9,6 +9,7 @@ import 'dart:ui' as ui;
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/assets_path/svg_path.dart';
+import '../../../translations/locale_keys.g.dart';
 
 class ChatTextField extends StatelessWidget {
   const ChatTextField({super.key});
@@ -41,7 +42,7 @@ class ChatTextField extends StatelessWidget {
                 horizontal: 27.w,
                 vertical: 11.h,
               ),
-              hintText: "Send",
+              hintText: LocaleKeys.send.tr(),
               hintStyle:  CustomThemes.greyColor1CTextStyle(context)
                   .copyWith(fontSize: 12.sp),
             ),

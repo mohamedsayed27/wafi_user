@@ -1,4 +1,5 @@
 import 'package:dotted_border/dotted_border.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/assets_path/images_path.dart';
@@ -7,6 +8,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dar
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart';
 import 'package:wafi_user/presentation/widgets/spare_barts/spare_submit_dialog.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
@@ -29,40 +31,40 @@ class _SpareByQuotationScreenState extends State<SpareByQuotationScreen> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "Spare Parts",
+        child:  CustomAppBar(
+          title: LocaleKeys.spareParts.tr(),
           elevation: 0,
         ),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 32.h,),
         children: [
-          const FormItemWidget(
-            title: "Name of Part",
+           FormItemWidget(
+            title: LocaleKeys.nameOfPart.tr(),
             hintText: "",
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 24,
           ),
-          const FormItemWidget(title: "Part Number", hintText: "", isOptional: true),
-          const CustomSizedBox(
+           FormItemWidget(title: LocaleKeys.partNumber.tr(), hintText: "", isOptional: true),
+           CustomSizedBox(
             height: 24,
           ),
-          const FormItemWidget(
-            title: "Any Specifications",
+           FormItemWidget(
+            title: LocaleKeys.anySpecifications.tr(),
             hintText: "",
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 24,
           ),
           Text(
-            "Upload Images",
+            LocaleKeys.uploadImages.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 16.sp,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 16,
           ),
           SizedBox(
@@ -72,7 +74,7 @@ class _SpareByQuotationScreenState extends State<SpareByQuotationScreen> {
                 Expanded(
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: (_, index) => const UploadedImageWidget(),
+                    itemBuilder: (_, index) =>  UploadedImageWidget(),
                     separatorBuilder: (_, index) => const SizedBox(
                       width: 16,
                     ),
@@ -144,7 +146,7 @@ class _SpareByQuotationScreenState extends State<SpareByQuotationScreen> {
                 width: 8,
               ),
               Text(
-                "Also so quotations with second hand parts if available.",
+                LocaleKeys.alsoQuotations.tr(),
                 style: CustomThemes.greyColor16TextStyle(context).copyWith(
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w700,
@@ -158,7 +160,7 @@ class _SpareByQuotationScreenState extends State<SpareByQuotationScreen> {
           ),
           CustomGradientButton(
             child: Text(
-              "Submit Request",
+              LocaleKeys.submitRequest.tr(),
               style: CustomThemes.whiteColoTextTheme(context).copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w700,

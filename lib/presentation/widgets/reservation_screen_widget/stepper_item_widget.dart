@@ -35,7 +35,7 @@ class StepperWidget extends StatelessWidget {
               gradient: LinearGradient(
                 colors: isSelected
                     ? AppColors.gradientColorsList
-                    : [Color(0xff858483), Color(0xff858483)],
+                    : [const Color(0xff858483), const Color(0xff858483)],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
@@ -45,17 +45,17 @@ class StepperWidget extends StatelessWidget {
               svgIcon,
               width: 20.w,
               height: 20.h,
-              colorFilter: ColorFilter.mode(AppColors.whiteColor, BlendMode.srcIn,),
+              colorFilter: const ColorFilter.mode(AppColors.whiteColor, BlendMode.srcIn,),
             ),
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 8,
           ),
           GradientText(
             title,
             colors: isSelected
                 ? AppColors.gradientColorsList
-                : [Color(0xff858483), Color(0xff858483)],
+                : [const Color(0xff858483), const Color(0xff858483)],
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,

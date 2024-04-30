@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,6 +11,7 @@ import 'package:wafi_user/core/assets_path/fonts_path.dart';
 import 'package:wafi_user/core/assets_path/svg_path.dart';
 import 'package:wafi_user/core/constants/constants.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradient%20widgets.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 import '../../../core/app_theme/app_colors.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
@@ -102,7 +104,7 @@ class _ServicesOnMapScreenState extends State<ServicesOnMapScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Continue",
+                        LocaleKeys.continueText.tr(),
                         style:
                             CustomThemes.whiteColoTextTheme(context).copyWith(
                           fontSize: 14.sp,
@@ -145,7 +147,7 @@ class _ServicesOnMapScreenState extends State<ServicesOnMapScreen> {
             ),
           ),
           FloatingSearchBar(
-            hint: 'Search...',
+            hint: '${LocaleKeys.search.tr()}...',
             scrollPadding: const EdgeInsets.only(top: 16, bottom: 56),
             transitionDuration: const Duration(milliseconds: 800),
             transitionCurve: Curves.easeInOut,
@@ -249,7 +251,7 @@ class ServicesDetailsWidget extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                "Body Repair",
+                LocaleKeys.bodyRepair.tr(),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: CustomThemes.greyColor1CTextStyle(context).copyWith(
@@ -262,7 +264,7 @@ class ServicesDetailsWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Starts from",
+                  LocaleKeys.startsFrom.tr(),
                   style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                     fontSize: 12.sp,
                     height: 1,

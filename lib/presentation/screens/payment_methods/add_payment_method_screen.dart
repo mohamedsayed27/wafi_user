@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/form_item_widget.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
@@ -17,8 +19,8 @@ class AddPaymentMethodScreen extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "Payment Method",
+        child:  CustomAppBar(
+          title: LocaleKeys.paymentMethod.tr(),
           centerTitle: true,
         ),
       ),
@@ -29,14 +31,14 @@ class AddPaymentMethodScreen extends StatelessWidget {
         ),
         children: [
           Text(
-            "Card Type",
+            LocaleKeys.cardType.tr(),
             style: CustomThemes.greyColor16TextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,
               fontStyle: FontStyle.normal,
             ),
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 8,
           ),
           CustomOutlinedButton(
@@ -45,7 +47,7 @@ class AddPaymentMethodScreen extends StatelessWidget {
             ),
             borderRadius: 4.r,
             height: 48,
-            padding: const EdgeInsets.symmetric(
+            padding:  EdgeInsets.symmetric(
               horizontal: 14,
               vertical: 7,
             ),
@@ -55,7 +57,7 @@ class AddPaymentMethodScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    "Credit Card",
+                    LocaleKeys.creditCard.tr(),
                     style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w700,
@@ -70,22 +72,22 @@ class AddPaymentMethodScreen extends StatelessWidget {
               ],
             ),
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 26,
           ),
-          const FormItemWidget(
-            title: "Card Number",
-            hintText: "Card Number",
+           FormItemWidget(
+            title: LocaleKeys.cardNumber.tr(),
+            hintText: LocaleKeys.cardNumber.tr(),
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 26,
           ),
-          const Row(
+           Row(
             children: [
               Expanded(
                 child: FormItemWidget(
-                  title: "Exp. Date",
-                  hintText: "Exp. Date",
+                  title: LocaleKeys.expDate.tr(),
+                  hintText: LocaleKeys.paymentMethod.tr(),
                 ),
               ),
               CustomSizedBox(
@@ -93,8 +95,8 @@ class AddPaymentMethodScreen extends StatelessWidget {
               ),
               Expanded(
                 child: FormItemWidget(
-                  title: "CVC. Code",
-                  hintText: "CVC. Code",
+                  title: LocaleKeys.cvcCode.tr(),
+                  hintText: LocaleKeys.paymentMethod.tr(),
                 ),
               ),
             ],

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
@@ -6,6 +7,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_divider.dar
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/car_rent_widgets/agent_details_widget.dart';
 import '../../widgets/car_rent_widgets/car_details_widget.dart';
 import '../../widgets/car_rent_widgets/choose_insurance_type_widget.dart';
@@ -22,8 +24,8 @@ class ConfirmRentCarScreen extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "Car Rental",
+        child: CustomAppBar(
+          title: LocaleKeys.carRental.tr(),
         ),
       ),
       body: ListView(
@@ -54,7 +56,7 @@ class ConfirmRentCarScreen extends StatelessWidget {
             height: 24,
           ),
           Text(
-            "Choose Insurance Type",
+              LocaleKeys.chooseInsuranceType.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,
@@ -92,7 +94,7 @@ class ConfirmRentCarScreen extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      "Buy Now",
+                      LocaleKeys.buyNow.tr(),
                       style: CustomThemes.whiteColoTextTheme(context).copyWith(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w700,

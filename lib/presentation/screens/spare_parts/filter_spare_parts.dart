@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
@@ -8,6 +9,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/gradiant_color_but
 
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 
 class AddYourCar extends StatelessWidget {
   const AddYourCar({super.key});
@@ -17,42 +19,42 @@ class AddYourCar extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "Add your car",
+        child:  CustomAppBar(
+          title: LocaleKeys.addYourCar.tr(),
         ),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 32.h),
         children: [
           Text(
-            "Enter Car Details",
+            LocaleKeys.enterCarDetails.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 16.sp,
               fontWeight: FontWeight.w700,
             ),
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 24,
           ),
-          const FormDropDownWidget(title: "Make"),
-          const CustomSizedBox(
+           FormDropDownWidget(title: LocaleKeys.addDriver.tr()),
+           CustomSizedBox(
             height: 24,
           ),
-          const FormDropDownWidget(title: "Model"),
-          const CustomSizedBox(
+           FormDropDownWidget(title: LocaleKeys.model.tr()),
+           CustomSizedBox(
             height: 24,
           ),
-          const FormDropDownWidget(title: "Year of Manufacture"),
-          const CustomSizedBox(
+           FormDropDownWidget(title: LocaleKeys.yearOfManufacture.tr()),
+           CustomSizedBox(
             height: 24,
           ),
-          const FormItemWidget(title: "Chassis Number", hintText: "**********"),
+           FormItemWidget(title: LocaleKeys.chassisNumber.tr(), hintText: "**********"),
           const CustomSizedBox(
             height: 160,
           ),
           CustomGradientButton(
             child: Text(
-              "Submit",
+              LocaleKeys.submit.tr(),
               style: CustomThemes.whiteColoTextTheme(context).copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w700,

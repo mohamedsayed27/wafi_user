@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -13,6 +14,7 @@ import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/assets_path/images_path.dart';
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/bottom_sheets/car_rent/car_rent_filter_bottom_sheet.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
@@ -26,9 +28,9 @@ class CarRentDetails extends StatefulWidget {
 
 class _CarRentDetailsState extends State<CarRentDetails> {
   List<String> items = [
-    "Open Km.",
-    "GCC Boards Fees",
-    "Extra Driver",
+    LocaleKeys.openKm.tr(),
+    LocaleKeys.gccBoardsFees.tr(),
+    LocaleKeys.extraDriver.tr(),
   ];
 
   int? selectedIndex;
@@ -38,31 +40,31 @@ class _CarRentDetailsState extends State<CarRentDetails> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "Rent a Car",
+        child:  CustomAppBar(
+          title: LocaleKeys.rentACar.tr(),
         ),
       ),
       body: Column(
         children: [
-          CustomSizedBox(height: 24,),
-          const IntroCarDetails(),
-          CustomSizedBox(height: 16,),
+          const CustomSizedBox(height: 24,),
+           const IntroCarDetails(),
+          const CustomSizedBox(height: 16,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Choose from Allies",
+                LocaleKeys.chooseFromAllies.tr(),
                 style: CustomThemes.greyColor16TextStyle(context).copyWith(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              const CustomSizedBox(
+               const CustomSizedBox(
                 width: 2,
               ),
               TextButton(
                 onPressed: () {
-                  showModalBottomSheet(context: context, builder:(_)=>CarRentBottomSheet() );
+                  showModalBottomSheet(context: context, builder:(_)=>const CarRentBottomSheet() );
                 },
                 child: Row(
                   children: [
@@ -71,7 +73,7 @@ class _CarRentDetailsState extends State<CarRentDetails> {
                       height: 18.h,
                       width: 11.w,
                     ),
-                    CustomSizedBox(
+                    const CustomSizedBox(
                       width: 4,
                     ),
                     Text(
@@ -87,7 +89,7 @@ class _CarRentDetailsState extends State<CarRentDetails> {
               ),
             ],
           ),
-          CustomSizedBox(height: 16,),
+          const CustomSizedBox(height: 16,),
           CustomSizedBox(
             height: 32,
             child: ListView.separated(
@@ -142,21 +144,21 @@ class _CarRentDetailsState extends State<CarRentDetails> {
                 );
               },
               separatorBuilder: (_, index) {
-                return const CustomSizedBox(
+                return  const CustomSizedBox(
                   width: 16,
                 );
               },
               itemCount: items.length,
             ),
           ),
-          CustomSizedBox(height: 16,),
+          const CustomSizedBox(height: 16,),
           Expanded(
             child: ListView.separated(
                 itemBuilder: (_, index) {
-                  return const AgentNameDetails();
+                  return  const AgentNameDetails();
                 },
                 separatorBuilder: (_, index) {
-                  return const CustomSizedBox(
+                  return  const CustomSizedBox(
                     height: 16,
                   );
                 },
@@ -169,7 +171,7 @@ class _CarRentDetailsState extends State<CarRentDetails> {
 }
 
 class IntroCarDetails extends StatelessWidget {
-  const IntroCarDetails({super.key});
+   const IntroCarDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -180,7 +182,7 @@ class IntroCarDetails extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
         borderRadius: BorderRadius.circular(8.r),
-        boxShadow: const [
+        boxShadow:  const [
           BoxShadow(
             offset: Offset(0, 4),
             blurRadius: 8,
@@ -205,7 +207,7 @@ class IntroCarDetails extends StatelessWidget {
                     fontStyle: FontStyle.normal,
                   ),
                 ),
-                const CustomSizedBox(
+                 const CustomSizedBox(
                   height: 10,
                 ),
                 Row(
@@ -219,7 +221,7 @@ class IntroCarDetails extends StatelessWidget {
                         fontStyle: FontStyle.normal,
                       ),
                     ),
-                    const CustomSizedBox(
+                     const CustomSizedBox(
                       width: 6,
                     ),
                     Container(
@@ -253,7 +255,7 @@ class IntroCarDetails extends StatelessWidget {
 }
 
 class AgentNameDetails extends StatelessWidget {
-  const AgentNameDetails({super.key});
+   const AgentNameDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -264,7 +266,7 @@ class AgentNameDetails extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
         borderRadius: BorderRadius.circular(8.r),
-        boxShadow: const [
+        boxShadow:  const [
           BoxShadow(
             offset: Offset(0, 4),
             blurRadius: 8,
@@ -289,7 +291,7 @@ class AgentNameDetails extends StatelessWidget {
                       borderRadius: BorderRadius.circular(4.r),
                     ),
                   ),
-                  const CustomSizedBox(
+                   const CustomSizedBox(
                     width: 4,
                   ),
                   Text(
@@ -305,15 +307,15 @@ class AgentNameDetails extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    "Open Now",
+                    LocaleKeys.openNow.tr(),
                     style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w700,
-                      color: const Color(0xff0F9E0E),
+                      color:  const Color(0xff0F9E0E),
                       fontStyle: FontStyle.normal,
                     ),
                   ),
-                  const CustomSizedBox(
+                   const CustomSizedBox(
                     width: 4,
                   ),
                   Container(
@@ -321,7 +323,7 @@ class AgentNameDetails extends StatelessWidget {
                     width: 1.w,
                     color: AppColors.greyColor9,
                   ),
-                  const CustomSizedBox(
+                   const CustomSizedBox(
                     width: 4,
                   ),
                   Text(
@@ -332,7 +334,7 @@ class AgentNameDetails extends StatelessWidget {
                       fontStyle: FontStyle.normal,
                     ),
                   ),
-                  const Icon(
+                   const Icon(
                     Icons.star,
                     color: Colors.amber,
                   ),
@@ -350,7 +352,7 @@ class AgentNameDetails extends StatelessWidget {
                     height: 16.h,
                     width: 16.w,
                   ),
-                  const CustomSizedBox(
+                   const CustomSizedBox(
                     width: 4,
                   ),
                   Text(
@@ -370,7 +372,7 @@ class AgentNameDetails extends StatelessWidget {
                     height: 16.h,
                     width: 16.w,
                   ),
-                  const CustomSizedBox(
+                   const CustomSizedBox(
                     width: 4,
                   ),
                   Text(
@@ -390,19 +392,19 @@ class AgentNameDetails extends StatelessWidget {
           ),
           AgentDetails(
               path: SvgPath.speedoMeter,
-              title: "Allowed Kilometer Per Day",
+              title: LocaleKeys.allowedKilometerPerDay.tr(),
               description: "300 km/day"),
           AgentDetails(
               path: SvgPath.coins,
-              title: "Extra Kilometer Cost",
+              title: LocaleKeys.extraKilometerCost.tr(),
               description: "0.4 SR/km"),
           AgentDetails(
               path: SvgPath.check,
-              title: "Standard Insurance Deductible",
+              title: LocaleKeys.standardInsuranceDeductible.tr(),
               description: "2875 SR"),
           AgentDetails(
               path: SvgPath.insuranceUmbrella,
-              title: "Full Insurance Per Day",
+              title: LocaleKeys.fullInsurancePerDay.tr(),
               description: "15 SR"),
           const CustomDivider(
             height: 2,
@@ -439,7 +441,7 @@ class AgentNameDetails extends StatelessWidget {
                 height: 40.h,
                 width: 108.w,
                 child: Text(
-                  "Rent Now",
+                  LocaleKeys.rentNow.tr(),
                   style: CustomThemes.whiteColoTextTheme(context).copyWith(
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w700,
@@ -466,7 +468,7 @@ class AgentDetails extends StatelessWidget {
       {super.key,
       required this.path,
       required this.title,
-      required this.description});
+      required this.description,});
 
   @override
   Widget build(BuildContext context) {
@@ -477,7 +479,7 @@ class AgentDetails extends StatelessWidget {
           width: 18.w,
           height: 18.h,
         ),
-        CustomSizedBox(
+        const CustomSizedBox(
           width: 12,
         ),
         Expanded(
@@ -493,7 +495,7 @@ class AgentDetails extends StatelessWidget {
             style: CustomThemes.greyColor16TextStyle(context).copyWith(
               fontSize: 12.sp,
               fontWeight: FontWeight.w700,
-            ))
+            ),)
       ],
     );
   }

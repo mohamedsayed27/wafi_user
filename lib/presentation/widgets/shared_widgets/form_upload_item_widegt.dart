@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/presentation/widgets/car_rent_widgets/upload_file_widget.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
@@ -34,7 +35,7 @@ class FormUploadItemWidget extends StatelessWidget {
             children: [
               if (isRequired)
                 TextSpan(
-                  text: "  (Required)",
+                  text: "  (${LocaleKeys.required.tr()})",
                   style: TextStyle(
                     fontSize: 16.sp,
                     color: Colors.red,

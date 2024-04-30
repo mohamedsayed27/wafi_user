@@ -1,17 +1,16 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/custom_outlined_button.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/form_date_item.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/form_drom_down_widget.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/form_item_widget.dart';
-import 'package:wafi_user/presentation/widgets/spare_barts/check_box_with_title.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
-import '../../screens/car_insurance/add_driver_screen.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/car_insurance_widgets/add_driver_button_widget.dart';
 import '../../widgets/shared_widgets/switch_button_and_title_widget.dart';
+import '../shared_widgets/custom_sized_box.dart';
+import '../shared_widgets/form_drom_down_widget.dart';
+import '../shared_widgets/form_item_widget.dart';
+import '../spare_barts/check_box_with_title.dart';
 
 class OtherDetailsComponent extends StatefulWidget {
   const OtherDetailsComponent({super.key});
@@ -63,22 +62,22 @@ class _AddDriverComponentState extends State<OtherDetailsComponent> {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        FormDropDownWidget(title: "Vehicle Night Parking"),
-        CustomSizedBox(height: 24,),
-        FormDropDownWidget(title: "Accident Counts"),
-        CustomSizedBox(height: 24,),
-        FormDropDownWidget(title: "Expected KM per year"),
-        CustomSizedBox(height: 24,),
-        FormDropDownWidget(title: "Transmission Type"),
-        CustomSizedBox(height: 24,),
+        FormDropDownWidget(title: LocaleKeys.vehicleNightParking.tr()),
+        const CustomSizedBox(height: 24,),
+        FormDropDownWidget(title: LocaleKeys.accidentCounts.tr()),
+        const CustomSizedBox(height: 24,),
+        FormDropDownWidget(title: LocaleKeys.expectedKmPerYear.tr()),
+        const CustomSizedBox(height: 24,),
+        FormDropDownWidget(title: LocaleKeys.transmissionType.tr()),
+        const CustomSizedBox(height: 24,),
         Text(
-          "Any Additional Modification?",
+          LocaleKeys.anyAdditionalModification.tr(),
           style: CustomThemes.greyColor16TextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,
               fontStyle: FontStyle.normal),
         ),
-        CustomSizedBox(height: 16,),
+        const CustomSizedBox(height: 16,),
         Row(
           children: List.generate(
             titlesList.length,
@@ -102,13 +101,13 @@ class _AddDriverComponentState extends State<OtherDetailsComponent> {
             },
           ),
         ),
-        CustomSizedBox(height: 24,),
-        FormDropDownWidget(title: "Children below 16 years"),
-        CustomSizedBox(height: 24,),
-        FormItemWidget(title: "Modifications", hintText: "*******"),
-        CustomSizedBox(height: 24,),
+        const CustomSizedBox(height: 24,),
+        FormDropDownWidget(title: LocaleKeys.childrenBelow16Years.tr()),
+        const CustomSizedBox(height: 24,),
+        FormItemWidget(title: LocaleKeys.modifications.tr(), hintText: "*******"),
+        const CustomSizedBox(height: 24,),
         SwitchButtonTitleWidget(
-          title: "Does policyholder has health conditions or Restrictions?",
+          title: LocaleKeys.doesPolicyholderHasHealthConditions.tr(),
           isOn: isOn1,
           onTap: () {
             if (isOn1) {
@@ -120,22 +119,22 @@ class _AddDriverComponentState extends State<OtherDetailsComponent> {
             }
           },
         ),
-        CustomSizedBox(height: 16,),
+        const CustomSizedBox(height: 16,),
         Ink(
           decoration: boxDecoration,
           padding: padding,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              FormDropDownWidget(title: "Which country?"),
-              CustomSizedBox(height: 16,),
-              FormDropDownWidget(title: "How many Years?"),
+              FormDropDownWidget(title: LocaleKeys.whichCountry.tr()),
+              const CustomSizedBox(height: 16,),
+              FormDropDownWidget(title: LocaleKeys.howManyYears.tr()),
             ],
           ),
         ),
-        CustomSizedBox(height: 24,),
+        const CustomSizedBox(height: 24,),
         SwitchButtonTitleWidget(
-          title: "Does policyholder has health conditions or Restrictions?",
+          title: LocaleKeys.doesPolicyholderHasHealthConditions.tr(),
           isOn: isOn2,
           onTap: () {
             if (isOn2) {
@@ -147,7 +146,7 @@ class _AddDriverComponentState extends State<OtherDetailsComponent> {
             }
           },
         ),
-        CustomSizedBox(height: 24,),
+        const CustomSizedBox(height: 24,),
         Ink(
           decoration: boxDecoration,
           padding: padding,
@@ -156,28 +155,28 @@ class _AddDriverComponentState extends State<OtherDetailsComponent> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Select License Health Conditions",
+                LocaleKeys.selectLicenseHealthConditions.tr(),
                 style: CustomThemes.greyColor16TextStyle(context).copyWith(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w700,
                     fontStyle: FontStyle.normal),
               ),
-              CustomSizedBox(height: 16,),
-              TitledCheckBox(title: " Automatic Vehicles"),
-              CustomSizedBox(height: 8,),
-              TitledCheckBox(title: " Automatic Vehicles"),
-              CustomSizedBox(height: 8,),
-              TitledCheckBox(title: " Automatic Vehicles"),
-              CustomSizedBox(height: 8,),
-              TitledCheckBox(title: " Automatic Vehicles"),
-              CustomSizedBox(height: 8,),
-              TitledCheckBox(title: " Automatic Vehicles"),
+              const CustomSizedBox(height: 16,),
+              TitledCheckBox(title: " ${LocaleKeys.automaticVehicles.tr()}"),
+              const CustomSizedBox(height: 8,),
+              TitledCheckBox(title: " ${LocaleKeys.automaticVehicles.tr()}"),
+              const CustomSizedBox(height: 8,),
+              TitledCheckBox(title: " ${LocaleKeys.automaticVehicles.tr()}"),
+              const CustomSizedBox(height: 8,),
+              TitledCheckBox(title: " ${LocaleKeys.automaticVehicles.tr()}"),
+              const CustomSizedBox(height: 8,),
+              TitledCheckBox(title: " ${LocaleKeys.automaticVehicles.tr()}"),
             ],
           ),
         ),
-        CustomSizedBox(height: 16,),
+        const CustomSizedBox(height: 16,),
         SwitchButtonTitleWidget(
-          title: "Does policyholder hasTraffic Violations?",
+          title: LocaleKeys.doesPolicyholderHasTrafficViolations.tr(),
           isOn: isOn3,
           onTap: () {
             if (isOn3) {
@@ -197,22 +196,22 @@ class _AddDriverComponentState extends State<OtherDetailsComponent> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Select violations",
+                LocaleKeys.selectViolations.tr(),
                 style: CustomThemes.greyColor16TextStyle(context).copyWith(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w700,
                     fontStyle: FontStyle.normal),
               ),
-              CustomSizedBox(height: 16,),
-              TitledCheckBox(title: "Speed ticket"),
-              CustomSizedBox(height: 8,),
-              TitledCheckBox(title: "Speed ticket"),
-              CustomSizedBox(height: 8,),
-              TitledCheckBox(title: "Speed ticket"),
-              CustomSizedBox(height: 8,),
-              TitledCheckBox(title: "Speed ticket"),
-              CustomSizedBox(height: 8,),
-              TitledCheckBox(title: "Speed ticket"),
+              const CustomSizedBox(height: 16,),
+              TitledCheckBox(title: LocaleKeys.speedTicket.tr()),
+              const CustomSizedBox(height: 8,),
+              TitledCheckBox(title: LocaleKeys.speedTicket.tr()),
+              const CustomSizedBox(height: 8,),
+              TitledCheckBox(title: LocaleKeys.speedTicket.tr()),
+              const CustomSizedBox(height: 8,),
+              TitledCheckBox(title: LocaleKeys.speedTicket.tr()),
+              const CustomSizedBox(height: 8,),
+              TitledCheckBox(title: LocaleKeys.speedTicket.tr()),
             ],
           ),
         ),

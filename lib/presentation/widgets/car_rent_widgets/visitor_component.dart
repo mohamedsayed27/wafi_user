@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../../../translations/locale_keys.g.dart';
 import '../shared_widgets/custom_sized_box.dart';
 import '../shared_widgets/form_date_item.dart';
 import '../shared_widgets/form_item_widget.dart';
@@ -10,33 +12,33 @@ class VisitorComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return  Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
 
         IntrinsicHeight(
           child: Row(
             children: [
-              Expanded(child: FormItemWidget(title: "National ID/ Iqama", hintText: "**************",),),
+              Expanded(child: FormItemWidget(title: LocaleKeys.nationalIdIqama.tr(), hintText: "**************",),),
               CustomSizedBox(width: 16,),
-              Expanded(child: FormItemWidget(title: "Driver License No.", hintText: "**************",),),
+              Expanded(child: FormItemWidget(title: LocaleKeys.driverLicense.tr(), hintText: "**************",),),
             ],
           ),
         ),
         CustomSizedBox(height: 24,),
-        FormDateWidget(title: "Driver License Expiry Date",),
+        FormDateWidget(title: LocaleKeys.driverLicenseExpiryDate.tr()),
         CustomSizedBox(height: 24,),
-        FormDateWidget(title: "Pasport Expiry Date",),
+        FormDateWidget(title: LocaleKeys.passportExpiryDate.tr(),),
         CustomSizedBox(height: 24,),
-        FormDateWidget(title: "Date of Birth",),
+        FormDateWidget(title: LocaleKeys.dateOfBirth.tr(),),
         CustomSizedBox(height: 24,),
-        FormItemWidget(title: "Citizenship", hintText: "Citizenship",),
+        FormItemWidget(title: LocaleKeys.citizenship.tr(), hintText: LocaleKeys.citizenship.tr(),),
         CustomSizedBox(height: 24,),
-        FormUploadItemWidget(title:"International Driver License Image",isRequired: true,),
+        FormUploadItemWidget(title:LocaleKeys.internationalDriverLicenseImage.tr(),isRequired: true,),
         CustomSizedBox(height: 24,),
-        FormUploadItemWidget(title:"Passport Front Image",isRequired: true,),
+        FormUploadItemWidget(title:LocaleKeys.passportFrontImage.tr(),isRequired: true,),
         CustomSizedBox(height: 24,),
-        FormUploadItemWidget(title:"Driver License With Selfie",),
+        FormUploadItemWidget(title:LocaleKeys.driverLicenseWithSelfie.tr(),),
       ],
     );
   }

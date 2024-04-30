@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
@@ -12,6 +13,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_text_form_f
 
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
 
 class FilteredRentScreen extends StatelessWidget {
@@ -22,7 +24,7 @@ class FilteredRentScreen extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(title: "Rent a Car"),
+        child: CustomAppBar(title: LocaleKeys.rentACar.tr()),
       ),
       body: Column(
         children: [
@@ -170,7 +172,7 @@ class FilteredRentCarsContainer extends StatelessWidget {
                 height: 40.h,
                 width: 108.w,
                 child: Text(
-                  "Choose Car",
+                  LocaleKeys.chooseCar.tr(),
                   style: CustomThemes.whiteColoTextTheme(context).copyWith(
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w700,
@@ -203,7 +205,7 @@ class FilterScreenSearch extends StatelessWidget {
         ],
       ),
       child: CustomTextField(
-        hintText: "Search cars",
+        hintText: LocaleKeys.searchCars.tr(),
         prefixIcon: IconButton(
           onPressed: () {},
           icon: const Icon(

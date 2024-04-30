@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_router/screens_name.dart';
@@ -7,6 +8,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.d
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/custom_app_bar.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
 
@@ -25,8 +27,8 @@ class _SparePartsScreenState extends State<SparePartsScreen> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "Spare Parts",
+        child: CustomAppBar(
+          title: LocaleKeys.spareParts.tr(),
         ),
       ),
       body: Column(
@@ -43,9 +45,9 @@ class _SparePartsScreenState extends State<SparePartsScreen> {
 
               });
             },
-            title: "Search by Quotation",
+            title: LocaleKeys.searchByQuotation.tr(),
             body:
-                "Contrary to popular belief, Lorem Ipsum is not simply random text.",
+            LocaleKeys.searchByQuotationBody.tr(),
           ),
           const CustomSizedBox(height: 24,),
           SparePartsContainer(
@@ -56,14 +58,13 @@ class _SparePartsScreenState extends State<SparePartsScreen> {
 
               });
             },
-            title: "Search by Parts",
-            body:
-                "It is simply dummy text of the printing and typesetting industry.",
+            title: LocaleKeys.searchByParts.tr(),
+            body:LocaleKeys.searchByQuotationBody.tr(),
           ),
           const Spacer(),
           CustomGradientButton(
             child: Text(
-              "Search Parts",
+              LocaleKeys.searchParts.tr(),
               style: CustomThemes.whiteColoTextTheme(context).copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w700,

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
@@ -7,6 +8,7 @@ import 'package:wafi_user/core/constants/constants.dart';
 import 'package:wafi_user/core/constants/extensions.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/support_widgets/chat_text_field.dart';
 import '../../widgets/support_widgets/message_item_widget.dart';
 
@@ -47,7 +49,7 @@ class ChatSupportScreen extends StatelessWidget {
                     BackButton(
                       color: AppColors.dashedBorderColor,
                     ),
-                    Text("Web Ordering",style: CustomThemes.darkGrayColorTheme(context).copyWith(fontSize: 16.sp,fontWeight: FontWeight.w700,),)
+                    Text(LocaleKeys.webOrdering.tr(),style: CustomThemes.darkGrayColorTheme(context).copyWith(fontSize: 16.sp,fontWeight: FontWeight.w700,),)
                   ],
                 ),
                 Column(
@@ -55,7 +57,7 @@ class ChatSupportScreen extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      "Spare Parts",
+                      LocaleKeys.spareParts.tr(),
                       style: CustomThemes.greyColor99TextStyle(context).copyWith(
                           fontSize: 14.sp, fontWeight: FontWeight.w700, height: 1),
                     ),
@@ -78,7 +80,7 @@ class ChatSupportScreen extends StatelessWidget {
                           style: CustomThemes.greyColor99TextStyle(context).copyWith(
                               fontSize: 12.sp, fontWeight: FontWeight.w700, height: 1),
                         ),
-                        GradientText("Order ID: 52145", colors: AppColors.gradientColorsList,),
+                        GradientText("${LocaleKeys.orderID.tr()}: 52145", colors: AppColors.gradientColorsList,),
                       ],
                     ),
                   ],

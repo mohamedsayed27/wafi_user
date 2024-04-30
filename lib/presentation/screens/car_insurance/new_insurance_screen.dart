@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
@@ -8,6 +9,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/gradiant_color_but
 import '../../../core/app_router/screens_name.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
 import '../car_rent/choose_driver_type_screen.dart';
 
@@ -22,25 +24,26 @@ class _AddNewInsuranceScreenState extends State<AddNewInsuranceScreen> {
   int currentIndex = 0;
 
   List<String?> titlesList = [
-    "Comprehensive Insurance",
+    LocaleKeys.comprehensiveInsurance.tr(),
     // null,
-    "3rd Party Liability",
+    LocaleKeys.thirdPartyLiability.tr(),
   ];
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "New Insurance",
+        child: CustomAppBar(
+          title: LocaleKeys.newInsurance.tr(),
         ),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 32.h),
         children: [
           Text(
-            "Select type of Insurance",
+          LocaleKeys.selectTypeOfInsurance.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 16.sp,
               fontWeight: FontWeight.w700,
@@ -67,15 +70,15 @@ class _AddNewInsuranceScreenState extends State<AddNewInsuranceScreen> {
           const CustomSizedBox(
             height: 24,
           ),
-          const FormItemWidget(
-              title: "Policyholder ID", hintText: "Policyholder ID"),
-          const CustomSizedBox(
+          FormItemWidget(
+              title: LocaleKeys.policyholderId.tr(), hintText: LocaleKeys.policyholderId.tr(),),
+          CustomSizedBox(
             height: 24,
           ),
-          const FormDateWidget(
-            title: "Effective Date of Policy",
+          FormDateWidget(
+            title: LocaleKeys.effectiveDateOfPolicy.tr(),
           ),
-          const CustomSizedBox(
+          CustomSizedBox(
             height: 164,
           ),
           CustomGradientButton(
@@ -83,7 +86,7 @@ class _AddNewInsuranceScreenState extends State<AddNewInsuranceScreen> {
                 Navigator.pushNamed(context, ScreenName.insuranceDetails);
               },
               child: Text(
-                "Next",
+                LocaleKeys.next.tr(),
                 style: CustomThemes.whiteColoTextTheme(context).copyWith(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w700,

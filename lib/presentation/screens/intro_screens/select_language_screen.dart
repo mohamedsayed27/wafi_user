@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -8,6 +9,7 @@ import 'package:wafi_user/core/constants/extensions.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
 import '../../widgets/shared_widgets/language_drop_down_button.dart';
 import '../../widgets/shared_widgets/logo_app_bar.dart';
@@ -32,7 +34,7 @@ class SelectLanguageScreen extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           Text(
-            "Select Language",
+            LocaleKeys.selectLanguage.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 24.sp,
               fontWeight: FontWeight.w700,
@@ -40,7 +42,7 @@ class SelectLanguageScreen extends StatelessWidget {
           ).symmetricPadding(horizontal: 16),
           const CustomSizedBox(height: 10,),
           Text(
-            "One platform for all your car service needs",
+            LocaleKeys.onePlatform.tr(),
             style: CustomThemes.greyColor16TextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w400,
@@ -55,7 +57,7 @@ class SelectLanguageScreen extends StatelessWidget {
             },
             borderRadius: 4,
             child: Text(
-              "Next",
+              LocaleKeys.next.tr(),
               style: CustomThemes.whiteColoTextTheme(context).copyWith(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w700,

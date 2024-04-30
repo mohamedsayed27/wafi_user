@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_theme/custom_themes.dart';
 import 'custom_sized_box.dart';
@@ -51,7 +52,7 @@ class FormItemWidget extends StatelessWidget {
                 ),
               if (isOptional)
                 TextSpan(
-                  text: " (Optional)",
+                  text: " (${LocaleKeys.optional.tr()})",
                   style: CustomThemes.greyColor75TextStyle(context).copyWith(fontSize: 12.sp,fontWeight: FontWeight.w700,),
                 )
             ],

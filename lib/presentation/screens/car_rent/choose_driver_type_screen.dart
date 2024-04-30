@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
@@ -21,35 +23,35 @@ class _ChooseDriverTypeScreenState extends State<ChooseDriverTypeScreen> {
   int currentIndex = 0;
 
   List<String?> titlesList= [
-    "Citizen / Resident",
+    LocaleKeys.citizenResident.tr(),
     null,
-    "Visitor",
+    LocaleKeys.visitor.tr(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "Rent a Car",
+        child:  CustomAppBar(
+          title: LocaleKeys.rentACar.tr(),
         ),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 32.h),
         children: [
           Text(
-            "Type of Driver",
+            LocaleKeys.typeOfDriver.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 16.sp,
               fontWeight: FontWeight.w700,
             ),
           ),
-          const CustomSizedBox(height: 16,),
+           CustomSizedBox(height: 16,),
           Row(
             children: List.generate(
               3,
               (index) => index.isOdd
-                  ? const CustomSizedBox(
+                  ?  CustomSizedBox(
                       width: 16,
                     )
                   : Expanded(

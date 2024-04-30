@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -6,13 +7,14 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_divider.dar
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/assets_path/svg_path.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/bill_details_item.dart';
 import '../../widgets/shared_widgets/custom_outlined_button.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
 
 
 class PaymentMethodsAndBillDetailsWidget extends StatelessWidget {
-  const PaymentMethodsAndBillDetailsWidget({super.key});
+   const PaymentMethodsAndBillDetailsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +69,7 @@ class PaymentMethodsAndBillDetailsWidget extends StatelessWidget {
           height: 24,
         ),
         Text(
-          "Bill Details",
+          LocaleKeys.billDetails.tr(),
           style: CustomThemes.greyColor1CTextStyle(context).copyWith(
             fontSize: 14.sp,
             fontWeight: FontWeight.w700,
@@ -84,27 +86,27 @@ class PaymentMethodsAndBillDetailsWidget extends StatelessWidget {
         const CustomSizedBox(
           height: 2,
         ),
-        const BillDetailsItem(
-          title: "Insurance Fee",
+         BillDetailsItem(
+          title: LocaleKeys.insuranceFee.tr(),
           balance: "90",
           padding: 0,
         ),
-        const CustomSizedBox(
+         const CustomSizedBox(
           height: 2,
         ),
-        const BillDetailsItem(
-          title: "Delivery Charges",
+         BillDetailsItem(
+          title: LocaleKeys.deliveryCharges.tr(),
           balance: "78",
           padding: 0,
         ),
-        const CustomSizedBox(
+         const CustomSizedBox(
           height: 12,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Total payable amount",
+              LocaleKeys.totalPayableAmount.tr(),
               style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w700,

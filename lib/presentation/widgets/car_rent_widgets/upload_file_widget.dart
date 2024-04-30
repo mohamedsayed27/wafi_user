@@ -1,4 +1,5 @@
 import 'package:dotted_border/dotted_border.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_theme/app_colors.dart';
@@ -6,6 +7,7 @@ import 'package:wafi_user/core/app_theme/custom_themes.dart';
 import 'package:wafi_user/core/assets_path/svg_path.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 class UploadFileContainer extends StatelessWidget {
   const UploadFileContainer({super.key});
@@ -37,7 +39,7 @@ class UploadFileContainer extends StatelessWidget {
                 ),
                 const CustomSizedBox(width: 8,),
                 Text(
-                  "Upload DRIVER’S LICENSE",
+                  LocaleKeys.uploadDriversLicense.tr(),
                   style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w500,

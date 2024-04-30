@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_router/screens_name.dart';
 import '../../../core/app_theme/app_colors.dart';
@@ -67,7 +69,7 @@ class _MainLayoutState extends State<MainLayout> {
           ),
           const CustomSizedBox(height: 16,),
           Text(
-            "Hello!",
+            LocaleKeys.hello.tr(),
             style: CustomThemes.whiteColoTextTheme(context).copyWith(
               fontSize: 12.sp,
               fontWeight: FontWeight.w500,
@@ -100,7 +102,7 @@ class _MainLayoutState extends State<MainLayout> {
               gradientList: AppColors.gradientTextList,
               isGradient: false,
               child: Text(
-                "Log Out",
+                LocaleKeys.logOut.tr(),
                 style: CustomThemes.whiteColoTextTheme(context).copyWith(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w700,

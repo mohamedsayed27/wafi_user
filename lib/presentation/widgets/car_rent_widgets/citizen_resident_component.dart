@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:wafi_user/presentation/widgets/car_rent_widgets/version_increament_button.dart';
 
+import '../../../translations/locale_keys.g.dart';
 import '../shared_widgets/custom_sized_box.dart';
 import '../shared_widgets/form_date_item.dart';
 import '../shared_widgets/form_drom_down_widget.dart';
@@ -12,30 +14,30 @@ class CitizenResidentComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return  Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         IntrinsicHeight(
           child: Row(
             children: [
-              Expanded(child: FormItemWidget(title: "National ID/ Iqama", hintText: "**************",),),
-              CustomSizedBox(width: 16,),
-              Expanded(child: VersionCounter(text: 'Version',),),
+              Expanded(child: FormItemWidget(title: LocaleKeys.nationalIdIqama.tr(), hintText: "**************",),),
+              const CustomSizedBox(width: 16,),
+              Expanded(child: VersionCounter(text: LocaleKeys.version.tr(),),),
             ],
           ),
         ),
-        CustomSizedBox(height: 24,),
-        FormDateWidget(title: "Driver License Expiry Date",),
-        CustomSizedBox(height: 24,),
-        FormDateWidget(title: "National ID/ Iqama Expiry Date",),
-        CustomSizedBox(height: 24,),
-        FormDateWidget(title: "Date of Birth",),
-        CustomSizedBox(height: 24,),
-        FormDropDownWidget(title: "City",),
-        CustomSizedBox(height: 24,),
-        FormUploadItemWidget(title:"Driver License",isRequired: true,),
-        CustomSizedBox(height: 24,),
-        FormUploadItemWidget(title:"Driver License With Selfie",isRequired: true,),
+        const CustomSizedBox(height: 24,),
+        FormDateWidget(title: LocaleKeys.driverLicenseExpiryDate.tr(),),
+        const CustomSizedBox(height: 24,),
+        FormDateWidget(title: LocaleKeys.nationalIdIqama.tr(),),
+        const CustomSizedBox(height: 24,),
+        FormDateWidget(title: LocaleKeys.dateOfBirth.tr(),),
+        const CustomSizedBox(height: 24,),
+        FormDropDownWidget(title: LocaleKeys.city.tr(),),
+        const CustomSizedBox(height: 24,),
+        FormUploadItemWidget(title:LocaleKeys.driverLicense.tr(),isRequired: true,),
+        const CustomSizedBox(height: 24,),
+        FormUploadItemWidget(title:LocaleKeys.driverLicenseWithSelfie.tr(),isRequired: true,),
       ],
     );
   }

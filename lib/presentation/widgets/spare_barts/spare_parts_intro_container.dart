@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/constants/extensions.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
@@ -82,7 +84,7 @@ class _SparePartsIntroContainerState extends State<SparePartsIntroContainer> {
           ),
           const CustomSizedBox(height: 22,),
           CustomTextField(
-            hintText: "Search by part name or number",
+            hintText: LocaleKeys.searchByPartNameOrNumber.tr(),
             prefixIcon: IconButton(
               onPressed: () {},
               icon: Icon(

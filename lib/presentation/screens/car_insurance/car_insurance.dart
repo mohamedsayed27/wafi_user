@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/assets_path/svg_path.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_router/screens_name.dart';
 import '../../../core/app_theme/app_colors.dart';
@@ -13,13 +15,15 @@ import '../../widgets/shared_widgets/custom_sized_box.dart';
 class CarInsurance extends StatelessWidget {
   const CarInsurance({super.key});
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "Car Insurance",
+        child:  CustomAppBar(
+          title: LocaleKeys.carInsurance.tr(),
         ),
       ),
       body: ListView(
@@ -29,48 +33,48 @@ class CarInsurance extends StatelessWidget {
         ),
         children: [
           InsuranceDashboardWidget(
-            title: "New Insurance",
+            title: LocaleKeys.newInsurance.tr(),
             svgPath: SvgPath.insurance1,
             haveCounter: false,
             onTap: () {
               Navigator.pushNamed(context, ScreenName.newInsuranceScreen);
             },
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 16,
           ),
           InsuranceDashboardWidget(
-            title: "Existing Policy",
+            title: LocaleKeys.existingPolicy.tr(),
             svgPath: SvgPath.policy,
             onTap: () {
               Navigator.pushNamed(context, ScreenName.existingPolicesScreen);
             },
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 16,
           ),
           InsuranceDashboardWidget(
-            title: "Due For Renewal",
+            title: LocaleKeys.dueForRenewal.tr(),
             svgPath: SvgPath.renewable,
             onTap: () {
               Navigator.pushNamed(context, ScreenName.dueForRenewal);
             },
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 16,
           ),
           InsuranceDashboardWidget(
-            title: "Expired Policies",
+            title: LocaleKeys.expiredPolicies.tr(),
             svgPath: SvgPath.alert,
             onTap: () {
               Navigator.pushNamed(context, ScreenName.expiredPolices);
             },
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 16,
           ),
           InsuranceDashboardWidget(
-            title: "Existing Cars",
+            title: LocaleKeys.existingCars.tr(),
             svgPath: SvgPath.steeringWheel,
             onTap: () {
               Navigator.pushNamed(context, ScreenName.existingPolicesScreen);

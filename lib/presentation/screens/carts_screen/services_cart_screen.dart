@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -11,6 +12,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart'
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/reservations_widgets/location_details_container.dart';
 import '../../widgets/shared_widgets/bill_details_item.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
@@ -26,8 +28,8 @@ class ServicesCartScreen extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "Cart",
+        child:  CustomAppBar(
+          title: LocaleKeys.cart.tr(),
         ),
       ),
       body: SingleChildScrollView(
@@ -39,7 +41,7 @@ class ServicesCartScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Drop off Address",
+                  LocaleKeys.dropOffAddress.tr(),
                   style: CustomThemes.greyColor16TextStyle(context).copyWith(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w700,
@@ -79,7 +81,7 @@ class ServicesCartScreen extends StatelessWidget {
                       gradientList: AppColors.gradientColorsList,
                       isGradient: true,
                       child: Text(
-                        "Change",
+                        LocaleKeys.change.tr(),
                         style:
                             CustomThemes.whiteColoTextTheme(context).copyWith(
                           fontSize: 14.sp,
@@ -95,7 +97,7 @@ class ServicesCartScreen extends StatelessWidget {
             const CustomDivider(),
             const CustomSizedBox(height: 16,),
             Text(
-              "Services added",
+              LocaleKeys.servicesAdded.tr(),
               style: CustomThemes.greyColor16TextStyle(context).copyWith(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w700,
@@ -151,7 +153,7 @@ class ServicesCartScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Select Preferred Date",
+                  LocaleKeys.selectPreferredDate.tr(),
                   style: CustomThemes.greyColor16TextStyle(context).copyWith(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w700,
@@ -200,7 +202,7 @@ class ServicesCartScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      "Today",
+                      LocaleKeys.today.tr(),
                       style:
                           CustomThemes.greyColor1CTextStyle(context).copyWith(
                         fontSize: 12.sp,
@@ -221,7 +223,7 @@ class ServicesCartScreen extends StatelessWidget {
             ).onlyDirectionalPadding(start: 16),
             const CustomSizedBox(height: 16,),
             Text(
-              "Select Preferred Time",
+              LocaleKeys.selectPreferredTime.tr(),
               style: CustomThemes.greyColor16TextStyle(context).copyWith(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w700,
@@ -274,18 +276,18 @@ class ServicesCartScreen extends StatelessWidget {
             const CustomDivider(),
             const CustomSizedBox(height: 16,),
             Text(
-              "Bill Details",
+              LocaleKeys.billDetails.tr(),
               style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w700,
               ),
             ).onlyDirectionalPadding(start: 16),
-            const CustomSizedBox(height: 8,),
-            const BillDetailsItem(title: "Battery Service", balance: "100",),
-            const CustomSizedBox(height: 2,),
-            const BillDetailsItem(title: "Service Taxes", balance: "90",),
-            const CustomSizedBox(height: 2,),
-            const CustomSizedBox(height: 16,),
+             CustomSizedBox(height: 8,),
+             BillDetailsItem(title: LocaleKeys.batteryService.tr(), balance: "100",),
+             CustomSizedBox(height: 2,),
+             BillDetailsItem(title: LocaleKeys.serviceTaxes.tr(), balance: "90",),
+             CustomSizedBox(height: 2,),
+             CustomSizedBox(height: 16,),
             const CustomDivider(),
             const CustomSizedBox(height: 24,),
             CustomGradientButton(
@@ -305,7 +307,7 @@ class ServicesCartScreen extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        "Buy Now",
+                        LocaleKeys.buyNow.tr(),
                         style:
                         CustomThemes.whiteColoTextTheme(context).copyWith(
                           fontSize: 16.sp,

@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:wafi_user/core/constants/extensions.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 
 import '../../../core/assets_path/svg_path.dart';
+import '../../../translations/locale_keys.g.dart';
 import 'bottom_nav_bar_icon.dart';
 
 class BottomNavBarWidget extends StatelessWidget {
@@ -23,7 +25,7 @@ class BottomNavBarWidget extends StatelessWidget {
         Row(
           children: [
             BottomNavBarIcon(
-              label: "Home",
+              label: LocaleKeys.home.tr(),
               iconPath: SvgPath.home,
               onTap: () {
                 changeCurrentIndex(0);
@@ -34,7 +36,7 @@ class BottomNavBarWidget extends StatelessWidget {
               width: 12,
             ),
             BottomNavBarIcon(
-              label: "Orders",
+              label: LocaleKeys.orders.tr(),
               iconPath: SvgPath.calendarSilhouette,
               onTap: () {
                 changeCurrentIndex(1);
@@ -46,7 +48,7 @@ class BottomNavBarWidget extends StatelessWidget {
         Row(
           children: [
             BottomNavBarIcon(
-              label: "Cart",
+              label: LocaleKeys.cart.tr(),
               iconPath: SvgPath.cart,
               onTap: () {
                 changeCurrentIndex(2);
@@ -57,7 +59,7 @@ class BottomNavBarWidget extends StatelessWidget {
               width: 12,
             ),
             BottomNavBarIcon(
-              label: "Profile",
+              label: LocaleKeys.profile.tr(),
               iconPath: SvgPath.user,
               onTap: () {
                 changeCurrentIndex(3);

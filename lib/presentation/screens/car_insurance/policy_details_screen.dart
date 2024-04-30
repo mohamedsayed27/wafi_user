@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/presentation/widgets/car_insurance_widgets/policy_details_item_widget.dart';
@@ -6,6 +7,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.d
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 
 class PolicesDetailsScreen extends StatelessWidget {
   const PolicesDetailsScreen({super.key});
@@ -15,8 +17,8 @@ class PolicesDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "Policy Details",
+        child: CustomAppBar(
+          title: LocaleKeys.policyDetails.tr(),
         ),
       ),
       body: ListView(
@@ -36,25 +38,25 @@ class PolicesDetailsScreen extends StatelessWidget {
               horizontal: 16.w,
               vertical: 12.h,
             ),
-            child: const Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 PolicesDetailsItemWidget(
-                  title: "Policyholder ID",
+                  title: LocaleKeys.policyholderId.tr(),
                   body: "6556465165",
                 ),
-                CustomSizedBox(
+                const CustomSizedBox(
                   height: 16,
                 ),
                 PolicesDetailsItemWidget(
-                  title: "Name",
+                  title: LocaleKeys.name.tr(),
                   body: "Nick Kroll",
                 ),
-                CustomSizedBox(
+                const CustomSizedBox(
                   height: 16,
                 ),
                 PolicesDetailsItemWidget(
-                  title: "National Address",
+                  title: LocaleKeys.nationalAddress.tr(),
                   body: "Nick Kroll",
                 ),
               ],
@@ -77,46 +79,47 @@ class PolicesDetailsScreen extends StatelessWidget {
               horizontal: 16.w,
               vertical: 12.h,
             ),
-            child: const Column(
+
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 PolicesDetailsItemWidget(
-                  title: "VehicleMake / Model",
+                  title: LocaleKeys.vehicleMakeModel.tr(),
                   body: "6556465165",
                 ),
-                CustomSizedBox(
+                const CustomSizedBox(
                   height: 16,
                 ),
                 PolicesDetailsItemWidget(
-                  title: "Plate Number",
+                  title: LocaleKeys.plateNumber.tr(),
                   body: "Nick Kroll",
                 ),
-                CustomSizedBox(
+                const CustomSizedBox(
                   height: 16,
                 ),
                 PolicesDetailsItemWidget(
-                  title: "Manufacture Year",
+                  title: LocaleKeys.manufactureYear.tr(),
                   body: "Nick Kroll",
                 ),
-                CustomSizedBox(
+                const CustomSizedBox(
                   height: 16,
                 ),
                 PolicesDetailsItemWidget(
-                  title: "Color",
+                  title: LocaleKeys.color.tr(),
                   body: "6556465165",
                 ),
-                CustomSizedBox(
+                const CustomSizedBox(
                   height: 16,
                 ),
                 PolicesDetailsItemWidget(
-                  title: "Vehicle Estimated Value",
+                  title: LocaleKeys.vehicleEstimatedValue.tr(),
                   body: "Nick Kroll",
                 ),
-                CustomSizedBox(
+                const CustomSizedBox(
                   height: 16,
                 ),
                 PolicesDetailsItemWidget(
-                  title: "Repair Method",
+                  title: LocaleKeys.repairMethod.tr(),
                   body: "Nick Kroll",
                 ),
               ],

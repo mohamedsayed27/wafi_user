@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
@@ -7,6 +8,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/gradiant_color_but
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/assets_path/images_path.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../shared_widgets/custom_sized_box.dart';
 
 class PolicesWidget extends StatelessWidget {
@@ -76,7 +78,7 @@ class PolicesWidget extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    "Referance Number",
+                    LocaleKeys.referenceNumber.tr(),
                     style: CustomThemes.greyColor99TextStyle(context).copyWith(
                       fontWeight: FontWeight.w700,
                       fontSize: 12.sp,
@@ -99,7 +101,7 @@ class PolicesWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Expiry Date:",
+                    LocaleKeys.expiryDate.tr(),
                     style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                       fontWeight: FontWeight.w700,
                       fontSize: 12.sp,
@@ -120,7 +122,7 @@ class PolicesWidget extends StatelessWidget {
                   ),
                   if (!isExpired)
                     Text(
-                      "Needs attention*",
+                      LocaleKeys.needsAttention.tr(),
                       style: CustomThemes.primaryTextStyle(context).copyWith(
                         fontWeight: FontWeight.w700,
                         fontSize: 14.sp,
@@ -131,7 +133,7 @@ class PolicesWidget extends StatelessWidget {
                   ),
                   !isDueForRenew
                       ? GradientText(
-                          "View Details",
+                    LocaleKeys.viewDetails.tr(),
                           colors: AppColors.gradientColorsList,
                         )
                       : CustomGradientButton(
@@ -139,7 +141,7 @@ class PolicesWidget extends StatelessWidget {
                           height: 38,
                           width: 107,
                           child: Text(
-                            "Renew Now",
+                            LocaleKeys.rentNow.tr(),
                             style:
                                 CustomThemes.whiteColoTextTheme(context).copyWith(
                               fontSize: 14.sp,

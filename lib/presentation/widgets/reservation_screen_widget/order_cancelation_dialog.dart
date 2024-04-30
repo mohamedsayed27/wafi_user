@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_theme/app_colors.dart';
@@ -5,6 +6,7 @@ import 'package:wafi_user/core/constants/extensions.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_text_form_field.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradiant_color_button.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_theme/custom_themes.dart';
 import 'order_canceled_dialog.dart';
@@ -34,7 +36,7 @@ class OrderCancelDialog extends StatelessWidget {
             ),
           ),
           Text(
-            "Reason for cancelation",
+            LocaleKeys.reasonForCancellation.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 16.sp,
               fontWeight: FontWeight.w700,
@@ -44,8 +46,8 @@ class OrderCancelDialog extends StatelessWidget {
             height: 16,
           ),
           const RadioGroup(),
-          const CustomTextField(
-            hintText: "Add any other Reason...",
+           CustomTextField(
+            hintText: LocaleKeys.addAnyOtherReason.tr(),
             maxlines: 4,
           ),
           CustomSizedBox(
@@ -55,7 +57,7 @@ class OrderCancelDialog extends StatelessWidget {
             height: 48,
             borderRadius: 4,
             child: Text(
-              "Submit",
+              LocaleKeys.submit.tr(),
               style: CustomThemes.whiteColoTextTheme(context).copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w700,
@@ -91,7 +93,7 @@ class _RadioGroupState extends State<RadioGroup> {
       children: [
         RadioListTile<String>(
           title: Text(
-            "There are many variations of passages.",
+            LocaleKeys.variationsOfPassages.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 12.sp,
               fontWeight: FontWeight.w400,
@@ -110,7 +112,7 @@ class _RadioGroupState extends State<RadioGroup> {
         ),
         RadioListTile<String>(
           title: Text(
-            "Words don't look even slightly.",
+            LocaleKeys.dontLookEvenSlightly.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 12.sp,
               fontWeight: FontWeight.w400,
@@ -129,7 +131,7 @@ class _RadioGroupState extends State<RadioGroup> {
         ),
         RadioListTile<String>(
           title: Text(
-            "Single Ventricle Defects.",
+            LocaleKeys.singleVentricleDefects.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 12.sp,
               fontWeight: FontWeight.w400,
@@ -148,7 +150,7 @@ class _RadioGroupState extends State<RadioGroup> {
         ),
         RadioListTile<String>(
           title: Text(
-            "Random don't look even slightly believable.",
+            LocaleKeys.randomDontLookEvenSlightly.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 12.sp,
               fontWeight: FontWeight.w400,
@@ -167,7 +169,7 @@ class _RadioGroupState extends State<RadioGroup> {
         ),
         RadioListTile<String>(
           title: Text(
-            "Sed ut perspiciatis unde.",
+            LocaleKeys.sedUtPerspiciatisUnde.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 12.sp,
               fontWeight: FontWeight.w400,

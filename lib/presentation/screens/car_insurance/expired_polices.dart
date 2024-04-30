@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
@@ -5,6 +6,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.d
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/car_insurance_widgets/polices_widget.dart';
 
 class ExpiredPolices extends StatelessWidget {
@@ -16,7 +18,7 @@ class ExpiredPolices extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: preferredSize,
         child: CustomAppBar(
-          title: "Expired Polices",
+          title: LocaleKeys.expiredPolicies.tr(),
         ),
       ),
       body: ListView.separated(

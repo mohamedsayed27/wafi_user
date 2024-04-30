@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_theme/custom_themes.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/constants/constants.dart';
 import '../../widgets/shared_widgets/custom_app_bar.dart';
@@ -16,26 +18,26 @@ class ChangePasswordScreen extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "Edit Password",
+        child:  CustomAppBar(
+          title: LocaleKeys.editPassword.tr(),
           elevation: 0,
         ),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 32.h),
         children: [
-          PasswordVisibilityWidget(title: "Old Password", hintText: "Password",),
+          PasswordVisibilityWidget(title: LocaleKeys.oldPassword.tr(), hintText: LocaleKeys.password.tr(),),
           CustomSizedBox(height: 16,),
-          PasswordVisibilityWidget(title: "New Password", hintText: "Password",),
+          PasswordVisibilityWidget(title: LocaleKeys.newPassword.tr(), hintText: LocaleKeys.password.tr(),),
           CustomSizedBox(height: 16,),
-          PasswordVisibilityWidget(title: "Retype New Password", hintText: "Password",),
-          const CustomSizedBox(
+          PasswordVisibilityWidget(title: LocaleKeys.retypeNewPassword.tr(), hintText: LocaleKeys.password.tr(),),
+           CustomSizedBox(
             height: 32,
           ),
           CustomGradientButton(
             onPressed: () {},
             child: Text(
-              "Update",
+              LocaleKeys.update.tr(),
               style: CustomThemes.whiteColoTextTheme(context).copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w700,
@@ -51,7 +53,7 @@ class ChangePasswordScreen extends StatelessWidget {
 class PasswordVisibilityWidget extends StatefulWidget {
   final String title;
   final String hintText;
-  const PasswordVisibilityWidget({super.key, required this.title, required this.hintText});
+   PasswordVisibilityWidget({super.key, required this.title, required this.hintText});
 
   @override
   State<PasswordVisibilityWidget> createState() => _PasswordVisibilityWidgetState();
@@ -74,7 +76,7 @@ class _PasswordVisibilityWidgetState extends State<PasswordVisibilityWidget> {
           });
         },
         child: Text(
-          isNotVisible?"SHOW":"Hide",
+          isNotVisible?LocaleKeys.show.tr():LocaleKeys.hide.tr(),
           style: CustomThemes.greyColor1CTextStyle(context).copyWith(
             fontSize: 14.sp,
             fontWeight: FontWeight.w700,

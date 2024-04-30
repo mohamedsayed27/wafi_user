@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_router/screens_name.dart';
@@ -9,6 +10,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dar
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_divider.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/constants/constants.dart';
 
@@ -20,8 +22,8 @@ class WalletScreen extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "Payment Options",
+        child:  CustomAppBar(
+          title: LocaleKeys.paymentOptions.tr(),
           elevation: 0,
         ),
       ),
@@ -49,7 +51,7 @@ class WalletScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  "Wallet Balance",
+                  LocaleKeys.wallet.tr(),
                   style: CustomThemes.whiteColoTextTheme(context).copyWith(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.bold,
@@ -92,7 +94,7 @@ class WalletScreen extends StatelessWidget {
                 Navigator.pushNamed(context, ScreenName.savedCardsScreen);
               },
               leading: Text(
-                "Saved Cards",
+                LocaleKeys.savedCards.tr(),
                 style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w700,
@@ -112,7 +114,7 @@ class WalletScreen extends StatelessWidget {
             height: 24,
           ),
           Text(
-            "Recent Transactions",
+            LocaleKeys.recentTransactions.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 16.sp,
               fontWeight: FontWeight.w700,
@@ -172,7 +174,7 @@ class ItemWidget extends StatelessWidget {
             height: 8,
           ),
           Text(
-            "Closing Balance: AED 50",
+            "${LocaleKeys.closingBalance.tr()}: AED 50",
             style: CustomThemes.greyColor99TextStyle(context).copyWith(
               fontWeight: FontWeight.w700,
               fontSize: 10.sp,
@@ -185,7 +187,7 @@ class ItemWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Money Refund",
+            LocaleKeys.moneyRefund.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                 fontWeight: FontWeight.w700, fontSize: 16.sp, height: 1),
           ),
@@ -193,7 +195,7 @@ class ItemWidget extends StatelessWidget {
             height: 8,
           ),
           Text(
-            "Closing Balance: AED 50",
+            "${LocaleKeys.closingBalance.tr()}: AED 50",
             style: CustomThemes.greyColor99TextStyle(context).copyWith(
               fontWeight: FontWeight.w700,
               fontSize: 10.sp,

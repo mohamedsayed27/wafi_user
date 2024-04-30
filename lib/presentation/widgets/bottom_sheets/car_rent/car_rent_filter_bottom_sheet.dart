@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/constants/extensions.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_drop_down_button.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../../core/app_theme/app_colors.dart';
 import '../../../../core/app_theme/custom_themes.dart';
@@ -20,12 +22,12 @@ class _CarRentBottomSheetState extends State<CarRentBottomSheet> {
   int? selectedRatioIndex;
 
   List<String> pricesList = [
-    "Low To High",
-    "High To Low ",
+    LocaleKeys.lowToHigh,
+    LocaleKeys.highToLow,
   ];
   List<String> ratioList = [
-    "Low To High",
-    "High To Low ",
+    LocaleKeys.lowToHigh,
+    LocaleKeys.highToLow,
   ];
   List<String> modalYear = [
     "2020",
@@ -49,7 +51,7 @@ class _CarRentBottomSheetState extends State<CarRentBottomSheet> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              "Price",
+              LocaleKeys.price.tr(),
               style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w700,
@@ -102,7 +104,7 @@ class _CarRentBottomSheetState extends State<CarRentBottomSheet> {
                                 : null,
                           ),
                           child: Text(
-                            pricesList[itemIndex],
+                            pricesList[itemIndex].tr(),
                             style: selectedPriceIndex == itemIndex
                                 ? CustomThemes.whiteColoTextTheme(context)
                                     .copyWith(
@@ -126,7 +128,7 @@ class _CarRentBottomSheetState extends State<CarRentBottomSheet> {
               height: 24,
             ),
             Text(
-              "Insurance Ratio",
+              LocaleKeys.insuranceType.tr(),
               style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w700,
@@ -179,7 +181,7 @@ class _CarRentBottomSheetState extends State<CarRentBottomSheet> {
                                 : null,
                           ),
                           child: Text(
-                            ratioList[itemIndex],
+                            ratioList[itemIndex].tr(),
                             style: selectedRatioIndex == itemIndex
                                 ? CustomThemes.whiteColoTextTheme(context)
                                     .copyWith(
@@ -203,7 +205,7 @@ class _CarRentBottomSheetState extends State<CarRentBottomSheet> {
               height: 24,
             ),
             Text(
-              "Model Year",
+              LocaleKeys.modelYear.tr(),
               style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w700,
@@ -223,7 +225,7 @@ class _CarRentBottomSheetState extends State<CarRentBottomSheet> {
               onChanged: (value) {
                 this.value = value;
               },
-              hintText: "-Select Model Year-",
+              hintText: LocaleKeys.selectModelYear.tr(),
             ),
             const CustomSizedBox(
               height: 24,
@@ -233,7 +235,7 @@ class _CarRentBottomSheetState extends State<CarRentBottomSheet> {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               height: 40,
               child: Text(
-                "Sort",
+                LocaleKeys.sort.tr(),
                 style:
                 CustomThemes.whiteColoTextTheme(context).copyWith(
                   fontSize: 16.sp,

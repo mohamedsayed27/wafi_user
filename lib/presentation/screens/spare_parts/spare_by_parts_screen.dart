@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_router/screens_name.dart';
-import 'package:wafi_user/core/app_theme/app_colors.dart';
-import 'package:wafi_user/core/app_theme/custom_themes.dart';
-import 'package:wafi_user/core/constants/constants.dart';
-import 'package:wafi_user/core/constants/dummy_data.dart';
-import 'package:wafi_user/core/constants/extensions.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/custom_drop_down_button.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/custom_text_form_field.dart';
 
 import '../../widgets/spare_barts/spare_parts_intro_container.dart';
 import '../../widgets/spare_barts/spare_parts_item_widget.dart';

@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/assets_path/images_path.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
 
 class CarDetailsWidget extends StatelessWidget {
@@ -15,7 +17,7 @@ class CarDetailsWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Car Details",
+          LocaleKeys.carDetails.tr(),
           style: CustomThemes.greyColor1CTextStyle(context).copyWith(
             fontSize: 14.sp,
             fontWeight: FontWeight.w700,

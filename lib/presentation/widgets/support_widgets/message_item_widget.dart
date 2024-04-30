@@ -4,8 +4,6 @@ import 'package:wafi_user/core/app_theme/custom_themes.dart';
 import 'package:wafi_user/core/constants/extensions.dart';
 
 import '../../../core/app_theme/app_colors.dart';
-import '../../../core/assets_path/images_path.dart';
-import '../shared_widgets/custom_sized_box.dart';
 
 class MessageItemWidget extends StatelessWidget {
   final bool isMyMessage;

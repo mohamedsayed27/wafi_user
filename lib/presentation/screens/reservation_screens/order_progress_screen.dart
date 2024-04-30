@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,6 +11,7 @@ import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/assets_path/svg_path.dart';
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/reservation_screen_widget/order_cancelation_dialog.dart';
 import '../../widgets/reservation_screen_widget/stepper_item_widget.dart';
 import '../../widgets/reservations_widgets/location_details_container.dart';
@@ -37,8 +39,8 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "Order ID : S5D2S45E5",
+        child: CustomAppBar(
+          title: "${LocaleKeys.orderID.tr()} : S5D2S45E5",
           elevation: 0,
         ),
       ),
@@ -54,8 +56,10 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
             padding: EdgeInsets.symmetric(horizontal: 16.w),
             child: Row(
               children: [
-                const Icon(Icons.check_circle,color: AppColors.whiteColor,size: 20),
-                const CustomSizedBox(width: 8,),
+                const Icon(Icons.check_circle, color: AppColors.whiteColor, size: 20),
+                const CustomSizedBox(
+                  width: 8,
+                ),
                 Expanded(
                   child: Text(
                     "Completed successfully on Dec 05, 2020",
@@ -75,7 +79,7 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Car Location",
+                LocaleKeys.carLocation.tr(),
                 style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w700,
@@ -118,7 +122,7 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
                     gradientList: AppColors.gradientColorsList,
                     isGradient: true,
                     child: Text(
-                      "Change",
+                      LocaleKeys.change.tr(),
                       style: CustomThemes.whiteColoTextTheme(context).copyWith(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,
@@ -137,7 +141,7 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
             height: 16,
           ),
           Text(
-            "Driver Details",
+            LocaleKeys.driverDetails.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,
@@ -194,8 +198,7 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
                           Icons.star,
                           color: Colors.amber,
                         ),
-                        onRatingUpdate: (rating) {
-                        },
+                        onRatingUpdate: (rating) {},
                       )
                     ],
                   ),
@@ -220,7 +223,7 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
             height: 24,
           ),
           Text(
-            "Car Location",
+            LocaleKeys.carLocation.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,
@@ -236,26 +239,25 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
                     top: 20.h,
                     left: 0,
                     right: 0,
-                    child:
-                        const MySeparator().symmetricPadding(horizontal: 50)),
+                    child: const MySeparator().symmetricPadding(horizontal: 50)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     StepperWidget(
                       isSelected: currentIndex > 0,
-                      title: "Provider received order",
+                      title: LocaleKeys.roviderReceivedOrder.tr(),
                       width: 86,
                       svgIcon: SvgPath.confirmation,
                     ),
                     StepperWidget(
                       isSelected: currentIndex > 1,
-                      title: "Provider is on the way",
+                      title: LocaleKeys.providerIsOnTheWay.tr(),
                       width: 71,
                       svgIcon: SvgPath.pointer,
                     ),
                     StepperWidget(
                       isSelected: currentIndex > 2,
-                      title: "Service has been completed",
+                      title: LocaleKeys.serviceHasBeenCompleted.tr(),
                       width: 95,
                       svgIcon: SvgPath.progressCheck,
                     ),
@@ -272,7 +274,7 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
             height: 16,
           ),
           Text(
-            "Driver Details",
+            LocaleKeys.driverDetails.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,
@@ -306,7 +308,7 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
                       Text(
                         "Lagon Taylor",
                         style:
-                        CustomThemes.greyColor1CTextStyle(context).copyWith(
+                            CustomThemes.greyColor1CTextStyle(context).copyWith(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w700,
                           color: CustomThemes.greyColor1CTextStyle(context)
@@ -329,8 +331,7 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
                           Icons.star,
                           color: Colors.amber,
                         ),
-                        onRatingUpdate: (rating) {
-                        },
+                        onRatingUpdate: (rating) {},
                       )
                     ],
                   ),
@@ -343,10 +344,12 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
                   foregroundColor: AppColors.primaryColor,
                   onPressed: () {
                     Navigator.pushNamed(
-                        context, ScreenName.reviewScreen,);
+                      context,
+                      ScreenName.reviewScreen,
+                    );
                   },
                   child: Text(
-                    "Rate Agent",
+                    LocaleKeys.rateAgent.tr(),
                     style: CustomThemes.primaryTextStyle(context).copyWith(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w700,
@@ -364,7 +367,7 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
             height: 16,
           ),
           Text(
-            "Payment Method",
+            LocaleKeys.paymentMethod.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,
@@ -380,7 +383,9 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
             foregroundColor: AppColors.blackColor,
             onPressed: () {
               Navigator.pushNamed(
-                  context, ScreenName.paymentMethodsScreen,);
+                context,
+                ScreenName.paymentMethodsScreen,
+              );
             },
             child: Row(
               children: [
@@ -394,7 +399,7 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
                 ),
                 Expanded(
                   child: Text(
-                    "Pay with Apple Pay",
+                    LocaleKeys.payWithApplePay.tr(),
                     style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w700,
@@ -416,7 +421,7 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
             height: 16,
           ),
           Text(
-            "Bill Details",
+            LocaleKeys.payWithApplePay.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,
@@ -425,15 +430,24 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
           const CustomSizedBox(
             height: 8,
           ),
-          const BillDetailsItem(title: "Battery Service", balance: "100"),
+          BillDetailsItem(
+            title: LocaleKeys.batteryService.tr(),
+            balance: "100",
+          ),
           const CustomSizedBox(
             height: 2,
           ),
-          const BillDetailsItem(title: "Service Taxes", balance: "90"),
+          BillDetailsItem(
+            title: LocaleKeys.serviceTaxes.tr(),
+            balance: "90",
+          ),
           const CustomSizedBox(
             height: 2,
           ),
-          const BillDetailsItem(title: "Delivery Charges", balance: "78"),
+          const BillDetailsItem(
+            title: "Delivery Charges",
+            balance: "78",
+          ),
           const CustomSizedBox(
             height: 12,
           ),
@@ -441,7 +455,7 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Total payable amount",
+                LocaleKeys.totalPayableAmount.tr(),
                 style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w700,
@@ -469,10 +483,13 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
             foregroundColor: AppColors.primaryColor,
             onPressed: () {
-              showDialog(context: context, builder: (_)=>const OrderCancelDialog(),);
+              showDialog(
+                context: context,
+                builder: (_) => const OrderCancelDialog(),
+              );
             },
             child: Text(
-              "Cancel Booking",
+              LocaleKeys.cancelBooking.tr(),
               style: CustomThemes.primaryTextStyle(context).copyWith(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w700,
@@ -487,10 +504,9 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
             borderRadius: 4.r,
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
             foregroundColor: AppColors.primaryColor,
-            onPressed: () {
-            },
+            onPressed: () {},
             child: Text(
-              "Rate Agent",
+              LocaleKeys.rateAgent.tr(),
               style: CustomThemes.primaryTextStyle(context).copyWith(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w700,
@@ -505,5 +521,3 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
     );
   }
 }
-
-

@@ -10,6 +10,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dar
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_drop_down_button.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/constants/constants.dart';
@@ -47,12 +48,12 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: preferredSize,
-          child: const CustomAppBar(title: "Rent Car")),
+          child: CustomAppBar(title: LocaleKeys.rentACar.tr())),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 24.h),
         children: [
           Text(
-            "Services added",
+            LocaleKeys.servicesAdded.tr(),
             style: CustomThemes.greyColor16TextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,
@@ -61,7 +62,7 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
           ),
           CustomSizedBox(height: 8,),
           CustomDropDownButton(
-            hintText: "-Select City-",
+            hintText: LocaleKeys.selectCity.tr(),
             onChanged: (value) {
               setState(() {
                 this.value = value;
@@ -116,7 +117,7 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
                 width: 8,
               ),
               Text(
-                "Pick-up at the Airport",
+                LocaleKeys.pickUpAtAirport.tr(),
                 style: CustomThemes.greyColor16TextStyle(context).copyWith(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w700,
@@ -127,7 +128,7 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
           ),
           CustomSizedBox(height: 16,),
           Text(
-            "Select Date and Time",
+            LocaleKeys.selectDateTime.tr(),
             style: CustomThemes.greyColor16TextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,
@@ -155,7 +156,7 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "-Select Date & Time-",
+                    LocaleKeys.selectDateAndTime.tr(),
                     style: CustomThemes.greyColor99TextStyle(context).copyWith(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w700,
@@ -173,7 +174,7 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
           ),
           CustomSizedBox(height: 16,),
           Text(
-            "Select Vehicle type",
+            LocaleKeys.selectVehicleType.tr(),
             style: CustomThemes.greyColor16TextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,
@@ -295,7 +296,7 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
                 width: 8,
               ),
               Text(
-                "Deliver the car to you",
+                LocaleKeys.deliverCarToYou.tr(),
                 style: CustomThemes.greyColor16TextStyle(context).copyWith(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w700,
@@ -313,7 +314,7 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Search",
+                  LocaleKeys.search.tr(),
                   style:
                   CustomThemes.whiteColoTextTheme(context).copyWith(
                     fontSize: 16.sp,

@@ -7,6 +7,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.d
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../shared_widgets/gradiant_color_button.dart';
 
 class CarRentDateTimePickerDialog extends StatefulWidget {
@@ -74,7 +75,7 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
             ),
 
             Text(
-              "Set Time :",
+              LocaleKeys.setTime.tr(),
               style: CustomThemes.greyColor16TextStyle(context).copyWith(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w700,
@@ -88,7 +89,7 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
                   child: Column(
                     children: [
                       Text(
-                        "Pickup",
+                        LocaleKeys.pickup.tr(),
                         style: CustomThemes.greyColor16TextStyle(context).copyWith(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w700,
@@ -148,7 +149,7 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
                   child: Column(
                     children: [
                       Text(
-                        "Return",
+                        LocaleKeys.returnText.tr(),
                         style: CustomThemes.greyColor16TextStyle(context).copyWith(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w700,
@@ -212,7 +213,7 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
               padding: const EdgeInsets.symmetric(horizontal: 16),
               height: 40,
               child: Text(
-                "Submit",
+                LocaleKeys.submit.tr(),
                 style:
                 CustomThemes.whiteColoTextTheme(context).copyWith(
                   fontSize: 16.sp,
@@ -220,9 +221,9 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
                 ),
               ),
               onPressed: () {},
-            ).symmetricPadding(horizontal: 72)
+            ).symmetricPadding(horizontal: 72,)
           ],
-        ).symmetricPadding(horizontal: 16,vertical: 24),
+        ).symmetricPadding(horizontal: 16,vertical: 24,),
       ),
     );
   }

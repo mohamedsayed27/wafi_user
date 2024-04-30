@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/constants/extensions.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
@@ -24,7 +26,7 @@ class CartScreen extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: preferredSize,
         child: CustomAppBar(
-          title: "Cart",
+          title: LocaleKeys.cart.tr(),
         ),
       ),
       body: Column(
@@ -35,7 +37,7 @@ class CartScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Drop off Address",
+                LocaleKeys.dropOffAddress.tr(),
                 style: CustomThemes.greyColor16TextStyle(context).copyWith(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w700,
@@ -75,7 +77,7 @@ class CartScreen extends StatelessWidget {
                     gradientList: AppColors.gradientColorsList,
                     isGradient: true,
                     child: Text(
-                      "Change",
+                      LocaleKeys.change.tr(),
                       style:
                       CustomThemes.whiteColoTextTheme(context).copyWith(
                         fontSize: 14.sp,
@@ -90,8 +92,8 @@ class CartScreen extends StatelessWidget {
           Expanded(
             child: ListView.separated(
               padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 16.h),
-              itemBuilder: (_, index) => CartItemWidget(),
-              separatorBuilder: (_, index) => CustomSizedBox(
+              itemBuilder: (_, index) => const CartItemWidget(),
+              separatorBuilder: (_, index) => const CustomSizedBox(
                 height: 16,
               ),
               itemCount: 2,
@@ -100,20 +102,20 @@ class CartScreen extends StatelessWidget {
           const CustomDivider(),
           const CustomSizedBox(height: 16,),
           Text(
-            "Bill Details",
+            LocaleKeys.billDetails.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,
             ),
           ).onlyDirectionalPadding(start: 16),
           const CustomSizedBox(height: 8,),
-          const BillDetailsItem(title: "Battery Service", balance: "100"),
-          const CustomSizedBox(height: 2,),
-          const BillDetailsItem(title: "Service Taxes", balance: "90"),
-          const CustomSizedBox(height: 2,),
-          const BillDetailsItem(title: "Service Taxes", balance: "90"),
-          const CustomSizedBox(height: 2,),
-          const BillDetailsItem(title: "Service Taxes", balance: "90"),
+           BillDetailsItem(title: LocaleKeys.batteryService.tr(), balance: "100"),
+           const CustomSizedBox(height: 2,),
+           BillDetailsItem(title: LocaleKeys.serviceTaxes.tr(), balance: "90"),
+           const CustomSizedBox(height: 2,),
+           BillDetailsItem(title: LocaleKeys.cart.tr(), balance: "90"),
+           const CustomSizedBox(height: 2,),
+           BillDetailsItem(title: LocaleKeys.cart.tr(), balance: "90"),
           const CustomSizedBox(height: 2,),
           const CustomSizedBox(height: 40,),
         ],

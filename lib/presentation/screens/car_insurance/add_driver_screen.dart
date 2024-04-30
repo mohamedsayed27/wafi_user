@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/assets_path/svg_path.dart';
@@ -9,6 +11,8 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/form_date_item.dar
 import 'package:wafi_user/presentation/widgets/shared_widgets/form_drom_down_widget.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/form_item_widget.dart';
 import 'package:wafi_user/presentation/widgets/spare_barts/check_box_with_title.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
@@ -35,12 +39,12 @@ class _AddDriverScreenState extends State<AddDriverScreen> {
     currentIndex = widget.currentIndex;
     titlesList = [
       {
-        "title": "Add Driver",
+        "title": LocaleKeys.addDriver.tr(),
         "image": SvgPath.vector,
       },
       null,
       {
-        "title": "Other Details",
+        "title": LocaleKeys.otherDetails.tr(),
         "image": SvgPath.list,
       }
     ];
@@ -48,14 +52,13 @@ class _AddDriverScreenState extends State<AddDriverScreen> {
 
   late int currentIndex;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "Add Driver",
+        child: CustomAppBar(
+          title: LocaleKeys.addDriver.tr(),
         ),
       ),
       body: ListView(

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,6 +16,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart'
 
 import '../../../core/app_router/screens_name.dart';
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
 
 class SparePartsDetailsScreen extends StatefulWidget {
@@ -31,7 +33,7 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: preferredSize,
-          child: const CustomAppBar(title: "Search")),
+          child:  CustomAppBar(title: LocaleKeys.search.tr())),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 32.h),
         children: [
@@ -42,7 +44,7 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
                 height: 180.h,
                 width: 180.w,
               ),),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 38,
           ),
           Row(
@@ -57,7 +59,7 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
                     fontFamily: FontsPath.almarai,
                     height: 1),
               ),
-              const CustomSizedBox(
+               CustomSizedBox(
                 width: 8,
               ),
               GradientText(
@@ -69,7 +71,7 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
                     fontFamily: FontsPath.almarai,
                     height: 1),
               ),
-              const CustomSizedBox(
+               CustomSizedBox(
                 width: 32,
               ),Expanded(
                 child: Container(
@@ -96,7 +98,7 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
                               });
                             }
                           },
-                          icon: const Icon(Icons.remove),
+                          icon:  Icon(Icons.remove),
                           style: IconButton.styleFrom(padding: EdgeInsets.zero),
                         ),
                       ),
@@ -121,7 +123,7 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
 
                             });
                           },
-                          icon: const Icon(Icons.add),
+                          icon:  Icon(Icons.add),
                           style: IconButton.styleFrom(padding: EdgeInsets.zero),
                         ),
                       ),
@@ -131,37 +133,37 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
               ),
             ],
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 16,
           ),
-          const DetailsWithSvgItem(
+           DetailsWithSvgItem(
             isGradient: false,
             title: "16 inch",
             svgPath: SvgPath.racing,
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 12,
           ),
-          const DetailsWithSvgItem(
+           DetailsWithSvgItem(
             isGradient: false,
             title: "195/55 R16 88V",
             svgPath: SvgPath.service,
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 12,
           ),
-          const DetailsWithSvgItem(
+           DetailsWithSvgItem(
             isGradient: false,
             title: "2 Years Warrenty",
             svgPath: SvgPath.warrenty,
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 16,
           ),
-          const CustomDivider(
+           CustomDivider(
             height: 8,
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 16,
           ),
           Text(
@@ -171,13 +173,13 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 12,
           ),
-          const DetailsWithSvgItem(
+           DetailsWithSvgItem(
             title: " Collection & Delivery",
           ),
-          const CustomSizedBox(
+           CustomSizedBox(
             height: 12,
           ),
           const DetailsWithSvgItem(

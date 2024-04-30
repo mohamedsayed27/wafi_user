@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,6 +15,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_outlined_bu
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradiant_color_button.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 class CarInsuranceContainer extends StatefulWidget {
   const CarInsuranceContainer({super.key});
@@ -21,6 +23,8 @@ class CarInsuranceContainer extends StatefulWidget {
   @override
   State<CarInsuranceContainer> createState() => _CarInsuranceContainerState();
 }
+
+
 
 class _CarInsuranceContainerState extends State<CarInsuranceContainer>
     with SingleTickerProviderStateMixin {
@@ -92,7 +96,7 @@ class _CarInsuranceContainerState extends State<CarInsuranceContainer>
             height: 24,
           ),
           Text(
-            "Insurance Covers (Free) :",
+            LocaleKeys.insuranceCoversFree.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,
@@ -143,7 +147,7 @@ class _CarInsuranceContainerState extends State<CarInsuranceContainer>
             height: 24,
           ),
           Text(
-            "Additional Covers",
+            LocaleKeys.additionalCovers.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,
@@ -186,7 +190,7 @@ class _CarInsuranceContainerState extends State<CarInsuranceContainer>
           Row(
             children: [
               Text(
-                "Deductible (SAR)",
+                LocaleKeys.deductibleSar.tr(),
                 style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w700,
@@ -320,7 +324,7 @@ class _CarInsuranceContainerState extends State<CarInsuranceContainer>
                 height: 48,
                 width: 100,
                 child: Text(
-                  "Select",
+                  LocaleKeys.select.tr(),
                   style: CustomThemes.whiteColoTextTheme(context)
                       .copyWith(fontSize: 16.sp, fontWeight: FontWeight.w700),
                 ),
@@ -350,7 +354,7 @@ class InsuranceCoversWidget extends StatelessWidget {
         ),
         Expanded(
           child: Text(
-            "Energy Medical Expenses",
+            LocaleKeys.energyMedicalExpenses.tr(),
             style: CustomThemes.greyColor16TextStyle(context).copyWith(
               fontSize: 12.sp,
               fontWeight: FontWeight.w700,
@@ -403,7 +407,7 @@ class _AdditionalCoversWidgetState extends State<AdditionalCoversWidget> {
         Expanded(
           child: RichText(
             text: TextSpan(
-              text: "Energy Medical Expenses",
+              text: LocaleKeys.energyMedicalExpenses.tr(),
               style: CustomThemes.greyColor16TextStyle(context).copyWith(
                 fontSize: 13.sp,
                 fontWeight: FontWeight.w700,

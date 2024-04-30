@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -9,6 +10,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_elevated_bu
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 
 import '../../../core/constants/constants.dart';
+import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/custom_text_button.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
 import '../../widgets/shared_widgets/language_drop_down_button.dart';
@@ -39,7 +41,7 @@ class WelcomeScreen extends StatelessWidget {
               ),
             RichText(
               text: TextSpan(
-                text: "Welcome to ",
+                text: "${LocaleKeys.welcome.tr()} ",
                 style: CustomThemes.greyColor16TextStyle(context).copyWith(
                   fontSize: 24.sp,
                   fontWeight: FontWeight.w700,
@@ -59,7 +61,7 @@ class WelcomeScreen extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "One platform for all your car service needs",
+                LocaleKeys.onePlatform.tr(),
                 style: CustomThemes.greyColor16TextStyle(context).copyWith(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w400,
@@ -74,7 +76,7 @@ class WelcomeScreen extends StatelessWidget {
                     child: WhiteElevatedButton(
                       onPressed: () {Navigator.pushNamed(context, ScreenName.loginScreen);},
                       child: Text(
-                        "Login",
+                        LocaleKeys.login.tr(),
                         style: CustomThemes.colorE02TextStyle(context).copyWith(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w700,
@@ -90,7 +92,7 @@ class WelcomeScreen extends StatelessWidget {
                       onPressed: () {Navigator.pushNamed(context, ScreenName.registerScreen);},
                       borderRadius: 4,
                       child: Text(
-                        "Register",
+                        LocaleKeys.register.tr(),
                         style: CustomThemes.whiteColoTextTheme(context).copyWith(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w700,
@@ -105,7 +107,7 @@ class WelcomeScreen extends StatelessWidget {
               ),
               Center(
                 child: Text(
-                  "By Joining Wafi, you agree to the ",
+                  LocaleKeys.joinWafi.tr(),
                   textAlign: TextAlign.center,
                   style: CustomThemes.greyColor99TextStyle(context).copyWith(
                     fontSize: 14.sp,
@@ -113,7 +115,7 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Center(child: CustomTextButton(title: 'Terms & Conditions',onPressed: (){},))
+              Center(child: CustomTextButton(title: LocaleKeys.termsConditions.tr(),onPressed: (){},))
             ],
           ),
         ),

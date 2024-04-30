@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/constants/extensions.dart';
 import '../../../core/app_router/screens_name.dart';
@@ -36,7 +38,7 @@ class SpareSubmitDialog extends StatelessWidget {
             height: 16,
           ),
           GradientText(
-            "Request Submitted Successfully!",
+            LocaleKeys.requestSubmittedSuccessfully.tr(),
             textAlign: TextAlign.center,
             colors: AppColors.gradientColorsList,
             style: TextStyle(fontFamily: FontsPath.almarai, fontSize: 16.sp,fontWeight: FontWeight.w700,),
@@ -45,7 +47,7 @@ class SpareSubmitDialog extends StatelessWidget {
             height: 8,
           ),
           Text(
-            "You will be updated when the request will be accepted*",
+            LocaleKeys.youWillBeUpdated.tr(),
             textAlign: TextAlign.center,
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 12.sp,
@@ -59,7 +61,7 @@ class SpareSubmitDialog extends StatelessWidget {
             height: 48,
             borderRadius: 4,
             child: Text(
-              "Okay",
+                LocaleKeys.okay.tr(),
               style: CustomThemes.whiteColoTextTheme(context).copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w700,
@@ -69,7 +71,7 @@ class SpareSubmitDialog extends StatelessWidget {
               Navigator.pushNamed(
                 context,
                 ScreenName.servicesCartScreen,
-                arguments: "Spare Parts",
+                arguments: LocaleKeys.spareParts.tr(),
               );
             },
           ),

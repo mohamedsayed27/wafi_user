@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
@@ -5,6 +6,8 @@ import 'package:wafi_user/core/app_theme/app_colors.dart';
 import 'package:wafi_user/core/app_theme/custom_themes.dart';
 import 'package:wafi_user/core/assets_path/images_path.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
+
+import '../../../translations/locale_keys.g.dart';
 
 
 class InsuranceTypeContainerWidget extends StatelessWidget {
@@ -57,7 +60,7 @@ class InsuranceTypeContainerWidget extends StatelessWidget {
                   height: 5,
                 ),
                 Text(
-                  "Referance Number",
+                  LocaleKeys.referenceNumber.tr(),
                   style: CustomThemes.greyColor99TextStyle(context).copyWith(
                     fontWeight: FontWeight.w700,
                     fontSize: 12.sp,
@@ -80,7 +83,7 @@ class InsuranceTypeContainerWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Expiry Date:",
+                  LocaleKeys.expiryDate.tr(),
                   style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                     fontWeight: FontWeight.w700,
                     fontSize: 12.sp,
@@ -100,7 +103,7 @@ class InsuranceTypeContainerWidget extends StatelessWidget {
                   height: 5,
                 ),
                 Text(
-                  "Needs attention*",
+                  LocaleKeys.needsAttention.tr(),
                   style: CustomThemes.primaryTextStyle(context).copyWith(
                     fontWeight: FontWeight.w700,
                     fontSize: 14.sp,
@@ -110,7 +113,7 @@ class InsuranceTypeContainerWidget extends StatelessWidget {
                   height: 5,
                 ),
                 GradientText(
-                  "View Details",
+                  LocaleKeys.viewDetails.tr(),
                   colors: AppColors.gradientColorsList,
                 )
               ],
