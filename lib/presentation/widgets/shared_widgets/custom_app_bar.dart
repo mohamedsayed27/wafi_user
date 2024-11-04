@@ -7,7 +7,13 @@ class CustomAppBar extends StatelessWidget {
   final String title;
   final double elevation;
   final bool centerTitle;
-  const CustomAppBar({super.key, required this.title, this.elevation = 2, this.centerTitle = false});
+
+  const CustomAppBar({
+    super.key,
+    required this.title,
+    this.elevation = 2,
+    this.centerTitle = false,
+  });
 
   @override
   Widget build(BuildContext context) {

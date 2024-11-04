@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import '../cache_helper/cache_keys.dart';
+import '../cache_helper/shared_pref_methods.dart';
 import 'api_end_points.dart';
 
 class DioHelper {
@@ -16,14 +18,13 @@ class DioHelper {
    Future<Response> getData({
     required String url,
     Map<String, dynamic>? query,
-    String? bearerToken,
     String lang = 'en',
   }) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
-      'lang': '',
-      if (bearerToken != null) "Authorization": "Bearer $bearerToken",
+      if (CacheHelper.getData(key: CacheKeys.token) != null) "Authorization": "${CacheHelper.getData(key: CacheKeys.token)}",
       'Accept': 'text/plain',
+      "Accept-Language": CacheHelper.getData(key: CacheKeys.initialLocale),
     };
     return await dio.get(url, queryParameters: query,);
   }
@@ -32,14 +33,12 @@ class DioHelper {
     required String url,
     dynamic query,
     dynamic data,
-    String lang = 'en',
-    String? token,
   }) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
-      'lang': '',
-      if (token != null) "Authorization": "Bearer $token",
+      if (CacheHelper.getData(key: CacheKeys.token) != null) "Authorization": "${CacheHelper.getData(key: CacheKeys.token)}",
       'Accept': 'text/plain',
+      "Accept-Language": CacheHelper.getData(key: CacheKeys.initialLocale),
     };
     return await dio.post(url, queryParameters: query, data: data);
 
@@ -51,13 +50,12 @@ class DioHelper {
     dynamic query,
     dynamic data,
     String lang = 'en',
-    String? token,
   }) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
-      'lang': '',
-      if (token != null) "Authorization": "Bearer $token",
+      if (CacheHelper.getData(key: CacheKeys.token) != null) "Authorization": "${CacheHelper.getData(key: CacheKeys.token)}",
       'Accept': 'text/plain',
+      "Accept-Language": CacheHelper.getData(key: CacheKeys.initialLocale),
     };
     return await dio.delete(url, queryParameters: query, data: data);
   }
@@ -67,12 +65,12 @@ class DioHelper {
     dynamic query,
     dynamic data,
     String lang = 'en',
-    String? token,
   }) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
-      if (token != null) "Authorization": "Bearer $token",
+      if (CacheHelper.getData(key: CacheKeys.token) != null) "Authorization": "${CacheHelper.getData(key: CacheKeys.token)}",
       'Accept': 'text/plain',
+      "Accept-Language": CacheHelper.getData(key: CacheKeys.initialLocale),
     };
     return await dio.put(
       url,

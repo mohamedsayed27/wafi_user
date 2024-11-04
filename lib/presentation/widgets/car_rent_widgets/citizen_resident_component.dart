@@ -1,7 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:wafi_user/presentation/widgets/car_rent_widgets/version_increament_button.dart';
 
+import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../shared_widgets/custom_sized_box.dart';
 import '../shared_widgets/form_date_item.dart';
@@ -33,7 +34,12 @@ class CitizenResidentComponent extends StatelessWidget {
         const CustomSizedBox(height: 24,),
         FormDateWidget(title: LocaleKeys.dateOfBirth.tr(),),
         const CustomSizedBox(height: 24,),
-        FormDropDownWidget(title: LocaleKeys.city.tr(),),
+        FormDropDownWidget(items: dummyCity
+            .map((e) => DropdownMenuItem(
+          value: e,
+          child: Text(e),
+        ))
+            .toList(),title: LocaleKeys.city.tr(),),
         const CustomSizedBox(height: 24,),
         FormUploadItemWidget(title:LocaleKeys.driverLicense.tr(),isRequired: true,),
         const CustomSizedBox(height: 24,),

@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
+import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../widgets/car_insurance_widgets/add_driver_button_widget.dart';
 import '../../widgets/shared_widgets/switch_button_and_title_widget.dart';
@@ -62,13 +63,33 @@ class _AddDriverComponentState extends State<OtherDetailsComponent> {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        FormDropDownWidget(title: LocaleKeys.vehicleNightParking.tr()),
+        FormDropDownWidget(items: dummyCity
+                  .map((e) => DropdownMenuItem(
+                        value: e,
+                        child: Text(e),
+                      ))
+                  .toList(),title: LocaleKeys.vehicleNightParking.tr()),
         const CustomSizedBox(height: 24,),
-        FormDropDownWidget(title: LocaleKeys.accidentCounts.tr()),
+        FormDropDownWidget(items: dummyCity
+                  .map((e) => DropdownMenuItem(
+                        value: e,
+                        child: Text(e),
+                      ))
+                  .toList(),title: LocaleKeys.accidentCounts.tr()),
         const CustomSizedBox(height: 24,),
-        FormDropDownWidget(title: LocaleKeys.expectedKmPerYear.tr()),
+        FormDropDownWidget(items: dummyCity
+                  .map((e) => DropdownMenuItem(
+                        value: e,
+                        child: Text(e),
+                      ))
+                  .toList(),title: LocaleKeys.expectedKmPerYear.tr()),
         const CustomSizedBox(height: 24,),
-        FormDropDownWidget(title: LocaleKeys.transmissionType.tr()),
+        FormDropDownWidget(items: dummyCity
+                  .map((e) => DropdownMenuItem(
+                        value: e,
+                        child: Text(e),
+                      ))
+                  .toList(),title: LocaleKeys.transmissionType.tr()),
         const CustomSizedBox(height: 24,),
         Text(
           LocaleKeys.anyAdditionalModification.tr(),
@@ -102,7 +123,12 @@ class _AddDriverComponentState extends State<OtherDetailsComponent> {
           ),
         ),
         const CustomSizedBox(height: 24,),
-        FormDropDownWidget(title: LocaleKeys.childrenBelow16Years.tr()),
+        FormDropDownWidget(items: dummyCity
+                  .map((e) => DropdownMenuItem(
+                        value: e,
+                        child: Text(e),
+                      ))
+                  .toList(),title: LocaleKeys.childrenBelow16Years.tr()),
         const CustomSizedBox(height: 24,),
         FormItemWidget(title: LocaleKeys.modifications.tr(), hintText: "*******"),
         const CustomSizedBox(height: 24,),
@@ -126,9 +152,19 @@ class _AddDriverComponentState extends State<OtherDetailsComponent> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              FormDropDownWidget(title: LocaleKeys.whichCountry.tr()),
+              FormDropDownWidget(items: dummyCity
+                  .map((e) => DropdownMenuItem(
+                        value: e,
+                        child: Text(e),
+                      ))
+                  .toList(),title: LocaleKeys.whichCountry.tr()),
               const CustomSizedBox(height: 16,),
-              FormDropDownWidget(title: LocaleKeys.howManyYears.tr()),
+              FormDropDownWidget(items: dummyCity
+                  .map((e) => DropdownMenuItem(
+                        value: e,
+                        child: Text(e),
+                      ))
+                  .toList(),title: LocaleKeys.howManyYears.tr()),
             ],
           ),
         ),

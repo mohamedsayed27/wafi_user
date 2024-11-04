@@ -1,4 +1,4 @@
-import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart' as tr;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/translations/locale_keys.g.dart';
@@ -17,6 +17,8 @@ class FormItemWidget extends StatelessWidget {
   final Widget? suffixIcon;
   final bool isNotVisible;
   final int? maxLines;
+  final TextDirection? textDirection;
+  final String? Function(String?)? validator;
   const FormItemWidget({
     super.key,
     this.controller,
@@ -25,7 +27,7 @@ class FormItemWidget extends StatelessWidget {
     required this.hintText,
     this.isRequired = false,
     this.isOptional = false,
-    this.enabled = true, this.suffixIcon, this.isNotVisible = false,
+    this.enabled = true, this.suffixIcon, this.isNotVisible = false, this.validator, this.textDirection,
   });
 
   @override
@@ -65,6 +67,8 @@ class FormItemWidget extends StatelessWidget {
           hintText: hintText,
           enabled: enabled,
           maxlines: maxLines,
+          textDirection: textDirection,
+          validator:validator,
           filled: null,
           isNotVisible: isNotVisible,
           suffixIcon: suffixIcon,

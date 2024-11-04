@@ -15,8 +15,11 @@ class CustomTextField extends StatelessWidget {
   final bool isNotVisible;
   final bool? filled;
   final int? maxlines;
+  final TextDirection? textDirection;
+  final String? Function(String?)? validator;
   final TextStyle? hintStyle;
   final FocusNode? focusNode;
+
   const CustomTextField({
     super.key,
     this.enabled = true,
@@ -26,7 +29,12 @@ class CustomTextField extends StatelessWidget {
     required this.hintText,
     this.suffixIcon,
     this.prefixIcon,
-    this.focusNode, this.fillColor, this.filled, this.borderColor, this.hintStyle,
+    this.focusNode,
+    this.fillColor,
+    this.filled,
+    this.borderColor,
+    this.hintStyle,
+    this.validator, this.textDirection,
   });
 
   @override
@@ -34,14 +42,14 @@ class CustomTextField extends StatelessWidget {
     InputBorder border = OutlineInputBorder(
       borderRadius: BorderRadius.circular(8.r),
       borderSide: BorderSide(
-        color: borderColor??AppColors.borderColor,
+        color: borderColor ?? AppColors.borderColor,
         width: 1.w,
       ),
     );
     InputBorder focusedBorder = OutlineInputBorder(
       borderRadius: BorderRadius.circular(8.r),
       borderSide: BorderSide(
-        color: borderColor??AppColors.color1C,
+        color: borderColor ?? AppColors.color1C,
         width: 1.w,
       ),
     );
@@ -55,14 +63,18 @@ class CustomTextField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       obscureText: isNotVisible,
+      textDirection: textDirection,
+      validator: validator,
       focusNode: focusNode,
-      style: CustomThemes.greyColor16TextStyle(context).copyWith(
-        fontWeight: FontWeight.w400,
-        fontSize: 14.sp
-      ),
+      onTapOutside: (pde){
+        FocusScope.of(context).unfocus();
+      },
+      style: CustomThemes.greyColor16TextStyle(context)
+          .copyWith(fontWeight: FontWeight.w400, fontSize: 14.sp),
       maxLines: maxlines,
       decoration: InputDecoration(
         border: border,
+        hintTextDirection: textDirection,
         focusedBorder: focusedBorder,
         enabledBorder: border,
         disabledBorder: border,
@@ -72,16 +84,15 @@ class CustomTextField extends StatelessWidget {
               : AppColors.borderColor,
         ),
         errorBorder: errorBorderColor,
-        contentPadding: EdgeInsets.symmetric(horizontal:16.w,vertical: 16.h),
+        contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
         fillColor: fillColor,
         filled: filled,
         hintText: hintText,
-        hintStyle: hintStyle??CustomThemes.greyColor99TextStyle(context).copyWith(
-            fontWeight: FontWeight.w400,
-            fontSize: 14.sp
-        ),
+        hintStyle: hintStyle ??
+            CustomThemes.greyColor99TextStyle(context)
+                .copyWith(fontWeight: FontWeight.w400, fontSize: 14.sp),
         enabled: enabled,
       ),
     );

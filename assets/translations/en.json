@@ -150,6 +150,7 @@
   "addYourCar": "Add Your Car",
   "enterCarDetails": "Enter Car Details",
   "model": "Model",
+  "PleaseSelect": "Please Select",
   "chassisNumber": "Chassis Number",
   "spareParts": "Spare Parts",
   "nameOfPart": "Name of Part",
@@ -211,6 +212,7 @@
   "needsAttention": "Needs attention*",
   "viewDetails": "View Details",
   "vehicleNightParking": "Vehicle Night Parking",
+  "fillTheField": "Fill the Field",
   "accidentCounts": "Accident Counts",
   "expectedKmPerYear": "Expected KM per year",
   "transmissionType": "Transmission Type",
@@ -238,6 +240,7 @@
   "nationalIdIqamaExpiryDate": "National ID/ Iqama Expiry Date",
   "city": "City",
   "driverLicense": "Driver License",
+  "make": "Make",
   "insuranceFee": "Insurance Fee",
   "deliveryCharges": "Delivery Charges",
   "uploadDriversLicense": "Upload DRIVER’S LICENSE",
@@ -261,9 +264,11 @@
   "addToCart": "Add To Cart",
   "requestSubmittedSuccessfully": "Request Submitted Successfully!",
   "youWillBeUpdated": "You will be updated when the request will be accepted*",
-  "send": "Send"
+  "send": "Send",
+  "pleaseEnterPhoneNumber": "Please enter phone number",
+  "pleaseEnterCode": "Please enter the code",
+  "carSpareParts": "Car Spare Parts",
+  "carServiceAndMaintenance": "Car Service & Maintenance"
 }
-
-
 
 

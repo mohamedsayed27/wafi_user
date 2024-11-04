@@ -152,6 +152,7 @@ abstract class  LocaleKeys {
   static const addYourCar = 'addYourCar';
   static const enterCarDetails = 'enterCarDetails';
   static const model = 'model';
+  static const PleaseSelect = 'PleaseSelect';
   static const chassisNumber = 'chassisNumber';
   static const spareParts = 'spareParts';
   static const nameOfPart = 'nameOfPart';
@@ -213,6 +214,7 @@ abstract class  LocaleKeys {
   static const needsAttention = 'needsAttention';
   static const viewDetails = 'viewDetails';
   static const vehicleNightParking = 'vehicleNightParking';
+  static const fillTheField = 'fillTheField';
   static const accidentCounts = 'accidentCounts';
   static const expectedKmPerYear = 'expectedKmPerYear';
   static const transmissionType = 'transmissionType';
@@ -240,6 +242,7 @@ abstract class  LocaleKeys {
   static const nationalIdIqamaExpiryDate = 'nationalIdIqamaExpiryDate';
   static const city = 'city';
   static const driverLicense = 'driverLicense';
+  static const make = 'make';
   static const insuranceFee = 'insuranceFee';
   static const deliveryCharges = 'deliveryCharges';
   static const uploadDriversLicense = 'uploadDriversLicense';
@@ -264,5 +267,9 @@ abstract class  LocaleKeys {
   static const requestSubmittedSuccessfully = 'requestSubmittedSuccessfully';
   static const youWillBeUpdated = 'youWillBeUpdated';
   static const send = 'send';
+  static const pleaseEnterPhoneNumber = 'pleaseEnterPhoneNumber';
+  static const pleaseEnterCode = 'pleaseEnterCode';
+  static const carSpareParts = 'carSpareParts';
+  static const carServiceAndMaintenance = 'carServiceAndMaintenance';
 
 }

@@ -1,6 +1,6 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-// ignore_for_file: prefer_single_quotes
+// ignore_for_file: prefer_single_quotes, avoid_renaming_method_parameters
 
 import 'dart:ui';
 
@@ -166,6 +166,7 @@ class CodegenLoader extends AssetLoader{
   "addYourCar": "Add Your Car",
   "enterCarDetails": "Enter Car Details",
   "model": "Model",
+  "PleaseSelect": "Please Select",
   "chassisNumber": "Chassis Number",
   "spareParts": "Spare Parts",
   "nameOfPart": "Name of Part",
@@ -227,6 +228,7 @@ class CodegenLoader extends AssetLoader{
   "needsAttention": "Needs attention*",
   "viewDetails": "View Details",
   "vehicleNightParking": "Vehicle Night Parking",
+  "fillTheField": "Fill the Field",
   "accidentCounts": "Accident Counts",
   "expectedKmPerYear": "Expected KM per year",
   "transmissionType": "Transmission Type",
@@ -254,6 +256,7 @@ class CodegenLoader extends AssetLoader{
   "nationalIdIqamaExpiryDate": "National ID/ Iqama Expiry Date",
   "city": "City",
   "driverLicense": "Driver License",
+  "make": "Make",
   "insuranceFee": "Insurance Fee",
   "deliveryCharges": "Delivery Charges",
   "uploadDriversLicense": "Upload DRIVER’S LICENSE",
@@ -277,7 +280,11 @@ class CodegenLoader extends AssetLoader{
   "addToCart": "Add To Cart",
   "requestSubmittedSuccessfully": "Request Submitted Successfully!",
   "youWillBeUpdated": "You will be updated when the request will be accepted*",
-  "send": "Send"
+  "send": "Send",
+  "pleaseEnterPhoneNumber": "Please enter phone number",
+  "pleaseEnterCode": "Please enter the code",
+  "carSpareParts": "Car Spare Parts",
+  "carServiceAndMaintenance": "Car Service & Maintenance"
 };
 static const Map<String,dynamic> ar = {
   "profile": "الملف الشخصي",
@@ -331,6 +338,8 @@ static const Map<String,dynamic> ar = {
   "effectiveDateOfPolicy": "تاريخ سريان الوثيقة",
   "nationalAddress": "العنوان الوطني",
   "vehicleMakeModel": "صنع ونموذج السيارة",
+  "fillTheField": "قم بملئ الحقل",
+  "make": "انشاء",
   "plateNumber": "رقم اللوحة",
   "manufactureYear": "سنة الصنع",
   "color": "اللون",
@@ -464,6 +473,7 @@ static const Map<String,dynamic> ar = {
   "modelYear": "سنة الطراز",
   "sort": "ترتيب",
   "driverID": "رقم السائق",
+  "PleaseSelect": "من فضلك اختر",
   "dateOfBirth": "تاريخ الميلاد",
   "fullName": "الاسم الكامل",
   "drivingPercentage": "نسبة القيادة",
@@ -538,7 +548,11 @@ static const Map<String,dynamic> ar = {
   "addToCart": "أضف إلى السلة",
   "requestSubmittedSuccessfully": "تم إرسال الطلب بنجاح!",
   "youWillBeUpdated": "سيتم تحديثك عندما يتم قبول الطلب*",
-  "send": "ارسال"
+  "send": "ارسال",
+  "pleaseEnterPhoneNumber": "الرجاء إدخال رقم الهاتف",
+  "pleaseEnterCode": "الرجاء إدخال الكود",
+  "carSpareParts": "قطع غيار السيارات",
+  "carServiceAndMaintenance": "خدمة وصيانة السيارات"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "ar": ar};
 }

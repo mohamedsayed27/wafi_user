@@ -14,12 +14,18 @@ class CustomDropDownButton<T> extends StatelessWidget {
   final Color? borderColor;
   final Color? iconColor;
   final TextStyle? style;
+
   const CustomDropDownButton({
     super.key,
     required this.items,
     this.onChanged,
     this.value,
-    this.hintText, this.hint, this.prefixIcon, this.style, this.borderColor, this.iconColor,
+    this.hintText,
+    this.hint,
+    this.prefixIcon,
+    this.style,
+    this.borderColor,
+    this.iconColor,
   });
 
   @override
@@ -27,14 +33,14 @@ class CustomDropDownButton<T> extends StatelessWidget {
     InputBorder border = OutlineInputBorder(
       borderRadius: BorderRadius.circular(6.r),
       borderSide: BorderSide(
-        color: borderColor??AppColors.greyColor9,
+        color: borderColor ?? AppColors.greyColor9,
         width: 1.w,
       ),
     );
     InputBorder focusedBorder = OutlineInputBorder(
       borderRadius: BorderRadius.circular(6.r),
       borderSide: BorderSide(
-        color: borderColor??AppColors.greyColor9,
+        color: borderColor ?? AppColors.greyColor9,
         width: 1.w,
       ),
     );
@@ -50,13 +56,12 @@ class CustomDropDownButton<T> extends StatelessWidget {
       onChanged: onChanged,
       value: value,
       isExpanded: true,
-      hint: hint,
+      hint: hintText!=null?Text(hintText??""):null,
       style: style,
       dropdownColor: AppColors.whiteColor,
-
       padding: EdgeInsets.zero,
       decoration: InputDecoration(
-        hintText: hintText,
+        // hintText: hintText,
         prefixIcon: prefixIcon,
         hintStyle: CustomThemes.greyColor99TextStyle(context),
         border: border,
@@ -68,7 +73,6 @@ class CustomDropDownButton<T> extends StatelessWidget {
         ),
         focusedBorder: focusedBorder,
         enabledBorder: border,
-
         disabledBorder: border,
         errorBorder: errorBorderColor,
       ),
@@ -76,7 +80,7 @@ class CustomDropDownButton<T> extends StatelessWidget {
       icon: Icon(
         Icons.keyboard_arrow_down_rounded,
         size: 24.r,
-        color: iconColor??AppColors.color1C,
+        color: iconColor ?? AppColors.color1C,
       ),
     );
   }

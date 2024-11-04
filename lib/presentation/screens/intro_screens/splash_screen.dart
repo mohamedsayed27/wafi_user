@@ -6,6 +6,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/core/app_theme/app_colors.dart';
 import 'package:wafi_user/core/assets_path/svg_path.dart';
+import 'package:wafi_user/core/cache_helper/cache_keys.dart';
+import 'package:wafi_user/core/cache_helper/shared_pref_methods.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -22,23 +24,32 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
       const Duration(seconds: 1),
       () {
-        setState(() =>isLoading = true);
+        setState(() => isLoading = true);
         _loading();
       },
     );
     super.initState();
   }
 
-  _loading(){
-
+  _loading() {
     Timer(
       const Duration(seconds: 1),
-          () {
-            Navigator.pushReplacementNamed(context, ScreenName.selectLanguageScreen);
+      () {
+        if (CacheHelper.getData(key: CacheKeys.token) != null) {
+          Navigator.pushReplacementNamed(
+            context,
+            ScreenName.mainLayoutScreen,
+          );
+        } else {
+          Navigator.pushReplacementNamed(
+            context,
+            ScreenName.selectLanguageScreen,
+          );
+        }
       },
     );
-
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

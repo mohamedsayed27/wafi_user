@@ -6,23 +6,21 @@ import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import 'custom_sized_box.dart';
 
-class FormDropDownWidget extends StatefulWidget {
-  final String title;
+class FormDropDownWidget<T> extends StatelessWidget {
+  final String? title;
+  final List<DropdownMenuItem<T>> items;
+  final void Function(T?)? onChanged;
+  final T? value;
+  final bool isLoadingData;
 
-  const FormDropDownWidget({super.key, required this.title});
-
-  @override
-  State<FormDropDownWidget> createState() => _FormDropDownWidgetState();
-}
-
-class _FormDropDownWidgetState extends State<FormDropDownWidget> {
-  List<String> dummyCity = [
-    "dummy City1",
-    "dummy City2",
-    "dummy City3",
-    "dummy City4",
-  ];
-  String? value;
+  const FormDropDownWidget({
+    super.key,
+    required this.title,
+    required this.items,
+    this.onChanged,
+    this.value,
+    this.isLoadingData = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +28,7 @@ class _FormDropDownWidgetState extends State<FormDropDownWidget> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          widget.title,
+          title??"",
           style: CustomThemes.greyColor16TextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,
@@ -39,21 +37,17 @@ class _FormDropDownWidgetState extends State<FormDropDownWidget> {
         const CustomSizedBox(
           height: 8,
         ),
-        CustomDropDownButton(
-            items: dummyCity
-                .map((e) => DropdownMenuItem(
-                      child: Text(e),
-                      value: e,
-                    ))
-                .toList(),
-            value: value,
-            borderColor: AppColors.borderColor,
-            hintText: "text",
-            onChanged: (value) {
-              setState(() {
-                this.value = value;
-              });
-            }),
+        isLoadingData
+            ? const Center(
+                child: CircularProgressIndicator.adaptive(),
+              )
+            : CustomDropDownButton(
+                items: items,
+                value: value,
+                borderColor: AppColors.borderColor,
+                hintText: title??"text",
+                onChanged: onChanged,
+              ),
       ],
     );
   }

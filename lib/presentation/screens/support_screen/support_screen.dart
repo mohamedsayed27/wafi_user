@@ -21,7 +21,7 @@ class SupportScreen extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              height: 145.h,
+              height: 150.h,
               width: double.infinity,
               decoration: BoxDecoration(
                 gradient: LinearGradient(

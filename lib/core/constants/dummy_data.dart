@@ -1,7 +1,9 @@
 import 'dart:math';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:wafi_user/core/assets_path/images_path.dart';
+import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../app_theme/app_colors.dart';
 import '../enums/categories_type_enum.dart';
@@ -10,22 +12,22 @@ class DummyData {
   static List<Map<String, dynamic>> categoriesList =[
     {
       "image":ImagesPath.categoriesDummy2,
-      "title": "Car Service & Maintenance",
+      "title": LocaleKeys.carServiceAndMaintenance.tr(),
       "type":CategoriesTypeEnum.carServices,
     },
     {
       "image":ImagesPath.categoriesDummy3,
-      "title": "Car Spare Parts",
+      "title": LocaleKeys.carSpareParts.tr(),
       "type":CategoriesTypeEnum.carSpareParts,
     },
     {
       "image":ImagesPath.categoriesDummy4,
-      "title": "Car Rental",
+      "title": LocaleKeys.carRental.tr(),
       "type":CategoriesTypeEnum.carRental,
     },
     {
       "image":ImagesPath.categoriesDummy1,
-      "title": "Car Insurance",
+      "title": LocaleKeys.carInsurance.tr(),
       "type":CategoriesTypeEnum.carInsurance,
     },
   ];

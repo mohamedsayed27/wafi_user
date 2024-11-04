@@ -50,6 +50,8 @@
   "effectiveDateOfPolicy": "تاريخ سريان الوثيقة",
   "nationalAddress": "العنوان الوطني",
   "vehicleMakeModel": "صنع ونموذج السيارة",
+  "fillTheField": "قم بملئ الحقل",
+  "make": "انشاء",
   "plateNumber": "رقم اللوحة",
   "manufactureYear": "سنة الصنع",
   "color": "اللون",
@@ -183,6 +185,7 @@
   "modelYear": "سنة الطراز",
   "sort": "ترتيب",
   "driverID": "رقم السائق",
+  "PleaseSelect": "من فضلك اختر",
   "dateOfBirth": "تاريخ الميلاد",
   "fullName": "الاسم الكامل",
   "drivingPercentage": "نسبة القيادة",
@@ -257,5 +260,9 @@
   "addToCart": "أضف إلى السلة",
   "requestSubmittedSuccessfully": "تم إرسال الطلب بنجاح!",
   "youWillBeUpdated": "سيتم تحديثك عندما يتم قبول الطلب*",
-  "send": "ارسال"
+  "send": "ارسال",
+  "pleaseEnterPhoneNumber": "الرجاء إدخال رقم الهاتف",
+  "pleaseEnterCode": "الرجاء إدخال الكود",
+  "carSpareParts": "قطع غيار السيارات",
+  "carServiceAndMaintenance": "خدمة وصيانة السيارات"
 }

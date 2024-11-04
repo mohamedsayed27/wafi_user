@@ -56,6 +56,12 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
         ),
         children: [
            FormDropDownWidget(
+             items: dummyCity
+                  .map((e) => DropdownMenuItem(
+                        value: e,
+                        child: Text(e),
+                      ))
+                  .toList(),
             title: LocaleKeys.selectVehicleIdentifier.tr(),
           ),
            CustomSizedBox(
@@ -90,6 +96,12 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 FormDropDownWidget(
+                  items: dummyCity
+                  .map((e) => DropdownMenuItem(
+                        value: e,
+                        child: Text(e),
+                      ))
+                  .toList(),
                   title: LocaleKeys.purposeOfVehicleUse.tr(),
                 ),
                 CustomSizedBox(

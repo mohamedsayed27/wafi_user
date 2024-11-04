@@ -1,7 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_theme/app_colors.dart';
 import 'package:wafi_user/core/app_theme/custom_themes.dart';
+import 'package:wafi_user/core/cache_helper/cache_keys.dart';
+import 'package:wafi_user/core/cache_helper/shared_pref_methods.dart';
 
 class LanguageDropDownButton extends StatefulWidget {
   const LanguageDropDownButton({super.key});
@@ -19,8 +22,12 @@ class _LanguageDropDownButtonState extends State<LanguageDropDownButton> {
 
   @override
   void initState() {
-    value = languagesList.first;
     super.initState();
+    value = CacheHelper.getData(key: CacheKeys.initialLocale) == null
+        ? languagesList.first
+        : CacheHelper.getData(key: CacheKeys.initialLocale) == "en"
+            ? languagesList.first
+            : languagesList.last;
   }
 
   @override
@@ -55,21 +62,35 @@ class _LanguageDropDownButtonState extends State<LanguageDropDownButton> {
           fontSize: 16.sp,
           fontWeight: FontWeight.w700,
         ),
-        icon: Icon(Icons.keyboard_arrow_down,color: AppColors.colorE02,),
+        icon: const Icon(
+          Icons.keyboard_arrow_down,
+          color: AppColors.colorE02,
+        ),
         dropdownColor: AppColors.whiteColor,
         items: languagesList
             .map(
               (e) => DropdownMenuItem(
                 value: e,
-                child: Text(
-                  e,
-                ),
+                child: Text(e),
               ),
             )
             .toList(),
-        onChanged: (value) {
+        onChanged: (value) async{
           this.value = value!;
-          setState(() {});
+          if(value=="English"){
+            CacheHelper.saveData(key: CacheKeys.initialLocale, value: "en").then((value) {
+              EasyLocalization.of(context)?.setLocale(const Locale("en"));
+            });
+
+          }else{
+            CacheHelper.saveData(key: CacheKeys.initialLocale, value: "ar").then((value) {
+              EasyLocalization.of(context)?.setLocale(const Locale("ar"));
+            });
+
+          }
+          setState(() {
+
+          });
         },
         value: value,
       ),

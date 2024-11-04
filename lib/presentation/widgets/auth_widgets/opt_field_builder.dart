@@ -8,14 +8,15 @@ import '../../../core/app_theme/app_colors.dart';
 
 class PinFieldBuilder extends StatelessWidget {
   final TextEditingController? controller;
-
-  const PinFieldBuilder({Key? key, this.controller}) : super(key: key);
+  final String? Function(String?)? validator;
+  const PinFieldBuilder({Key? key, this.controller, this.validator}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return PinCodeTextField(
         controller: controller,
         appContext: context,
+        validator: validator,
         length: 4,
         autoFocus: false,
         cursorColor: Colors.black,

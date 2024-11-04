@@ -18,20 +18,17 @@ class CustomTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomSizedBox(
-      height: height.h,
-      child: TextButton(
-        onPressed: onPressed,
-        style: TextButton.styleFrom(
-          padding: EdgeInsets.zero,
-        ),
-        child: Text(
-          title,
-          textAlign: TextAlign.center,
-          style: CustomThemes.blueColorTextTheme(context).copyWith(
-            fontSize: 14.sp,
-            fontWeight: FontWeight.w700,
-          ),
+    return TextButton(
+      onPressed: onPressed,
+      style: TextButton.styleFrom(
+        padding: EdgeInsets.zero,
+      ),
+      child: Text(
+        title,
+        textAlign: TextAlign.center,
+        style: CustomThemes.blueColorTextTheme(context).copyWith(
+          fontSize: 14.sp,
+          fontWeight: FontWeight.w700,
         ),
       ),
     );

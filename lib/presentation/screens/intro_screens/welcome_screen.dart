@@ -39,14 +39,14 @@ class WelcomeScreen extends StatelessWidget {
                 width: double.infinity,
                 fit: BoxFit.cover,
               ),
-            RichText(
-              text: TextSpan(
-                text: "${LocaleKeys.welcome.tr()} ",
-                style: CustomThemes.greyColor16TextStyle(context).copyWith(
-                  fontSize: 24.sp,
-                  fontWeight: FontWeight.w700,
-                ),
-                children: [
+              RichText(
+                text: TextSpan(
+                  text: "${LocaleKeys.welcome.tr()} ",
+                  style: CustomThemes.greyColor16TextStyle(context).copyWith(
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.w700,
+                  ),
+                  children: [
                     TextSpan(
                       text: "WAFI!",
                       style: CustomThemes.colorE02TextStyle(context).copyWith(
@@ -54,9 +54,9 @@ class WelcomeScreen extends StatelessWidget {
                         fontWeight: FontWeight.w700,
                       ),
                     )
-                ],
-              ),
-            ).symmetricPadding(horizontal: 16),
+                  ],
+                ),
+              ).symmetricPadding(horizontal: 16),
               const CustomSizedBox(
                 height: 10,
               ),
@@ -74,7 +74,9 @@ class WelcomeScreen extends StatelessWidget {
                 children: [
                   Expanded(
                     child: WhiteElevatedButton(
-                      onPressed: () {Navigator.pushNamed(context, ScreenName.loginScreen);},
+                      onPressed: () {
+                        Navigator.pushNamed(context, ScreenName.loginScreen);
+                      },
                       child: Text(
                         LocaleKeys.login.tr(),
                         style: CustomThemes.colorE02TextStyle(context).copyWith(
@@ -89,11 +91,14 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                   Expanded(
                     child: CustomGradientButton(
-                      onPressed: () {Navigator.pushNamed(context, ScreenName.registerScreen);},
+                      onPressed: () {
+                        Navigator.pushNamed(context, ScreenName.registerScreen);
+                      },
                       borderRadius: 4,
                       child: Text(
                         LocaleKeys.register.tr(),
-                        style: CustomThemes.whiteColoTextTheme(context).copyWith(
+                        style:
+                            CustomThemes.whiteColoTextTheme(context).copyWith(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w700,
                         ),
@@ -115,7 +120,14 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Center(child: CustomTextButton(title: LocaleKeys.termsConditions.tr(),onPressed: (){},))
+              Center(
+                child: CustomTextButton(
+                  title: LocaleKeys.termsConditions.tr(),
+                  onPressed: () {
+                    Navigator.pushNamed(context, ScreenName.termsAndConditions);
+                  },
+                ),
+              )
             ],
           ),
         ),

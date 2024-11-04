@@ -26,7 +26,7 @@ import 'package:wafi_user/presentation/screens/profile_screens/edit_profile_scre
 import 'package:wafi_user/presentation/screens/reservation_screens/confirm_reservation_screen.dart';
 import 'package:wafi_user/presentation/screens/services_and_maintanance/service_aand_maintanance_screen.dart';
 import 'package:wafi_user/presentation/screens/services_on_map_screen/services_on_map_screen.dart';
-import 'package:wafi_user/presentation/screens/spare_parts/filter_spare_parts.dart';
+import 'package:wafi_user/presentation/screens/cars_screen/add_your_car.dart';
 import 'package:wafi_user/presentation/screens/spare_parts/spare_by_parts_screen.dart';
 import 'package:wafi_user/presentation/screens/spare_parts/spare_by_quotation_screen.dart';
 import 'package:wafi_user/presentation/screens/spare_parts/spare_parts_details_screen.dart';
@@ -229,10 +229,10 @@ class AppRouter {
             builder: (_) => const FilteredRentScreen(),
           );
         case ScreenName.termsAndConditions:
-          final title = settings.arguments as String;
+          final title = settings.arguments as String?;
           return MaterialPageRoute(
             builder: (_) => TermsConditions(
-              title: title,
+              title: title??"",
             ),
           );
 

@@ -11,6 +11,7 @@ import 'package:wafi_user/presentation/widgets/spare_barts/check_box_with_title.
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
+import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../screens/car_insurance/add_driver_screen.dart';
 import '../../widgets/car_insurance_widgets/add_driver_button_widget.dart';
@@ -282,18 +283,36 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
                 height: 16,
               ),
               FormDropDownWidget(
+                items: dummyCity
+                  .map((e) => DropdownMenuItem(
+                        value: e,
+                        child: Text(e),
+                      ))
+                  .toList(),
                 title: LocaleKeys.driverEducation.tr(),
               ),
               CustomSizedBox(
                 height: 16,
               ),
               FormDropDownWidget(
+                items: dummyCity
+                  .map((e) => DropdownMenuItem(
+                        value: e,
+                        child: Text(e),
+                      ))
+                  .toList(),
                 title: LocaleKeys.accidentCounts.tr(),
               ),
               CustomSizedBox(
                 height: 16,
               ),
               FormDropDownWidget(
+                items: dummyCity
+                  .map((e) => DropdownMenuItem(
+                        value: e,
+                        child: Text(e),
+                      ))
+                  .toList(),
                 title: LocaleKeys.childrenBelow16Years.tr(),
               ),
               CustomSizedBox(
