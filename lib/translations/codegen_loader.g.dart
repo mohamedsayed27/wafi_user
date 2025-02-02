@@ -166,6 +166,8 @@ class CodegenLoader extends AssetLoader{
   "addYourCar": "Add Your Car",
   "enterCarDetails": "Enter Car Details",
   "model": "Model",
+  "edit": "EDIT",
+  "remove": "REMOVE",
   "PleaseSelect": "Please Select",
   "chassisNumber": "Chassis Number",
   "spareParts": "Spare Parts",

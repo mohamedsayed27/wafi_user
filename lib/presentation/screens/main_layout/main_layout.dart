@@ -38,139 +38,146 @@ class _MainLayoutState extends State<MainLayout> {
     const ProfileScreen(),
   ];
 
+
   @override
   Widget build(BuildContext context) {
-    return AdvancedDrawer(
-      controller: advancedDrawerController,
-      backdropColor: AppColors.blackColor,
-      openRatio: 0.52,
-      disabledGestures: true,
-      childDecoration: BoxDecoration(borderRadius: BorderRadius.circular(32.r)),
-      drawer: ListView(
-        padding: EdgeInsetsDirectional.only(
-          top: 61.h,start: 16.w,
+    return KeyboardListener(
+      focusNode: FocusNode(),
+      onKeyEvent: (event){
+        print(event);
+      },
+      child: AdvancedDrawer(
+        controller: advancedDrawerController,
+        backdropColor: AppColors.blackColor,
+        openRatio: 0.52,
+        disabledGestures: true,
+        childDecoration: BoxDecoration(borderRadius: BorderRadius.circular(32.r)),
+        drawer: ListView(
+          padding: EdgeInsetsDirectional.only(
+            top: 61.h,start: 16.w,
+          ),
+          children: [
+            Align(
+              alignment: AlignmentDirectional.centerStart,
+              child: Container(
+                height: 54.h,
+                width: 54.w,
+                clipBehavior: Clip.antiAlias,
+                decoration: const BoxDecoration(
+                  color: AppColors.greyColorF3,
+                  shape: BoxShape.circle,
+                ),
+                child: Image.asset(
+                  ImagesPath.userNullImage,
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+            const CustomSizedBox(height: 16,),
+            Text(
+              LocaleKeys.hello.tr(),
+              style: CustomThemes.whiteColoTextTheme(context).copyWith(
+                fontSize: 12.sp,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            Text(
+              "William Wilson 👋🏻",
+              style: CustomThemes.whiteColoTextTheme(context).copyWith(
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w700,
+              ),
+            ),const CustomSizedBox(
+              height: 16,
+            ),
+            const DrawerListWidget(),
+            const CustomSizedBox(height: 48,),
+            ListTile(
+              titleAlignment: ListTileTitleAlignment.center,
+              contentPadding: EdgeInsets.zero,
+              onTap: () {},
+              leading: GradientSvg(
+                svgDisabledColor: AppColors.whiteColor,
+                svgPath: SvgPath.logout,
+                isSelected: false,
+                height: 22.h,
+                width: 22.w,
+              ),
+              style: ListTileStyle.drawer,
+              title: GradientWidget(
+                gradientList: AppColors.gradientTextList,
+                isGradient: false,
+                child: Text(
+                  LocaleKeys.logOut.tr(),
+                  style: CustomThemes.whiteColoTextTheme(context).copyWith(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+            )
+          ],
         ),
-        children: [
-          Align(
-            alignment: AlignmentDirectional.centerStart,
+        child: Scaffold(
+          // extendBodyBehindAppBar: true,
+          // extendBody: true,
+          body: screens[currentIndex],
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: SizedBox(
+            height: 56,
+            width: 56,
             child: Container(
-              height: 54.h,
-              width: 54.w,
-              clipBehavior: Clip.antiAlias,
-              decoration: const BoxDecoration(
-                color: AppColors.greyColorF3,
+              width: 56.w,
+              height: 56.h,
+              decoration: BoxDecoration(
                 shape: BoxShape.circle,
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color.fromRGBO(0, 0, 0, 0.05),
+                    offset: Offset(0, 2),
+                    blurRadius: 4,
+                  ),
+                ],
+                gradient: LinearGradient(
+                  colors: AppColors.gradientColorsList,
+                  begin: const Alignment(-1.0, -1.0),
+                  end: const Alignment(1.0, 1.0),
+                  stops: const [-0.1097, 0.3978, 0.7435, 1.1446],
+                ),
               ),
-              child: Image.asset(
-                ImagesPath.userNullImage,
-                fit: BoxFit.contain,
-              ),
-            ),
-          ),
-          const CustomSizedBox(height: 16,),
-          Text(
-            LocaleKeys.hello.tr(),
-            style: CustomThemes.whiteColoTextTheme(context).copyWith(
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          Text(
-            "William Wilson 👋🏻",
-            style: CustomThemes.whiteColoTextTheme(context).copyWith(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w700,
-            ),
-          ),const CustomSizedBox(
-            height: 16,
-          ),
-          const DrawerListWidget(),
-          const CustomSizedBox(height: 48,),
-          ListTile(
-            titleAlignment: ListTileTitleAlignment.center,
-            contentPadding: EdgeInsets.zero,
-            onTap: () {},
-            leading: GradientSvg(
-              svgDisabledColor: AppColors.whiteColor,
-              svgPath: SvgPath.logout,
-              isSelected: false,
-              height: 22.h,
-              width: 22.w,
-            ),
-            style: ListTileStyle.drawer,
-            title: GradientWidget(
-              gradientList: AppColors.gradientTextList,
-              isGradient: false,
-              child: Text(
-                LocaleKeys.logOut.tr(),
-                style: CustomThemes.whiteColoTextTheme(context).copyWith(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w700,
+              child: InkWell(
+                borderRadius: BorderRadius.circular(50.r),
+                onTap: () {
+                  Navigator.pushNamed(context, ScreenName.addYorCar);
+                },
+                child: Center(
+                  child: SvgPicture.asset(
+                    SvgPath.addCar,
+                    height: 38.h,
+                    width: 38.w,
+                    colorFilter: const ColorFilter.mode(
+                        AppColors.whiteColor, BlendMode.srcIn),
+                  ),
                 ),
               ),
             ),
-          )
-        ],
-      ),
-      child: Scaffold(
-        // extendBodyBehindAppBar: true,
-        // extendBody: true,
-        body: screens[currentIndex],
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: SizedBox(
-          height: 56,
-          width: 56,
-          child: Container(
-            width: 56.w,
-            height: 56.h,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              boxShadow: const [
-                BoxShadow(
-                  color: Color.fromRGBO(0, 0, 0, 0.05),
-                  offset: Offset(0, 2),
-                  blurRadius: 4,
-                ),
-              ],
-              gradient: LinearGradient(
-                colors: AppColors.gradientColorsList,
-                begin: const Alignment(-1.0, -1.0),
-                end: const Alignment(1.0, 1.0),
-                stops: const [-0.1097, 0.3978, 0.7435, 1.1446],
-              ),
-            ),
-            child: InkWell(
-              borderRadius: BorderRadius.circular(50.r),
-              onTap: () {
-                Navigator.pushNamed(context, ScreenName.addYorCar);
+          ),
+          bottomNavigationBar: BottomAppBar(
+            notchMargin: 10,
+            color: AppColors.greyColorDC,
+            padding: EdgeInsets.only(top: 16.h),
+            surfaceTintColor: Colors.transparent,
+            elevation: 5,
+            height: 70.h,
+            shadowColor: AppColors.shadowColor(),
+            shape: const CircularNotchedRectangle(),
+            child: BottomNavBarWidget(
+              changeCurrentIndex: (index) {
+                currentIndex = index;
+                setState(() {});
               },
-              child: Center(
-                child: SvgPicture.asset(
-                  SvgPath.addCar,
-                  height: 38.h,
-                  width: 38.w,
-                  colorFilter: const ColorFilter.mode(
-                      AppColors.whiteColor, BlendMode.srcIn),
-                ),
-              ),
+              currentIndex: currentIndex,
             ),
-          ),
-        ),
-        bottomNavigationBar: BottomAppBar(
-          notchMargin: 10,
-          color: AppColors.greyColorDC,
-          padding: EdgeInsets.only(top: 16.h),
-          surfaceTintColor: Colors.transparent,
-          elevation: 5,
-          height: 70.h,
-          shadowColor: AppColors.shadowColor(),
-          shape: const CircularNotchedRectangle(),
-          child: BottomNavBarWidget(
-            changeCurrentIndex: (index) {
-              currentIndex = index;
-              setState(() {});
-            },
-            currentIndex: currentIndex,
           ),
         ),
       ),

@@ -40,6 +40,7 @@ class ScreenName{
   static const addDriverScreen = "addDriverScreen";
   static const carInsuranceScreen = "carInsuranceScreen";
   static const carInsuranceResult = "carInsuranceResult";
+  static const myCarsScreen = "myCarsScreen";
   static const dueForRenewal = "dueForRenewal";
   static const expiredPolices = "expiredPolices";
   static const insuranceDetails = "insuranceDetails";

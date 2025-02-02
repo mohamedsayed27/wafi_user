@@ -41,6 +41,7 @@ import '../../presentation/screens/car_insurance/insurance_payment.dart';
 import '../../presentation/screens/car_insurance/new_insurance_screen.dart';
 import '../../presentation/screens/car_rent/confirm_rent_car_screen.dart';
 import '../../presentation/screens/car_rent/filtered_rent_screen.dart';
+import '../../presentation/screens/cars_screen/my_cars_screen.dart';
 import '../../presentation/screens/carts_screen/services_cart_screen.dart';
 import '../../presentation/screens/payment_methods/add_payment_method_screen.dart';
 import '../../presentation/screens/reservation_screens/order_progress_screen.dart';
@@ -61,6 +62,10 @@ class AppRouter {
         case ScreenName.welcomeScreen:
           return MaterialPageRoute(
             builder: (_) => const WelcomeScreen(),
+          );
+        case ScreenName.myCarsScreen:
+          return MaterialPageRoute(
+            builder: (_) => const MyCarsScreen(),
           );
         case ScreenName.loginScreen:
           return MaterialPageRoute(

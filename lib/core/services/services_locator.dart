@@ -17,6 +17,6 @@ class ServicesLocator{
     sl.registerLazySingleton(() => DioHelper());
     /// Cubits
     sl.registerFactory<AuthCubit>(()=> AuthCubit(sl<AuthRemoteDataSource>()));
-    sl.registerFactory<CarsCubit>(()=> CarsCubit(sl<CarsRemoteDataSource>()));
+    sl.registerLazySingleton<CarsCubit>(()=>CarsCubit(sl<CarsRemoteDataSource>()));
   }
 }

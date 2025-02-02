@@ -14,6 +14,15 @@ final class GetCarTypesLoading extends CarsState {}
 final class GetCarTypesSuccess extends CarsState {}
 final class GetCarTypesError extends CarsState {}
 
+
+final class GetMyCarsListLoading extends CarsState {}
+final class GetMyCarsListSuccess extends CarsState {}
+final class GetMyCarsListError extends CarsState {}
+
+final class InitResLoading extends CarsState {}
+final class InitResSuccess extends CarsState {}
+final class InitResError extends CarsState {}
+
 final class UpdateDropDownValue extends CarsState {}
 
 

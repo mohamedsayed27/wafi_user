@@ -1,12 +1,16 @@
+import 'dart:async';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_theme/app_theme.dart';
 import 'package:wafi_user/core/cache_helper/cache_keys.dart';
 import 'package:wafi_user/core/services/services_locator.dart';
 import 'package:wafi_user/presentation/business_logic/auth_cubit/auth_cubit.dart';
 import 'package:wafi_user/presentation/business_logic/cars_cubti/cars_cubit.dart';
+import 'package:wafi_user/presentation/screens/cars_screen/my_cars_screen.dart';
 import 'package:wafi_user/translations/codegen_loader.g.dart';
 
 import 'bloc_observer.dart';
@@ -58,11 +62,6 @@ class MyApp extends StatelessWidget {
                   sl(),
                 ),
               ),
-              BlocProvider(
-                create: (context) => CarsCubit(
-                  sl(),
-                ),
-              ),
             ],
             child: MaterialApp(
               title: 'Flutter Demo',
@@ -73,7 +72,7 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               onGenerateRoute: AppRouter.generateRoute,
               initialRoute: ScreenName.splashScreen,
-              // home: InsurancePaymentScreen(),
+              // home: MyCarsScreen(),
             ));
       },
     );

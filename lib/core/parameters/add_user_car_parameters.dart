@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 
 class AddCarParameters extends Equatable {
   final String carTypeId;
+  final String? carUserId;
   final String carModelId;
   final String year;
   final String structureNumber;
@@ -9,6 +10,7 @@ class AddCarParameters extends Equatable {
   const AddCarParameters({
     required this.carTypeId,
     required this.carModelId,
+     this.carUserId,
     required this.year,
     required this.structureNumber,
   });
@@ -17,6 +19,7 @@ class AddCarParameters extends Equatable {
         "car_type_id": carModelId,
         "model_id": carModelId,
         "year": year,
+        if(carUserId!=null)"user_car_id": carUserId,
         "structure_num": structureNumber,
       };
 

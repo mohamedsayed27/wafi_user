@@ -152,6 +152,8 @@ abstract class  LocaleKeys {
   static const addYourCar = 'addYourCar';
   static const enterCarDetails = 'enterCarDetails';
   static const model = 'model';
+  static const edit = 'edit';
+  static const remove = 'remove';
   static const PleaseSelect = 'PleaseSelect';
   static const chassisNumber = 'chassisNumber';
   static const spareParts = 'spareParts';
