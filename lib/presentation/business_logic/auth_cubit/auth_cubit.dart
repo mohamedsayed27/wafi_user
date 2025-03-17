@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wafi_user/core/cache_helper/cache_keys.dart';
 import 'package:wafi_user/core/cache_helper/shared_pref_methods.dart';
@@ -6,7 +5,6 @@ import 'package:wafi_user/data/models/auth_models/login_or_register_model.dart';
 import 'package:wafi_user/data/models/auth_models/otp_model.dart';
 import 'package:wafi_user/data/models/base_response_model.dart';
 
-import '../../../core/services/services_locator.dart';
 import '../../../data/data_source/remote_data_source/auth_remote_data_source.dart';
 
 part 'auth_state.dart';

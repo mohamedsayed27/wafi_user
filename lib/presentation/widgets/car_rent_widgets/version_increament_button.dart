@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../shared_widgets/custom_sized_box.dart';
-import '../shared_widgets/custom_text_form_field.dart';
 
 class VersionCounter extends StatefulWidget {
   final String text;

@@ -1,0 +1,4 @@
+enum AddressStatusEnum{
+  noActive,
+  active,
+}

@@ -22,12 +22,9 @@ class EditProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: CustomAppBar(
-          title: LocaleKeys.editProfile.tr(),
-          elevation: 0,
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.editProfile.tr(),
+        elevation: 0,
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 32.h),
@@ -84,12 +81,12 @@ class EditProfileScreen extends StatelessWidget {
             title: LocaleKeys.name.tr(),
             hintText: LocaleKeys.userName.tr(),
           ),
-           CustomSizedBox(height: 16),
+           const CustomSizedBox(height: 16),
            FormItemWidget(
             title: LocaleKeys.email.tr(),
             hintText: LocaleKeys.userEmail.tr(),
           ),
-           CustomSizedBox(height: 16),
+           const CustomSizedBox(height: 16),
           RichText(
             text: TextSpan(
               text: LocaleKeys.phoneNumber.tr(),
@@ -109,7 +106,7 @@ class EditProfileScreen extends StatelessWidget {
               //   ],
             ),
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 8,
           ),
           IntlPhoneField(
@@ -176,7 +173,7 @@ class EditProfileScreen extends StatelessWidget {
               ),
             ),
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 32,
           ),
           CustomGradientButton(

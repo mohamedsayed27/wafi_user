@@ -27,12 +27,9 @@ class ConfirmReservationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: CustomAppBar(
-          title: appBarTitle,
-          elevation: 0,
-        ),
+      appBar: CustomAppBar(
+        title: appBarTitle,
+        elevation: 0,
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(
@@ -165,11 +162,11 @@ class ConfirmReservationScreen extends StatelessWidget {
           ).onlyDirectionalPadding(start: 16),
           const CustomSizedBox(height: 8,),
            BillDetailsItem(title: LocaleKeys.settings.tr(), balance: "100"),
-           CustomSizedBox(height: 2,),
+           const CustomSizedBox(height: 2,),
            BillDetailsItem(title: LocaleKeys.serviceTaxes.tr(), balance: "90"),
-           CustomSizedBox(height: 2,),
-           BillDetailsItem(title: "Delivery Charges", balance: "78"),
-           CustomSizedBox(height: 12,),
+           const CustomSizedBox(height: 2,),
+           const BillDetailsItem(title: "Delivery Charges", balance: "78"),
+           const CustomSizedBox(height: 12,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -189,14 +186,14 @@ class ConfirmReservationScreen extends StatelessWidget {
               )
             ],
           ).symmetricPadding(horizontal: 16),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 24,
           ),
-           CustomDivider(),
-           CustomSizedBox(
+           const CustomDivider(),
+           const CustomSizedBox(
             height: 24,
           ),
-           CustomSizedBox(height: 171,),
+           const CustomSizedBox(height: 171,),
           CustomGradientButton(
             borderRadius: 4,
             child: Text(

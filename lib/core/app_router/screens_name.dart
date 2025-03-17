@@ -1,4 +1,4 @@
-class ScreenName{
+class ScreenName {
   static const completeProfileData = "completeProfileData";
   static const loginScreen = "loginScreen";
   static const otpScreen = "otpScreen";
@@ -15,6 +15,8 @@ class ScreenName{
   static const servicesCartScreen = "servicesCartScreen";
   static const selectLanguageScreen = "selectLanguageScreen";
   static const splashScreen = "splashScreen";
+  static const addAddressScreen = "addAddressScreen";
+  static const addressScreen = "addressScreen";
   static const welcomeScreen = "welcomeScreen";
   static const addPaymentMethodsScreen = "addPaymentMethodsScreen";
   static const paymentMethodsScreen = "paymentMethodsScreen";
@@ -25,6 +27,7 @@ class ScreenName{
   static const servicesOnMapScreen = "servicesOnMapScreen";
   static const addYorCar = "addYorCar";
   static const spareByPartsScreen = "spareByPartsScreen";
+  static const addressGoogleMap = "addressGoogleMap";
   static const mainLayoutScreen = "MainLayoutScreen";
   static const spareByQuotationScreen = "spareByQuotationScreen";
   static const sparePartsScreen = "sparePartsScreen";
@@ -36,6 +39,7 @@ class ScreenName{
   static const termsAndConditions = "termsAndConditions";
   static const savedCardsScreen = "savedCardsScreen";
   static const walletScreen = "walletScreen";
+  static const addAddressMapScreen = "addAddressMapScreen";
   static const existingPolicesScreen = "existingPolicesScreen";
   static const addDriverScreen = "addDriverScreen";
   static const carInsuranceScreen = "carInsuranceScreen";

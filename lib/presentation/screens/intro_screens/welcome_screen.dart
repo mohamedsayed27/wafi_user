@@ -6,14 +6,12 @@ import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/core/app_theme/custom_themes.dart';
 import 'package:wafi_user/core/assets_path/svg_path.dart';
 import 'package:wafi_user/core/constants/extensions.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/custom_elevated_button.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 
 import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/custom_text_button.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
-import '../../widgets/shared_widgets/language_drop_down_button.dart';
 import '../../widgets/shared_widgets/logo_app_bar.dart';
 import '../../widgets/shared_widgets/white_elevated_button.dart';
 
@@ -23,10 +21,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: const LogoAppBar(),
-      ),
+      appBar: const LogoAppBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12),
         child: SingleChildScrollView(

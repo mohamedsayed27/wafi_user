@@ -40,24 +40,24 @@ class ProfileScreen extends StatelessWidget {
                 CustomSizedBox(
                   height: preferredSize.height,
                 ),
-                IconButton(
-                  onPressed: () {
-                    advancedDrawerController.showDrawer();
-                  },
-                  style: OutlinedButton.styleFrom(
-                    padding: EdgeInsets.zero,
-                    shape: const CircleBorder(),
-                  ),
-                  icon: SvgPicture.asset(
-                    SvgPath.burgerMenu,
-                    height: 17.h,
-                    width: 24.w,
-                    colorFilter: const ColorFilter.mode(
-                      AppColors.whiteColor,
-                      BlendMode.srcIn,
-                    ),
-                  ),
-                ),
+                // IconButton(
+                //   onPressed: () {
+                //     advancedDrawerController.showDrawer();
+                //   },
+                //   style: OutlinedButton.styleFrom(
+                //     padding: EdgeInsets.zero,
+                //     shape: const CircleBorder(),
+                //   ),
+                //   icon: SvgPicture.asset(
+                //     SvgPath.burgerMenu,
+                //     height: 17.h,
+                //     width: 24.w,
+                //     colorFilter: const ColorFilter.mode(
+                //       AppColors.whiteColor,
+                //       BlendMode.srcIn,
+                //     ),
+                //   ),
+                // ),
                 Text(
                   LocaleKeys.profile.tr(),
                   style: CustomThemes.whiteColoTextTheme(context).copyWith(
@@ -66,7 +66,7 @@ class ProfileScreen extends StatelessWidget {
                     height: 1,
                   ),
                 ).onlyDirectionalPadding(start: 8),
-                CustomSizedBox(
+                const CustomSizedBox(
                   height: 24,
                 ),
                 Center(
@@ -87,7 +87,7 @@ class ProfileScreen extends StatelessWidget {
                           fit: BoxFit.cover,
                         ),
                       ),
-                      CustomSizedBox(
+                      const CustomSizedBox(
                         height: 16,
                       ),
                       Text(
@@ -99,7 +99,7 @@ class ProfileScreen extends StatelessWidget {
                           height: 1,
                         ),
                       ),
-                      CustomSizedBox(
+                      const CustomSizedBox(
                         height: 8,
                       ),
                       Text(
@@ -135,7 +135,7 @@ class ProfileScreen extends StatelessWidget {
             onTap: () {},
             isBorder: false,
           ),
-          CustomDivider(height: 8,),
+          const CustomDivider(height: 8,),
         ],
       ),
     );

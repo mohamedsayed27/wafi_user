@@ -17,12 +17,9 @@ class AddPaymentMethodScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child:  CustomAppBar(
-          title: LocaleKeys.paymentMethod.tr(),
-          centerTitle: true,
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.paymentMethod.tr(),
+        centerTitle: true,
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(
@@ -38,7 +35,7 @@ class AddPaymentMethodScreen extends StatelessWidget {
               fontStyle: FontStyle.normal,
             ),
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 8,
           ),
           CustomOutlinedButton(
@@ -47,7 +44,7 @@ class AddPaymentMethodScreen extends StatelessWidget {
             ),
             borderRadius: 4.r,
             height: 48,
-            padding:  EdgeInsets.symmetric(
+            padding:  const EdgeInsets.symmetric(
               horizontal: 14,
               vertical: 7,
             ),
@@ -72,14 +69,14 @@ class AddPaymentMethodScreen extends StatelessWidget {
               ],
             ),
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 26,
           ),
            FormItemWidget(
             title: LocaleKeys.cardNumber.tr(),
             hintText: LocaleKeys.cardNumber.tr(),
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 26,
           ),
            Row(
@@ -90,7 +87,7 @@ class AddPaymentMethodScreen extends StatelessWidget {
                   hintText: LocaleKeys.paymentMethod.tr(),
                 ),
               ),
-              CustomSizedBox(
+              const CustomSizedBox(
                 width: 16,
               ),
               Expanded(

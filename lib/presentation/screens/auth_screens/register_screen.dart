@@ -9,7 +9,6 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/gradiant_color_but
 import 'package:wafi_user/presentation/widgets/shared_widgets/logo_app_bar.dart';
 
 import '../../../core/constants/constants.dart';
-import '../../../core/services/services_locator.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../business_logic/auth_cubit/auth_cubit.dart';
 import '../../widgets/auth_widgets/screen_title_widget.dart';
@@ -29,10 +28,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: const LogoAppBar(),
-      ),
+      appBar: const LogoAppBar(),
       body: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
           if (state is RegisterLoading) {

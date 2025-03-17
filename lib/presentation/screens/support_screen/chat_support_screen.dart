@@ -46,7 +46,7 @@ class ChatSupportScreen extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    BackButton(
+                    const BackButton(
                       color: AppColors.dashedBorderColor,
                     ),
                     Text(LocaleKeys.webOrdering.tr(),style: CustomThemes.darkGrayColorTheme(context).copyWith(fontSize: 16.sp,fontWeight: FontWeight.w700,),)

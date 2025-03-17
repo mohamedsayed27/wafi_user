@@ -31,9 +31,7 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: preferredSize,
-          child:  CustomAppBar(title: LocaleKeys.search.tr())),
+      appBar: CustomAppBar(title: LocaleKeys.search.tr(),),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 32.h),
         children: [
@@ -44,7 +42,7 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
                 height: 180.h,
                 width: 180.w,
               ),),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 38,
           ),
           Row(
@@ -59,7 +57,7 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
                     fontFamily: FontsPath.almarai,
                     height: 1),
               ),
-               CustomSizedBox(
+               const CustomSizedBox(
                 width: 8,
               ),
               GradientText(
@@ -71,7 +69,7 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
                     fontFamily: FontsPath.almarai,
                     height: 1),
               ),
-               CustomSizedBox(
+               const CustomSizedBox(
                 width: 32,
               ),Expanded(
                 child: Container(
@@ -98,7 +96,7 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
                               });
                             }
                           },
-                          icon:  Icon(Icons.remove),
+                          icon:  const Icon(Icons.remove),
                           style: IconButton.styleFrom(padding: EdgeInsets.zero),
                         ),
                       ),
@@ -123,7 +121,7 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
 
                             });
                           },
-                          icon:  Icon(Icons.add),
+                          icon:  const Icon(Icons.add),
                           style: IconButton.styleFrom(padding: EdgeInsets.zero),
                         ),
                       ),
@@ -133,37 +131,37 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
               ),
             ],
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 16,
           ),
-           DetailsWithSvgItem(
+           const DetailsWithSvgItem(
             isGradient: false,
             title: "16 inch",
             svgPath: SvgPath.racing,
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 12,
           ),
-           DetailsWithSvgItem(
+           const DetailsWithSvgItem(
             isGradient: false,
             title: "195/55 R16 88V",
             svgPath: SvgPath.service,
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 12,
           ),
-           DetailsWithSvgItem(
+           const DetailsWithSvgItem(
             isGradient: false,
             title: "2 Years Warrenty",
             svgPath: SvgPath.warrenty,
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 16,
           ),
-           CustomDivider(
+           const CustomDivider(
             height: 8,
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 16,
           ),
           Text(
@@ -173,13 +171,13 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
               fontWeight: FontWeight.bold,
             ),
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 12,
           ),
-           DetailsWithSvgItem(
+           const DetailsWithSvgItem(
             title: " Collection & Delivery",
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 12,
           ),
           const DetailsWithSvgItem(

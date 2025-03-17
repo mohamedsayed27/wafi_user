@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/app_theme/custom_themes.dart';
-import 'custom_sized_box.dart';
 
 class CustomTextButton extends StatelessWidget {
   final void Function()? onPressed;
+  final TextStyle? style;
   final String title;
   final double height;
 
@@ -13,7 +13,7 @@ class CustomTextButton extends StatelessWidget {
     super.key,
     this.onPressed,
     required this.title,
-    this.height = 20,
+    this.height = 20, this.style,
   });
 
   @override
@@ -26,7 +26,7 @@ class CustomTextButton extends StatelessWidget {
       child: Text(
         title,
         textAlign: TextAlign.center,
-        style: CustomThemes.blueColorTextTheme(context).copyWith(
+        style: style??CustomThemes.blueColorTextTheme(context).copyWith(
           fontSize: 14.sp,
           fontWeight: FontWeight.w700,
         ),

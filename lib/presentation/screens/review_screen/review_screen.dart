@@ -28,11 +28,8 @@ class _ReviewScreenState extends State<ReviewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: CustomAppBar(
-          title: LocaleKeys.review.tr(),
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.review.tr(),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(

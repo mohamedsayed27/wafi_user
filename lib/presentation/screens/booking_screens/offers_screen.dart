@@ -14,12 +14,9 @@ class OffersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child:  CustomAppBar(
-          title:LocaleKeys.quotations.tr(),
-          elevation: 0,
-        ),
+      appBar: CustomAppBar(
+        title:LocaleKeys.quotations.tr(),
+        elevation: 0,
       ),
       body: ListView.separated(
         padding: EdgeInsets.symmetric(

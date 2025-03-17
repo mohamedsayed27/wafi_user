@@ -3,10 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_theme/app_colors.dart';
 import 'package:wafi_user/core/app_theme/custom_themes.dart';
 import 'package:wafi_user/core/assets_path/images_path.dart';
-import 'package:wafi_user/presentation/widgets/car_rent_widgets/version_increament_button.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_divider.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/gradiant_color_button.dart';
 
 class CartItemWidget extends StatefulWidget {
   const CartItemWidget({super.key});
@@ -55,7 +53,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                     height: 12.h,
                     width: 84.w,
                   ),
-                  CustomSizedBox(height: 8,),
+                  const CustomSizedBox(height: 8,),
                   Text(
                     "P Zero PZ4 L",
                     style: CustomThemes.greyColor1CTextStyle(context).copyWith(
@@ -63,7 +61,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  CustomSizedBox(height: 8,),
+                  const CustomSizedBox(height: 8,),
                   Text(
                     "285/40 R22 110Y",
                     style: CustomThemes.greyColor99TextStyle(context).copyWith(
@@ -95,7 +93,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              CustomSizedBox(width: 100,),
+              const CustomSizedBox(width: 100,),
               Expanded(
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 8.w,vertical: 8.h),

@@ -16,22 +16,19 @@ class ChangePasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child:  CustomAppBar(
-          title: LocaleKeys.editPassword.tr(),
-          elevation: 0,
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.editPassword.tr(),
+        elevation: 0,
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 32.h),
         children: [
           PasswordVisibilityWidget(title: LocaleKeys.oldPassword.tr(), hintText: LocaleKeys.password.tr(),),
-          CustomSizedBox(height: 16,),
+          const CustomSizedBox(height: 16,),
           PasswordVisibilityWidget(title: LocaleKeys.newPassword.tr(), hintText: LocaleKeys.password.tr(),),
-          CustomSizedBox(height: 16,),
+          const CustomSizedBox(height: 16,),
           PasswordVisibilityWidget(title: LocaleKeys.retypeNewPassword.tr(), hintText: LocaleKeys.password.tr(),),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 32,
           ),
           CustomGradientButton(

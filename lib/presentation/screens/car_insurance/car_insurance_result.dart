@@ -21,11 +21,8 @@ class CarInsuranceResult extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child:  CustomAppBar(
-          title: LocaleKeys.carInsurance.tr(),
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.carInsurance.tr(),
       ),
       body: Column(
         children: [

@@ -30,11 +30,8 @@ class _ChooseDriverTypeScreenState extends State<ChooseDriverTypeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child:  CustomAppBar(
-          title: LocaleKeys.rentACar.tr(),
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.rentACar.tr(),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 32.h),
@@ -46,12 +43,12 @@ class _ChooseDriverTypeScreenState extends State<ChooseDriverTypeScreen> {
               fontWeight: FontWeight.w700,
             ),
           ),
-           CustomSizedBox(height: 16,),
+           const CustomSizedBox(height: 16,),
           Row(
             children: List.generate(
               3,
               (index) => index.isOdd
-                  ?  CustomSizedBox(
+                  ?  const CustomSizedBox(
                       width: 16,
                     )
                   : Expanded(

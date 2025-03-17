@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_theme/app_colors.dart';
 
-import '../../../core/app_theme/custom_themes.dart';
 import 'custom_elevated_button.dart';
 
 class WhiteElevatedButton extends StatelessWidget {

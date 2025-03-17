@@ -4,10 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/presentation/widgets/car_rent_widgets/upload_file_widget.dart';
 import 'package:wafi_user/translations/locale_keys.g.dart';
 
-import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import 'custom_sized_box.dart';
-import 'custom_text_form_field.dart';
 
 class FormUploadItemWidget extends StatelessWidget {
   final String title;

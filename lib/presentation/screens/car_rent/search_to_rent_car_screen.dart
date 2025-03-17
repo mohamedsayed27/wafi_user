@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/core/app_theme/app_colors.dart';
 import 'package:wafi_user/core/assets_path/images_path.dart';
@@ -42,15 +41,14 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
   ];
   int? selectedIndex;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: preferredSize,
-          child: CustomAppBar(title: LocaleKeys.rentACar.tr())),
+      appBar: CustomAppBar(
+        title: LocaleKeys.rentACar.tr(),
+      ),
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 24.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
         children: [
           Text(
             LocaleKeys.servicesAdded.tr(),
@@ -60,7 +58,9 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
               fontStyle: FontStyle.normal,
             ),
           ),
-          CustomSizedBox(height: 8,),
+          const CustomSizedBox(
+            height: 8,
+          ),
           CustomDropDownButton(
             hintText: LocaleKeys.selectCity.tr(),
             onChanged: (value) {
@@ -76,7 +76,9 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
             }).toList(),
             value: value,
           ),
-          CustomSizedBox(height: 8,),
+          const CustomSizedBox(
+            height: 8,
+          ),
           Row(
             children: [
               Container(
@@ -126,7 +128,9 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
               ),
             ],
           ),
-          CustomSizedBox(height: 16,),
+          const CustomSizedBox(
+            height: 16,
+          ),
           Text(
             LocaleKeys.selectDateTime.tr(),
             style: CustomThemes.greyColor16TextStyle(context).copyWith(
@@ -135,12 +139,15 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
               fontStyle: FontStyle.normal,
             ),
           ),
-          CustomSizedBox(height: 8,),
+          const CustomSizedBox(
+            height: 8,
+          ),
           InkWell(
             onTap: () {
               showDialog(
-                  context: context,
-                  builder: (_) => CarRentDateTimePickerDialog(),);
+                context: context,
+                builder: (_) => const CarRentDateTimePickerDialog(),
+              );
             },
             child: Ink(
               height: 48.h,
@@ -172,7 +179,9 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
               ),
             ),
           ),
-          CustomSizedBox(height: 16,),
+          const CustomSizedBox(
+            height: 16,
+          ),
           Text(
             LocaleKeys.selectVehicleType.tr(),
             style: CustomThemes.greyColor16TextStyle(context).copyWith(
@@ -181,7 +190,9 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
               fontStyle: FontStyle.normal,
             ),
           ),
-          CustomSizedBox(height: 8,),
+          const CustomSizedBox(
+            height: 8,
+          ),
           SizedBox(
             height: 100.h,
             child: ListView.separated(
@@ -253,7 +264,9 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
               },
             ),
           ),
-          CustomSizedBox(height: 8,),
+          const CustomSizedBox(
+            height: 8,
+          ),
           Row(
             children: [
               Container(
@@ -305,7 +318,9 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
               ),
             ],
           ),
-          CustomSizedBox(height: 48,),
+          const CustomSizedBox(
+            height: 48,
+          ),
           CustomGradientButton(
             borderRadius: 6,
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -315,13 +330,16 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
               children: [
                 Text(
                   LocaleKeys.search.tr(),
-                  style:
-                  CustomThemes.whiteColoTextTheme(context).copyWith(
+                  style: CustomThemes.whiteColoTextTheme(context).copyWith(
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                Icon(Icons.arrow_forward_ios,size: 18.r,color: AppColors.whiteColor,),
+                Icon(
+                  Icons.arrow_forward_ios,
+                  size: 18.r,
+                  color: AppColors.whiteColor,
+                ),
               ],
             ),
             onPressed: () {
@@ -332,5 +350,4 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
       ),
     );
   }
-
 }

@@ -1,16 +1,11 @@
-import 'dart:async';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_theme/app_theme.dart';
 import 'package:wafi_user/core/cache_helper/cache_keys.dart';
 import 'package:wafi_user/core/services/services_locator.dart';
 import 'package:wafi_user/presentation/business_logic/auth_cubit/auth_cubit.dart';
-import 'package:wafi_user/presentation/business_logic/cars_cubti/cars_cubit.dart';
-import 'package:wafi_user/presentation/screens/cars_screen/my_cars_screen.dart';
 import 'package:wafi_user/translations/codegen_loader.g.dart';
 
 import 'bloc_observer.dart';
@@ -38,7 +33,6 @@ void main() async {
       ],
       path: 'assets/translations',
       assetLoader: const CodegenLoader(),
-      // <-- change the path of the translation files
       fallbackLocale: Locale(
         CacheHelper.getData(key: CacheKeys.initialLocale) ?? 'en',
       ),
@@ -46,6 +40,8 @@ void main() async {
     ),
   );
 }
+
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -56,24 +52,26 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       builder: (context, child) {
         return MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (context) => AuthCubit(
-                  sl(),
-                ),
+          providers: [
+            BlocProvider(
+              create: (context) => AuthCubit(
+                sl(),
               ),
-            ],
-            child: MaterialApp(
-              title: 'Flutter Demo',
-              localizationsDelegates: context.localizationDelegates,
-              supportedLocales: context.supportedLocales,
-              locale: context.locale,
-              theme: AppTheme.lightTheme,
-              debugShowCheckedModeBanner: false,
-              onGenerateRoute: AppRouter.generateRoute,
-              initialRoute: ScreenName.splashScreen,
-              // home: MyCarsScreen(),
-            ));
+            ),
+          ],
+          child: MaterialApp(
+            navigatorKey: navigatorKey,
+            title: 'Flutter Demo',
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
+            theme: AppTheme.lightTheme,
+            debugShowCheckedModeBanner: false,
+            onGenerateRoute: AppRouter.generateRoute,
+            initialRoute: ScreenName.splashScreen,
+            // home: AddAddressScreen(),
+          ),
+        );
       },
     );
   }

@@ -16,13 +16,11 @@ class TermsConditions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: preferredSize,
-          child: CustomAppBar(title: title)),
+      appBar: CustomAppBar(title: title),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 24,
           ),
           SvgPicture.asset(
@@ -30,7 +28,7 @@ class TermsConditions extends StatelessWidget {
             width: 164.w,
             height: 45.h,
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 24,
           ),
           Text(
@@ -41,7 +39,7 @@ class TermsConditions extends StatelessWidget {
               fontSize: 16.sp,
             ),
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 8,
           ),
           Text(
@@ -52,7 +50,7 @@ class TermsConditions extends StatelessWidget {
               fontSize: 12.sp,
             ),
           ).symmetricPadding(horizontal: 32),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 16,
           ),
           Expanded(
@@ -70,7 +68,7 @@ class TermsConditions extends StatelessWidget {
                           fontSize: 16.sp,
                         ),
                       ),
-                      CustomSizedBox(
+                      const CustomSizedBox(
                         height: 8,
                       ),
                       Text(
@@ -85,7 +83,7 @@ class TermsConditions extends StatelessWidget {
                   );
                 },
                 separatorBuilder: (_, index) {
-                  return CustomSizedBox(height: 16,);
+                  return const CustomSizedBox(height: 16,);
                 },
                 itemCount: 5),
           )

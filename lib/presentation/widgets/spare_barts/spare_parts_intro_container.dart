@@ -36,48 +36,48 @@ class _SparePartsIntroContainerState extends State<SparePartsIntroContainer> {
       child: Column(
         children: [
           CustomSizedBox(
-            height: preferredSize.height,
+            height: (preferredSize.height)/2,
           ),
-          Row(
+          const Row(
             children: [
-              const BackButton(
+              BackButton(
                 color: AppColors.whiteColor,
               ),
-              const Spacer(),
-              SizedBox(
-                width: 100.w,
-                height: 30.h,
-                child: CustomDropDownButton(
-                  hintText: "Hint",
-                  onChanged: (value) {
-                    this.value = value;
-                    setState(() {});
-                  },
-                  items: DummyData.dummyTextList
-                      .map(
-                        (e) => DropdownMenuItem(
-                      value: e,
-                      child: Text(
-                        e,
-                        style:
-                        CustomThemes.greyColor99TextStyle(context)
-                            .copyWith(
-                          fontSize: 12.sp,
-                        ),
-                      ),
-                    ),
-                  )
-                      .toList(),
-                  style:
-                  CustomThemes.whiteColoTextTheme(context).copyWith(
-                    fontSize: 12.sp,
-                  ),
-                  borderColor: AppColors.whiteColor,
-                  iconColor: AppColors.whiteColor,
-                  value: value,
-                ),
-              ),
-              const CustomSizedBox(
+              Spacer(),
+              // SizedBox(
+              //   width: 100.w,
+              //   height: 30.h,
+              //   child: CustomDropDownButton(
+              //     hintText: "Hint",
+              //     onChanged: (value) {
+              //       this.value = value;
+              //       setState(() {});
+              //     },
+              //     items: DummyData.dummyTextList
+              //         .map(
+              //           (e) => DropdownMenuItem(
+              //         value: e,
+              //         child: Text(
+              //           e,
+              //           style:
+              //           CustomThemes.greyColor99TextStyle(context)
+              //               .copyWith(
+              //             fontSize: 12.sp,
+              //           ),
+              //         ),
+              //       ),
+              //     )
+              //         .toList(),
+              //     style:
+              //     CustomThemes.whiteColoTextTheme(context).copyWith(
+              //       fontSize: 12.sp,
+              //     ),
+              //     borderColor: AppColors.whiteColor,
+              //     iconColor: AppColors.whiteColor,
+              //     value: value,
+              //   ),
+              // ),
+              CustomSizedBox(
                 width: 16,
               ),
             ],

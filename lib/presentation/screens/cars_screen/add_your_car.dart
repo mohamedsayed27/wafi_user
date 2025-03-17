@@ -47,11 +47,8 @@ class _AddYourCarState extends State<AddYourCar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: CustomAppBar(
-          title: LocaleKeys.addYourCar.tr(),
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.addYourCar.tr(),
       ),
       body: BlocProvider.value(
         value: sl<CarsCubit>()

@@ -24,11 +24,8 @@ class InsurancePaymentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child:  CustomAppBar(
-          title: LocaleKeys.cart.tr(),
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.cart.tr(),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(

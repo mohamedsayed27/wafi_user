@@ -33,11 +33,8 @@ class _AddNewInsuranceScreenState extends State<AddNewInsuranceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: CustomAppBar(
-          title: LocaleKeys.newInsurance.tr(),
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.newInsurance.tr(),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 32.h),
@@ -72,13 +69,13 @@ class _AddNewInsuranceScreenState extends State<AddNewInsuranceScreen> {
           ),
           FormItemWidget(
               title: LocaleKeys.policyholderId.tr(), hintText: LocaleKeys.policyholderId.tr(),),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 24,
           ),
           FormDateWidget(
             title: LocaleKeys.effectiveDateOfPolicy.tr(),
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 164,
           ),
           CustomGradientButton(

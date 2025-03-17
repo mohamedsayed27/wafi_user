@@ -20,11 +20,8 @@ class CarInsurance extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child:  CustomAppBar(
-          title: LocaleKeys.carInsurance.tr(),
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.carInsurance.tr(),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(
@@ -40,7 +37,7 @@ class CarInsurance extends StatelessWidget {
               Navigator.pushNamed(context, ScreenName.newInsuranceScreen);
             },
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 16,
           ),
           InsuranceDashboardWidget(
@@ -50,7 +47,7 @@ class CarInsurance extends StatelessWidget {
               Navigator.pushNamed(context, ScreenName.existingPolicesScreen);
             },
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 16,
           ),
           InsuranceDashboardWidget(
@@ -60,7 +57,7 @@ class CarInsurance extends StatelessWidget {
               Navigator.pushNamed(context, ScreenName.dueForRenewal);
             },
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 16,
           ),
           InsuranceDashboardWidget(
@@ -70,7 +67,7 @@ class CarInsurance extends StatelessWidget {
               Navigator.pushNamed(context, ScreenName.expiredPolices);
             },
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 16,
           ),
           InsuranceDashboardWidget(

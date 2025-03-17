@@ -1,144 +1,116 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 import 'package:wafi_user/core/app_router/screens_name.dart';
-import 'package:wafi_user/core/assets_path/svg_path.dart';
+import 'package:wafi_user/core/assets_path/lottie_path.dart';
+import 'package:wafi_user/data/models/car_service_and_maintenance_models/car_service_model.dart';
+import 'package:wafi_user/presentation/business_logic/car_service_cubit/car_service_cubit.dart';
+import 'package:wafi_user/presentation/screens/services_on_map_screen/services_on_map_screen.dart';
+import 'package:wafi_user/presentation/widgets/shared_widgets/cached_network_image_widget.dart';
+import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
+import 'package:wafi_user/presentation/widgets/shared_widgets/empty_content_widget.dart';
 import 'package:wafi_user/translations/locale_keys.g.dart';
-
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
-import '../../../core/constants/constants.dart';
+import '../../../core/services/services_locator.dart';
 import '../../widgets/shared_widgets/custom_app_bar.dart';
-import '../../widgets/shared_widgets/gradient_svg.dart';
 
 class ServiceAndMaintenanceScreen extends StatelessWidget {
   const ServiceAndMaintenanceScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child:  CustomAppBar(
+    return BlocProvider(
+      create: (context) => sl<CarServiceCubit>()..getServiceList(),
+      child: Scaffold(
+        appBar: CustomAppBar(
           title: LocaleKeys.servicesAndMaintenance.tr(),
         ),
-      ),
-      body: ListView(
-        children: [
-          ServicesAndMaintenanceWidget(
-            title: LocaleKeys.batteryService.tr(),
-            onTap: (){
-              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: LocaleKeys.batteryService.tr());
-            },
+        body: BlocBuilder<CarServiceCubit, CarServiceState>(
+          builder: (context, state) {
+            final cubit = CarServiceCubit.get(context);
+            return state is GetServiceListLoading
+                ? Center(
+                    child: Lottie.asset(
+                      LottiePath.loading,
+                    ),
+                  )
+                : cubit.serviceList!.isNotEmpty
+                    ? ListView.separated(
+                        itemBuilder: (_, index) {
+                          return ServicesAndMaintenanceWidget(
+                            onTap: () {
+                              cubit.selectedSubServiceList = null;
+                              cubit.carServiceModel = cubit.serviceList?[index];
 
-            svgPath: SvgPath.carBattery,
-          ),
-          ServicesAndMaintenanceWidget(
-            title: LocaleKeys.tiresService.tr(),
-            onTap: (){
-              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: LocaleKeys.tiresService.tr());
-            },
-
-            svgPath: SvgPath.racing,
-          ),
-          ServicesAndMaintenanceWidget(
-            title: LocaleKeys.locksmith.tr(),
-            onTap: (){
-              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: LocaleKeys.locksmith.tr());
-            },
-
-            svgPath: SvgPath.lockSmith,
-          ),
-          ServicesAndMaintenanceWidget(
-            title: LocaleKeys.fuel.tr(),
-            onTap: (){
-              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: LocaleKeys.fuel.tr());
-            },
-
-            svgPath: SvgPath.fuel,
-          ),
-          ServicesAndMaintenanceWidget(
-            title: LocaleKeys.oil.tr(),
-            onTap: (){
-              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: LocaleKeys.oil.tr());
-            },
-
-            svgPath: SvgPath.oil,
-          ),
-          ServicesAndMaintenanceWidget(
-            title: LocaleKeys.carCheckUp.tr(),
-            onTap: (){
-              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: LocaleKeys.carCheckUp.tr());
-            },
-
-            svgPath: SvgPath.carRepair,
-          ),
-          ServicesAndMaintenanceWidget(
-            title: LocaleKeys.towingService.tr(),
-            onTap: (){
-              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: LocaleKeys.towingService.tr());
-            },
-
-            svgPath: SvgPath.towTruck,
-          ),
-          ServicesAndMaintenanceWidget(
-            title: LocaleKeys.carDetailing.tr(),
-            onTap: (){
-              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: LocaleKeys.carDetailing.tr());
-            },
-
-            svgPath: SvgPath.carWash,
-          ),
-          ServicesAndMaintenanceWidget(
-            title: LocaleKeys.bodywork.tr(),
-            onTap: (){
-              Navigator.pushNamed(context, ScreenName.servicesOnMapScreen,arguments: LocaleKeys.bodywork.tr());
-            },
-
-            svgPath: SvgPath.service,
-            isBorder: false,
-          ),
-        ],
+                              Navigator.pushNamed(
+                                context,
+                                ScreenName.servicesOnMapScreen,
+                                arguments: ServiceOnMapScreenArgs(
+                                  title: cubit.serviceList?[index].title ?? "",
+                                  id: cubit.serviceList?[index].id ?? 0,
+                                  cubit: cubit,
+                                ),
+                              );
+                            },
+                            carServiceModel: cubit.serviceList?[index],
+                          );
+                        },
+                        separatorBuilder: (_, index) {
+                          return const CustomSizedBox(
+                            height: 0,
+                          );
+                        },
+                        itemCount: cubit.serviceList?.length ?? 0,
+                      )
+                    : Center(
+                        child: EmptyContentWidget(
+                          title: "No Service",
+                          height: 32.h,
+                          width: 32.w,
+                        ),
+                      );
+          },
+        ),
       ),
     );
   }
 }
 
 class ServicesAndMaintenanceWidget extends StatelessWidget {
-  final String title;
   final void Function()? onTap;
-  final String? svgPath;
   final bool isBorder;
+  final CarServiceModel? carServiceModel;
+
   const ServicesAndMaintenanceWidget({
     super.key,
-    required this.title,
+    required this.carServiceModel,
     this.onTap,
-    this.svgPath, this.isBorder = true,
+    this.isBorder = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       onTap: onTap,
-      shape: isBorder?UnderlineInputBorder(
-        borderSide: BorderSide(
-          width: 0.5.w,
-          color: AppColors.greyColor9.withOpacity(0.4)
-        )
-      ):null,
+      shape: isBorder
+          ? UnderlineInputBorder(
+              borderSide: BorderSide(width: 0.5.w, color: AppColors.greyColor9.withOpacity(0.4)))
+          : null,
       contentPadding: EdgeInsets.symmetric(horizontal: 16.w),
       title: Text(
-        title,
+        carServiceModel?.title ?? "",
         style: CustomThemes.greyColor1CTextStyle(context).copyWith(
           fontSize: 14.sp,
           fontWeight: FontWeight.w600,
         ),
       ),
-      leading: GradientSvg(
-        svgPath: svgPath!,
-        isSelected: true,
-        height: 22.h,
-        width: 22.w,
+      leading: CachedNetworkImageWidget(
+        imageUrl: carServiceModel?.imageUrl ?? "",
+        height: 24.w,
+        width: 24.w,
       ),
     );
   }

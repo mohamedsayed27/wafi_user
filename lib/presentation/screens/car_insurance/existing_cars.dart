@@ -14,11 +14,8 @@ class ExistingCarsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child:  CustomAppBar(
-          title: LocaleKeys.existingCars.tr(),
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.existingCars.tr(),
       ),
       body: ListView.separated(
           padding: EdgeInsets.symmetric(

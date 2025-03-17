@@ -100,7 +100,7 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              CustomSizedBox(
+              const CustomSizedBox(
                 height: 16,
               ),
               Row(
@@ -125,7 +125,7 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
                   },
                 ),
               ),
-              CustomSizedBox(
+              const CustomSizedBox(
                 height: 16,
               ),
               Center(
@@ -146,7 +146,7 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
             ],
           ),
         ),
-        CustomSizedBox(
+        const CustomSizedBox(
           height: 24,
         ),
         Ink(
@@ -162,7 +162,7 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
             ],
           ),
         ),
-        CustomSizedBox(
+        const CustomSizedBox(
           height: 24,
         ),
         Ink(
@@ -184,11 +184,11 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
                   }
                 },
               ),
-              CustomSizedBox(
+              const CustomSizedBox(
                 height: 16,
               ),
               FormItemWidget(title: LocaleKeys.relationship.tr(), hintText: "**********"),
-              CustomSizedBox(
+              const CustomSizedBox(
                 height: 16,
               ),
               TitledCheckBox(
@@ -197,7 +197,7 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
             ],
           ),
         ),
-        CustomSizedBox(
+        const CustomSizedBox(
           height: 24,
         ),
         Ink(
@@ -217,7 +217,7 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
             },
           ),
         ),
-        CustomSizedBox(
+        const CustomSizedBox(
           height: 24,
         ),
         Ink(
@@ -237,7 +237,7 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
             },
           ),
         ),
-        CustomSizedBox(
+        const CustomSizedBox(
           height: 24,
         ),
         Ink(
@@ -257,7 +257,7 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
             },
           ),
         ),
-        CustomSizedBox(
+        const CustomSizedBox(
           height: 24,
         ),
         Ink(
@@ -279,7 +279,7 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
                   }
                 },
               ),
-              CustomSizedBox(
+              const CustomSizedBox(
                 height: 16,
               ),
               FormDropDownWidget(
@@ -291,7 +291,7 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
                   .toList(),
                 title: LocaleKeys.driverEducation.tr(),
               ),
-              CustomSizedBox(
+              const CustomSizedBox(
                 height: 16,
               ),
               FormDropDownWidget(
@@ -303,7 +303,7 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
                   .toList(),
                 title: LocaleKeys.accidentCounts.tr(),
               ),
-              CustomSizedBox(
+              const CustomSizedBox(
                 height: 16,
               ),
               FormDropDownWidget(
@@ -315,14 +315,14 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
                   .toList(),
                 title: LocaleKeys.childrenBelow16Years.tr(),
               ),
-              CustomSizedBox(
+              const CustomSizedBox(
                 height: 16,
               ),
               FormItemWidget(title: LocaleKeys.relationship.tr(), hintText: "**********"),
             ],
           ),
         ),
-        CustomSizedBox(
+        const CustomSizedBox(
           height: 24,
         ),
         IntrinsicHeight(
@@ -336,7 +336,7 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
                   padding: EdgeInsets.zero,
                 ),
               ),
-              CustomSizedBox(
+              const CustomSizedBox(
                 width: 16,
               ),
               Expanded(

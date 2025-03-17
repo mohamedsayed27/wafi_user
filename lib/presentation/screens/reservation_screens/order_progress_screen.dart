@@ -37,12 +37,9 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: CustomAppBar(
-          title: "${LocaleKeys.orderID.tr()} : S5D2S45E5",
-          elevation: 0,
-        ),
+      appBar: CustomAppBar(
+        title: "${LocaleKeys.orderID.tr()} : S5D2S45E5",
+        elevation: 0,
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(

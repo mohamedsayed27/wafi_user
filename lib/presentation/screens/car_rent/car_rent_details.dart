@@ -38,11 +38,8 @@ class _CarRentDetailsState extends State<CarRentDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child:  CustomAppBar(
-          title: LocaleKeys.rentACar.tr(),
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.rentACar.tr(),
       ),
       body: Column(
         children: [

@@ -8,7 +8,6 @@ import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/cache_helper/cache_keys.dart';
 import '../../../core/cache_helper/shared_pref_methods.dart';
 import '../../../core/constants/constants.dart';
-import '../../../core/services/services_locator.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../business_logic/auth_cubit/auth_cubit.dart';
 import '../../widgets/auth_widgets/opt_field_builder.dart';
@@ -31,10 +30,7 @@ class _OtpScreenState extends State<OtpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: const LogoAppBar(),
-      ),
+      appBar: const LogoAppBar(),
       body: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) async {
           if (state is OtpLoading) {

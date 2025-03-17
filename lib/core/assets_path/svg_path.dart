@@ -71,5 +71,6 @@ class SvgPath{
   static const pointer = "assets/svg/pointer.svg";
   static const confirmation = "assets/svg/confirmation.svg";
   static const badge = "assets/svg/badge.svg";
+  static const mapPinLogo = "assets/svg/mapPinLogo.svg";
   SvgPath._();
 }

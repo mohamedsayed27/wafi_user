@@ -20,12 +20,9 @@ class WalletScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child:  CustomAppBar(
-          title: LocaleKeys.paymentOptions.tr(),
-          elevation: 0,
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.paymentOptions.tr(),
+        elevation: 0,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -138,8 +135,8 @@ class WalletScreen extends StatelessWidget {
           Expanded(
             child: ListView.separated(
               padding:EdgeInsets.symmetric(horizontal: 16.w,vertical: 16.h),
-              itemBuilder: (_, index) => ItemWidget(),
-              separatorBuilder: (_, index) => CustomSizedBox(
+              itemBuilder: (_, index) => const ItemWidget(),
+              separatorBuilder: (_, index) => const CustomSizedBox(
                 height: 16,
               ),
               itemCount: 4,

@@ -20,10 +20,7 @@ class CompleteProfileDataScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: const LogoAppBar(),
-      ),
+      appBar: const LogoAppBar(),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
         children: [

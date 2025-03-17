@@ -20,10 +20,7 @@ class SelectLanguageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: const LogoAppBar(),
-      ),
+      appBar: const LogoAppBar(),
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 12),
         children: [

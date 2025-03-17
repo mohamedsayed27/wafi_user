@@ -126,18 +126,18 @@ class _CarInsuranceContainerState extends State<CarInsuranceContainer>
           SizeTransition(
             axisAlignment: 1.0,
             sizeFactor: animation,
-            child: Column(
+            child: const Column(
               children: [
-                const InsuranceCoversWidget(),
-                const CustomSizedBox(
+                InsuranceCoversWidget(),
+                CustomSizedBox(
                   height: 8,
                 ),
-                const InsuranceCoversWidget(),
-                const CustomSizedBox(
+                InsuranceCoversWidget(),
+                CustomSizedBox(
                   height: 8,
                 ),
-                const InsuranceCoversWidget(),
-                const CustomSizedBox(
+                InsuranceCoversWidget(),
+                CustomSizedBox(
                   height: 8,
                 ),
               ],
@@ -242,7 +242,7 @@ class _CarInsuranceContainerState extends State<CarInsuranceContainer>
               scrollDirection: Axis.horizontal,
             ),
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 24,
           ),
           Row(
@@ -273,7 +273,7 @@ class _CarInsuranceContainerState extends State<CarInsuranceContainer>
                           fontFamily: FontsPath.almarai,
                         ),
                       ),
-                      CustomSizedBox(
+                      const CustomSizedBox(
                         width: 2,
                       ),
                       Text(

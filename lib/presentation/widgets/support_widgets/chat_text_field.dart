@@ -2,13 +2,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wafi_user/core/app_theme/custom_themes.dart';
 import 'package:wafi_user/core/constants/extensions.dart';
-import 'dart:ui' as ui;
 
 import '../../../core/app_theme/app_colors.dart';
-import '../../../core/assets_path/svg_path.dart';
 import '../../../translations/locale_keys.g.dart';
 
 class ChatTextField extends StatelessWidget {

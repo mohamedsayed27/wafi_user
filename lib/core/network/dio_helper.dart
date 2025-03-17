@@ -24,7 +24,7 @@ class DioHelper {
       'Content-Type': 'application/json',
       if (CacheHelper.getData(key: CacheKeys.token) != null) "Authorization": "${CacheHelper.getData(key: CacheKeys.token)}",
       'Accept': 'text/plain',
-      "Accept-Language": CacheHelper.getData(key: CacheKeys.initialLocale),
+      "Accept-Language": "en",
     };
     return await dio.get(url, queryParameters: query,);
   }
@@ -38,7 +38,7 @@ class DioHelper {
       'Content-Type': 'application/json',
       if (CacheHelper.getData(key: CacheKeys.token) != null) "Authorization": "${CacheHelper.getData(key: CacheKeys.token)}",
       'Accept': 'text/plain',
-      "Accept-Language": CacheHelper.getData(key: CacheKeys.initialLocale),
+      "Accept-Language": "en",
     };
     return await dio.post(url, queryParameters: query, data: data);
 
@@ -55,7 +55,7 @@ class DioHelper {
       'Content-Type': 'application/json',
       if (CacheHelper.getData(key: CacheKeys.token) != null) "Authorization": "${CacheHelper.getData(key: CacheKeys.token)}",
       'Accept': 'text/plain',
-      "Accept-Language": CacheHelper.getData(key: CacheKeys.initialLocale),
+      "Accept-Language": "en",
     };
     return await dio.delete(url, queryParameters: query, data: data);
   }
@@ -70,7 +70,7 @@ class DioHelper {
       'Content-Type': 'application/json',
       if (CacheHelper.getData(key: CacheKeys.token) != null) "Authorization": "${CacheHelper.getData(key: CacheKeys.token)}",
       'Accept': 'text/plain',
-      "Accept-Language": CacheHelper.getData(key: CacheKeys.initialLocale),
+      "Accept-Language": "en",
     };
     return await dio.put(
       url,

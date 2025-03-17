@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wafi_user/core/app_theme/app_colors.dart';
 
 class GradientWidget extends StatelessWidget {
   const GradientWidget({

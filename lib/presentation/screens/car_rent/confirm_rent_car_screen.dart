@@ -22,11 +22,8 @@ class ConfirmRentCarScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: CustomAppBar(
-          title: LocaleKeys.carRental.tr(),
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.carRental.tr(),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),

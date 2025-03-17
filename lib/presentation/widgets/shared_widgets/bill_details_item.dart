@@ -28,7 +28,7 @@ class BillDetailsItem extends StatelessWidget {
           ),
         ),
         Text(
-          "$balance AED",
+          "$balance SAR",
           style: CustomThemes.greyColor1CTextStyle(context).copyWith(
             fontSize: 12.sp,
             fontWeight: FontWeight.w700,

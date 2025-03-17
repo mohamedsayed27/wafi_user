@@ -1,6 +1,6 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-// ignore_for_file: prefer_single_quotes, avoid_renaming_method_parameters
+// ignore_for_file: prefer_single_quotes, avoid_renaming_method_parameters, constant_identifier_names
 
 import 'dart:ui';
 
@@ -14,7 +14,7 @@ class CodegenLoader extends AssetLoader{
     return Future.value(mapLocales[locale.toString()]);
   }
 
-  static const Map<String,dynamic> en = {
+  static const Map<String,dynamic> _en = {
   "profile": "Profile",
   "submit": "Submit",
   "login": "Login",
@@ -286,9 +286,10 @@ class CodegenLoader extends AssetLoader{
   "pleaseEnterPhoneNumber": "Please enter phone number",
   "pleaseEnterCode": "Please enter the code",
   "carSpareParts": "Car Spare Parts",
-  "carServiceAndMaintenance": "Car Service & Maintenance"
+  "carServiceAndMaintenance": "Car Service & Maintenance",
+  "address": "Address"
 };
-static const Map<String,dynamic> ar = {
+static const Map<String,dynamic> _ar = {
   "profile": "الملف الشخصي",
   "submit": "تقديم",
   "login": "تسجيل الدخول",
@@ -554,7 +555,8 @@ static const Map<String,dynamic> ar = {
   "pleaseEnterPhoneNumber": "الرجاء إدخال رقم الهاتف",
   "pleaseEnterCode": "الرجاء إدخال الكود",
   "carSpareParts": "قطع غيار السيارات",
-  "carServiceAndMaintenance": "خدمة وصيانة السيارات"
+  "carServiceAndMaintenance": "خدمة وصيانة السيارات",
+  "address": "العنوان"
 };
-static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "ar": ar};
+static const Map<String, Map<String,dynamic>> mapLocales = {"en": _en, "ar": _ar};
 }

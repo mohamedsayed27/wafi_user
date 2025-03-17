@@ -15,11 +15,8 @@ class PolicesDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: CustomAppBar(
-          title: LocaleKeys.policyDetails.tr(),
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.policyDetails.tr(),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 32.h,),

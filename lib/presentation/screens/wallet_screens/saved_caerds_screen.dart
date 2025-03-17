@@ -15,12 +15,9 @@ class SavedCardsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "Saved Cards",
-          elevation: 0,
-        ),
+      appBar: const CustomAppBar(
+        title: "Saved Cards",
+        elevation: 0,
       ),
       body: ListView.separated(
         padding: EdgeInsets.zero,

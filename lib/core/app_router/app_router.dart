@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wafi_user/core/app_router/screens_name.dart';
+import 'package:wafi_user/presentation/business_logic/address_cubit/address_cubit.dart';
+import 'package:wafi_user/presentation/business_logic/car_service_cubit/car_service_cubit.dart';
+import 'package:wafi_user/presentation/screens/address_screens/add_address_screen.dart';
 import 'package:wafi_user/presentation/screens/auth_screens/complete_profile_data_screen.dart';
 import 'package:wafi_user/presentation/screens/auth_screens/login_screen.dart';
 import 'package:wafi_user/presentation/screens/auth_screens/otp_screen.dart';
@@ -37,6 +41,8 @@ import 'package:wafi_user/presentation/screens/terms_and_conditions_privacy_poli
 import 'package:wafi_user/presentation/screens/wallet_screens/saved_caerds_screen.dart';
 import 'package:wafi_user/presentation/screens/wallet_screens/wallet_screen.dart';
 
+import '../../presentation/screens/address_screens/address_google_maps_screen.dart';
+import '../../presentation/screens/address_screens/address_screens.dart';
 import '../../presentation/screens/car_insurance/insurance_payment.dart';
 import '../../presentation/screens/car_insurance/new_insurance_screen.dart';
 import '../../presentation/screens/car_rent/confirm_rent_car_screen.dart';
@@ -90,7 +96,9 @@ class AppRouter {
         case ScreenName.confirmReservationsScreen:
           final String args = settings.arguments as String;
           return MaterialPageRoute(
-            builder: (_) => ConfirmReservationScreen(appBarTitle: args,),
+            builder: (_) => ConfirmReservationScreen(
+              appBarTitle: args,
+            ),
           );
         case ScreenName.addPaymentMethodsScreen:
           return MaterialPageRoute(
@@ -106,7 +114,7 @@ class AppRouter {
           );
         case ScreenName.servicesAndMaintenanceScreen:
           return MaterialPageRoute(
-            builder: (_) => const ServiceAndMaintenanceScreen(),
+            builder: (context) => const ServiceAndMaintenanceScreen(),
           );
         case ScreenName.carRentDetails:
           return MaterialPageRoute(
@@ -135,7 +143,7 @@ class AppRouter {
         case ScreenName.addDriverScreen:
           final int args = settings.arguments as int;
           return MaterialPageRoute(
-            builder: (_) =>  AddDriverScreen(currentIndex: args),
+            builder: (_) => AddDriverScreen(currentIndex: args),
           );
         case ScreenName.carInsuranceScreen:
           return MaterialPageRoute(
@@ -178,10 +186,29 @@ class AppRouter {
             builder: (_) => const SparePartsDetailsScreen(),
           );
         case ScreenName.servicesOnMapScreen:
-          final title = settings.arguments as String;
+          final args = settings.arguments as ServiceOnMapScreenArgs;
           return MaterialPageRoute(
-            builder: (_) => ServicesOnMapScreen(
-              title: title,
+            builder: (context) => BlocProvider.value(
+              value: args.cubit,
+              child: ServicesOnMapScreen(
+                screenArgs: args,
+              ),
+            ),
+          );
+        case ScreenName.addAddressScreen:
+          final args = settings.arguments as List;
+          return MaterialPageRoute(
+            builder: (context) => BlocProvider.value(
+              value: (args[0] as AddressCubit)..getUserCurrentLocation(),
+              child: const AddAddressScreen(),
+            ),
+          );
+        case ScreenName.addressScreen:
+          final args = settings.arguments as List;
+          return MaterialPageRoute(
+            builder: (context) => BlocProvider.value(
+              value: (args[0] as AddressCubit)..getUserAddressList(),
+              child: const AddressScreen(),
             ),
           );
         case ScreenName.walletScreen:
@@ -201,9 +228,20 @@ class AppRouter {
             builder: (_) => const ChangePasswordScreen(),
           );
         case ScreenName.servicesCartScreen:
-          final title = settings.arguments as String;
+          final args = settings.arguments as List;
           return MaterialPageRoute(
-            builder: (_) => ServicesCartScreen(servicesType: title),
+            builder: (_) => BlocProvider.value(
+              value: args[1] as CarServiceCubit,
+              child: ServicesCartScreen(servicesType: args[0]),
+            ),
+          );
+        case ScreenName.addressGoogleMap:
+          final args = settings.arguments as List;
+          return MaterialPageRoute(
+            builder: (_) => BlocProvider.value(
+              value: (args[0] as AddressCubit),
+              child: const AddressGoogleMapsScreen(),
+            ),
           );
         case ScreenName.supportChatScreen:
           return MaterialPageRoute(
@@ -223,7 +261,7 @@ class AppRouter {
           );
         case ScreenName.spareByPartsScreen:
           return MaterialPageRoute(
-            builder: (_) => const SpareByPartsScreen(),
+            builder: (_) => SpareByPartsScreen(),
           );
         case ScreenName.spareByQuotationScreen:
           return MaterialPageRoute(
@@ -237,7 +275,7 @@ class AppRouter {
           final title = settings.arguments as String?;
           return MaterialPageRoute(
             builder: (_) => TermsConditions(
-              title: title??"",
+              title: title ?? "",
             ),
           );
 

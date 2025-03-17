@@ -1,11 +1,8 @@
-import 'dart:math';
 
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
 import 'package:wafi_user/core/assets_path/images_path.dart';
 import 'package:wafi_user/translations/locale_keys.g.dart';
 
-import '../app_theme/app_colors.dart';
 import '../enums/categories_type_enum.dart';
 
 class DummyData {

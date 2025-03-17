@@ -1,25 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/assets_path/svg_path.dart';
 import 'package:wafi_user/presentation/widgets/car_insurance_widgets/other_details_component.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/custom_outlined_button.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/form_date_item.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/form_drom_down_widget.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/form_item_widget.dart';
-import 'package:wafi_user/presentation/widgets/spare_barts/check_box_with_title.dart';
-import 'package:wafi_user/translations/locale_keys.g.dart';
 import 'package:wafi_user/translations/locale_keys.g.dart';
 
-import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/constants/constants.dart';
 import '../../widgets/car_insurance_widgets/add_driver_button_widget.dart';
 import '../../widgets/car_insurance_widgets/add_driver_component.dart';
-import '../../widgets/shared_widgets/switch_button_and_title_widget.dart';
 
 class AddDriverScreen extends StatefulWidget {
   final int currentIndex;
@@ -55,11 +46,8 @@ class _AddDriverScreenState extends State<AddDriverScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: CustomAppBar(
-          title: LocaleKeys.addDriver.tr(),
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.addDriver.tr(),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(
@@ -95,8 +83,8 @@ class _AddDriverScreenState extends State<AddDriverScreen> {
               ),
             ),
           ),
-          CustomSizedBox(height: 24,),
-          currentIndex==0?AddDriverComponent():OtherDetailsComponent(),
+          const CustomSizedBox(height: 24,),
+          currentIndex==0?const AddDriverComponent():const OtherDetailsComponent(),
         ],
       ),
     );

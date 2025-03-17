@@ -26,12 +26,9 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: const CustomAppBar(
-          title: "Payment Methods",
-          elevation: 10,
-        ),
+      appBar: const CustomAppBar(
+        title: "Payment Methods",
+        elevation: 10,
       ),
       body: ListView(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24),

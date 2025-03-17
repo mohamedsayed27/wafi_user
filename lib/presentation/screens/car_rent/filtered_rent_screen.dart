@@ -22,10 +22,7 @@ class FilteredRentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: CustomAppBar(title: LocaleKeys.rentACar.tr()),
-      ),
+      appBar: CustomAppBar(title: LocaleKeys.rentACar.tr()),
       body: Column(
         children: [
           const CustomSizedBox(height: 24,),

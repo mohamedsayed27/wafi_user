@@ -9,7 +9,6 @@ import 'package:wafi_user/translations/locale_keys.g.dart';
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/assets_path/svg_path.dart';
-import '../../../core/constants/constants.dart';
 import '../../widgets/cart_widgets/cart_item_widget.dart';
 import '../../widgets/reservations_widgets/location_details_container.dart';
 import '../../widgets/shared_widgets/bill_details_item.dart';
@@ -23,16 +22,14 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: CustomAppBar(
-          title: LocaleKeys.cart.tr(),
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.cart.tr(),
       ),
       body: Column(
         children: [
-
-          const CustomSizedBox(height: 24,),
+          const CustomSizedBox(
+            height: 24,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -51,20 +48,19 @@ class CartScreen extends StatelessWidget {
               ),
             ],
           ).symmetricPadding(horizontal: 16),
-          const CustomSizedBox(height: 8,),
+          const CustomSizedBox(
+            height: 8,
+          ),
           DetailsContainer(
             child: Row(
               children: [
                 Expanded(
                   child: Text(
                     "503 Ida Ports, Abu Dhabi Emirate, Al Ain, Al Qou'",
-                    style:
-                    CustomThemes.greyColor1CTextStyle(context).copyWith(
+                    style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w700,
-                      color: CustomThemes.greyColor1CTextStyle(context)
-                          .color!
-                          .withOpacity(0.8),
+                      color: CustomThemes.greyColor1CTextStyle(context).color!.withOpacity(0.8),
                     ),
                   ),
                 ),
@@ -78,8 +74,7 @@ class CartScreen extends StatelessWidget {
                     isGradient: true,
                     child: Text(
                       LocaleKeys.change.tr(),
-                      style:
-                      CustomThemes.whiteColoTextTheme(context).copyWith(
+                      style: CustomThemes.whiteColoTextTheme(context).copyWith(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,
                       ),
@@ -91,7 +86,7 @@ class CartScreen extends StatelessWidget {
           ).symmetricPadding(horizontal: 16),
           Expanded(
             child: ListView.separated(
-              padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 16.h),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
               itemBuilder: (_, index) => const CartItemWidget(),
               separatorBuilder: (_, index) => const CustomSizedBox(
                 height: 16,
@@ -100,7 +95,9 @@ class CartScreen extends StatelessWidget {
             ),
           ),
           const CustomDivider(),
-          const CustomSizedBox(height: 16,),
+          const CustomSizedBox(
+            height: 16,
+          ),
           Text(
             LocaleKeys.billDetails.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
@@ -108,16 +105,28 @@ class CartScreen extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ).onlyDirectionalPadding(start: 16),
-          const CustomSizedBox(height: 8,),
-           BillDetailsItem(title: LocaleKeys.batteryService.tr(), balance: "100"),
-           const CustomSizedBox(height: 2,),
-           BillDetailsItem(title: LocaleKeys.serviceTaxes.tr(), balance: "90"),
-           const CustomSizedBox(height: 2,),
-           BillDetailsItem(title: LocaleKeys.cart.tr(), balance: "90"),
-           const CustomSizedBox(height: 2,),
-           BillDetailsItem(title: LocaleKeys.cart.tr(), balance: "90"),
-          const CustomSizedBox(height: 2,),
-          const CustomSizedBox(height: 40,),
+          const CustomSizedBox(
+            height: 8,
+          ),
+          BillDetailsItem(title: LocaleKeys.batteryService.tr(), balance: "100"),
+          const CustomSizedBox(
+            height: 2,
+          ),
+          BillDetailsItem(title: LocaleKeys.serviceTaxes.tr(), balance: "90"),
+          const CustomSizedBox(
+            height: 2,
+          ),
+          BillDetailsItem(title: LocaleKeys.cart.tr(), balance: "90"),
+          const CustomSizedBox(
+            height: 2,
+          ),
+          BillDetailsItem(title: LocaleKeys.cart.tr(), balance: "90"),
+          const CustomSizedBox(
+            height: 2,
+          ),
+          const CustomSizedBox(
+            height: 40,
+          ),
         ],
       ),
     );

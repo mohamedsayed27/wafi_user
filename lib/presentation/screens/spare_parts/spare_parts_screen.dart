@@ -25,11 +25,8 @@ class _SparePartsScreenState extends State<SparePartsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: CustomAppBar(
-          title: LocaleKeys.spareParts.tr(),
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.spareParts.tr(),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -40,7 +37,6 @@ class _SparePartsScreenState extends State<SparePartsScreen> {
             isSelected: selectedIndex == 0,
             onTap: (){
               selectedIndex = 0;
-              // Navigator.pushNamed(context, ScreenName.spareByPartsScreen);
               setState(() {
 
               });

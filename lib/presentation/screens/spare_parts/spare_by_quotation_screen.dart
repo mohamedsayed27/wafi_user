@@ -29,12 +29,9 @@ class _SpareByQuotationScreenState extends State<SpareByQuotationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child:  CustomAppBar(
-          title: LocaleKeys.spareParts.tr(),
-          elevation: 0,
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.spareParts.tr(),
+        elevation: 0,
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 32.h,),
@@ -43,18 +40,18 @@ class _SpareByQuotationScreenState extends State<SpareByQuotationScreen> {
             title: LocaleKeys.nameOfPart.tr(),
             hintText: "",
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 24,
           ),
            FormItemWidget(title: LocaleKeys.partNumber.tr(), hintText: "", isOptional: true),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 24,
           ),
            FormItemWidget(
             title: LocaleKeys.anySpecifications.tr(),
             hintText: "",
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 24,
           ),
           Text(
@@ -64,7 +61,7 @@ class _SpareByQuotationScreenState extends State<SpareByQuotationScreen> {
               fontWeight: FontWeight.bold,
             ),
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 16,
           ),
           SizedBox(
@@ -74,7 +71,7 @@ class _SpareByQuotationScreenState extends State<SpareByQuotationScreen> {
                 Expanded(
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: (_, index) =>  UploadedImageWidget(),
+                    itemBuilder: (_, index) =>  const UploadedImageWidget(),
                     separatorBuilder: (_, index) => const SizedBox(
                       width: 16,
                     ),

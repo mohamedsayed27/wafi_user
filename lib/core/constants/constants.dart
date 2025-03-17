@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:lottie/lottie.dart';
 
 import '../app_theme/app_colors.dart';
+import '../assets_path/lottie_path.dart';
 import '../cache_helper/cache_keys.dart';
 import '../cache_helper/shared_pref_methods.dart';
 
@@ -27,8 +29,8 @@ void showProgressIndicator(BuildContext context) {
           borderRadius: BorderRadius.circular(12.r),
           color: AppColors.whiteColor,
         ),
-        child: const CircularProgressIndicator.adaptive(
-          backgroundColor: AppColors.primaryColor,
+        child: Lottie.asset(
+          LottiePath.loading,
         ),
       ),
     ),

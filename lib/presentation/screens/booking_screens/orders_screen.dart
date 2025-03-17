@@ -41,24 +41,24 @@ class OrdersScreen extends StatelessWidget {
                   CustomSizedBox(
                     height: preferredSize.height,
                   ),
-                  IconButton(
-                    onPressed: () {
-                      advancedDrawerController.showDrawer();
-                    },
-                    style: OutlinedButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      shape: const CircleBorder(),
-                    ),
-                    icon: SvgPicture.asset(
-                      SvgPath.burgerMenu,
-                      height: 17.h,
-                      width: 24.w,
-                      colorFilter: const ColorFilter.mode(
-                        AppColors.whiteColor,
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                  ),
+                  // IconButton(
+                  //   onPressed: () {
+                  //     advancedDrawerController.showDrawer();
+                  //   },
+                  //   style: OutlinedButton.styleFrom(
+                  //     padding: EdgeInsets.zero,
+                  //     shape: const CircleBorder(),
+                  //   ),
+                  //   icon: SvgPicture.asset(
+                  //     SvgPath.burgerMenu,
+                  //     height: 17.h,
+                  //     width: 24.w,
+                  //     colorFilter: const ColorFilter.mode(
+                  //       AppColors.whiteColor,
+                  //       BlendMode.srcIn,
+                  //     ),
+                  //   ),
+                  // ),
                   Text(
                     LocaleKeys.orders.tr(),
                     style: CustomThemes.whiteColoTextTheme(context).copyWith(

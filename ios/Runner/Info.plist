@@ -50,5 +50,7 @@
     	<string>en</string>
     	<string>ar</string>
     </array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs access to your location while open to track your position of medical or ambulance services and hospital locations.</string>
 </dict>
 </plist>

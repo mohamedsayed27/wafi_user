@@ -5,7 +5,6 @@ import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/presentation/widgets/car_insurance_widgets/add_driver_button_widget.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/custom_switch_button.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/form_date_item.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/form_drom_down_widget.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/form_item_widget.dart';
@@ -43,11 +42,8 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: CustomAppBar(
-          title: LocaleKeys.carInsurance.tr(),
-        ),
+      appBar: CustomAppBar(
+        title: LocaleKeys.carInsurance.tr(),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(
@@ -64,14 +60,14 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
                   .toList(),
             title: LocaleKeys.selectVehicleIdentifier.tr(),
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 24,
           ),
            FormItemWidget(
             title: LocaleKeys.sequenceNumber.tr(),
             hintText: "EX:-000000000",
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 24,
           ),
           SwitchButtonTitleWidget(
@@ -87,7 +83,7 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
               }
             },
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 24,
           ),
           Visibility(
@@ -104,7 +100,7 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
                   .toList(),
                   title: LocaleKeys.purposeOfVehicleUse.tr(),
                 ),
-                CustomSizedBox(
+                const CustomSizedBox(
                   height: 24,
                 ),
               ],
@@ -147,14 +143,14 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
                         title: LocaleKeys.yearOfManufacture.tr(),
                         hintText: LocaleKeys.carInsurance.tr(),
                       ),
-                      CustomSizedBox(
+                      const CustomSizedBox(
                         height: 8,
                       ),
                       FormItemWidget(
                         title: LocaleKeys.purposeOfVehicleUse.tr(),
                         hintText:LocaleKeys.purposeOfVehicleUse.tr(),
                       ),
-                      CustomSizedBox(
+                      const CustomSizedBox(
                         height: 16,
                       ),
                     ],
@@ -166,7 +162,7 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
               ],
             ),
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 24,
           ),
           Hero(
@@ -178,7 +174,7 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
                   titlesList.length,
                       (index) {
                     return index.isOdd
-                        ?  CustomSizedBox(
+                        ?  const CustomSizedBox(
                       width: 24,
                     )
                         : Expanded(
@@ -196,14 +192,14 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
               ),
             ),
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 24,
           ),
            TitledCheckBox(
             title:
             LocaleKeys.agreeToInquire.tr(),
           ),
-           CustomSizedBox(
+           const CustomSizedBox(
             height: 24,
           ),
           CustomGradientButton(

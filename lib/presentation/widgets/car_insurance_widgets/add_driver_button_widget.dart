@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
-import '../../../core/assets_path/svg_path.dart';
 import '../shared_widgets/custom_sized_box.dart';
 import '../shared_widgets/gradient_svg.dart';
 
@@ -76,7 +75,7 @@ class GradientSelectButtonWidget extends StatelessWidget {
                 isSelected: !isButtonSelected,
                 svgDisabledColor: AppColors.whiteColor,
               ),
-              if(svgPath!=null)CustomSizedBox(
+              if(svgPath!=null)const CustomSizedBox(
                 width: 8,
               ),
               Text(

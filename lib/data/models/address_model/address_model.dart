@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class Address extends Equatable {
+class AddressModel extends Equatable {
   final int? id;
   final int? userId;
   final String? locationName;
@@ -12,12 +12,13 @@ class Address extends Equatable {
   final String? latitude;
   final String? longitude;
   final int? cityId;
-  final String? staticStatus;
+  final String? staticValue;
   final String? createdAt;
   final String? updatedAt;
   final String? cityName;
+  final String? status;
 
-  const Address({
+  const AddressModel({
     this.id,
     this.userId,
     this.locationName,
@@ -29,14 +30,15 @@ class Address extends Equatable {
     this.latitude,
     this.longitude,
     this.cityId,
-    this.staticStatus,
+    this.staticValue,
+    this.status,
     this.createdAt,
     this.updatedAt,
     this.cityName,
   });
 
-  factory Address.fromJson(Map<String, dynamic> json) {
-    return Address(
+  factory AddressModel.fromJson(Map<String, dynamic> json) {
+    return AddressModel(
       id: json['id'] as int?,
       userId: json['user_id'] as int?,
       locationName: json['location_name'] as String?,
@@ -48,7 +50,8 @@ class Address extends Equatable {
       latitude: json['latitude'] as String?,
       longitude: json['longitude'] as String?,
       cityId: json['city_id'] as int?,
-      staticStatus: json['static'] as String?,
+      staticValue: json['static'] as String?,
+      status: json['status'] as String?,
       createdAt: json['created_at'] as String?,
       updatedAt: json['updated_at'] as String?,
       cityName: json['city_name'] as String?,
@@ -68,7 +71,7 @@ class Address extends Equatable {
       'latitude': latitude,
       'longitude': longitude,
       'city_id': cityId,
-      'static': staticStatus,
+      'static': staticValue,
       'created_at': createdAt,
       'updated_at': updatedAt,
       'city_name': cityName,
@@ -88,7 +91,7 @@ class Address extends Equatable {
     latitude,
     longitude,
     cityId,
-    staticStatus,
+    staticValue,
     createdAt,
     updatedAt,
     cityName,

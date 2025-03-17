@@ -3,12 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:wafi_user/core/cache_helper/cache_keys.dart';
-import 'package:wafi_user/core/cache_helper/shared_pref_methods.dart';
 
 import '../../../core/app_router/screens_name.dart';
 import '../../../core/app_theme/custom_themes.dart';
-import '../../../core/services/services_locator.dart';
 import '../../../presentation/business_logic/auth_cubit/auth_cubit.dart';
 import '../../../presentation/widgets/shared_widgets/custom_sized_box.dart';
 import '../../../presentation/widgets/shared_widgets/logo_app_bar.dart';
@@ -32,10 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: preferredSize,
-        child: const LogoAppBar(),
-      ),
+      appBar: const LogoAppBar(),
       body: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
           if (state is LoginLoading) {
