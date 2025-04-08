@@ -9,6 +9,8 @@ import 'package:wafi_user/core/app_theme/custom_themes.dart';
 import 'package:wafi_user/core/assets_path/fonts_path.dart';
 import 'package:wafi_user/core/assets_path/images_path.dart';
 import 'package:wafi_user/core/assets_path/svg_path.dart';
+import 'package:wafi_user/data/models/car_spare_parts_model/car_spare_part_model.dart';
+import 'package:wafi_user/presentation/widgets/shared_widgets/cached_network_image_widget.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_divider.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
@@ -20,14 +22,14 @@ import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
 
 class SparePartsDetailsScreen extends StatefulWidget {
-  const SparePartsDetailsScreen({super.key});
+  final CarSparePartModel carSparePartModel;
+  const SparePartsDetailsScreen({super.key, required this.carSparePartModel});
 
   @override
   State<SparePartsDetailsScreen> createState() => _SparePartsDetailsScreenState();
 }
 
 class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
-  int counter = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,10 +39,11 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
         children: [
           Align(
               alignment: Alignment.center,
-              child: Image.asset(
-                ImagesPath.dummyTire,
+              child: CachedNetworkImageWidget(
+                imageUrl: widget.carSparePartModel.imageUrl??"",
                 height: 180.h,
                 width: 180.w,
+                fit: BoxFit.scaleDown,
               ),),
            const CustomSizedBox(
             height: 38,
@@ -49,7 +52,7 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               GradientText(
-                "Tracmax",
+                widget.carSparePartModel.title??"",
                 colors: AppColors.gradientColorsList,
                 style: TextStyle(
                     fontSize: 21.sp,
@@ -61,7 +64,7 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
                 width: 8,
               ),
               GradientText(
-                "P Zero PZ4 L",
+                widget.carSparePartModel.pieceNum??"",
                 colors: AppColors.gradientColorsList,
                 style: TextStyle(
                     fontSize: 14.sp,
@@ -89,8 +92,8 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
                         width: 24,
                         child: IconButton(
                           onPressed: () {
-                            if(counter>1){
-                              counter--;
+                            if(widget.carSparePartModel.counter>1){
+                              widget.carSparePartModel.counter--;
                               setState(() {
 
                               });
@@ -102,7 +105,7 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
                       ),
                       Expanded(
                         child: Text(
-                          "$counter",
+                          "${widget.carSparePartModel.counter}",
                           textAlign: TextAlign.center,
                           style: CustomThemes.greyColor16TextStyle(context).copyWith(
                             fontSize: 14.sp,
@@ -116,7 +119,7 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
                         width: 24,
                         child: IconButton(
                           onPressed: () {
-                            counter++;
+                            widget.carSparePartModel.counter++;
                             setState(() {
 
                             });

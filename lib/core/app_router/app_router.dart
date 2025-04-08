@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/presentation/business_logic/address_cubit/address_cubit.dart';
 import 'package:wafi_user/presentation/business_logic/car_service_cubit/car_service_cubit.dart';
+import 'package:wafi_user/presentation/business_logic/car_spare_parts_cubit/car_spare_parts_cubit.dart';
 import 'package:wafi_user/presentation/screens/address_screens/add_address_screen.dart';
 import 'package:wafi_user/presentation/screens/auth_screens/complete_profile_data_screen.dart';
 import 'package:wafi_user/presentation/screens/auth_screens/login_screen.dart';
@@ -182,8 +183,9 @@ class AppRouter {
             builder: (_) => const ConfirmRentCarScreen(),
           );
         case ScreenName.sparePartsDetailsScreen:
+          final args = settings.arguments as List;
           return MaterialPageRoute(
-            builder: (_) => const SparePartsDetailsScreen(),
+            builder: (_) =>  SparePartsDetailsScreen(carSparePartModel: args[0],),
           );
         case ScreenName.servicesOnMapScreen:
           final args = settings.arguments as ServiceOnMapScreenArgs;
@@ -199,8 +201,12 @@ class AppRouter {
           final args = settings.arguments as List;
           return MaterialPageRoute(
             builder: (context) => BlocProvider.value(
-              value: (args[0] as AddressCubit)..getUserCurrentLocation(),
-              child: const AddAddressScreen(),
+              value: args[1] == null
+                  ? ((args[0] as AddressCubit)..getUserAddressList())
+                  : ((args[0] as AddressCubit)),
+              child: AddAddressScreen(
+                addressModel: args[1],
+              ),
             ),
           );
         case ScreenName.addressScreen:
@@ -260,8 +266,12 @@ class AppRouter {
             builder: (_) => const SparePartsScreen(),
           );
         case ScreenName.spareByPartsScreen:
+          final args = settings.arguments as List;
           return MaterialPageRoute(
-            builder: (_) => SpareByPartsScreen(),
+            builder: (_) => BlocProvider.value(
+              value: (args[0] as CarSparePartsCubit)..getCarSpareParts(),
+              child: const SpareByPartsScreen(),
+            ),
           );
         case ScreenName.spareByQuotationScreen:
           return MaterialPageRoute(

@@ -23,8 +23,8 @@ final iosInitializationSettings = DarwinInitializationSettings(
       ],
     ),
   ],
-  onDidReceiveLocalNotification:
-      (int id, String? title, String? body, String? payload) {},
+  // onDidReceiveLocalNotification:
+  //     (int id, String? title, String? body, String? payload) {},
 );
 
 //* Android Settings

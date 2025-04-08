@@ -35,10 +35,7 @@ class _AddressGoogleMapsScreenState extends State<AddressGoogleMapsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: BlocConsumer<AddressCubit, AddressState>(
-          listener: (context, state) {
-            // TODO: implement listener
-          },
+        child: BlocBuilder<AddressCubit, AddressState>(
           builder: (context, state) {
             final cubit = context.read<AddressCubit>();
             return cubit.addressCameraPosition != null
@@ -75,12 +72,15 @@ class _AddressGoogleMapsScreenState extends State<AddressGoogleMapsScreen> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           const BackButton(),
-                          Text(
-                            cubit.googleMapsSearchBarHint ?? "",
-                            style: CustomThemes.greyColor1CTextStyle(context)
-                                .copyWith(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w600,
+                          Expanded(
+                            child: Text(
+                              cubit.googleMapsSearchBarHint ?? "",
+                              softWrap: true,
+                              style: CustomThemes.greyColor1CTextStyle(context)
+                                  .copyWith(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
                         ],

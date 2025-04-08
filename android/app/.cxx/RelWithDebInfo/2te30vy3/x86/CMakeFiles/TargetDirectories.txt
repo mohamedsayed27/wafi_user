@@ -1,0 +1,2 @@
+/Users/macbook/Documents/flutter_peojects/wafi_user/android/app/.cxx/RelWithDebInfo/2te30vy3/x86/CMakeFiles/rebuild_cache.dir
+/Users/macbook/Documents/flutter_peojects/wafi_user/android/app/.cxx/RelWithDebInfo/2te30vy3/x86/CMakeFiles/edit_cache.dir

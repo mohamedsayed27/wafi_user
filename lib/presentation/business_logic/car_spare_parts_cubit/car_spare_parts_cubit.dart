@@ -7,15 +7,18 @@ part 'car_spare_parts_state.dart';
 
 class CarSparePartsCubit extends Cubit<CarSparePartsState> {
   final CarSparePartsRemoteDataSource _dataSource;
-
+  static CarSparePartsCubit get(context) =>BlocProvider.of(context);
   CarSparePartsCubit(this._dataSource) : super(CarSparePartsInitial());
-
+  List<CarSparePartModel> sparePartsList = [];
   Future<void> getCarSpareParts() async {
     emit(GetCarSparePartsLoading());
     final result = await _dataSource.getCarSparePartsProducts();
     result.fold(
       (error) => emit(GetCarSparePartsError(message: error.baseErrorModel.message)),
-      (data) => emit(GetCarSparePartsLoaded(data: data)),
+      (data) {
+        sparePartsList = data.data??[];
+        emit(GetCarSparePartsLoaded(data: data));
+      },
     );
   }
 

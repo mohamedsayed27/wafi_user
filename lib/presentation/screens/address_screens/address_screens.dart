@@ -16,9 +16,23 @@ import '../../widgets/address_widget/address_item_widget.dart';
 import '../../widgets/shared_widgets/custom_app_bar.dart';
 import '../../widgets/shared_widgets/gradient widgets.dart';
 
-class AddressScreen extends StatelessWidget {
+class AddressScreen extends StatefulWidget {
   const AddressScreen({super.key});
 
+  @override
+  State<AddressScreen> createState() => _AddressScreenState();
+}
+
+class _AddressScreenState extends State<AddressScreen> {
+  @override
+  void initState() {
+    super.initState();
+    print("context_readAddressCubit_addressCameraPosition");
+    print(context.read<AddressCubit>().addressCameraPosition);
+    if (context.read<AddressCubit>().addressCameraPosition == null) {
+      context.read<AddressCubit>().getUserCurrentLocation();
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AddressCubit, AddressState>(
@@ -33,6 +47,15 @@ class AddressScreen extends StatelessWidget {
         } else if (state is ChangeStatusAddressError) {
           Navigator.pop(context);
           showToast(errorType: 0, message: state.message);
+        }if (state is DeleteAddressLoading) {
+          showProgressIndicator(context);
+        } else if (state is DeleteAddressSuccess) {
+          Navigator.pop(context);
+          showToast(errorType: 0, message: state.response.message ?? "");
+          context.read<AddressCubit>().getUserAddressList();
+        } else if (state is DeleteAddressError) {
+          Navigator.pop(context);
+          showToast(errorType: 0, message: state.message);
         }
       },
       builder: (context, state) {
@@ -44,7 +67,7 @@ class AddressScreen extends StatelessWidget {
               TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, ScreenName.addAddressScreen,
-                      arguments: [cubit]);
+                      arguments: [cubit,null]);
                 },
                 child: GradientWidget(
                   gradientList: AppColors.gradientColorsList,
@@ -74,6 +97,17 @@ class AddressScreen extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return AddressItemWidget(
                       address: cubit.addressList[index],
+                      isEdit: () {
+                        Navigator.pushNamed(
+                          context,
+                          ScreenName.addAddressScreen,
+                          arguments: [cubit,cubit.addressList[index]],
+                        );
+                      },
+                      onDeleteAddressClicked: (){
+                        cubit.deleteAddress(cubit.addressList[index].id.toString());
+                        Navigator.pop(context);
+                      },
                       onChangeAddressClicked: () {
                         cubit.changeAddressStatus(
                             cubit.addressList[index].id ?? 0);

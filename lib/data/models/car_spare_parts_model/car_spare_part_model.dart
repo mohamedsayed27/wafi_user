@@ -9,13 +9,13 @@ class GetCarSparePartsProducts
     super.data,
   });
 
-
   factory GetCarSparePartsProducts.fromJson(Map<String, dynamic> json) {
-    List<Map<String, dynamic>> list = json["data"] as List<Map<String, dynamic>>;
+    List<dynamic> list =
+        json["data"] as List<dynamic>;
     return GetCarSparePartsProducts(
       message: json['msg'],
       status: json['status'],
-      data: list.map((element)=>CarSparePartModel.fromJson(element)).toList(),
+      data: list.map((element) => CarSparePartModel.fromJson(element)).toList(),
     );
   }
 }
@@ -39,8 +39,9 @@ class CarSparePartModel extends Equatable {
   final String? titleWeb;
   final String? description;
   final String? descriptionWeb;
+  int counter;
 
-  const CarSparePartModel({
+  CarSparePartModel({
     this.id,
     this.providerId,
     this.titleAr,
@@ -48,6 +49,7 @@ class CarSparePartModel extends Equatable {
     this.pieceNum,
     this.price,
     this.image,
+    this.counter = 0,
     this.active,
     this.createdAt,
     this.updatedAt,

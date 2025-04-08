@@ -102,6 +102,15 @@ final class GetCurrentLocationError extends AddressState {
   GetCurrentLocationError(this.message);
 }
 
+final class InitAddressCameraPositionOnEditAddressLoading extends AddressState {}
+
+final class InitAddressCameraPositionOnEditAddressSuccess extends AddressState {}
+
+final class InitAddressCameraPositionOnEditAddressError extends AddressState {
+  final String message;
+  InitAddressCameraPositionOnEditAddressError(this.message);
+}
+
 final class GetSearchedLocationsLoading extends AddressState {}
 
 final class GetSearchedLocationsSuccess extends AddressState {}

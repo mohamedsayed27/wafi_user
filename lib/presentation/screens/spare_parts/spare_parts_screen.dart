@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/core/constants/extensions.dart';
@@ -7,8 +8,9 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.d
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
-import '../../../core/constants/constants.dart';
+import '../../../core/services/services_locator.dart';
 import '../../../translations/locale_keys.g.dart';
+import '../../business_logic/car_spare_parts_cubit/car_spare_parts_cubit.dart';
 import '../../widgets/shared_widgets/custom_app_bar.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
 
@@ -28,56 +30,67 @@ class _SparePartsScreenState extends State<SparePartsScreen> {
       appBar: CustomAppBar(
         title: LocaleKeys.spareParts.tr(),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const CustomSizedBox(height: 90,),
-          SparePartsContainer(
-            isSelected: selectedIndex == 0,
-            onTap: (){
-              selectedIndex = 0;
-              setState(() {
-
-              });
-            },
-            title: LocaleKeys.searchByQuotation.tr(),
-            body:
-            LocaleKeys.searchByQuotationBody.tr(),
-          ),
-          const CustomSizedBox(height: 24,),
-          SparePartsContainer(
-            isSelected: selectedIndex == 1,
-            onTap: (){
-              selectedIndex = 1;
-              setState(() {
-
-              });
-            },
-            title: LocaleKeys.searchByParts.tr(),
-            body:LocaleKeys.searchByQuotationBody.tr(),
-          ),
-          const Spacer(),
-          CustomGradientButton(
-            child: Text(
-              LocaleKeys.searchParts.tr(),
-              style: CustomThemes.whiteColoTextTheme(context).copyWith(
-                fontSize: 16.sp,
-                fontWeight: FontWeight.w700,
-              ),
+      body: BlocProvider(
+        create: (context) => sl<CarSparePartsCubit>(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const CustomSizedBox(
+              height: 90,
             ),
-            onPressed: () {
-              if(selectedIndex==0){
-
-                Navigator.pushNamed(context, ScreenName.spareByQuotationScreen);
-              }else{
-
-                Navigator.pushNamed(context, ScreenName.spareByPartsScreen);
-              }
-            },
-          )
-        ],
-      ).symmetricPadding(horizontal: 16,vertical: 40),
+            SparePartsContainer(
+              isSelected: selectedIndex == 0,
+              onTap: () {
+                selectedIndex = 0;
+                setState(() {});
+              },
+              title: LocaleKeys.searchByQuotation.tr(),
+              body: LocaleKeys.searchByQuotationBody.tr(),
+            ),
+            const CustomSizedBox(
+              height: 24,
+            ),
+            SparePartsContainer(
+              isSelected: selectedIndex == 1,
+              onTap: () {
+                selectedIndex = 1;
+                setState(() {});
+              },
+              title: LocaleKeys.searchByParts.tr(),
+              body: LocaleKeys.searchByQuotationBody.tr(),
+            ),
+            const Spacer(),
+            BlocBuilder<CarSparePartsCubit, CarSparePartsState>(
+              builder: (context, state) {
+                return CustomGradientButton(
+                  child: Text(
+                    LocaleKeys.searchParts.tr(),
+                    style: CustomThemes.whiteColoTextTheme(context).copyWith(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  onPressed: () {
+                    if (selectedIndex == 0) {
+                      Navigator.pushNamed(
+                          context, ScreenName.spareByQuotationScreen);
+                    } else {
+                      Navigator.pushNamed(
+                        context,
+                        ScreenName.spareByPartsScreen,
+                        arguments: [
+                          CarSparePartsCubit.get(context),
+                        ],
+                      );
+                    }
+                  },
+                );
+              },
+            )
+          ],
+        ),
+      ).symmetricPadding(horizontal: 16, vertical: 40),
     );
   }
 }
@@ -108,10 +121,10 @@ class SparePartsContainer extends StatelessWidget {
           border: isSelected ? null : Border.all(color: AppColors.greyColorDC),
           gradient: isSelected
               ? LinearGradient(
-                  colors: AppColors.gradientColorsList,
-                  begin: AlignmentDirectional.topStart,
-                  end: AlignmentDirectional.bottomEnd,
-                )
+            colors: AppColors.gradientColorsList,
+            begin: AlignmentDirectional.topStart,
+            end: AlignmentDirectional.bottomEnd,
+          )
               : null,
         ),
         child: Container(
@@ -124,13 +137,13 @@ class SparePartsContainer extends StatelessWidget {
             color: AppColors.whiteColor,
             boxShadow: isSelected
                 ? const [
-                    BoxShadow(
-                      offset: Offset(0, 22),
-                      blurRadius: 24,
-                      spreadRadius: 0,
-                      color: Color.fromRGBO(0, 0, 0, 0.10),
-                    ),
-                  ]
+              BoxShadow(
+                offset: Offset(0, 22),
+                blurRadius: 24,
+                spreadRadius: 0,
+                color: Color.fromRGBO(0, 0, 0, 0.10),
+              ),
+            ]
                 : null,
           ),
           alignment: Alignment.center,

@@ -6,6 +6,7 @@ import 'package:wafi_user/core/app_router/screens_name.dart';
 
 import '../../../core/constants/extensions.dart';
 import '../../../core/enums/address_status_enum.dart';
+import '../../../data/models/address_model/address_model.dart';
 import '../../../presentation/business_logic/address_cubit/address_cubit.dart';
 import '../../../presentation/widgets/shared_widgets/text_shimmer_widget.dart';
 import '../../../core/app_theme/app_colors.dart';
@@ -70,15 +71,27 @@ class HomeAppBar extends StatelessWidget {
                     BlocConsumer<AddressCubit, AddressState>(
                       listener: (context, state) {},
                       builder: (context, state) {
+                        // Retrieve address list and active address logic
+                        final addressCubit = context.read<AddressCubit>();
+                        final addressList = addressCubit.addressList;
+
+                        String addressText = "Add Address";
+                        if (addressList.isNotEmpty) {
+                          final activeAddress = addressList.firstWhere(
+                                  (address) => address.status == AddressStatusEnum.active.name,
+                              orElse: () => const AddressModel()
+                          );
+                          addressText = activeAddress.addressText ?? "Select Your Default Address";
+                        }
+
                         return InkWell(
                           onTap: state is GetUserAddressLoading
-                            ?null: () {
+                              ? null
+                              : () {
                             Navigator.pushNamed(
                               context,
                               ScreenName.addressScreen,
-                              arguments: [
-                                context.read<AddressCubit>(),
-                              ],
+                              arguments: [addressCubit],
                             );
                           },
                           child: Row(
@@ -89,38 +102,22 @@ class HomeAppBar extends StatelessWidget {
                                 color: AppColors.whiteColor,
                                 size: 15.r,
                               ),
-                              const CustomSizedBox(
-                                width: 2,
-                              ),
+                              const CustomSizedBox(width: 2),
                               state is GetUserAddressLoading
-                                  ? const TextShimmerWidget(
-                                      width: 80,
-                                      height: 8,
-                                    )
+                                  ? const TextShimmerWidget(width: 80, height: 8)
                                   : Text(
-                                      context
-                                              .read<AddressCubit>()
-                                              .addressList
-                                              .firstWhere((test) =>
-                                                  test.status ==
-                                                  AddressStatusEnum.active.name)
-                                              .addressText ??
-                                          "Select Your Default Address",
-                                      style: CustomThemes.whiteColoTextTheme(
-                                              context)
-                                          .copyWith(
-                                        fontSize: 12.sp,
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                                    ),
+                                addressText,
+                                style: CustomThemes.whiteColoTextTheme(context).copyWith(
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
                             ],
                           ),
                         );
                       },
                     ),
-                    const CustomSizedBox(
-                      height: 2,
-                    ),
+                    const CustomSizedBox(height: 2),
                     Container(
                       height: 0.9.h,
                       width: 140.w,
@@ -128,7 +125,8 @@ class HomeAppBar extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
+              )
+              ,
             ],
           ).onlyDirectionalPadding(end: 16),
         ],

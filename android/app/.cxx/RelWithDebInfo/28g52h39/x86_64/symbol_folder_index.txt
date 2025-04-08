@@ -1,0 +1,1 @@
+/Users/macbook/Documents/flutter_peojects/wafi_user/build/app/intermediates/cxx/RelWithDebInfo/28g52h39/obj/x86_64

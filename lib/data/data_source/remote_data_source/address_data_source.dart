@@ -6,6 +6,7 @@ import 'package:wafi_user/data/models/base_response_model.dart';
 import '../../../core/error/error_exception.dart';
 import '../../../core/network/api_end_points.dart';
 import '../../../core/network/dio_helper.dart';
+import '../../../core/parameters/address_parameters.dart';
 import '../../models/address_model/address_model.dart';
 import '../../models/address_model/city_model.dart';
 
@@ -56,7 +57,7 @@ class AddressDataSource {
   }
 
   Future<Either<ErrorException, BaseResponseModel>> addAddress({
-    required AddressModel address,
+    required AddressParameters address,
   }) async {
     try {
       final response = await dioHelper.postData(
@@ -72,7 +73,7 @@ class AddressDataSource {
   }
 
   Future<Either<ErrorException, BaseResponseModel>> updateAddress({
-    required AddressModel address,
+    required AddressParameters address,
   }) async {
     try {
       final response = await dioHelper.postData(

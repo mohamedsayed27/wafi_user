@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -7,6 +6,7 @@ import 'package:map_picker/map_picker.dart';
 import 'package:material_floating_search_bar_2/material_floating_search_bar_2.dart';
 import 'package:wafi_user/data/models/shared_models/place_mark_model.dart';
 
+import '../../../core/parameters/address_parameters.dart';
 import '../../../core/services/google_maps_services.dart';
 import '../../../data/data_source/remote_data_source/address_data_source.dart';
 import '../../../data/models/address_model/address_model.dart';
@@ -62,7 +62,7 @@ class AddressCubit extends Cubit<AddressState> {
     );
   }
 
-  Future<void> addAddress(AddressModel address) async {
+  Future<void> addAddress(AddressParameters address) async {
     emit(AddAddressLoading());
     final result = await _addressDataSource.addAddress(address: address);
     result.fold(
@@ -71,7 +71,7 @@ class AddressCubit extends Cubit<AddressState> {
     );
   }
 
-  Future<void> updateAddress(AddressModel address) async {
+  Future<void> updateAddress(AddressParameters address) async {
     emit(UpdateAddressLoading());
     final result = await _addressDataSource.updateAddress(address: address);
     result.fold(
@@ -98,7 +98,7 @@ class AddressCubit extends Cubit<AddressState> {
     );
   }
 
-  late CameraPosition? addressCameraPosition;
+  CameraPosition? addressCameraPosition;
 
   late GoogleMapController mapController;
 
@@ -134,7 +134,28 @@ class AddressCubit extends Cubit<AddressState> {
       emit(GetCurrentLocationError(error.toString()));
     }
   }
-
+  void initAddressCameraPositionOnEditAddress(AddressModel address) async{
+    emit(InitAddressCameraPositionOnEditAddressLoading());
+    try {
+      addressCameraPosition = CameraPosition(
+        target: LatLng(
+          double.parse(address.latitude?.toString()??"0"),
+          double.parse(address.longitude?.toString()??"0"),
+        ),
+        zoom: 13,
+      );
+      googleMapsSearchBarHint = address.locationName;
+      emit(InitAddressCameraPositionOnEditAddressSuccess());
+    } catch (error) {
+      addressCameraPosition = const CameraPosition(
+        target: LatLng(
+          0.0,
+          0.0,
+        ),
+      );
+      emit(InitAddressCameraPositionOnEditAddressError(error.toString()));
+    }
+  }
   List<PlaceResult> searchResults = [];
   final FloatingSearchBarController controller = FloatingSearchBarController();
   void onSearchedResultClicked(PlaceResult placeResult) async {
