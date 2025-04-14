@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 
-import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../widgets/car_insurance_widgets/var_insurance_item_widget.dart';
 

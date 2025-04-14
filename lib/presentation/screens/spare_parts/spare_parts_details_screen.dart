@@ -14,10 +14,10 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/cached_network_ima
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_divider.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
+import 'package:wafi_user/presentation/widgets/shared_widgets/empty_content_widget.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart';
 
 import '../../../core/app_router/screens_name.dart';
-import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
 
@@ -31,140 +31,152 @@ class SparePartsDetailsScreen extends StatefulWidget {
 
 class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
   @override
+  void dispose() {
+    widget.carSparePartModel.counter = 1;
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: LocaleKeys.search.tr(),),
+      appBar: CustomAppBar(
+        title: LocaleKeys.search.tr(),
+      ),
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 32.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 32.h),
         children: [
           Align(
-              alignment: Alignment.center,
-              child: CachedNetworkImageWidget(
-                imageUrl: widget.carSparePartModel.imageUrl??"",
-                height: 180.h,
-                width: 180.w,
-                fit: BoxFit.scaleDown,
-              ),),
-           const CustomSizedBox(
+            alignment: Alignment.center,
+            child: CachedNetworkImageWidget(
+              imageUrl: widget.carSparePartModel.imageUrl ?? "",
+              height: 180.h,
+              width: 180.w,
+              fit: BoxFit.scaleDown,
+            ),
+          ),
+          const CustomSizedBox(
             height: 38,
           ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
+          Wrap(
             children: [
               GradientText(
-                widget.carSparePartModel.title??"",
+                widget.carSparePartModel.title ?? "",
                 colors: AppColors.gradientColorsList,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: TextStyle(
-                    fontSize: 21.sp,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: FontsPath.almarai,
-                    height: 1),
+                  fontSize: 21.sp,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: FontsPath.almarai,
+                  height: 1,
+                ),
               ),
-               const CustomSizedBox(
+              const CustomSizedBox(
                 width: 8,
               ),
               GradientText(
-                widget.carSparePartModel.pieceNum??"",
+                widget.carSparePartModel.pieceNum ?? "",
                 colors: AppColors.gradientColorsList,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: TextStyle(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: FontsPath.almarai,
-                    height: 1),
-              ),
-               const CustomSizedBox(
-                width: 32,
-              ),Expanded(
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 8.w,vertical: 8.h),
-                  decoration: BoxDecoration(
-                    color: AppColors.whiteColor,
-                    borderRadius: BorderRadius.circular(8.r),
-                    border: Border.all(
-                      color: AppColors.borderColor,
-                      width: 1.w,
-                    ),
-                  ),
-                  child: Row(
-                    children: [
-                      CustomSizedBox(
-                        height: 24,
-                        width: 24,
-                        child: IconButton(
-                          onPressed: () {
-                            if(widget.carSparePartModel.counter>1){
-                              widget.carSparePartModel.counter--;
-                              setState(() {
-
-                              });
-                            }
-                          },
-                          icon:  const Icon(Icons.remove),
-                          style: IconButton.styleFrom(padding: EdgeInsets.zero),
-                        ),
-                      ),
-                      Expanded(
-                        child: Text(
-                          "${widget.carSparePartModel.counter}",
-                          textAlign: TextAlign.center,
-                          style: CustomThemes.greyColor16TextStyle(context).copyWith(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w700,
-                            fontStyle: FontStyle.normal,
-                          ),
-                        ),
-                      ),
-                      CustomSizedBox(
-                        height: 24,
-                        width: 24,
-                        child: IconButton(
-                          onPressed: () {
-                            widget.carSparePartModel.counter++;
-                            setState(() {
-
-                            });
-                          },
-                          icon:  const Icon(Icons.add),
-                          style: IconButton.styleFrom(padding: EdgeInsets.zero),
-                        ),
-                      ),
-                    ],
-                  ),
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: FontsPath.almarai,
+                  height: 1,
                 ),
               ),
             ],
           ),
-           const CustomSizedBox(
+          Align(
+            alignment: AlignmentDirectional.centerEnd,
+            child: Container(
+              constraints: const BoxConstraints(
+                minWidth: 150,
+                maxWidth: 400,
+              ),
+              decoration: BoxDecoration(
+                color: AppColors.whiteColor,
+                borderRadius: BorderRadius.circular(8.r),
+                border: Border.all(
+                  color: AppColors.borderColor,
+                  width: 1.w,
+                ),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      if (widget.carSparePartModel.counter > 1) {
+                        widget.carSparePartModel.counter--;
+                        setState(() {});
+                      }
+                    },
+                    icon: const Icon(Icons.remove),
+                    style: IconButton.styleFrom(padding: EdgeInsets.zero),
+                  ),
+                  Text(
+                    "${widget.carSparePartModel.counter}",
+                    textAlign: TextAlign.center,
+                    style: CustomThemes.greyColor16TextStyle(context).copyWith(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w700,
+                      fontStyle: FontStyle.normal,
+                    ),
+                  ),
+                  IconButton(
+                    padding: EdgeInsets.zero,
+                    onPressed: () {
+                      widget.carSparePartModel.counter++;
+                      setState(() {});
+                    },
+                    icon: const Icon(Icons.add),
+                    style: IconButton.styleFrom(padding: EdgeInsets.zero),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const CustomSizedBox(
             height: 16,
           ),
-           const DetailsWithSvgItem(
-            isGradient: false,
-            title: "16 inch",
-            svgPath: SvgPath.racing,
+          Text(
+            "Details",
+            style: CustomThemes.greyColor1CTextStyle(context).copyWith(
+              fontSize: 16.sp,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 12,
           ),
-           const DetailsWithSvgItem(
-            isGradient: false,
-            title: "195/55 R16 88V",
-            svgPath: SvgPath.service,
-          ),
-           const CustomSizedBox(
-            height: 12,
-          ),
-           const DetailsWithSvgItem(
-            isGradient: false,
-            title: "2 Years Warrenty",
-            svgPath: SvgPath.warrenty,
-          ),
-           const CustomSizedBox(
+          widget.carSparePartModel.details != null
+              ? ListView.builder(
+                  itemBuilder: (_, index) {
+                    return DetailsWithSvgItem(
+                      isGradient: false,
+                      title: widget.carSparePartModel.details![index].title!,
+                      imagePath: widget.carSparePartModel.details![index].icon!,
+                    );
+                  },
+                  itemCount: widget.carSparePartModel.details!.length,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                )
+              : const EmptyContentWidget(
+                  height: 60,
+                  width: 80,
+                  // title: "No details added",
+                ),
+          const CustomSizedBox(
             height: 16,
           ),
-           const CustomDivider(
+          const CustomDivider(
             height: 8,
           ),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 16,
           ),
           Text(
@@ -174,36 +186,25 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
               fontWeight: FontWeight.bold,
             ),
           ),
-           const CustomSizedBox(
-            height: 12,
-          ),
-           const DetailsWithSvgItem(
-            title: " Collection & Delivery",
-          ),
-           const CustomSizedBox(
-            height: 12,
-          ),
-          const DetailsWithSvgItem(
-            title: " 360 Degree Health Check",
-          ),
           const CustomSizedBox(
             height: 12,
           ),
-          const DetailsWithSvgItem(
-            title: " Tyre Check & Air Pressure",
-          ),
-          const CustomSizedBox(
-            height: 12,
-          ),
-          const DetailsWithSvgItem(
-            title: " Car Wash",
-          ),
-          const CustomSizedBox(
-            height: 12,
-          ),
-          const DetailsWithSvgItem(
-            title: " Oil filter replacement (Labour)",
-          ),
+          widget.carSparePartModel.inclusion != null
+              ? ListView.builder(
+                  itemBuilder: (_, index) {
+                    return DetailsWithSvgItem(
+                      title: widget.carSparePartModel.inclusion![index],
+                    );
+                  },
+                  itemCount: widget.carSparePartModel.inclusion!.length,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                )
+              : const EmptyContentWidget(
+                  height: 60,
+                  width: 80,
+                  // title: "No details added",
+                ),
           const CustomSizedBox(
             height: 16,
           ),
@@ -248,9 +249,8 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "150 SAR",
-                  style:
-                  CustomThemes.whiteColoTextTheme(context).copyWith(
+                  "${widget.carSparePartModel.price! * widget.carSparePartModel.counter} SAR",
+                  style: CustomThemes.whiteColoTextTheme(context).copyWith(
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w700,
                   ),
@@ -258,20 +258,25 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
                 Row(
                   children: [
                     Text(
-                      "Buy Now",
-                      style:
-                      CustomThemes.whiteColoTextTheme(context).copyWith(
+                      "Add to cart",
+                      style: CustomThemes.whiteColoTextTheme(context).copyWith(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-                    Icon(Icons.arrow_forward_ios,size: 18.r,color: AppColors.whiteColor,),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 18.r,
+                      color: AppColors.whiteColor,
+                    ),
                   ],
                 ),
               ],
             ),
             onPressed: () {
-              Navigator.pushNamed(context, ScreenName.servicesCartScreen,arguments:"Services Titles");},
+              Navigator.pushNamed(context, ScreenName.servicesCartScreen,
+                  arguments: "Services Titles");
+            },
           ),
         ],
       ),
@@ -281,13 +286,13 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
 
 class DetailsWithSvgItem extends StatelessWidget {
   final bool isGradient;
-  final String svgPath;
+  final String imagePath;
   final String title;
 
   const DetailsWithSvgItem({
     super.key,
     this.isGradient = true,
-    this.svgPath = SvgPath.trueIcon,
+    this.imagePath = SvgPath.trueIcon,
     required this.title,
   });
 
@@ -296,18 +301,14 @@ class DetailsWithSvgItem extends StatelessWidget {
     return Row(
       children: [
         if (!isGradient)
-          SvgPicture.asset(
-            svgPath,
-            height: 14.h,
+          CachedNetworkImageWidget(
+            imageUrl: imagePath,
             width: 14.w,
-            colorFilter: const ColorFilter.mode(
-              AppColors.color1C,
-              BlendMode.srcIn,
-            ),
+            fit: BoxFit.scaleDown,
           ),
         if (isGradient)
           GradientSvg(
-            svgPath: svgPath,
+            svgPath: imagePath,
             height: 14.h,
             width: 14.w,
           ),
@@ -350,7 +351,9 @@ class ReviewsItemWidget extends StatelessWidget {
                 height: 24.h,
                 width: 24.w,
               ),
-              const CustomSizedBox(width: 4,),
+              const CustomSizedBox(
+                width: 4,
+              ),
               Text(
                 "Eugene Dean",
                 style: CustomThemes.greyColor1CTextStyle(context).copyWith(
@@ -369,14 +372,18 @@ class ReviewsItemWidget extends StatelessWidget {
                 itemSize: 12.r,
                 itemBuilder: (context, _) => SvgPicture.asset(
                   SvgPath.star,
-                  colorFilter: const ColorFilter.mode(Colors.amber, BlendMode.srcIn,),
+                  colorFilter: const ColorFilter.mode(
+                    Colors.amber,
+                    BlendMode.srcIn,
+                  ),
                 ),
-                onRatingUpdate: (rating) {
-                },
+                onRatingUpdate: (rating) {},
               )
             ],
           ),
-          const CustomSizedBox(height: 8,),
+          const CustomSizedBox(
+            height: 8,
+          ),
           Text(
             "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
             maxLines: 4,

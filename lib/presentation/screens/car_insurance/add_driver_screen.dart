@@ -8,7 +8,6 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.d
 import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_theme/custom_themes.dart';
-import '../../../core/constants/constants.dart';
 import '../../widgets/car_insurance_widgets/add_driver_button_widget.dart';
 import '../../widgets/car_insurance_widgets/add_driver_component.dart';
 
@@ -22,7 +21,7 @@ class AddDriverScreen extends StatefulWidget {
 }
 
 class _AddDriverScreenState extends State<AddDriverScreen> {
-  late List<Map<String, dynamic>?> titlesList ;
+  late List<Map<String, dynamic>?> titlesList;
 
   @override
   void initState() {
@@ -83,8 +82,10 @@ class _AddDriverScreenState extends State<AddDriverScreen> {
               ),
             ),
           ),
-          const CustomSizedBox(height: 24,),
-          currentIndex==0?const AddDriverComponent():const OtherDetailsComponent(),
+          const CustomSizedBox(
+            height: 24,
+          ),
+          currentIndex == 0 ? const AddDriverComponent() : const OtherDetailsComponent(),
         ],
       ),
     );

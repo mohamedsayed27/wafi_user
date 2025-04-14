@@ -8,7 +8,6 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/gradiant_color_but
 
 import '../../../core/app_router/screens_name.dart';
 import '../../../core/app_theme/custom_themes.dart';
-import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
 import '../car_rent/choose_driver_type_screen.dart';
@@ -29,7 +28,6 @@ class _AddNewInsuranceScreenState extends State<AddNewInsuranceScreen> {
     LocaleKeys.thirdPartyLiability.tr(),
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +38,7 @@ class _AddNewInsuranceScreenState extends State<AddNewInsuranceScreen> {
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 32.h),
         children: [
           Text(
-          LocaleKeys.selectTypeOfInsurance.tr(),
+            LocaleKeys.selectTypeOfInsurance.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 16.sp,
               fontWeight: FontWeight.w700,
@@ -68,7 +66,9 @@ class _AddNewInsuranceScreenState extends State<AddNewInsuranceScreen> {
             height: 24,
           ),
           FormItemWidget(
-              title: LocaleKeys.policyholderId.tr(), hintText: LocaleKeys.policyholderId.tr(),),
+            title: LocaleKeys.policyholderId.tr(),
+            hintText: LocaleKeys.policyholderId.tr(),
+          ),
           const CustomSizedBox(
             height: 24,
           ),

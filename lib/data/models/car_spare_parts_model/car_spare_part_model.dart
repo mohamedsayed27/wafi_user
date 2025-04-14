@@ -1,8 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:wafi_user/data/models/base_response_model.dart';
 
-class GetCarSparePartsProducts
-    extends BaseResponseModel<List<CarSparePartModel>> {
+class GetCarSparePartsProducts extends BaseResponseModel<List<CarSparePartModel>> {
   const GetCarSparePartsProducts({
     required super.message,
     required super.status,
@@ -10,8 +9,7 @@ class GetCarSparePartsProducts
   });
 
   factory GetCarSparePartsProducts.fromJson(Map<String, dynamic> json) {
-    List<dynamic> list =
-        json["data"] as List<dynamic>;
+    List<dynamic> list = json["data"] as List<dynamic>;
     return GetCarSparePartsProducts(
       message: json['msg'],
       status: json['status'],
@@ -20,6 +18,7 @@ class GetCarSparePartsProducts
   }
 }
 
+// ignore: must_be_immutable
 class CarSparePartModel extends Equatable {
   final int? id;
   final int? providerId;
@@ -32,6 +31,9 @@ class CarSparePartModel extends Equatable {
   final String? createdAt;
   final String? updatedAt;
   final String? imageUrl;
+  final int? warranty;
+  final List<String>? inclusion;
+  final List<SparePartDetails>? details;
   final String? logoUrl;
   final String? carTypeName;
   final String? modelName;
@@ -45,11 +47,14 @@ class CarSparePartModel extends Equatable {
     this.id,
     this.providerId,
     this.titleAr,
+    this.details,
     this.titleEn,
     this.pieceNum,
+    this.warranty,
     this.price,
+    this.inclusion,
     this.image,
-    this.counter = 0,
+    this.counter = 1,
     this.active,
     this.createdAt,
     this.updatedAt,
@@ -72,6 +77,17 @@ class CarSparePartModel extends Equatable {
       pieceNum: json['piece_num'] as String?,
       price: json['price'] as int?,
       image: json['image'] as String?,
+      warranty: json["waranty"],
+      inclusion: json["inclusion"] != null
+          ? List<String>.from(
+              json["inclusion"].map((element) => element.toString()).toList(),
+            )
+          : null,
+      details: json["details"].isNotEmpty
+          ? List<SparePartDetails>.from(
+              json["details"].map((element) => SparePartDetails.fromJson(element)).toList(),
+            )
+          : null,
       active: json['active'] as int?,
       createdAt: json['created_at'] as String?,
       updatedAt: json['updated_at'] as String?,
@@ -129,5 +145,28 @@ class CarSparePartModel extends Equatable {
         titleWeb,
         description,
         descriptionWeb,
+      ];
+}
+
+class SparePartDetails extends Equatable {
+  final String? title;
+  final String? icon;
+
+  const SparePartDetails({
+    this.title,
+    this.icon,
+  });
+
+  factory SparePartDetails.fromJson(Map<String, dynamic> json) {
+    return SparePartDetails(
+      title: json["title"],
+      icon: json["icon"],
+    );
+  }
+
+  @override
+  List<Object?> get props => [
+        title,
+        icon,
       ];
 }

@@ -6,7 +6,6 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dar
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 
 import '../../../core/app_theme/app_colors.dart';
-import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
 
 class PolicesDetailsScreen extends StatelessWidget {
@@ -19,7 +18,10 @@ class PolicesDetailsScreen extends StatelessWidget {
         title: LocaleKeys.policyDetails.tr(),
       ),
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 32.h,),
+        padding: EdgeInsets.symmetric(
+          horizontal: 16.w,
+          vertical: 32.h,
+        ),
         children: [
           Container(
             decoration: BoxDecoration(
@@ -76,7 +78,6 @@ class PolicesDetailsScreen extends StatelessWidget {
               horizontal: 16.w,
               vertical: 12.h,
             ),
-
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

@@ -7,8 +7,6 @@ import 'package:wafi_user/translations/locale_keys.g.dart';
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/constants/constants.dart';
-import '../../../core/constants/dummy_data.dart';
-import '../shared_widgets/custom_drop_down_button.dart';
 import '../shared_widgets/custom_sized_box.dart';
 import '../shared_widgets/custom_text_form_field.dart';
 
@@ -36,7 +34,7 @@ class _SparePartsIntroContainerState extends State<SparePartsIntroContainer> {
       child: Column(
         children: [
           CustomSizedBox(
-            height: (preferredSize.height)/2,
+            height: (preferredSize.height) / 2,
           ),
           const Row(
             children: [
@@ -82,7 +80,9 @@ class _SparePartsIntroContainerState extends State<SparePartsIntroContainer> {
               ),
             ],
           ),
-          const CustomSizedBox(height: 22,),
+          const CustomSizedBox(
+            height: 22,
+          ),
           CustomTextField(
             hintText: LocaleKeys.searchByPartNameOrNumber.tr(),
             prefixIcon: IconButton(

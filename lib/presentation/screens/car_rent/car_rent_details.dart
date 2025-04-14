@@ -13,7 +13,6 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart'
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/assets_path/images_path.dart';
-import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../widgets/bottom_sheets/car_rent/car_rent_filter_bottom_sheet.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
@@ -43,9 +42,13 @@ class _CarRentDetailsState extends State<CarRentDetails> {
       ),
       body: Column(
         children: [
-          const CustomSizedBox(height: 24,),
-           const IntroCarDetails(),
-          const CustomSizedBox(height: 16,),
+          const CustomSizedBox(
+            height: 24,
+          ),
+          const IntroCarDetails(),
+          const CustomSizedBox(
+            height: 16,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -56,12 +59,13 @@ class _CarRentDetailsState extends State<CarRentDetails> {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-               const CustomSizedBox(
+              const CustomSizedBox(
                 width: 2,
               ),
               TextButton(
                 onPressed: () {
-                  showModalBottomSheet(context: context, builder:(_)=>const CarRentBottomSheet() );
+                  showModalBottomSheet(
+                      context: context, builder: (_) => const CarRentBottomSheet());
                 },
                 child: Row(
                   children: [
@@ -75,8 +79,7 @@ class _CarRentDetailsState extends State<CarRentDetails> {
                     ),
                     Text(
                       "SOR",
-                      style:
-                          CustomThemes.greyColor16TextStyle(context).copyWith(
+                      style: CustomThemes.greyColor16TextStyle(context).copyWith(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,
                       ),
@@ -86,25 +89,25 @@ class _CarRentDetailsState extends State<CarRentDetails> {
               ),
             ],
           ),
-          const CustomSizedBox(height: 16,),
+          const CustomSizedBox(
+            height: 16,
+          ),
           CustomSizedBox(
             height: 32,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemBuilder: (_, index) {
                 return InkWell(
-                  onTap: (){
-                    if(selectedIndex==index){
+                  onTap: () {
+                    if (selectedIndex == index) {
                       selectedIndex = null;
-                      setState(() {
-
-                      });
-                    }else{
+                      setState(() {});
+                    } else {
                       setState(() {
                         selectedIndex = index;
                       });
                     }
-                    if(index==2){
+                    if (index == 2) {
                       Navigator.pushNamed(context, ScreenName.chooseDriverTypeScreen);
                     }
                   },
@@ -118,9 +121,7 @@ class _CarRentDetailsState extends State<CarRentDetails> {
                       gradient: LinearGradient(
                         colors: selectedIndex == index
                             ? AppColors.gradientColorsList
-                            : AppColors.gradientColorsList
-                                .map((e) => e.withOpacity(0.1))
-                                .toList(),
+                            : AppColors.gradientColorsList.map((e) => e.withOpacity(0.1)).toList(),
                         begin: AlignmentDirectional.topStart,
                         end: AlignmentDirectional.bottomEnd,
                       ),
@@ -141,21 +142,23 @@ class _CarRentDetailsState extends State<CarRentDetails> {
                 );
               },
               separatorBuilder: (_, index) {
-                return  const CustomSizedBox(
+                return const CustomSizedBox(
                   width: 16,
                 );
               },
               itemCount: items.length,
             ),
           ),
-          const CustomSizedBox(height: 16,),
+          const CustomSizedBox(
+            height: 16,
+          ),
           Expanded(
             child: ListView.separated(
                 itemBuilder: (_, index) {
-                  return  const AgentNameDetails();
+                  return const AgentNameDetails();
                 },
                 separatorBuilder: (_, index) {
-                  return  const CustomSizedBox(
+                  return const CustomSizedBox(
                     height: 16,
                   );
                 },
@@ -168,7 +171,7 @@ class _CarRentDetailsState extends State<CarRentDetails> {
 }
 
 class IntroCarDetails extends StatelessWidget {
-   const IntroCarDetails({super.key});
+  const IntroCarDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -179,7 +182,7 @@ class IntroCarDetails extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
         borderRadius: BorderRadius.circular(8.r),
-        boxShadow:  const [
+        boxShadow: const [
           BoxShadow(
             offset: Offset(0, 4),
             blurRadius: 8,
@@ -204,21 +207,20 @@ class IntroCarDetails extends StatelessWidget {
                     fontStyle: FontStyle.normal,
                   ),
                 ),
-                 const CustomSizedBox(
+                const CustomSizedBox(
                   height: 10,
                 ),
                 Row(
                   children: [
                     Text(
                       "5 seater",
-                      style:
-                          CustomThemes.greyColor16TextStyle(context).copyWith(
+                      style: CustomThemes.greyColor16TextStyle(context).copyWith(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,
                         fontStyle: FontStyle.normal,
                       ),
                     ),
-                     const CustomSizedBox(
+                    const CustomSizedBox(
                       width: 6,
                     ),
                     Container(
@@ -252,7 +254,7 @@ class IntroCarDetails extends StatelessWidget {
 }
 
 class AgentNameDetails extends StatelessWidget {
-   const AgentNameDetails({super.key});
+  const AgentNameDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -263,7 +265,7 @@ class AgentNameDetails extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
         borderRadius: BorderRadius.circular(8.r),
-        boxShadow:  const [
+        boxShadow: const [
           BoxShadow(
             offset: Offset(0, 4),
             blurRadius: 8,
@@ -288,7 +290,7 @@ class AgentNameDetails extends StatelessWidget {
                       borderRadius: BorderRadius.circular(4.r),
                     ),
                   ),
-                   const CustomSizedBox(
+                  const CustomSizedBox(
                     width: 4,
                   ),
                   Text(
@@ -308,11 +310,11 @@ class AgentNameDetails extends StatelessWidget {
                     style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w700,
-                      color:  const Color(0xff0F9E0E),
+                      color: const Color(0xff0F9E0E),
                       fontStyle: FontStyle.normal,
                     ),
                   ),
-                   const CustomSizedBox(
+                  const CustomSizedBox(
                     width: 4,
                   ),
                   Container(
@@ -320,7 +322,7 @@ class AgentNameDetails extends StatelessWidget {
                     width: 1.w,
                     color: AppColors.greyColor9,
                   ),
-                   const CustomSizedBox(
+                  const CustomSizedBox(
                     width: 4,
                   ),
                   Text(
@@ -331,7 +333,7 @@ class AgentNameDetails extends StatelessWidget {
                       fontStyle: FontStyle.normal,
                     ),
                   ),
-                   const Icon(
+                  const Icon(
                     Icons.star,
                     color: Colors.amber,
                   ),
@@ -349,7 +351,7 @@ class AgentNameDetails extends StatelessWidget {
                     height: 16.h,
                     width: 16.w,
                   ),
-                   const CustomSizedBox(
+                  const CustomSizedBox(
                     width: 4,
                   ),
                   Text(
@@ -369,7 +371,7 @@ class AgentNameDetails extends StatelessWidget {
                     height: 16.h,
                     width: 16.w,
                   ),
-                   const CustomSizedBox(
+                  const CustomSizedBox(
                     width: 4,
                   ),
                   Text(
@@ -414,8 +416,7 @@ class AgentNameDetails extends StatelessWidget {
                   children: [
                     Text(
                       "Hyundai Accent 2020",
-                      style:
-                          CustomThemes.greyColor99TextStyle(context).copyWith(
+                      style: CustomThemes.greyColor99TextStyle(context).copyWith(
                         fontSize: 8.sp,
                         fontWeight: FontWeight.w700,
                         fontStyle: FontStyle.normal,
@@ -423,8 +424,7 @@ class AgentNameDetails extends StatelessWidget {
                     ),
                     Text(
                       "5 seater",
-                      style:
-                          CustomThemes.greyColor1CTextStyle(context).copyWith(
+                      style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w700,
                         fontStyle: FontStyle.normal,
@@ -461,11 +461,12 @@ class AgentDetails extends StatelessWidget {
   final String title;
   final String description;
 
-  const AgentDetails(
-      {super.key,
-      required this.path,
-      required this.title,
-      required this.description,});
+  const AgentDetails({
+    super.key,
+    required this.path,
+    required this.title,
+    required this.description,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -488,11 +489,13 @@ class AgentDetails extends StatelessWidget {
             fontWeight: FontWeight.w700,
           ),
         )),
-        Text(description,
-            style: CustomThemes.greyColor16TextStyle(context).copyWith(
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w700,
-            ),)
+        Text(
+          description,
+          style: CustomThemes.greyColor16TextStyle(context).copyWith(
+            fontSize: 12.sp,
+            fontWeight: FontWeight.w700,
+          ),
+        )
       ],
     );
   }

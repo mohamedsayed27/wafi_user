@@ -8,7 +8,6 @@ import 'package:wafi_user/core/assets_path/svg_path.dart';
 import 'package:wafi_user/core/constants/extensions.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 
-import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
 import '../../widgets/shared_widgets/language_drop_down_button.dart';
@@ -37,7 +36,9 @@ class SelectLanguageScreen extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ).symmetricPadding(horizontal: 16),
-          const CustomSizedBox(height: 10,),
+          const CustomSizedBox(
+            height: 10,
+          ),
           Text(
             LocaleKeys.onePlatform.tr(),
             style: CustomThemes.greyColor16TextStyle(context).copyWith(
@@ -45,9 +46,13 @@ class SelectLanguageScreen extends StatelessWidget {
               fontWeight: FontWeight.w400,
             ),
           ).symmetricPadding(horizontal: 16),
-          const CustomSizedBox(height: 24,),
+          const CustomSizedBox(
+            height: 24,
+          ),
           const LanguageDropDownButton().symmetricPadding(horizontal: 16),
-          const CustomSizedBox(height: 40,),
+          const CustomSizedBox(
+            height: 40,
+          ),
           CustomGradientButton(
             onPressed: () {
               Navigator.pushNamed(context, ScreenName.welcomeScreen);

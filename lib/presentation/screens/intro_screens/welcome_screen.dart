@@ -8,7 +8,6 @@ import 'package:wafi_user/core/assets_path/svg_path.dart';
 import 'package:wafi_user/core/constants/extensions.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 
-import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/custom_text_button.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
@@ -92,8 +91,7 @@ class WelcomeScreen extends StatelessWidget {
                       borderRadius: 4,
                       child: Text(
                         LocaleKeys.register.tr(),
-                        style:
-                            CustomThemes.whiteColoTextTheme(context).copyWith(
+                        style: CustomThemes.whiteColoTextTheme(context).copyWith(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w700,
                         ),

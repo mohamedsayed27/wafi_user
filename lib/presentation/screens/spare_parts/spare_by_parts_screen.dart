@@ -7,7 +7,6 @@ import 'package:wafi_user/presentation/business_logic/car_spare_parts_cubit/car_
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 
 import '../../../core/assets_path/lottie_path.dart';
-import '../../../core/services/services_locator.dart';
 import '../../widgets/spare_barts/spare_parts_intro_container.dart';
 import '../../widgets/spare_barts/spare_parts_item_widget.dart';
 

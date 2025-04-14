@@ -22,18 +22,16 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
   String _dateCount = '';
   String _range = '';
   String _rangeCount = '';
-  List<String> timeList =
-  List.generate(24, (index) => '${index.toString().padLeft(2, '0')}:00 AM');
+  List<String> timeList = List.generate(24, (index) => '${index.toString().padLeft(2, '0')}:00 AM');
 
   int selectedTimeIndex1 = 0;
   int selectedTimeIndex2 = 0;
 
   void _onSelectionChanged(DateRangePickerSelectionChangedArgs args) {
-
     setState(() {
       if (args.value is PickerDateRange) {
         _range = '${DateFormat('dd/MM/yyyy').format(args.value.startDate)} -'
-        // ignore: lines_longer_than_80_chars
+            // ignore: lines_longer_than_80_chars
             ' ${DateFormat('dd/MM/yyyy').format(args.value.endDate ?? args.value.startDate)}';
       } else if (args.value is DateTime) {
         _selectedDate = args.value.toString();
@@ -44,6 +42,7 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
       }
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -61,19 +60,15 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
           children: [
             SfDateRangePicker(
               onSelectionChanged: _onSelectionChanged,
-              selectionMode:
-              DateRangePickerSelectionMode.range,
+              selectionMode: DateRangePickerSelectionMode.range,
               rangeSelectionColor: AppColors.locationDetailsContainer,
               endRangeSelectionColor: AppColors.homeScreenGradientFirstColor,
               startRangeSelectionColor: AppColors.thirdGradientColor,
               // selectionColor: AppColors.secondGradientColor,
               initialSelectedRange: PickerDateRange(
-                  DateTime.now()
-                      .subtract(const Duration(days: 4)),
-                  DateTime.now()
-                      .add(const Duration(days: 3))),
+                  DateTime.now().subtract(const Duration(days: 4)),
+                  DateTime.now().add(const Duration(days: 3))),
             ),
-
             Text(
               LocaleKeys.setTime.tr(),
               style: CustomThemes.greyColor16TextStyle(context).copyWith(
@@ -82,7 +77,9 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
                 fontStyle: FontStyle.normal,
               ),
             ),
-            const CustomSizedBox(height: 16,),
+            const CustomSizedBox(
+              height: 16,
+            ),
             Row(
               children: [
                 Expanded(
@@ -96,7 +93,9 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
                           fontStyle: FontStyle.normal,
                         ),
                       ),
-                      const CustomSizedBox(height: 8,),
+                      const CustomSizedBox(
+                        height: 8,
+                      ),
                       SizedBox(
                         height: 100.h,
                         child: Stack(
@@ -112,7 +111,6 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
                                   begin: AlignmentDirectional.topStart,
                                   end: AlignmentDirectional.bottomEnd,
                                 ),
-
                               ),
                             ),
                             ListWheelScrollView.useDelegate(
@@ -121,13 +119,10 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
                               physics: const FixedExtentScrollPhysics(),
                               useMagnifier: true,
                               magnification: 1.2,
-                              childDelegate:
-                              ListWheelChildBuilderDelegate(
+                              childDelegate: ListWheelChildBuilderDelegate(
                                   builder: (context, index) {
                                     return buildTimeItem(
-                                        timeList[index],
-                                        selectedTimeIndex1 == index,
-                                        context);
+                                        timeList[index], selectedTimeIndex1 == index, context);
                                   },
                                   childCount: timeList.length),
                               // timeList.map((time) {
@@ -156,7 +151,9 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
                           fontStyle: FontStyle.normal,
                         ),
                       ),
-                      const CustomSizedBox(height: 8,),
+                      const CustomSizedBox(
+                        height: 8,
+                      ),
                       SizedBox(
                         height: 100.h,
                         child: Stack(
@@ -172,7 +169,6 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
                                   begin: AlignmentDirectional.topStart,
                                   end: AlignmentDirectional.bottomEnd,
                                 ),
-
                               ),
                             ),
                             ListWheelScrollView.useDelegate(
@@ -181,13 +177,10 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
                               physics: const FixedExtentScrollPhysics(),
                               useMagnifier: true,
                               magnification: 1.2,
-                              childDelegate:
-                              ListWheelChildBuilderDelegate(
+                              childDelegate: ListWheelChildBuilderDelegate(
                                   builder: (context, index) {
                                     return buildTimeItem(
-                                        timeList[index],
-                                        selectedTimeIndex2 == index,
-                                        context);
+                                        timeList[index], selectedTimeIndex2 == index, context);
                                   },
                                   childCount: timeList.length),
                               // timeList.map((time) {
@@ -207,26 +200,33 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
                 ),
               ],
             ),
-            const CustomSizedBox(height: 16,),
+            const CustomSizedBox(
+              height: 16,
+            ),
             CustomGradientButton(
               borderRadius: 6,
               padding: const EdgeInsets.symmetric(horizontal: 16),
               height: 40,
               child: Text(
                 LocaleKeys.submit.tr(),
-                style:
-                CustomThemes.whiteColoTextTheme(context).copyWith(
+                style: CustomThemes.whiteColoTextTheme(context).copyWith(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w700,
                 ),
               ),
               onPressed: () {},
-            ).symmetricPadding(horizontal: 72,)
+            ).symmetricPadding(
+              horizontal: 72,
+            )
           ],
-        ).symmetricPadding(horizontal: 16,vertical: 24,),
+        ).symmetricPadding(
+          horizontal: 16,
+          vertical: 24,
+        ),
       ),
     );
   }
+
   Widget buildTimeItem(String time, bool isSelected, BuildContext context) {
     return Center(
       child: Text(
@@ -235,11 +235,8 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
             fontSize: 12.sp,
             fontWeight: FontWeight.w700,
             fontStyle: FontStyle.normal,
-            color: isSelected
-                ?null:AppColors.color16
-        ),
+            color: isSelected ? null : AppColors.color16),
       ),
     );
   }
-
 }

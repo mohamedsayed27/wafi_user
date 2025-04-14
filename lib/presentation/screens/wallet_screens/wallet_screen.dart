@@ -12,8 +12,6 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.d
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart';
 import 'package:wafi_user/translations/locale_keys.g.dart';
 
-import '../../../core/constants/constants.dart';
-
 class WalletScreen extends StatelessWidget {
   const WalletScreen({super.key});
 
@@ -134,7 +132,7 @@ class WalletScreen extends StatelessWidget {
           ),
           Expanded(
             child: ListView.separated(
-              padding:EdgeInsets.symmetric(horizontal: 16.w,vertical: 16.h),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
               itemBuilder: (_, index) => const ItemWidget(),
               separatorBuilder: (_, index) => const CustomSizedBox(
                 height: 16,
@@ -185,8 +183,8 @@ class ItemWidget extends StatelessWidget {
         children: [
           Text(
             LocaleKeys.moneyRefund.tr(),
-            style: CustomThemes.greyColor1CTextStyle(context).copyWith(
-                fontWeight: FontWeight.w700, fontSize: 16.sp, height: 1),
+            style: CustomThemes.greyColor1CTextStyle(context)
+                .copyWith(fontWeight: FontWeight.w700, fontSize: 16.sp, height: 1),
           ),
           const CustomSizedBox(
             height: 8,

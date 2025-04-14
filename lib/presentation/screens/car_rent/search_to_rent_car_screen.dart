@@ -12,7 +12,6 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart'
 import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_theme/custom_themes.dart';
-import '../../../core/constants/constants.dart';
 import '../../widgets/car_rent_widgets/car_rent_date_time_picker_dialog.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
 
@@ -213,8 +212,7 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
                       vertical: 1.h,
                     ),
                     decoration: BoxDecoration(
-                      color:
-                          selectedIndex == index ? null : AppColors.greyColor9,
+                      color: selectedIndex == index ? null : AppColors.greyColor9,
                       borderRadius: BorderRadius.circular(4.r),
                       gradient: selectedIndex == index
                           ? LinearGradient(
@@ -244,8 +242,7 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
                           ),
                           Text(
                             carsList[index]["title"],
-                            style: CustomThemes.greyColor16TextStyle(context)
-                                .copyWith(
+                            style: CustomThemes.greyColor16TextStyle(context).copyWith(
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w700,
                               fontStyle: FontStyle.normal,
@@ -293,9 +290,7 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
                       vertical: VisualDensity.maximumDensity),
                   focusColor: AppColors.whiteColor,
                   fillColor: MaterialStateProperty.all(
-                    isDeliverChecked
-                        ? Colors.transparent
-                        : AppColors.whiteColor,
+                    isDeliverChecked ? Colors.transparent : AppColors.whiteColor,
                   ),
                   checkColor: AppColors.whiteColor,
                   side: const BorderSide(color: AppColors.whiteColor),

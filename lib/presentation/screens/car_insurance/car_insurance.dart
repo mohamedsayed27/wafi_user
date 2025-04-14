@@ -9,13 +9,10 @@ import 'package:wafi_user/translations/locale_keys.g.dart';
 import '../../../core/app_router/screens_name.dart';
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
-import '../../../core/constants/constants.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
 
 class CarInsurance extends StatelessWidget {
   const CarInsurance({super.key});
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +34,7 @@ class CarInsurance extends StatelessWidget {
               Navigator.pushNamed(context, ScreenName.newInsuranceScreen);
             },
           ),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 16,
           ),
           InsuranceDashboardWidget(
@@ -47,7 +44,7 @@ class CarInsurance extends StatelessWidget {
               Navigator.pushNamed(context, ScreenName.existingPolicesScreen);
             },
           ),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 16,
           ),
           InsuranceDashboardWidget(
@@ -57,7 +54,7 @@ class CarInsurance extends StatelessWidget {
               Navigator.pushNamed(context, ScreenName.dueForRenewal);
             },
           ),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 16,
           ),
           InsuranceDashboardWidget(
@@ -67,7 +64,7 @@ class CarInsurance extends StatelessWidget {
               Navigator.pushNamed(context, ScreenName.expiredPolices);
             },
           ),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 16,
           ),
           InsuranceDashboardWidget(
@@ -113,9 +110,7 @@ class InsuranceDashboardWidget extends StatelessWidget {
             ),
             boxShadow: [
               BoxShadow(
-                  offset: Offset(0, 4.h),
-                  blurRadius: 12.r,
-                  color: AppColors.shadowColor(value: .1))
+                  offset: Offset(0, 4.h), blurRadius: 12.r, color: AppColors.shadowColor(value: .1))
             ]),
         child: Ink(
           padding: EdgeInsets.symmetric(
@@ -144,29 +139,31 @@ class InsuranceDashboardWidget extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              if(haveCounter)const CustomSizedBox(
-                width: 8,
-              ),
-              if(haveCounter)Ink(
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  gradient: LinearGradient(
-                    colors: AppColors.gradientColorsList,
-                    begin: AlignmentDirectional.topStart,
-                    end: AlignmentDirectional.bottomEnd,
+              if (haveCounter)
+                const CustomSizedBox(
+                  width: 8,
+                ),
+              if (haveCounter)
+                Ink(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    gradient: LinearGradient(
+                      colors: AppColors.gradientColorsList,
+                      begin: AlignmentDirectional.topStart,
+                      end: AlignmentDirectional.bottomEnd,
+                    ),
                   ),
-                ),
-                padding: EdgeInsets.all(
-                  6.sp,
-                ),
-                child: Text(
-                  "2",
-                  style: CustomThemes.whiteColoTextTheme(context).copyWith(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w700,
+                  padding: EdgeInsets.all(
+                    6.sp,
                   ),
-                ),
-              )
+                  child: Text(
+                    "2",
+                    style: CustomThemes.whiteColoTextTheme(context).copyWith(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                )
             ],
           ),
         ),

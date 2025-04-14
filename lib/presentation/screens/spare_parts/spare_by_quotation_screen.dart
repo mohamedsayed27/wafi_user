@@ -12,7 +12,6 @@ import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
-import '../../../core/constants/constants.dart';
 import '../../widgets/shared_widgets/form_item_widget.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
 
@@ -24,7 +23,6 @@ class SpareByQuotationScreen extends StatefulWidget {
 }
 
 class _SpareByQuotationScreenState extends State<SpareByQuotationScreen> {
-
   bool isChecked = false;
   @override
   Widget build(BuildContext context) {
@@ -34,24 +32,27 @@ class _SpareByQuotationScreenState extends State<SpareByQuotationScreen> {
         elevation: 0,
       ),
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 32.h,),
+        padding: EdgeInsets.symmetric(
+          horizontal: 16.w,
+          vertical: 32.h,
+        ),
         children: [
-           FormItemWidget(
+          FormItemWidget(
             title: LocaleKeys.nameOfPart.tr(),
             hintText: "",
           ),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 24,
           ),
-           FormItemWidget(title: LocaleKeys.partNumber.tr(), hintText: "", isOptional: true),
-           const CustomSizedBox(
+          FormItemWidget(title: LocaleKeys.partNumber.tr(), hintText: "", isOptional: true),
+          const CustomSizedBox(
             height: 24,
           ),
-           FormItemWidget(
+          FormItemWidget(
             title: LocaleKeys.anySpecifications.tr(),
             hintText: "",
           ),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 24,
           ),
           Text(
@@ -61,7 +62,7 @@ class _SpareByQuotationScreenState extends State<SpareByQuotationScreen> {
               fontWeight: FontWeight.bold,
             ),
           ),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 16,
           ),
           SizedBox(
@@ -71,14 +72,13 @@ class _SpareByQuotationScreenState extends State<SpareByQuotationScreen> {
                 Expanded(
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: (_, index) =>  const UploadedImageWidget(),
+                    itemBuilder: (_, index) => const UploadedImageWidget(),
                     separatorBuilder: (_, index) => const SizedBox(
                       width: 16,
                     ),
                     itemCount: 4,
                   ),
                 ),
-
                 const CustomSizedBox(
                   width: 16,
                 ),
@@ -86,8 +86,7 @@ class _SpareByQuotationScreenState extends State<SpareByQuotationScreen> {
                   color: AppColors.primaryColor,
                   borderType: BorderType.RRect,
                   dashPattern: const [8, 4],
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 27.w, vertical: 27.h),
+                  padding: EdgeInsets.symmetric(horizontal: 27.w, vertical: 27.h),
                   radius: const Radius.circular(16),
                   child: GradientSvg(
                     svgPath: SvgPath.add,
@@ -127,9 +126,7 @@ class _SpareByQuotationScreenState extends State<SpareByQuotationScreen> {
                       vertical: VisualDensity.maximumDensity),
                   focusColor: AppColors.whiteColor,
                   fillColor: MaterialStateProperty.all(
-                    isChecked
-                        ? Colors.transparent
-                        : AppColors.whiteColor,
+                    isChecked ? Colors.transparent : AppColors.whiteColor,
                   ),
                   checkColor: AppColors.whiteColor,
                   side: const BorderSide(color: AppColors.whiteColor),
@@ -164,7 +161,10 @@ class _SpareByQuotationScreenState extends State<SpareByQuotationScreen> {
               ),
             ),
             onPressed: () {
-              showDialog(context: context, builder: (_)=>const SpareSubmitDialog(),);
+              showDialog(
+                context: context,
+                builder: (_) => const SpareSubmitDialog(),
+              );
             },
           )
         ],

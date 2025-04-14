@@ -12,7 +12,6 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.d
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_text_form_field.dart';
 
 import '../../../core/app_theme/custom_themes.dart';
-import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
 
@@ -25,19 +24,22 @@ class FilteredRentScreen extends StatelessWidget {
       appBar: CustomAppBar(title: LocaleKeys.rentACar.tr()),
       body: Column(
         children: [
-          const CustomSizedBox(height: 24,),
+          const CustomSizedBox(
+            height: 24,
+          ),
           const FilterScreenSearch().symmetricPadding(horizontal: 16),
-          const CustomSizedBox(height: 16,),
+          const CustomSizedBox(
+            height: 16,
+          ),
           Expanded(
             child: ListView.separated(
-              padding: EdgeInsets.symmetric(
-                horizontal: 16.w,
-                vertical: 16.h
-              ),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
               itemBuilder: (_, index) {
-                return InkWell(onTap:(){
-                  Navigator.pushNamed(context, ScreenName.carRentDetails);
-                },child: const FilteredRentCarsContainer());
+                return InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, ScreenName.carRentDetails);
+                    },
+                    child: const FilteredRentCarsContainer());
               },
               separatorBuilder: (_, index) {
                 return const CustomSizedBox(
@@ -86,24 +88,26 @@ class FilteredRentCarsContainer extends StatelessWidget {
                   children: [
                     Text(
                       "Hyundai Accent 2020",
-                      style:
-                          CustomThemes.greyColor16TextStyle(context).copyWith(
+                      style: CustomThemes.greyColor16TextStyle(context).copyWith(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,
                         fontStyle: FontStyle.normal,
                       ),
                     ),
-                    const CustomSizedBox(height: 10,),
+                    const CustomSizedBox(
+                      height: 10,
+                    ),
                     Text(
                       "5 seater",
-                      style:
-                          CustomThemes.greyColor16TextStyle(context).copyWith(
+                      style: CustomThemes.greyColor16TextStyle(context).copyWith(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,
                         fontStyle: FontStyle.normal,
                       ),
                     ),
-                    const CustomSizedBox(height: 10,),
+                    const CustomSizedBox(
+                      height: 10,
+                    ),
                     Container(
                       padding: EdgeInsets.symmetric(
                         horizontal: 8.w,
@@ -145,8 +149,7 @@ class FilteredRentCarsContainer extends StatelessWidget {
                   children: [
                     Text(
                       "Hyundai Accent 2020",
-                      style:
-                          CustomThemes.greyColor99TextStyle(context).copyWith(
+                      style: CustomThemes.greyColor99TextStyle(context).copyWith(
                         fontSize: 8.sp,
                         fontWeight: FontWeight.w700,
                         fontStyle: FontStyle.normal,
@@ -154,8 +157,7 @@ class FilteredRentCarsContainer extends StatelessWidget {
                     ),
                     Text(
                       "5 seater",
-                      style:
-                          CustomThemes.greyColor1CTextStyle(context).copyWith(
+                      style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w700,
                         fontStyle: FontStyle.normal,

@@ -12,7 +12,6 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.d
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradient%20widgets.dart';
 
 import '../../../core/app_theme/custom_themes.dart';
-import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../widgets/reservations_widgets/location_details_container.dart';
 import '../../widgets/shared_widgets/bill_details_item.dart';
@@ -68,9 +67,7 @@ class ConfirmReservationScreen extends StatelessWidget {
                     style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w700,
-                      color: CustomThemes.greyColor1CTextStyle(context)
-                          .color!
-                          .withOpacity(0.8),
+                      color: CustomThemes.greyColor1CTextStyle(context).color!.withOpacity(0.8),
                     ),
                   ),
                 ),
@@ -117,8 +114,10 @@ class ConfirmReservationScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
             foregroundColor: AppColors.blackColor,
             onPressed: () {
-
-              Navigator.pushNamed(context, ScreenName.paymentMethodsScreen,);
+              Navigator.pushNamed(
+                context,
+                ScreenName.paymentMethodsScreen,
+              );
             },
             child: Row(
               children: [
@@ -160,13 +159,21 @@ class ConfirmReservationScreen extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ).onlyDirectionalPadding(start: 16),
-          const CustomSizedBox(height: 8,),
-           BillDetailsItem(title: LocaleKeys.settings.tr(), balance: "100"),
-           const CustomSizedBox(height: 2,),
-           BillDetailsItem(title: LocaleKeys.serviceTaxes.tr(), balance: "90"),
-           const CustomSizedBox(height: 2,),
-           const BillDetailsItem(title: "Delivery Charges", balance: "78"),
-           const CustomSizedBox(height: 12,),
+          const CustomSizedBox(
+            height: 8,
+          ),
+          BillDetailsItem(title: LocaleKeys.settings.tr(), balance: "100"),
+          const CustomSizedBox(
+            height: 2,
+          ),
+          BillDetailsItem(title: LocaleKeys.serviceTaxes.tr(), balance: "90"),
+          const CustomSizedBox(
+            height: 2,
+          ),
+          const BillDetailsItem(title: "Delivery Charges", balance: "78"),
+          const CustomSizedBox(
+            height: 12,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -186,31 +193,32 @@ class ConfirmReservationScreen extends StatelessWidget {
               )
             ],
           ).symmetricPadding(horizontal: 16),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 24,
           ),
-           const CustomDivider(),
-           const CustomSizedBox(
+          const CustomDivider(),
+          const CustomSizedBox(
             height: 24,
           ),
-           const CustomSizedBox(height: 171,),
+          const CustomSizedBox(
+            height: 171,
+          ),
           CustomGradientButton(
             borderRadius: 4,
             child: Text(
               LocaleKeys.confirm.tr(),
-              style:
-              CustomThemes.whiteColoTextTheme(context).copyWith(
+              style: CustomThemes.whiteColoTextTheme(context).copyWith(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w700,
               ),
             ),
             onPressed: () {
-              Navigator.pushNamed(context, ScreenName.servicesCartScreen,arguments:"Services Titles");
+              Navigator.pushNamed(context, ScreenName.servicesCartScreen,
+                  arguments: "Services Titles");
             },
-          ).symmetricPadding(horizontal:16)
+          ).symmetricPadding(horizontal: 16)
         ],
       ),
     );
   }
 }
-

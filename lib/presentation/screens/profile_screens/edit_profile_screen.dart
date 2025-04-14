@@ -8,7 +8,6 @@ import 'package:wafi_user/core/assets_path/svg_path.dart';
 
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/assets_path/images_path.dart';
-import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/custom_app_bar.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
@@ -77,23 +76,21 @@ class EditProfileScreen extends StatelessWidget {
             ),
           ),
           const CustomSizedBox(height: 16),
-           FormItemWidget(
+          FormItemWidget(
             title: LocaleKeys.name.tr(),
             hintText: LocaleKeys.userName.tr(),
           ),
-           const CustomSizedBox(height: 16),
-           FormItemWidget(
+          const CustomSizedBox(height: 16),
+          FormItemWidget(
             title: LocaleKeys.email.tr(),
             hintText: LocaleKeys.userEmail.tr(),
           ),
-           const CustomSizedBox(height: 16),
+          const CustomSizedBox(height: 16),
           RichText(
             text: TextSpan(
               text: LocaleKeys.phoneNumber.tr(),
               style: CustomThemes.greyColor16TextStyle(context).copyWith(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w700,
-                  fontStyle: FontStyle.normal),
+                  fontSize: 14.sp, fontWeight: FontWeight.w700, fontStyle: FontStyle.normal),
               //   children: [
               //     if (false)
               //       TextSpan(
@@ -106,7 +103,7 @@ class EditProfileScreen extends StatelessWidget {
               //   ],
             ),
           ),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 8,
           ),
           IntlPhoneField(
@@ -126,8 +123,7 @@ class EditProfileScreen extends StatelessWidget {
               label: null,
               hintText: LocaleKeys.phoneNumber.tr(),
               floatingLabelAlignment: FloatingLabelAlignment.start,
-              contentPadding:
-                  EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+              contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.r),
                 borderSide: BorderSide(
@@ -153,8 +149,7 @@ class EditProfileScreen extends StatelessWidget {
 
             initialCountryCode: 'US',
             onChanged: (phone) {
-              print(phone
-                  .completeNumber); // Prints complete number including country code
+              print(phone.completeNumber); // Prints complete number including country code
             },
           ),
           FormItemWidget(
@@ -173,7 +168,7 @@ class EditProfileScreen extends StatelessWidget {
               ),
             ),
           ),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 32,
           ),
           CustomGradientButton(

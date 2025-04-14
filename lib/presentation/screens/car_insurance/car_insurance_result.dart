@@ -9,14 +9,12 @@ import 'package:wafi_user/core/constants/extensions.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_elevated_button.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 
-import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../widgets/car_insurance_widgets/car_insurance_container.dart';
 import '../../widgets/shared_widgets/custom_app_bar.dart';
 
 class CarInsuranceResult extends StatelessWidget {
   const CarInsuranceResult({super.key});
-
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +24,9 @@ class CarInsuranceResult extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const CustomSizedBox(height: 32,),
+          const CustomSizedBox(
+            height: 32,
+          ),
           Row(
             children: [
               Column(

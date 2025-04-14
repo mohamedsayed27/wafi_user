@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:wafi_user/core/app_theme/custom_themes.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 
 import '../../../core/assets_path/lottie_path.dart';
 
@@ -23,12 +22,8 @@ class EmptyContentWidget extends StatelessWidget {
           LottiePath.empty,
           frameBuilder: (BuildContext ctx, DotLottie? dotlottie) {
             if (dotlottie != null) {
-              return Lottie.memory(
-                dotlottie.animations.values.single,
-                  width: width,
-                  height: height,
-                fit: BoxFit.cover
-              );
+              return Lottie.memory(dotlottie.animations.values.single,
+                  width: width, height: height, fit: BoxFit.cover);
             } else {
               return Container();
             }

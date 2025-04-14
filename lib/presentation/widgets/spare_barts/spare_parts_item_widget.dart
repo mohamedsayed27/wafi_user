@@ -30,14 +30,8 @@ class SparePartsItemWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.r),
           color: AppColors.whiteColor,
           boxShadow: [
-            BoxShadow(
-                offset: const Offset(4, 4),
-                color: AppColors.shadowColor(),
-                blurRadius: 8.r),
-            BoxShadow(
-                offset: const Offset(-4, -4),
-                color: AppColors.shadowColor(),
-                blurRadius: 8.r)
+            BoxShadow(offset: const Offset(4, 4), color: AppColors.shadowColor(), blurRadius: 8.r),
+            BoxShadow(offset: const Offset(-4, -4), color: AppColors.shadowColor(), blurRadius: 8.r)
           ]),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -75,16 +69,18 @@ class SparePartsItemWidget extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const CustomSizedBox(
-                    height: 8,
-                  ),
-                  Text(
-                    "1 Year Warranty*",
-                    style: CustomThemes.darkGrayColorTheme(context).copyWith(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.bold,
+                  if (carSparePartModel.warranty != null)
+                    const CustomSizedBox(
+                      height: 8,
                     ),
-                  ),
+                  if (carSparePartModel.warranty != null)
+                    Text(
+                      "${carSparePartModel.warranty} Year Warranty*",
+                      style: CustomThemes.darkGrayColorTheme(context).copyWith(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                 ],
               ),
               CachedNetworkImageWidget(
@@ -93,7 +89,6 @@ class SparePartsItemWidget extends StatelessWidget {
                 width: 80,
                 height: 80,
               ),
-
             ],
           ),
           const CustomSizedBox(

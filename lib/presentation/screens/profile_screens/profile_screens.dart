@@ -13,11 +13,9 @@ import '../../../core/assets_path/svg_path.dart';
 import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
-import '../main_layout/main_layout.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
-
 
   @override
   Widget build(BuildContext context) {
@@ -77,11 +75,12 @@ class ProfileScreen extends StatelessWidget {
                         width: 120.w,
                         clipBehavior: Clip.antiAliasWithSaveLayer,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16.r),
-                            border: Border.all(
-                              color: AppColors.whiteColor,
-                              width: 2.w,
-                            ),),
+                          borderRadius: BorderRadius.circular(16.r),
+                          border: Border.all(
+                            color: AppColors.whiteColor,
+                            width: 2.w,
+                          ),
+                        ),
                         child: Image.asset(
                           ImagesPath.userNullImage,
                           fit: BoxFit.cover,
@@ -92,8 +91,7 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       Text(
                         "Riyad Mahrez",
-                        style:
-                            CustomThemes.whiteColoTextTheme(context).copyWith(
+                        style: CustomThemes.whiteColoTextTheme(context).copyWith(
                           fontSize: 24.sp,
                           fontWeight: FontWeight.bold,
                           height: 1,
@@ -104,8 +102,7 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       Text(
                         "riyadmahrez@gmail.com",
-                        style:
-                            CustomThemes.greyColor99TextStyle(context).copyWith(
+                        style: CustomThemes.greyColor99TextStyle(context).copyWith(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.bold,
                           height: 1,
@@ -135,7 +132,9 @@ class ProfileScreen extends StatelessWidget {
             onTap: () {},
             isBorder: false,
           ),
-          const CustomDivider(height: 8,),
+          const CustomDivider(
+            height: 8,
+          ),
         ],
       ),
     );
@@ -148,12 +147,13 @@ class ItemWidget extends StatelessWidget {
   final bool isBorder;
   final void Function()? onTap;
 
-  const ItemWidget(
-      {super.key,
-      required this.title,
-      required this.svgPath,
-      this.isBorder = true,
-      this.onTap,});
+  const ItemWidget({
+    super.key,
+    required this.title,
+    required this.svgPath,
+    this.isBorder = true,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {

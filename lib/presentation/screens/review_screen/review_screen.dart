@@ -10,7 +10,6 @@ import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/assets_path/images_path.dart';
 import '../../../core/assets_path/svg_path.dart';
-import '../../../core/constants/constants.dart';
 import '../../widgets/shared_widgets/custom_app_bar.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
 import '../../widgets/shared_widgets/custom_text_form_field.dart';
@@ -162,8 +161,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
                     8,
                     4,
                   ],
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 27.w, vertical: 27.h),
+                  padding: EdgeInsets.symmetric(horizontal: 27.w, vertical: 27.h),
                   radius: const Radius.circular(16),
                   child: GradientSvg(
                     svgPath: SvgPath.add,

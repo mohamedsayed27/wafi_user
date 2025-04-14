@@ -6,7 +6,6 @@ import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
-import '../../../core/constants/constants.dart';
 import '../../widgets/car_rent_widgets/citizen_resident_component.dart';
 import '../../widgets/car_rent_widgets/visitor_component.dart';
 import '../../widgets/shared_widgets/custom_app_bar.dart';
@@ -22,7 +21,7 @@ class ChooseDriverTypeScreen extends StatefulWidget {
 class _ChooseDriverTypeScreenState extends State<ChooseDriverTypeScreen> {
   int currentIndex = 0;
 
-  List<String?> titlesList= [
+  List<String?> titlesList = [
     LocaleKeys.citizenResident.tr(),
     null,
     LocaleKeys.visitor.tr(),
@@ -34,7 +33,7 @@ class _ChooseDriverTypeScreenState extends State<ChooseDriverTypeScreen> {
         title: LocaleKeys.rentACar.tr(),
       ),
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 32.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 32.h),
         children: [
           Text(
             LocaleKeys.typeOfDriver.tr(),
@@ -43,18 +42,20 @@ class _ChooseDriverTypeScreenState extends State<ChooseDriverTypeScreen> {
               fontWeight: FontWeight.w700,
             ),
           ),
-           const CustomSizedBox(height: 16,),
+          const CustomSizedBox(
+            height: 16,
+          ),
           Row(
             children: List.generate(
               3,
               (index) => index.isOdd
-                  ?  const CustomSizedBox(
+                  ? const CustomSizedBox(
                       width: 16,
                     )
                   : Expanded(
                       child: CarDriverTypeButton(
                       isSelected: index == currentIndex,
-                      text: titlesList[index]??"ef",
+                      text: titlesList[index] ?? "ef",
                       onTap: () {
                         setState(() {
                           currentIndex = index;
@@ -63,14 +64,17 @@ class _ChooseDriverTypeScreenState extends State<ChooseDriverTypeScreen> {
                     )),
             ),
           ),
-          const CustomSizedBox(height: 24,),
-          if(currentIndex==0)const CitizenResidentComponent(),
-          if(currentIndex==2)const VisitorComponent(),
+          const CustomSizedBox(
+            height: 24,
+          ),
+          if (currentIndex == 0) const CitizenResidentComponent(),
+          if (currentIndex == 2) const VisitorComponent(),
         ],
       ),
     );
   }
 }
+
 class CarDriverTypeButton extends StatelessWidget {
   final void Function()? onTap;
   final bool isSelected;
@@ -102,9 +106,8 @@ class CarDriverTypeButton extends StatelessWidget {
               : null,
         ),
         child: Container(
-          decoration: BoxDecoration(
-              color: AppColors.whiteColor,
-              borderRadius: BorderRadius.circular(4.r)),
+          decoration:
+              BoxDecoration(color: AppColors.whiteColor, borderRadius: BorderRadius.circular(4.r)),
           child: Container(
             padding: EdgeInsets.symmetric(
               vertical: 8.h,
@@ -115,9 +118,7 @@ class CarDriverTypeButton extends StatelessWidget {
               color: isSelected ? null : AppColors.whiteColor,
               gradient: isSelected
                   ? LinearGradient(
-                      colors: AppColors.gradientColorsList
-                          .map((e) => e.withOpacity(0.1))
-                          .toList(),
+                      colors: AppColors.gradientColorsList.map((e) => e.withOpacity(0.1)).toList(),
                       begin: AlignmentDirectional.topStart,
                       end: AlignmentDirectional.bottomEnd,
                     )

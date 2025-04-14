@@ -10,7 +10,6 @@ import '../../../core/constants/extensions.dart';
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/assets_path/svg_path.dart';
-import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../widgets/reservation_screen_widget/order_cancelation_dialog.dart';
 import '../../widgets/reservation_screen_widget/stepper_item_widget.dart';
@@ -104,9 +103,7 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
                     style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w700,
-                      color: CustomThemes.greyColor1CTextStyle(context)
-                          .color!
-                          .withOpacity(0.8),
+                      color: CustomThemes.greyColor1CTextStyle(context).color!.withOpacity(0.8),
                     ),
                   ),
                 ),
@@ -171,13 +168,10 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
                     children: [
                       Text(
                         "Lagon Taylor",
-                        style:
-                            CustomThemes.greyColor1CTextStyle(context).copyWith(
+                        style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w700,
-                          color: CustomThemes.greyColor1CTextStyle(context)
-                              .color!
-                              .withOpacity(0.8),
+                          color: CustomThemes.greyColor1CTextStyle(context).color!.withOpacity(0.8),
                         ),
                       ),
                       const CustomSizedBox(
@@ -304,13 +298,10 @@ class _OrderProgressScreenState extends State<OrderProgressScreen> {
                     children: [
                       Text(
                         "Lagon Taylor",
-                        style:
-                            CustomThemes.greyColor1CTextStyle(context).copyWith(
+                        style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w700,
-                          color: CustomThemes.greyColor1CTextStyle(context)
-                              .color!
-                              .withOpacity(0.8),
+                          color: CustomThemes.greyColor1CTextStyle(context).color!.withOpacity(0.8),
                         ),
                       ),
                       const CustomSizedBox(

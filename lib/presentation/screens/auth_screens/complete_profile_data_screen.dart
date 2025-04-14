@@ -8,7 +8,6 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/logo_app_bar.dart'
 import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_theme/custom_themes.dart';
-import '../../../core/constants/constants.dart';
 import '../../widgets/auth_widgets/screen_title_widget.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
 import '../../widgets/shared_widgets/form_item_widget.dart';
@@ -62,7 +61,11 @@ class CompleteProfileDataScreen extends StatelessWidget {
                         shape: BoxShape.circle,
                       ),
                       alignment: Alignment.center,
-                      child: const Icon(Icons.edit,color: AppColors.whiteColor,size: 16,),
+                      child: const Icon(
+                        Icons.edit,
+                        color: AppColors.whiteColor,
+                        size: 16,
+                      ),
                     ),
                   ),
                 )
@@ -72,15 +75,15 @@ class CompleteProfileDataScreen extends StatelessWidget {
           const CustomSizedBox(
             height: 24,
           ),
-           FormItemWidget(
+          FormItemWidget(
             title: LocaleKeys.name.tr(),
             hintText: 'EX :- XXXXXXXXXXX',
           ),
           const CustomSizedBox(
             height: 16,
           ),
-           FormItemWidget(
-            title:  LocaleKeys.contactNumber.tr(),
+          FormItemWidget(
+            title: LocaleKeys.contactNumber.tr(),
             hintText: 'EX :- 0000000000X',
           ),
           const CustomSizedBox(

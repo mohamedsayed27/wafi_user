@@ -7,7 +7,6 @@ import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
-import '../../../core/constants/constants.dart';
 import '../../widgets/shared_widgets/custom_outlined_button.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
 
@@ -35,7 +34,7 @@ class AddPaymentMethodScreen extends StatelessWidget {
               fontStyle: FontStyle.normal,
             ),
           ),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 8,
           ),
           CustomOutlinedButton(
@@ -44,7 +43,7 @@ class AddPaymentMethodScreen extends StatelessWidget {
             ),
             borderRadius: 4.r,
             height: 48,
-            padding:  const EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: 14,
               vertical: 7,
             ),
@@ -69,17 +68,17 @@ class AddPaymentMethodScreen extends StatelessWidget {
               ],
             ),
           ),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 26,
           ),
-           FormItemWidget(
+          FormItemWidget(
             title: LocaleKeys.cardNumber.tr(),
             hintText: LocaleKeys.cardNumber.tr(),
           ),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 26,
           ),
-           Row(
+          Row(
             children: [
               Expanded(
                 child: FormItemWidget(

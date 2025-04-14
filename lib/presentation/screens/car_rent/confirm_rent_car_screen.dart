@@ -6,7 +6,6 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_divider.dar
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
-import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../widgets/car_rent_widgets/agent_details_widget.dart';
 import '../../widgets/car_rent_widgets/car_details_widget.dart';
@@ -53,7 +52,7 @@ class ConfirmRentCarScreen extends StatelessWidget {
             height: 24,
           ),
           Text(
-              LocaleKeys.chooseInsuranceType.tr(),
+            LocaleKeys.chooseInsuranceType.tr(),
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,

@@ -6,7 +6,6 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dar
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/assets_path/svg_path.dart';
-import '../../../core/constants/constants.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
 
 class SavedCardsScreen extends StatelessWidget {
@@ -45,9 +44,7 @@ class SavedCardsScreen extends StatelessWidget {
             ),
             shape: UnderlineInputBorder(
                 borderSide: BorderSide(
-                    color:
-                        index == 9 ? Colors.transparent : AppColors.greyColor9,
-                    width: 0.2)),
+                    color: index == 9 ? Colors.transparent : AppColors.greyColor9, width: 0.2)),
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
