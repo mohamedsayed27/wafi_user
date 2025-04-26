@@ -17,6 +17,7 @@ class CustomTextField extends StatelessWidget {
   final int? maxlines;
   final TextDirection? textDirection;
   final String? Function(String?)? validator;
+  final String? Function(String?)? onChanged;
   final TextStyle? hintStyle;
   final FocusNode? focusNode;
 
@@ -34,7 +35,9 @@ class CustomTextField extends StatelessWidget {
     this.filled,
     this.borderColor,
     this.hintStyle,
-    this.validator, this.textDirection,
+    this.validator,
+    this.textDirection,
+    this.onChanged,
   });
 
   @override
@@ -66,7 +69,8 @@ class CustomTextField extends StatelessWidget {
       textDirection: textDirection,
       validator: validator,
       focusNode: focusNode,
-      onTapOutside: (pde){
+      onChanged: onChanged,
+      onTapOutside: (pde) {
         FocusScope.of(context).unfocus();
       },
       style: CustomThemes.greyColor16TextStyle(context)
@@ -78,10 +82,9 @@ class CustomTextField extends StatelessWidget {
         focusedBorder: focusedBorder,
         enabledBorder: border,
         disabledBorder: border,
-        suffixIconColor: MaterialStateColor.resolveWith(
-          (states) => states.contains(MaterialState.focused)
-              ? AppColors.primaryColor
-              : AppColors.borderColor,
+        suffixIconColor: WidgetStateColor.resolveWith(
+          (states) =>
+              states.contains(WidgetState.focused) ? AppColors.primaryColor : AppColors.borderColor,
         ),
         errorBorder: errorBorderColor,
         contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),

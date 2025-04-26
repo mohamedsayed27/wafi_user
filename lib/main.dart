@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_theme/app_theme.dart';
 import 'package:wafi_user/core/cache_helper/cache_keys.dart';
 import 'package:wafi_user/core/services/services_locator.dart';
+import 'package:wafi_user/presentation/business_logic/address_cubit/address_cubit.dart';
 import 'package:wafi_user/presentation/business_logic/auth_cubit/auth_cubit.dart';
 import 'package:wafi_user/translations/codegen_loader.g.dart';
 
@@ -13,6 +14,7 @@ import 'core/app_router/app_router.dart';
 import 'core/app_router/screens_name.dart';
 import 'core/cache_helper/shared_pref_methods.dart';
 import 'core/network/dio_helper.dart';
+import 'presentation/business_logic/main_layout_cubit/main_layout_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -57,6 +59,12 @@ class MyApp extends StatelessWidget {
               create: (context) => AuthCubit(
                 sl(),
               ),
+            ),
+            BlocProvider(
+              create: (context) => sl<AddressCubit>()..getUserAddressList(),
+            ),
+            BlocProvider(
+              create: (context) => MainLayoutCubit(),
             ),
           ],
           child: MaterialApp(

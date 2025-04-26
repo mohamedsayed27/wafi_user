@@ -10,7 +10,7 @@ import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/services/services_locator.dart';
 import '../../../translations/locale_keys.g.dart';
-import '../../business_logic/car_spare_parts_cubit/car_spare_parts_cubit.dart';
+import '../../business_logic/car_spare_parts_cubit/car_spare_by_parts_cubit.dart';
 import '../../widgets/shared_widgets/custom_app_bar.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
 

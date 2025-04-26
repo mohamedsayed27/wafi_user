@@ -7,7 +7,7 @@ import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/enums/address_status_enum.dart';
 import '../../../data/models/address_model/address_model.dart';
-import '../shared_widgets/gradient widgets.dart';
+import '../shared_widgets/gradient_widgets.dart';
 
 class AddressItemWidget extends StatelessWidget {
   final AddressModel? address;
@@ -19,13 +19,14 @@ class AddressItemWidget extends StatelessWidget {
     super.key,
     this.address,
     this.isEdit,
-    required this.onChangeAddressClicked, this.onDeleteAddressClicked,
+    required this.onChangeAddressClicked,
+    this.onDeleteAddressClicked,
   });
 
   @override
   Widget build(BuildContext context) {
-    bool isDefault = address?.status != null &&
-        address!.status!.contains(AddressStatusEnum.active.name);
+    bool isDefault =
+        address?.status != null && address!.status!.contains(AddressStatusEnum.active.name);
     return ListTile(
       onTap: isDefault
           ? null
@@ -62,22 +63,27 @@ class AddressItemWidget extends StatelessWidget {
               ),
             ),
           ),
-          IconButton(onPressed: (){
-            showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return WarningDialog(
-                  description: "You will delete your address",
-                  successText: 'Delete',
-                  cancelText: 'Cancel',
-                  cancelClicked: () {
-                    Navigator.pop(context);
+          IconButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return WarningDialog(
+                      description: "You will delete your address",
+                      successText: 'Delete',
+                      cancelText: 'Cancel',
+                      cancelClicked: () {
+                        Navigator.pop(context);
+                      },
+                      successClicked: onDeleteAddressClicked,
+                    );
                   },
-                  successClicked: onDeleteAddressClicked,
                 );
               },
-            );
-          }, icon: GradientSvg(svgPath: SvgPath.delete,width: 16.w,)),
+              icon: GradientSvg(
+                svgPath: SvgPath.delete,
+                width: 16.w,
+              )),
         ],
       ),
       splashColor: isDefault
@@ -89,8 +95,7 @@ class AddressItemWidget extends StatelessWidget {
       shape: RoundedRectangleBorder(
         side: BorderSide(
           width: 1.w,
-          color:
-              isDefault ? AppColors.thirdGradientColor : AppColors.greyColor75,
+          color: isDefault ? AppColors.thirdGradientColor : AppColors.greyColor75,
         ),
         borderRadius: BorderRadius.circular(
           8.r,

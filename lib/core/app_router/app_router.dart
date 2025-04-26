@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/presentation/business_logic/address_cubit/address_cubit.dart';
 import 'package:wafi_user/presentation/business_logic/car_service_cubit/car_service_cubit.dart';
-import 'package:wafi_user/presentation/business_logic/car_spare_parts_cubit/car_spare_parts_cubit.dart';
+import 'package:wafi_user/presentation/business_logic/car_spare_parts_cubit/car_spare_by_parts_cubit.dart';
 import 'package:wafi_user/presentation/screens/address_screens/add_address_screen.dart';
 import 'package:wafi_user/presentation/screens/auth_screens/complete_profile_data_screen.dart';
 import 'package:wafi_user/presentation/screens/auth_screens/login_screen.dart';

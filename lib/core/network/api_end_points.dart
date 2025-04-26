@@ -21,4 +21,5 @@ class EndPoints {
   static const carServiceAndMaintenance = '/car-service-maintenance/services';
   static const addOrderService = '/post_orders_service';
   static const carSparePartsProduct = '/car-spare-parts/product';
+  static const sendQuotationRequest = '/post_offer';
 }

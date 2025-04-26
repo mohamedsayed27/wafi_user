@@ -1,40 +1,35 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
-import 'package:wafi_user/core/app_theme/app_colors.dart';
-import 'package:wafi_user/core/app_theme/custom_themes.dart';
-import 'package:wafi_user/core/assets_path/fonts_path.dart';
-import 'package:wafi_user/core/assets_path/images_path.dart';
-import 'package:wafi_user/core/assets_path/svg_path.dart';
-import 'package:wafi_user/data/models/car_spare_parts_model/car_spare_part_model.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/cached_network_image_widget.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/custom_divider.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/empty_content_widget.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart';
 
-import '../../../core/app_router/screens_name.dart';
+import '../../../core/app_theme/app_colors.dart';
+import '../../../core/app_theme/custom_themes.dart';
+import '../../../core/assets_path/fonts_path.dart';
+import '../../../core/assets_path/images_path.dart';
+import '../../../core/assets_path/svg_path.dart';
+import '../../../data/models/car_spare_parts_model/car_spare_part_model.dart';
+import '../../../presentation/widgets/shared_widgets/cached_network_image_widget.dart';
+import '../../../presentation/widgets/shared_widgets/custom_app_bar.dart';
+import '../../../presentation/widgets/shared_widgets/custom_divider.dart';
+import '../../../presentation/widgets/shared_widgets/custom_sized_box.dart';
+import '../../../presentation/widgets/shared_widgets/empty_content_widget.dart';
+import '../../../presentation/widgets/shared_widgets/gradient_svg.dart';
+import '../../../core/services/services_locator.dart';
 import '../../../translations/locale_keys.g.dart';
+import '../../business_logic/cart_cubit/cart_cubit.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
 
-class SparePartsDetailsScreen extends StatefulWidget {
+class SparePartsDetailsScreen extends StatelessWidget {
   final CarSparePartModel carSparePartModel;
-  const SparePartsDetailsScreen({super.key, required this.carSparePartModel});
 
-  @override
-  State<SparePartsDetailsScreen> createState() => _SparePartsDetailsScreenState();
-}
-
-class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
-  @override
-  void dispose() {
-    widget.carSparePartModel.counter = 1;
-    super.dispose();
-  }
+  const SparePartsDetailsScreen({
+    super.key,
+    required this.carSparePartModel,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +43,7 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
           Align(
             alignment: Alignment.center,
             child: CachedNetworkImageWidget(
-              imageUrl: widget.carSparePartModel.imageUrl ?? "",
+              imageUrl: carSparePartModel.imageUrl ?? "",
               height: 180.h,
               width: 180.w,
               fit: BoxFit.scaleDown,
@@ -60,7 +55,7 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
           Wrap(
             children: [
               GradientText(
-                widget.carSparePartModel.title ?? "",
+                carSparePartModel.title ?? "",
                 colors: AppColors.gradientColorsList,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
@@ -75,7 +70,7 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
                 width: 8,
               ),
               GradientText(
-                widget.carSparePartModel.pieceNum ?? "",
+                carSparePartModel.pieceNum ?? "",
                 colors: AppColors.gradientColorsList,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
@@ -88,57 +83,66 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
               ),
             ],
           ),
-          Align(
-            alignment: AlignmentDirectional.centerEnd,
-            child: Container(
-              constraints: const BoxConstraints(
-                minWidth: 150,
-                maxWidth: 400,
-              ),
-              decoration: BoxDecoration(
-                color: AppColors.whiteColor,
-                borderRadius: BorderRadius.circular(8.r),
-                border: Border.all(
-                  color: AppColors.borderColor,
-                  width: 1.w,
-                ),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      if (widget.carSparePartModel.counter > 1) {
-                        widget.carSparePartModel.counter--;
-                        setState(() {});
-                      }
-                    },
-                    icon: const Icon(Icons.remove),
-                    style: IconButton.styleFrom(padding: EdgeInsets.zero),
-                  ),
-                  Text(
-                    "${widget.carSparePartModel.counter}",
-                    textAlign: TextAlign.center,
-                    style: CustomThemes.greyColor16TextStyle(context).copyWith(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w700,
-                      fontStyle: FontStyle.normal,
-                    ),
-                  ),
-                  IconButton(
-                    padding: EdgeInsets.zero,
-                    onPressed: () {
-                      widget.carSparePartModel.counter++;
-                      setState(() {});
-                    },
-                    icon: const Icon(Icons.add),
-                    style: IconButton.styleFrom(padding: EdgeInsets.zero),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          // Align(
+          //   alignment: AlignmentDirectional.centerEnd,
+          //   child: BlocProvider<CartCubit>.value(
+          //     value: sl<CartCubit>(),
+          //     child: BlocBuilder<CartCubit, CartState>(builder: (context, state) {
+          //       var cubit = CartCubit.get(context);
+          //       return Container(
+          //         constraints: const BoxConstraints(
+          //           minWidth: 150,
+          //           maxWidth: 400,
+          //         ),
+          //         decoration: BoxDecoration(
+          //           color: AppColors.whiteColor,
+          //           borderRadius: BorderRadius.circular(8.r),
+          //           border: Border.all(
+          //             color: AppColors.borderColor,
+          //             width: 1.w,
+          //           ),
+          //         ),
+          //         child: Row(
+          //           mainAxisSize: MainAxisSize.min,
+          //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //           children: [
+          //             IconButton(
+          //               onPressed: () {
+          //                 if (cubit.cartList
+          //                         .firstWhere((element) => element.id == carSparePartModel.id)
+          //                         .counter >
+          //                     1) {
+          //                   cubit.decreaseItemCount(carSparePartModel);
+          //                 } else {
+          //                   cubit.removeItemFromCart(carSparePartModel);
+          //                 }
+          //               },
+          //               icon: const Icon(Icons.remove),
+          //               style: IconButton.styleFrom(padding: EdgeInsets.zero),
+          //             ),
+          //             Text(
+          //               "${cubit.cartList.firstWhere((element) => element.id == carSparePartModel.id).counter}",
+          //               textAlign: TextAlign.center,
+          //               style: CustomThemes.greyColor16TextStyle(context).copyWith(
+          //                 fontSize: 14.sp,
+          //                 fontWeight: FontWeight.w700,
+          //                 fontStyle: FontStyle.normal,
+          //               ),
+          //             ),
+          //             IconButton(
+          //               padding: EdgeInsets.zero,
+          //               onPressed: () {
+          //                 cubit.increaseItemCount(carSparePartModel);
+          //               },
+          //               icon: const Icon(Icons.add),
+          //               style: IconButton.styleFrom(padding: EdgeInsets.zero),
+          //             ),
+          //           ],
+          //         ),
+          //       );
+          //     }),
+          //   ),
+          // ),
           const CustomSizedBox(
             height: 16,
           ),
@@ -152,16 +156,16 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
           const CustomSizedBox(
             height: 12,
           ),
-          widget.carSparePartModel.details != null
+          carSparePartModel.details != null
               ? ListView.builder(
                   itemBuilder: (_, index) {
                     return DetailsWithSvgItem(
                       isGradient: false,
-                      title: widget.carSparePartModel.details![index].title!,
-                      imagePath: widget.carSparePartModel.details![index].icon!,
+                      title: carSparePartModel.details![index].title!,
+                      imagePath: carSparePartModel.details![index].icon!,
                     );
                   },
-                  itemCount: widget.carSparePartModel.details!.length,
+                  itemCount: carSparePartModel.details!.length,
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                 )
@@ -189,14 +193,14 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
           const CustomSizedBox(
             height: 12,
           ),
-          widget.carSparePartModel.inclusion != null
+          carSparePartModel.inclusion != null
               ? ListView.builder(
                   itemBuilder: (_, index) {
                     return DetailsWithSvgItem(
-                      title: widget.carSparePartModel.inclusion![index],
+                      title: carSparePartModel.inclusion![index],
                     );
                   },
-                  itemCount: widget.carSparePartModel.inclusion!.length,
+                  itemCount: carSparePartModel.inclusion!.length,
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                 )
@@ -215,7 +219,7 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
             height: 16,
           ),
           Text(
-            "Inclusions",
+            "Reviews",
             style: CustomThemes.greyColor1CTextStyle(context).copyWith(
               fontSize: 16.sp,
               fontWeight: FontWeight.bold,
@@ -242,41 +246,113 @@ class _SparePartsDetailsScreenState extends State<SparePartsDetailsScreen> {
           const CustomSizedBox(
             height: 24,
           ),
-          CustomGradientButton(
-            borderRadius: 4,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "${widget.carSparePartModel.price! * widget.carSparePartModel.counter} SAR",
-                  style: CustomThemes.whiteColoTextTheme(context).copyWith(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                Row(
-                  children: [
-                    Text(
-                      "Add to cart",
-                      style: CustomThemes.whiteColoTextTheme(context).copyWith(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w700,
+          BlocProvider<CartCubit>.value(
+            value: sl<CartCubit>(),
+            child: BlocBuilder<CartCubit, CartState>(builder: (context, state) {
+              var cubit = CartCubit.get(context);
+              return !cubit.cartList.any((element) => element.id == carSparePartModel.id)
+                  ? CustomGradientButton(
+                      borderRadius: 4,
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "${carSparePartModel.price! * carSparePartModel.counter} SAR",
+                            style: CustomThemes.whiteColoTextTheme(context).copyWith(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                "Add to cart",
+                                style: CustomThemes.whiteColoTextTheme(context).copyWith(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                size: 18.r,
+                                color: AppColors.whiteColor,
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                    ),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      size: 18.r,
-                      color: AppColors.whiteColor,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, ScreenName.servicesCartScreen,
-                  arguments: "Services Titles");
-            },
+                      onPressed: () {
+                        cubit.addItemToCart(carSparePartModel);
+                      },
+                    )
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          cubit.cartList.any((element) => element.id == carSparePartModel.id)
+                              ? "${cubit.cartList.firstWhere((element) => element.id == carSparePartModel.id).counter * cubit.cartList.firstWhere((element) => element.id == carSparePartModel.id).price!}"
+                              : "${carSparePartModel.price} SAR",
+                          style: CustomThemes.greyColor1CTextStyle(context).copyWith(
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Container(
+                          constraints: const BoxConstraints(
+                            minWidth: 150,
+                            maxWidth: 400,
+                          ),
+                          decoration: BoxDecoration(
+                            color: AppColors.whiteColor,
+                            borderRadius: BorderRadius.circular(8.r),
+                            border: Border.all(
+                              color: AppColors.borderColor,
+                              width: 1.w,
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  if (cubit.cartList
+                                          .firstWhere(
+                                              (element) => element.id == carSparePartModel.id)
+                                          .counter >
+                                      1) {
+                                    cubit.decreaseItemCount(carSparePartModel);
+                                  } else {
+                                    cubit.removeItemFromCart(carSparePartModel);
+                                  }
+                                },
+                                icon: const Icon(Icons.remove),
+                                style: IconButton.styleFrom(padding: EdgeInsets.zero),
+                              ),
+                              Text(
+                                "${cubit.cartList.firstWhere((element) => element.id == carSparePartModel.id).counter}",
+                                textAlign: TextAlign.center,
+                                style: CustomThemes.greyColor16TextStyle(context).copyWith(
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w700,
+                                  fontStyle: FontStyle.normal,
+                                ),
+                              ),
+                              IconButton(
+                                padding: EdgeInsets.zero,
+                                onPressed: () {
+                                  cubit.increaseItemCount(carSparePartModel);
+                                },
+                                icon: const Icon(Icons.add),
+                                style: IconButton.styleFrom(padding: EdgeInsets.zero),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    );
+            }),
           ),
         ],
       ),

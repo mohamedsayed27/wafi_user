@@ -3,23 +3,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:wafi_user/core/app_router/screens_name.dart';
-import 'package:wafi_user/presentation/business_logic/car_spare_parts_cubit/car_spare_parts_cubit.dart';
+import 'package:wafi_user/presentation/business_logic/car_spare_parts_cubit/car_spare_by_parts_cubit.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 
 import '../../../core/assets_path/lottie_path.dart';
-import '../../widgets/spare_barts/spare_parts_intro_container.dart';
-import '../../widgets/spare_barts/spare_parts_item_widget.dart';
+import '../../widgets/spare_parts/spare_parts_intro_container.dart';
+import '../../widgets/spare_parts/spare_parts_item_widget.dart';
 
-class SpareByPartsScreen extends StatefulWidget {
+class SpareByPartsScreen extends StatelessWidget {
   const SpareByPartsScreen({super.key});
 
   @override
-  State<SpareByPartsScreen> createState() => _SpareByPartsScreenState();
-}
-
-class _SpareByPartsScreenState extends State<SpareByPartsScreen> {
-  @override
   Widget build(BuildContext context) {
+    final messenger = ScaffoldMessenger.of(context);
     return Scaffold(
       body: BlocConsumer<CarSparePartsCubit, CarSparePartsState>(
         listener: (context, state) {},
@@ -27,7 +23,9 @@ class _SpareByPartsScreenState extends State<SpareByPartsScreen> {
           final cubit = context.read<CarSparePartsCubit>();
           return Stack(
             children: [
-              const SparePartsIntroContainer(),
+              SparePartsIntroContainer(
+                carSparePartsCubit: cubit,
+              ),
               Container(
                 margin: EdgeInsets.only(top: 200.h),
                 height: double.infinity,
@@ -57,6 +55,7 @@ class _SpareByPartsScreenState extends State<SpareByPartsScreen> {
                           },
                           child: SparePartsItemWidget(
                             carSparePartModel: cubit.sparePartsList[index],
+                            messenger: messenger,
                           ),
                         ),
                         separatorBuilder: (_, index) {

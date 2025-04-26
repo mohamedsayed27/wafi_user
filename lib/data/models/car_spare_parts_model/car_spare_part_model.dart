@@ -42,7 +42,7 @@ class CarSparePartModel extends Equatable {
   final String? description;
   final String? descriptionWeb;
   int counter;
-
+  bool addedToCart;
   CarSparePartModel({
     this.id,
     this.providerId,
@@ -64,6 +64,7 @@ class CarSparePartModel extends Equatable {
     this.modelName,
     this.title,
     this.titleWeb,
+    this.addedToCart = false,
     this.description,
     this.descriptionWeb,
   });

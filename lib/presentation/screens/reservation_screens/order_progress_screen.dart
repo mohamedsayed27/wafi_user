@@ -20,7 +20,7 @@ import '../../widgets/shared_widgets/custom_divider.dart';
 import '../../widgets/shared_widgets/custom_outlined_button.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
 import '../../widgets/shared_widgets/dashed_separator.dart';
-import '../../widgets/shared_widgets/gradient widgets.dart';
+import '../../widgets/shared_widgets/gradient_widgets.dart';
 import '../../widgets/shared_widgets/gradient_svg.dart';
 
 class OrderProgressScreen extends StatefulWidget {

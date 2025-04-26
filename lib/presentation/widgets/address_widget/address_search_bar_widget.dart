@@ -13,7 +13,7 @@ import '../../../core/assets_path/svg_path.dart';
 import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../business_logic/address_cubit/address_cubit.dart';
-import '../shared_widgets/gradient widgets.dart';
+import '../shared_widgets/gradient_widgets.dart';
 
 class AddressMapServiceSearchBarWidget extends StatelessWidget {
   const AddressMapServiceSearchBarWidget({super.key});
@@ -62,39 +62,39 @@ class AddressMapServiceSearchBarWidget extends StatelessWidget {
           builder: (context, transition) {
             return state is GetSearchedLocationsLoading
                 ? Center(
-              child: Lottie.asset(LottiePath.loading),
-            )
+                    child: Lottie.asset(LottiePath.loading),
+                  )
                 : ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Material(
-                color: Colors.white,
-                elevation: 4.0,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: List.generate(
-                    cubit.searchResults.length,
-                        (index) => ListTile(
-                      onTap: () {
-                        cubit.controller.close();
-                        cubit.onSearchedResultClicked(cubit.searchResults[index]);
-                      },
-                      shape: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: AppColors.borderColor,
-                            width: 1.5.w,
-                          )),
-                      title: Text(
-                        cubit.searchResults[index].formattedAddress ?? "",
-                        style: CustomThemes.greyColor1CTextStyle(context).copyWith(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w700,
+                    borderRadius: BorderRadius.circular(8),
+                    child: Material(
+                      color: Colors.white,
+                      elevation: 4.0,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: List.generate(
+                          cubit.searchResults.length,
+                          (index) => ListTile(
+                            onTap: () {
+                              cubit.controller.close();
+                              cubit.onSearchedResultClicked(cubit.searchResults[index]);
+                            },
+                            shape: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                              color: AppColors.borderColor,
+                              width: 1.5.w,
+                            )),
+                            title: Text(
+                              cubit.searchResults[index].formattedAddress ?? "",
+                              style: CustomThemes.greyColor1CTextStyle(context).copyWith(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ),
-              ),
-            );
+                  );
           },
         );
       },

@@ -1,8 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:wafi_user/presentation/business_logic/main_layout_cubit/main_layout_cubit.dart';
 import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_router/screens_name.dart';
@@ -13,7 +15,7 @@ import '../../../core/assets_path/svg_path.dart';
 import '../../widgets/main_layout_widgets/bottom_nav_bar_widget.dart';
 import '../../widgets/main_layout_widgets/drawer_list_widget.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
-import '../../widgets/shared_widgets/gradient widgets.dart';
+import '../../widgets/shared_widgets/gradient_widgets.dart';
 import '../../widgets/shared_widgets/gradient_svg.dart';
 import '../booking_screens/orders_screen.dart';
 import '../carts_screen/cart_screen.dart';
@@ -30,22 +32,18 @@ class MainLayout extends StatefulWidget {
 final advancedDrawerController = AdvancedDrawerController();
 
 class _MainLayoutState extends State<MainLayout> {
-  int currentIndex = 0;
-  List<Widget> screens = [
+  List<Widget> _screens = [
     const HomeScreen(),
     const OrdersScreen(),
     const CartScreen(),
     const ProfileScreen(),
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return KeyboardListener(
       focusNode: FocusNode(),
-      onKeyEvent: (event){
-        print(event);
-      },
+      onKeyEvent: (event) {},
       child: AdvancedDrawer(
         controller: advancedDrawerController,
         backdropColor: AppColors.blackColor,
@@ -54,7 +52,8 @@ class _MainLayoutState extends State<MainLayout> {
         childDecoration: BoxDecoration(borderRadius: BorderRadius.circular(32.r)),
         drawer: ListView(
           padding: EdgeInsetsDirectional.only(
-            top: 61.h,start: 16.w,
+            top: 61.h,
+            start: 16.w,
           ),
           children: [
             Align(
@@ -73,7 +72,9 @@ class _MainLayoutState extends State<MainLayout> {
                 ),
               ),
             ),
-            const CustomSizedBox(height: 16,),
+            const CustomSizedBox(
+              height: 16,
+            ),
             Text(
               LocaleKeys.hello.tr(),
               style: CustomThemes.whiteColoTextTheme(context).copyWith(
@@ -87,11 +88,14 @@ class _MainLayoutState extends State<MainLayout> {
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w700,
               ),
-            ),const CustomSizedBox(
+            ),
+            const CustomSizedBox(
               height: 16,
             ),
             const DrawerListWidget(),
-            const CustomSizedBox(height: 48,),
+            const CustomSizedBox(
+              height: 48,
+            ),
             ListTile(
               titleAlignment: ListTileTitleAlignment.center,
               contentPadding: EdgeInsets.zero,
@@ -118,68 +122,70 @@ class _MainLayoutState extends State<MainLayout> {
             )
           ],
         ),
-        child: Scaffold(
-          // extendBodyBehindAppBar: true,
-          // extendBody: true,
-          body: screens[currentIndex],
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: SizedBox(
-            height: 56,
-            width: 56,
-            child: Container(
-              width: 56.w,
-              height: 56.h,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                boxShadow: const [
-                  BoxShadow(
-                    color: Color.fromRGBO(0, 0, 0, 0.05),
-                    offset: Offset(0, 2),
-                    blurRadius: 4,
+        child: BlocConsumer<MainLayoutCubit, MainLayoutStates>(
+            listener: (context, state) {},
+            builder: (context, state) {
+              var cubit = MainLayoutCubit.get(context);
+              return Scaffold(
+                // extendBodyBehindAppBar: true,
+                // extendBody: true,
+                body: _screens[cubit.currentIndex],
+                floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+                floatingActionButton: SizedBox(
+                  height: 56,
+                  width: 56,
+                  child: Container(
+                    width: 56.w,
+                    height: 56.h,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.05),
+                          offset: Offset(0, 2),
+                          blurRadius: 4,
+                        ),
+                      ],
+                      gradient: LinearGradient(
+                        colors: AppColors.gradientColorsList,
+                        begin: const Alignment(-1.0, -1.0),
+                        end: const Alignment(1.0, 1.0),
+                        stops: const [-0.1097, 0.3978, 0.7435, 1.1446],
+                      ),
+                    ),
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(50.r),
+                      onTap: () {
+                        Navigator.pushNamed(context, ScreenName.addYorCar);
+                      },
+                      child: Center(
+                        child: SvgPicture.asset(
+                          SvgPath.addCar,
+                          height: 38.h,
+                          width: 38.w,
+                          colorFilter:
+                              const ColorFilter.mode(AppColors.whiteColor, BlendMode.srcIn),
+                        ),
+                      ),
+                    ),
                   ),
-                ],
-                gradient: LinearGradient(
-                  colors: AppColors.gradientColorsList,
-                  begin: const Alignment(-1.0, -1.0),
-                  end: const Alignment(1.0, 1.0),
-                  stops: const [-0.1097, 0.3978, 0.7435, 1.1446],
                 ),
-              ),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(50.r),
-                onTap: () {
-                  Navigator.pushNamed(context, ScreenName.addYorCar);
-                },
-                child: Center(
-                  child: SvgPicture.asset(
-                    SvgPath.addCar,
-                    height: 38.h,
-                    width: 38.w,
-                    colorFilter: const ColorFilter.mode(
-                        AppColors.whiteColor, BlendMode.srcIn),
+                bottomNavigationBar: BottomAppBar(
+                  notchMargin: 10,
+                  color: AppColors.greyColorDC,
+                  padding: EdgeInsets.only(top: 16.h),
+                  surfaceTintColor: Colors.transparent,
+                  elevation: 5,
+                  height: 70.h,
+                  shadowColor: AppColors.shadowColor(),
+                  shape: const CircularNotchedRectangle(),
+                  child: BottomNavBarWidget(
+                    changeCurrentIndex: cubit.changeIndex,
+                    currentIndex: cubit.currentIndex,
                   ),
                 ),
-              ),
-            ),
-          ),
-          bottomNavigationBar: BottomAppBar(
-            notchMargin: 10,
-            color: AppColors.greyColorDC,
-            padding: EdgeInsets.only(top: 16.h),
-            surfaceTintColor: Colors.transparent,
-            elevation: 5,
-            height: 70.h,
-            shadowColor: AppColors.shadowColor(),
-            shape: const CircularNotchedRectangle(),
-            child: BottomNavBarWidget(
-              changeCurrentIndex: (index) {
-                currentIndex = index;
-                setState(() {});
-              },
-              currentIndex: currentIndex,
-            ),
-          ),
-        ),
+              );
+            }),
       ),
     );
   }

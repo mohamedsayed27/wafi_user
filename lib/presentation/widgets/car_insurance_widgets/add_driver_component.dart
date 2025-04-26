@@ -7,7 +7,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.d
 import 'package:wafi_user/presentation/widgets/shared_widgets/form_date_item.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/form_drom_down_widget.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/form_item_widget.dart';
-import 'package:wafi_user/presentation/widgets/spare_barts/check_box_with_title.dart';
+import 'package:wafi_user/presentation/widgets/spare_parts/check_box_with_title.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
@@ -284,11 +284,11 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
               ),
               FormDropDownWidget(
                 items: dummyCity
-                  .map((e) => DropdownMenuItem(
-                        value: e,
-                        child: Text(e),
-                      ))
-                  .toList(),
+                    .map((e) => DropdownMenuItem(
+                          value: e,
+                          child: Text(e),
+                        ))
+                    .toList(),
                 title: LocaleKeys.driverEducation.tr(),
               ),
               const CustomSizedBox(
@@ -296,11 +296,11 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
               ),
               FormDropDownWidget(
                 items: dummyCity
-                  .map((e) => DropdownMenuItem(
-                        value: e,
-                        child: Text(e),
-                      ))
-                  .toList(),
+                    .map((e) => DropdownMenuItem(
+                          value: e,
+                          child: Text(e),
+                        ))
+                    .toList(),
                 title: LocaleKeys.accidentCounts.tr(),
               ),
               const CustomSizedBox(
@@ -308,11 +308,11 @@ class _AddDriverComponentState extends State<AddDriverComponent> {
               ),
               FormDropDownWidget(
                 items: dummyCity
-                  .map((e) => DropdownMenuItem(
-                        value: e,
-                        child: Text(e),
-                      ))
-                  .toList(),
+                    .map((e) => DropdownMenuItem(
+                          value: e,
+                          child: Text(e),
+                        ))
+                    .toList(),
                 title: LocaleKeys.childrenBelow16Years.tr(),
               ),
               const CustomSizedBox(

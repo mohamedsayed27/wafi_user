@@ -12,7 +12,6 @@ import '../../../presentation/widgets/shared_widgets/text_shimmer_widget.dart';
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/assets_path/svg_path.dart';
-import '../../../core/services/services_locator.dart';
 import '../../screens/main_layout/main_layout.dart';
 import '../shared_widgets/custom_sized_box.dart';
 
@@ -63,70 +62,61 @@ class HomeAppBar extends StatelessWidget {
                   ),
                 ),
               ),
-              BlocProvider(
-                create: (context) => sl<AddressCubit>()..getUserAddressList(),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    BlocConsumer<AddressCubit, AddressState>(
-                      listener: (context, state) {},
-                      builder: (context, state) {
-                        // Retrieve address list and active address logic
-                        final addressCubit = context.read<AddressCubit>();
-                        final addressList = addressCubit.addressList;
+              BlocBuilder<AddressCubit, AddressState>(builder: (context, state) {
+                final addressCubit = context.read<AddressCubit>();
+                final addressList = addressCubit.addressList;
 
-                        String addressText = "Add Address";
-                        if (addressList.isNotEmpty) {
-                          final activeAddress = addressList.firstWhere(
-                                  (address) => address.status == AddressStatusEnum.active.name,
-                              orElse: () => const AddressModel()
+                String addressText = "Add Address";
+                if (addressList.isNotEmpty) {
+                  final activeAddress = addressList.firstWhere(
+                      (address) => address.status == AddressStatusEnum.active.name,
+                      orElse: () => const AddressModel());
+                  addressText = activeAddress.addressText ?? "Select Your Default Address";
+                }
+
+                return InkWell(
+                  onTap: state is GetUserAddressLoading
+                      ? null
+                      : () {
+                          Navigator.pushNamed(
+                            context,
+                            ScreenName.addressScreen,
+                            arguments: [addressCubit],
                           );
-                          addressText = activeAddress.addressText ?? "Select Your Default Address";
-                        }
-
-                        return InkWell(
-                          onTap: state is GetUserAddressLoading
-                              ? null
-                              : () {
-                            Navigator.pushNamed(
-                              context,
-                              ScreenName.addressScreen,
-                              arguments: [addressCubit],
-                            );
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(
-                                Icons.location_on_rounded,
-                                color: AppColors.whiteColor,
-                                size: 15.r,
-                              ),
-                              const CustomSizedBox(width: 2),
-                              state is GetUserAddressLoading
-                                  ? const TextShimmerWidget(width: 80, height: 8)
-                                  : Text(
-                                addressText,
-                                style: CustomThemes.whiteColoTextTheme(context).copyWith(
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                            ],
+                        },
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.location_on_rounded,
+                            color: AppColors.whiteColor,
+                            size: 15.r,
                           ),
-                        );
-                      },
-                    ),
-                    const CustomSizedBox(height: 2),
-                    Container(
-                      height: 0.9.h,
-                      width: 140.w,
-                      color: Colors.white,
-                    ),
-                  ],
-                ),
-              )
-              ,
+                          const CustomSizedBox(width: 2),
+                          state is GetUserAddressLoading
+                              ? const TextShimmerWidget(width: 80, height: 8)
+                              : Text(
+                                  addressText,
+                                  style: CustomThemes.whiteColoTextTheme(context).copyWith(
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                        ],
+                      ),
+                      const CustomSizedBox(height: 2),
+                      Container(
+                        height: 0.9.h,
+                        width: 140.w,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
+                );
+              }),
             ],
           ).onlyDirectionalPadding(end: 16),
         ],

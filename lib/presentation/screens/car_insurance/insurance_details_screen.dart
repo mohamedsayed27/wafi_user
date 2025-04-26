@@ -10,7 +10,7 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/form_drom_down_wid
 import 'package:wafi_user/presentation/widgets/shared_widgets/form_item_widget.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradiant_color_button.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/switch_button_and_title_widget.dart';
-import 'package:wafi_user/presentation/widgets/spare_barts/check_box_with_title.dart';
+import 'package:wafi_user/presentation/widgets/spare_parts/check_box_with_title.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
@@ -51,23 +51,23 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
           vertical: 32.h,
         ),
         children: [
-           FormDropDownWidget(
-             items: dummyCity
-                  .map((e) => DropdownMenuItem(
-                        value: e,
-                        child: Text(e),
-                      ))
-                  .toList(),
+          FormDropDownWidget(
+            items: dummyCity
+                .map((e) => DropdownMenuItem(
+                      value: e,
+                      child: Text(e),
+                    ))
+                .toList(),
             title: LocaleKeys.selectVehicleIdentifier.tr(),
           ),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 24,
           ),
-           FormItemWidget(
+          FormItemWidget(
             title: LocaleKeys.sequenceNumber.tr(),
             hintText: "EX:-000000000",
           ),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 24,
           ),
           SwitchButtonTitleWidget(
@@ -83,21 +83,21 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
               }
             },
           ),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 24,
           ),
           Visibility(
             visible: !isOn,
-            child:  Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 FormDropDownWidget(
                   items: dummyCity
-                  .map((e) => DropdownMenuItem(
-                        value: e,
-                        child: Text(e),
-                      ))
-                  .toList(),
+                      .map((e) => DropdownMenuItem(
+                            value: e,
+                            child: Text(e),
+                          ))
+                      .toList(),
                   title: LocaleKeys.purposeOfVehicleUse.tr(),
                 ),
                 const CustomSizedBox(
@@ -136,7 +136,7 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
                 ),
                 Visibility(
                   visible: isOn,
-                  child:  Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       FormItemWidget(
@@ -148,7 +148,7 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
                       ),
                       FormItemWidget(
                         title: LocaleKeys.purposeOfVehicleUse.tr(),
-                        hintText:LocaleKeys.purposeOfVehicleUse.tr(),
+                        hintText: LocaleKeys.purposeOfVehicleUse.tr(),
                       ),
                       const CustomSizedBox(
                         height: 16,
@@ -156,13 +156,13 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
                     ],
                   ),
                 ),
-                 FormDateWidget(
+                FormDateWidget(
                   title: LocaleKeys.dob.tr(),
                 ),
               ],
             ),
           ),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 24,
           ),
           Hero(
@@ -172,34 +172,34 @@ class _InsuranceDetailsScreenState extends State<InsuranceDetailsScreen> {
               child: Row(
                 children: List.generate(
                   titlesList.length,
-                      (index) {
+                  (index) {
                     return index.isOdd
-                        ?  const CustomSizedBox(
-                      width: 24,
-                    )
+                        ? const CustomSizedBox(
+                            width: 24,
+                          )
                         : Expanded(
-                      child: GradientSelectButtonWidget(
-                        onTap: (){
-                          Navigator.pushNamed(context, ScreenName.addDriverScreen,arguments: 0);
-                        },
-                        isButtonSelected: false,
-                        svgPath: titlesList[index]?["image"],
-                        title: titlesList[index]?["title"],
-                      ),
-                    );
+                            child: GradientSelectButtonWidget(
+                              onTap: () {
+                                Navigator.pushNamed(context, ScreenName.addDriverScreen,
+                                    arguments: 0);
+                              },
+                              isButtonSelected: false,
+                              svgPath: titlesList[index]?["image"],
+                              title: titlesList[index]?["title"],
+                            ),
+                          );
                   },
                 ),
               ),
             ),
           ),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 24,
           ),
-           TitledCheckBox(
-            title:
-            LocaleKeys.agreeToInquire.tr(),
+          TitledCheckBox(
+            title: LocaleKeys.agreeToInquire.tr(),
           ),
-           const CustomSizedBox(
+          const CustomSizedBox(
             height: 24,
           ),
           CustomGradientButton(

@@ -23,14 +23,13 @@ class CarServiceCubit extends Cubit<CarServiceState> {
   final CarServiceAndMaintenanceDataSource _dataSource;
   final LocationService _locationService;
 
-  CarServiceCubit(this._dataSource, this._locationService) : super(CarServiceInitial()) {}
+  CarServiceCubit(this._dataSource, this._locationService) : super(CarServiceInitial());
 
   static CarServiceCubit get(context) => BlocProvider.of(context);
 
   SubServiceModel? selectedSubServiceList;
 
   late CameraPosition cameraPosition;
-
 
   bool getCurrentLocationLoading = false;
   DateTime? serviceDateSelected;

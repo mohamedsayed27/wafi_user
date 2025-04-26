@@ -13,7 +13,7 @@ import '../../../core/assets_path/svg_path.dart';
 import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../business_logic/car_service_cubit/car_service_cubit.dart';
-import '../shared_widgets/gradient widgets.dart';
+import '../shared_widgets/gradient_widgets.dart';
 
 class MapServiceSearchBarWidget extends StatelessWidget {
   const MapServiceSearchBarWidget({super.key});

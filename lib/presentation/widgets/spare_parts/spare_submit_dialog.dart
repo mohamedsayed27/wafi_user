@@ -21,9 +21,13 @@ class SpareSubmitDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: AppColors.whiteColor,
-      insetPadding: EdgeInsets.symmetric(horizontal: 16.w,),
+      insetPadding: EdgeInsets.symmetric(
+        horizontal: 16.w,
+      ),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.r,),
+        borderRadius: BorderRadius.circular(
+          10.r,
+        ),
       ),
       surfaceTintColor: AppColors.whiteColor,
       child: Column(
@@ -41,7 +45,11 @@ class SpareSubmitDialog extends StatelessWidget {
             LocaleKeys.requestSubmittedSuccessfully.tr(),
             textAlign: TextAlign.center,
             colors: AppColors.gradientColorsList,
-            style: TextStyle(fontFamily: FontsPath.almarai, fontSize: 16.sp,fontWeight: FontWeight.w700,),
+            style: TextStyle(
+              fontFamily: FontsPath.almarai,
+              fontSize: 16.sp,
+              fontWeight: FontWeight.w700,
+            ),
           ),
           const CustomSizedBox(
             height: 8,
@@ -61,17 +69,17 @@ class SpareSubmitDialog extends StatelessWidget {
             height: 48,
             borderRadius: 4,
             child: Text(
-                LocaleKeys.okay.tr(),
+              LocaleKeys.okay.tr(),
               style: CustomThemes.whiteColoTextTheme(context).copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w700,
               ),
             ),
             onPressed: () {
-              Navigator.pushNamed(
+              Navigator.pushNamedAndRemoveUntil(
                 context,
-                ScreenName.servicesCartScreen,
-                arguments: LocaleKeys.spareParts.tr(),
+                ScreenName.mainLayoutScreen,
+                (route) => false,
               );
             },
           ),

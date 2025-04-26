@@ -9,7 +9,7 @@ import 'package:wafi_user/core/constants/extensions.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_outlined_button.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/gradient%20widgets.dart';
+import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_widgets.dart';
 
 import '../../../core/app_theme/custom_themes.dart';
 import '../../../translations/locale_keys.g.dart';

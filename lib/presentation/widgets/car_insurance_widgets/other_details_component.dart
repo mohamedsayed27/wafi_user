@@ -11,7 +11,7 @@ import '../../widgets/shared_widgets/switch_button_and_title_widget.dart';
 import '../shared_widgets/custom_sized_box.dart';
 import '../shared_widgets/form_drom_down_widget.dart';
 import '../shared_widgets/form_item_widget.dart';
-import '../spare_barts/check_box_with_title.dart';
+import '../spare_parts/check_box_with_title.dart';
 
 class OtherDetailsComponent extends StatefulWidget {
   const OtherDetailsComponent({super.key});
@@ -51,11 +51,7 @@ class _AddDriverComponentState extends State<OtherDetailsComponent> {
     horizontal: 16.w,
     vertical: 16.h,
   );
-  List<String?> titlesList = [
-    "Yes",
-    null,
-    "No"
-  ];
+  List<String?> titlesList = ["Yes", null, "No"];
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -63,75 +59,97 @@ class _AddDriverComponentState extends State<OtherDetailsComponent> {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        FormDropDownWidget(items: dummyCity
-                  .map((e) => DropdownMenuItem(
-                        value: e,
-                        child: Text(e),
-                      ))
-                  .toList(),title: LocaleKeys.vehicleNightParking.tr()),
-        const CustomSizedBox(height: 24,),
-        FormDropDownWidget(items: dummyCity
-                  .map((e) => DropdownMenuItem(
-                        value: e,
-                        child: Text(e),
-                      ))
-                  .toList(),title: LocaleKeys.accidentCounts.tr()),
-        const CustomSizedBox(height: 24,),
-        FormDropDownWidget(items: dummyCity
-                  .map((e) => DropdownMenuItem(
-                        value: e,
-                        child: Text(e),
-                      ))
-                  .toList(),title: LocaleKeys.expectedKmPerYear.tr()),
-        const CustomSizedBox(height: 24,),
-        FormDropDownWidget(items: dummyCity
-                  .map((e) => DropdownMenuItem(
-                        value: e,
-                        child: Text(e),
-                      ))
-                  .toList(),title: LocaleKeys.transmissionType.tr()),
-        const CustomSizedBox(height: 24,),
+        FormDropDownWidget(
+            items: dummyCity
+                .map((e) => DropdownMenuItem(
+                      value: e,
+                      child: Text(e),
+                    ))
+                .toList(),
+            title: LocaleKeys.vehicleNightParking.tr()),
+        const CustomSizedBox(
+          height: 24,
+        ),
+        FormDropDownWidget(
+            items: dummyCity
+                .map((e) => DropdownMenuItem(
+                      value: e,
+                      child: Text(e),
+                    ))
+                .toList(),
+            title: LocaleKeys.accidentCounts.tr()),
+        const CustomSizedBox(
+          height: 24,
+        ),
+        FormDropDownWidget(
+            items: dummyCity
+                .map((e) => DropdownMenuItem(
+                      value: e,
+                      child: Text(e),
+                    ))
+                .toList(),
+            title: LocaleKeys.expectedKmPerYear.tr()),
+        const CustomSizedBox(
+          height: 24,
+        ),
+        FormDropDownWidget(
+            items: dummyCity
+                .map((e) => DropdownMenuItem(
+                      value: e,
+                      child: Text(e),
+                    ))
+                .toList(),
+            title: LocaleKeys.transmissionType.tr()),
+        const CustomSizedBox(
+          height: 24,
+        ),
         Text(
           LocaleKeys.anyAdditionalModification.tr(),
-          style: CustomThemes.greyColor16TextStyle(context).copyWith(
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w700,
-              fontStyle: FontStyle.normal),
+          style: CustomThemes.greyColor16TextStyle(context)
+              .copyWith(fontSize: 14.sp, fontWeight: FontWeight.w700, fontStyle: FontStyle.normal),
         ),
-        const CustomSizedBox(height: 16,),
+        const CustomSizedBox(
+          height: 16,
+        ),
         Row(
           children: List.generate(
             titlesList.length,
-                (index) {
+            (index) {
               return index.isOdd
                   ? const CustomSizedBox(
-                width: 24,
-              )
+                      width: 24,
+                    )
                   : Expanded(
-                child: GradientSelectButtonWidget(
-                  onTap: () {
-                    currentIndex = index;
-                    setState(() {
-
-                    });
-                  },
-                  isButtonSelected: currentIndex == index,
-                  title: titlesList[index]!,
-                ),
-              );
+                      child: GradientSelectButtonWidget(
+                        onTap: () {
+                          currentIndex = index;
+                          setState(() {});
+                        },
+                        isButtonSelected: currentIndex == index,
+                        title: titlesList[index]!,
+                      ),
+                    );
             },
           ),
         ),
-        const CustomSizedBox(height: 24,),
-        FormDropDownWidget(items: dummyCity
-                  .map((e) => DropdownMenuItem(
-                        value: e,
-                        child: Text(e),
-                      ))
-                  .toList(),title: LocaleKeys.childrenBelow16Years.tr()),
-        const CustomSizedBox(height: 24,),
+        const CustomSizedBox(
+          height: 24,
+        ),
+        FormDropDownWidget(
+            items: dummyCity
+                .map((e) => DropdownMenuItem(
+                      value: e,
+                      child: Text(e),
+                    ))
+                .toList(),
+            title: LocaleKeys.childrenBelow16Years.tr()),
+        const CustomSizedBox(
+          height: 24,
+        ),
         FormItemWidget(title: LocaleKeys.modifications.tr(), hintText: "*******"),
-        const CustomSizedBox(height: 24,),
+        const CustomSizedBox(
+          height: 24,
+        ),
         SwitchButtonTitleWidget(
           title: LocaleKeys.doesPolicyholderHasHealthConditions.tr(),
           isOn: isOn1,
@@ -145,30 +163,40 @@ class _AddDriverComponentState extends State<OtherDetailsComponent> {
             }
           },
         ),
-        const CustomSizedBox(height: 16,),
+        const CustomSizedBox(
+          height: 16,
+        ),
         Ink(
           decoration: boxDecoration,
           padding: padding,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              FormDropDownWidget(items: dummyCity
-                  .map((e) => DropdownMenuItem(
-                        value: e,
-                        child: Text(e),
-                      ))
-                  .toList(),title: LocaleKeys.whichCountry.tr()),
-              const CustomSizedBox(height: 16,),
-              FormDropDownWidget(items: dummyCity
-                  .map((e) => DropdownMenuItem(
-                        value: e,
-                        child: Text(e),
-                      ))
-                  .toList(),title: LocaleKeys.howManyYears.tr()),
+              FormDropDownWidget(
+                  items: dummyCity
+                      .map((e) => DropdownMenuItem(
+                            value: e,
+                            child: Text(e),
+                          ))
+                      .toList(),
+                  title: LocaleKeys.whichCountry.tr()),
+              const CustomSizedBox(
+                height: 16,
+              ),
+              FormDropDownWidget(
+                  items: dummyCity
+                      .map((e) => DropdownMenuItem(
+                            value: e,
+                            child: Text(e),
+                          ))
+                      .toList(),
+                  title: LocaleKeys.howManyYears.tr()),
             ],
           ),
         ),
-        const CustomSizedBox(height: 24,),
+        const CustomSizedBox(
+          height: 24,
+        ),
         SwitchButtonTitleWidget(
           title: LocaleKeys.doesPolicyholderHasHealthConditions.tr(),
           isOn: isOn2,
@@ -182,7 +210,9 @@ class _AddDriverComponentState extends State<OtherDetailsComponent> {
             }
           },
         ),
-        const CustomSizedBox(height: 24,),
+        const CustomSizedBox(
+          height: 24,
+        ),
         Ink(
           decoration: boxDecoration,
           padding: padding,
@@ -193,24 +223,34 @@ class _AddDriverComponentState extends State<OtherDetailsComponent> {
               Text(
                 LocaleKeys.selectLicenseHealthConditions.tr(),
                 style: CustomThemes.greyColor16TextStyle(context).copyWith(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w700,
-                    fontStyle: FontStyle.normal),
+                    fontSize: 14.sp, fontWeight: FontWeight.w700, fontStyle: FontStyle.normal),
               ),
-              const CustomSizedBox(height: 16,),
+              const CustomSizedBox(
+                height: 16,
+              ),
               TitledCheckBox(title: " ${LocaleKeys.automaticVehicles.tr()}"),
-              const CustomSizedBox(height: 8,),
+              const CustomSizedBox(
+                height: 8,
+              ),
               TitledCheckBox(title: " ${LocaleKeys.automaticVehicles.tr()}"),
-              const CustomSizedBox(height: 8,),
+              const CustomSizedBox(
+                height: 8,
+              ),
               TitledCheckBox(title: " ${LocaleKeys.automaticVehicles.tr()}"),
-              const CustomSizedBox(height: 8,),
+              const CustomSizedBox(
+                height: 8,
+              ),
               TitledCheckBox(title: " ${LocaleKeys.automaticVehicles.tr()}"),
-              const CustomSizedBox(height: 8,),
+              const CustomSizedBox(
+                height: 8,
+              ),
               TitledCheckBox(title: " ${LocaleKeys.automaticVehicles.tr()}"),
             ],
           ),
         ),
-        const CustomSizedBox(height: 16,),
+        const CustomSizedBox(
+          height: 16,
+        ),
         SwitchButtonTitleWidget(
           title: LocaleKeys.doesPolicyholderHasTrafficViolations.tr(),
           isOn: isOn3,
@@ -234,19 +274,27 @@ class _AddDriverComponentState extends State<OtherDetailsComponent> {
               Text(
                 LocaleKeys.selectViolations.tr(),
                 style: CustomThemes.greyColor16TextStyle(context).copyWith(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w700,
-                    fontStyle: FontStyle.normal),
+                    fontSize: 14.sp, fontWeight: FontWeight.w700, fontStyle: FontStyle.normal),
               ),
-              const CustomSizedBox(height: 16,),
+              const CustomSizedBox(
+                height: 16,
+              ),
               TitledCheckBox(title: LocaleKeys.speedTicket.tr()),
-              const CustomSizedBox(height: 8,),
+              const CustomSizedBox(
+                height: 8,
+              ),
               TitledCheckBox(title: LocaleKeys.speedTicket.tr()),
-              const CustomSizedBox(height: 8,),
+              const CustomSizedBox(
+                height: 8,
+              ),
               TitledCheckBox(title: LocaleKeys.speedTicket.tr()),
-              const CustomSizedBox(height: 8,),
+              const CustomSizedBox(
+                height: 8,
+              ),
               TitledCheckBox(title: LocaleKeys.speedTicket.tr()),
-              const CustomSizedBox(height: 8,),
+              const CustomSizedBox(
+                height: 8,
+              ),
               TitledCheckBox(title: LocaleKeys.speedTicket.tr()),
             ],
           ),

@@ -9,18 +9,19 @@ class CustomSwitchButton extends StatelessWidget {
   final double circleHeightAndWidth;
   final bool isOn;
   final void Function()? onTap;
-   const CustomSwitchButton({
+  const CustomSwitchButton({
     Key? key,
     this.itemWidth = 46,
     this.itemHeight = 26,
-    this.circleHeightAndWidth = 22, required this.isOn, this.onTap,
+    this.circleHeightAndWidth = 22,
+    required this.isOn,
+    this.onTap,
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      overlayColor: MaterialStateProperty.all(Colors.transparent),
+      overlayColor: WidgetStateProperty.all(Colors.transparent),
       onTap: onTap,
       child: SizedBox(
         width: itemWidth.w,
@@ -47,7 +48,7 @@ class CustomSwitchButton extends StatelessWidget {
             AnimatedContainer(
               alignment: isOn ? Alignment.centerRight : Alignment.centerLeft,
               duration: const Duration(milliseconds: 150),
-              margin: EdgeInsets.symmetric(horizontal: 2.w,vertical: 1.h),
+              margin: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
               child: Card(
                 elevation: 0,
                 margin: EdgeInsets.zero,

@@ -17,7 +17,7 @@ import '../../../translations/locale_keys.g.dart';
 import '../../widgets/reservations_widgets/location_details_container.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
-import '../../widgets/shared_widgets/gradient widgets.dart';
+import '../../widgets/shared_widgets/gradient_widgets.dart';
 
 class AddAddressScreen extends StatefulWidget {
   final AddressModel? addressModel;
@@ -28,17 +28,18 @@ class AddAddressScreen extends StatefulWidget {
 }
 
 class _AddAddressScreenState extends State<AddAddressScreen> {
-   TextEditingController _addressDescriptionController = TextEditingController();
-   TextEditingController _streetNameController = TextEditingController();
-   TextEditingController _buildingNumberController = TextEditingController();
-   TextEditingController _floorNumberController = TextEditingController();
-   TextEditingController _flatNumberController = TextEditingController();
+  TextEditingController _addressDescriptionController = TextEditingController();
+  TextEditingController _streetNameController = TextEditingController();
+  TextEditingController _buildingNumberController = TextEditingController();
+  TextEditingController _floorNumberController = TextEditingController();
+  TextEditingController _flatNumberController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
-  void initEditFields(){
+  void initEditFields() {
     _addressDescriptionController = TextEditingController(text: widget.addressModel?.addressText);
     _streetNameController = TextEditingController(text: widget.addressModel?.street);
-    _buildingNumberController = TextEditingController(text: widget.addressModel?.building.toString());
+    _buildingNumberController =
+        TextEditingController(text: widget.addressModel?.building.toString());
     _floorNumberController = TextEditingController(text: widget.addressModel?.floor.toString());
     _flatNumberController = TextEditingController(text: widget.addressModel?.flat.toString());
     context.read<AddressCubit>().initAddressCameraPositionOnEditAddress(widget.addressModel!);
@@ -47,7 +48,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
   @override
   void initState() {
     super.initState();
-    if(widget.addressModel!=null){
+    if (widget.addressModel != null) {
       initEditFields();
     }
     print("context_readAddressCubit_addressCameraPosition");
@@ -56,6 +57,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
       context.read<AddressCubit>().getUserCurrentLocation();
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,25 +66,25 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
       ),
       body: BlocConsumer<AddressCubit, AddressState>(
         listener: (context, state) {
-          if(state is AddAddressLoading){
+          if (state is AddAddressLoading) {
             showProgressIndicator(context);
-          }else if(state is AddAddressSuccess){
+          } else if (state is AddAddressSuccess) {
             Navigator.pop(context);
             context.read<AddressCubit>().getUserAddressList();
-            showToast(errorType: 0, message: state.response.message??"");
+            showToast(errorType: 0, message: state.response.message ?? "");
             Navigator.pop(context);
-          }else if (state is AddAddressError){
+          } else if (state is AddAddressError) {
             Navigator.pop(context);
             showToast(errorType: 0, message: state.message);
           }
-          if(state is UpdateAddressLoading){
+          if (state is UpdateAddressLoading) {
             showProgressIndicator(context);
-          }else if(state is UpdateAddressSuccess){
+          } else if (state is UpdateAddressSuccess) {
             Navigator.pop(context);
             context.read<AddressCubit>().getUserAddressList();
-            showToast(errorType: 0, message: state.response.message??"");
+            showToast(errorType: 0, message: state.response.message ?? "");
             Navigator.pop(context);
-          }else if (state is UpdateAddressError){
+          } else if (state is UpdateAddressError) {
             Navigator.pop(context);
             showToast(errorType: 0, message: state.message);
           }
@@ -101,18 +103,17 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                   child: Row(
                     children: [
                       Expanded(
-                        child: state is GetCurrentLocationLoading || state is InitAddressCameraPositionOnEditAddressLoading
+                        child: state is GetCurrentLocationLoading ||
+                                state is InitAddressCameraPositionOnEditAddressLoading
                             ? const TextShimmerWidget()
                             : Text(
                                 cubit.googleMapsSearchBarHint ?? "",
-                                style: CustomThemes.greyColor1CTextStyle(context)
-                                    .copyWith(
+                                style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w700,
-                                  color:
-                                      CustomThemes.greyColor1CTextStyle(context)
-                                          .color!
-                                          .withOpacity(0.8),
+                                  color: CustomThemes.greyColor1CTextStyle(context)
+                                      .color!
+                                      .withOpacity(0.8),
                                 ),
                               ),
                       ),
@@ -132,8 +133,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                           isGradient: true,
                           child: Text(
                             LocaleKeys.change.tr(),
-                            style:
-                                CustomThemes.whiteColoTextTheme(context).copyWith(
+                            style: CustomThemes.whiteColoTextTheme(context).copyWith(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w700,
                             ),
@@ -149,8 +149,8 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                 CustomTextField(
                   hintText: "Address description",
                   controller: _addressDescriptionController,
-                  validator: (value){
-                    if(value!.isEmpty){
+                  validator: (value) {
+                    if (value!.isEmpty) {
                       return "This field is required";
                     }
                     return null;
@@ -162,8 +162,8 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                 CustomTextField(
                   hintText: "Street name",
                   controller: _streetNameController,
-                  validator: (value){
-                    if(value!.isEmpty){
+                  validator: (value) {
+                    if (value!.isEmpty) {
                       return "This field is required";
                     }
                     return null;
@@ -175,8 +175,8 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                 CustomTextField(
                   hintText: "Building number",
                   controller: _buildingNumberController,
-                  validator: (value){
-                    if(value!.isEmpty){
+                  validator: (value) {
+                    if (value!.isEmpty) {
                       return "This field is required";
                     }
                     return null;
@@ -188,8 +188,8 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                 CustomTextField(
                   hintText: "Floor number",
                   controller: _floorNumberController,
-                  validator: (value){
-                    if(value!.isEmpty){
+                  validator: (value) {
+                    if (value!.isEmpty) {
                       return "This field is required";
                     }
                     return null;
@@ -201,8 +201,8 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                 CustomTextField(
                   hintText: "Flat number",
                   controller: _flatNumberController,
-                  validator: (value){
-                    if(value!.isEmpty){
+                  validator: (value) {
+                    if (value!.isEmpty) {
                       return "This field is required";
                     }
                     return null;
@@ -220,14 +220,12 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                     ),
                   ),
                   onPressed: () {
-                    if(formKey.currentState!.validate()){
-                      if(widget.addressModel==null){
+                    if (formKey.currentState!.validate()) {
+                      if (widget.addressModel == null) {
                         cubit.addAddress(
                           AddressParameters(
-                            longitude: cubit.addressCameraPosition?.target.longitude
-                                .toString(),
-                            latitude: cubit.addressCameraPosition?.target.latitude
-                                .toString(),
+                            longitude: cubit.addressCameraPosition?.target.longitude.toString(),
+                            latitude: cubit.addressCameraPosition?.target.latitude.toString(),
                             addressText: _addressDescriptionController.text,
                             building: _buildingNumberController.text,
                             flat: _flatNumberController.text,
@@ -236,17 +234,15 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                             street: _streetNameController.text,
                           ),
                         );
-                      }else{
+                      } else {
                         cubit.updateAddress(
                           AddressParameters(
-                            longitude: cubit.addressCameraPosition?.target.longitude
-                                .toString(),
-                            latitude: cubit.addressCameraPosition?.target.latitude
-                                .toString(),
+                            longitude: cubit.addressCameraPosition?.target.longitude.toString(),
+                            latitude: cubit.addressCameraPosition?.target.latitude.toString(),
                             addressText: _addressDescriptionController.text,
                             building: _buildingNumberController.text,
                             flat: _flatNumberController.text,
-                            addresId: widget.addressModel?.id?.toString()??"",
+                            addresId: widget.addressModel?.id?.toString() ?? "",
                             floor: _floorNumberController.text,
                             locationName: cubit.googleMapsSearchBarHint ?? "",
                             street: _streetNameController.text,

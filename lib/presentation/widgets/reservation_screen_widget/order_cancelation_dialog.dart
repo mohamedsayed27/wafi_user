@@ -42,15 +42,15 @@ class OrderCancelDialog extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 16,
           ),
           const RadioGroup(),
-           CustomTextField(
+          CustomTextField(
             hintText: LocaleKeys.addAnyOtherReason.tr(),
             maxlines: 4,
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 16,
           ),
           CustomGradientButton(
@@ -64,10 +64,10 @@ class OrderCancelDialog extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              showDialog(context: context, builder: (_)=>OrderCanceledDialog());
+              showDialog(context: context, builder: (_) => const OrderCanceledDialog());
             },
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 16,
           ),
         ],
@@ -80,7 +80,7 @@ class RadioGroup extends StatefulWidget {
   const RadioGroup({super.key});
 
   @override
-  _RadioGroupState createState() => _RadioGroupState();
+  State<RadioGroup> createState() => _RadioGroupState();
 }
 
 class _RadioGroupState extends State<RadioGroup> {
@@ -103,7 +103,7 @@ class _RadioGroupState extends State<RadioGroup> {
           value: "passages",
           groupValue: selectedOption,
           dense: true,
-          visualDensity: VisualDensity(horizontal: VisualDensity.minimumDensity),
+          visualDensity: const VisualDensity(horizontal: VisualDensity.minimumDensity),
           onChanged: (value) {
             setState(() {
               selectedOption = value;
@@ -122,7 +122,7 @@ class _RadioGroupState extends State<RadioGroup> {
           value: "words",
           groupValue: selectedOption,
           dense: true,
-          visualDensity: VisualDensity(horizontal: VisualDensity.minimumDensity),
+          visualDensity: const VisualDensity(horizontal: VisualDensity.minimumDensity),
           onChanged: (value) {
             setState(() {
               selectedOption = value;
@@ -141,7 +141,7 @@ class _RadioGroupState extends State<RadioGroup> {
           value: "ventricle",
           groupValue: selectedOption,
           dense: true,
-          visualDensity: VisualDensity(horizontal: VisualDensity.minimumDensity),
+          visualDensity: const VisualDensity(horizontal: VisualDensity.minimumDensity),
           onChanged: (value) {
             setState(() {
               selectedOption = value;
@@ -158,7 +158,7 @@ class _RadioGroupState extends State<RadioGroup> {
           ),
           contentPadding: EdgeInsets.zero,
           dense: true,
-          visualDensity: VisualDensity(horizontal: VisualDensity.minimumDensity),
+          visualDensity: const VisualDensity(horizontal: VisualDensity.minimumDensity),
           value: "random",
           groupValue: selectedOption,
           onChanged: (value) {
@@ -175,7 +175,7 @@ class _RadioGroupState extends State<RadioGroup> {
               fontWeight: FontWeight.w400,
             ),
           ),
-          visualDensity: VisualDensity(horizontal: VisualDensity.minimumDensity),
+          visualDensity: const VisualDensity(horizontal: VisualDensity.minimumDensity),
           contentPadding: EdgeInsets.zero,
           dense: true,
           value: "sed",

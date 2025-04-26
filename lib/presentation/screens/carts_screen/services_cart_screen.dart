@@ -21,7 +21,7 @@ import '../../widgets/reservations_widgets/location_details_container.dart';
 import '../../widgets/shared_widgets/bill_details_item.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
-import '../../widgets/shared_widgets/gradient widgets.dart';
+import '../../widgets/shared_widgets/gradient_widgets.dart';
 
 class ServicesCartScreen extends StatelessWidget {
   final String servicesType;
@@ -50,7 +50,7 @@ class ServicesCartScreen extends StatelessWidget {
               cubit.serviceDateSelected = null;
               cubit.serviceTimeSelected = null;
               cubit.selectedSubServiceList = null;
-              showToast(errorType: 0, message: state.response.message??"");
+              showToast(errorType: 0, message: state.response.message ?? "");
               Navigator.pushNamedAndRemoveUntil(
                 context,
                 ScreenName.mainLayoutScreen,
@@ -71,8 +71,7 @@ class ServicesCartScreen extends StatelessWidget {
                   children: [
                     Text(
                       LocaleKeys.dropOffAddress.tr(),
-                      style:
-                          CustomThemes.greyColor16TextStyle(context).copyWith(
+                      style: CustomThemes.greyColor16TextStyle(context).copyWith(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,
                         fontStyle: FontStyle.normal,
@@ -93,14 +92,14 @@ class ServicesCartScreen extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Text(
-                          cubit.controller.query.isEmpty?cubit.googleMapsSearchBarHint:cubit.controller.query,
-                          style: CustomThemes.greyColor1CTextStyle(context)
-                              .copyWith(
+                          cubit.controller.query.isEmpty
+                              ? cubit.googleMapsSearchBarHint
+                              : cubit.controller.query,
+                          style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                             fontSize: 14.sp,
                             fontWeight: FontWeight.w700,
-                            color: CustomThemes.greyColor1CTextStyle(context)
-                                .color!
-                                .withOpacity(0.8),
+                            color:
+                                CustomThemes.greyColor1CTextStyle(context).color!.withOpacity(0.8),
                           ),
                         ),
                       ),
@@ -116,8 +115,7 @@ class ServicesCartScreen extends StatelessWidget {
                           isGradient: true,
                           child: Text(
                             LocaleKeys.change.tr(),
-                            style: CustomThemes.whiteColoTextTheme(context)
-                                .copyWith(
+                            style: CustomThemes.whiteColoTextTheme(context).copyWith(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w700,
                             ),
@@ -161,16 +159,14 @@ class ServicesCartScreen extends StatelessWidget {
                         children: [
                           Text(
                             cubit.carServiceModel?.title ?? "",
-                            style: CustomThemes.greyColor1CTextStyle(context)
-                                .copyWith(
+                            style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
                           Text(
                             cubit.selectedSubServiceList?.title ?? "",
-                            style: CustomThemes.greyColor99TextStyle(context)
-                                .copyWith(
+                            style: CustomThemes.greyColor99TextStyle(context).copyWith(
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w400,
                             ),
@@ -178,7 +174,6 @@ class ServicesCartScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-
                   ],
                 ).symmetricPadding(horizontal: 16),
                 const CustomSizedBox(
@@ -193,8 +188,7 @@ class ServicesCartScreen extends StatelessWidget {
                   children: [
                     Text(
                       LocaleKeys.selectPreferredDate.tr(),
-                      style:
-                          CustomThemes.greyColor16TextStyle(context).copyWith(
+                      style: CustomThemes.greyColor16TextStyle(context).copyWith(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,
                         fontStyle: FontStyle.normal,
@@ -248,8 +242,7 @@ class ServicesCartScreen extends StatelessWidget {
                     ),
                   ),
                   child: Container(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 24.w, vertical: 8.h),
+                    padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 8.h),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(4.r),
                       color: AppColors.locationDetailsContainer,
@@ -257,28 +250,22 @@ class ServicesCartScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         if (cubit.serviceDateSelected != null &&
-                            cubit.serviceDateSelected!
-                                .isAtSameMomentAs(DateTime.now()))
+                            cubit.serviceDateSelected!.isAtSameMomentAs(DateTime.now()))
                           Text(
                             cubit.serviceDateSelected != null &&
-                                    cubit.serviceDateSelected!
-                                        .isAtSameMomentAs(DateTime.now())
+                                    cubit.serviceDateSelected!.isAtSameMomentAs(DateTime.now())
                                 ? LocaleKeys.today.tr()
-                                : Jiffy.parse("${cubit.serviceDateSelected}")
-                                    .Md,
-                            style: CustomThemes.greyColor1CTextStyle(context)
-                                .copyWith(
+                                : Jiffy.parse("${cubit.serviceDateSelected}").Md,
+                            style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
                         Text(
                           cubit.serviceDateSelected != null
-                              ? Jiffy.parse("${cubit.serviceDateSelected}")
-                                  .MMMEd
+                              ? Jiffy.parse("${cubit.serviceDateSelected}").MMMEd
                               : "Select Date",
-                          style: CustomThemes.greyColor1CTextStyle(context)
-                              .copyWith(
+                          style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w700,
                           ),
@@ -319,16 +306,14 @@ class ServicesCartScreen extends StatelessWidget {
                     onTap: () {
                       showTimePicker(
                         context: context,
-                        initialTime:
-                            cubit.serviceTimeSelected ?? TimeOfDay.now(),
+                        initialTime: cubit.serviceTimeSelected ?? TimeOfDay.now(),
                       ).then((value) {
                         cubit.selectTime(value);
                       });
                       ;
                     },
                     child: Container(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 24.w, vertical: 15.h),
+                      padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 15.h),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(4.r),
                         color: AppColors.locationDetailsContainer,
@@ -337,10 +322,8 @@ class ServicesCartScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            cubit.serviceTimeSelected?.format(context) ??
-                                "Select Time",
-                            style: CustomThemes.greyColor1CTextStyle(context)
-                                .copyWith(
+                            cubit.serviceTimeSelected?.format(context) ?? "Select Time",
+                            style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w700,
                             ),
@@ -395,26 +378,27 @@ class ServicesCartScreen extends StatelessWidget {
                 CustomGradientButton(
                   borderRadius: 4,
                   padding: const EdgeInsets.symmetric(horizontal: 16),
-                  onPressed: cubit.serviceDateSelected!=null&&cubit.serviceTimeSelected!=null?() {
-                    cubit.addOrderService(
-                      parameters: CarServicesParameters(
-                        addressText: cubit.controller.query,
-                        latitude: cubit.cameraPosition.target.latitude.toString(),
-                        longitude: cubit.cameraPosition.target.longitude.toString(),
-                        orderDate: cubit.serviceDateSelected?.toIso8601String(),
-                        orderTime: cubit.serviceTimeSelected?.toString(),
-                        sectionId: cubit.selectedSubServiceList?.sectionId,
-                        serviceId: cubit.selectedSubServiceList?.id,
-                      ),
-                    );
-                  }:null,
+                  onPressed: cubit.serviceDateSelected != null && cubit.serviceTimeSelected != null
+                      ? () {
+                          cubit.addOrderService(
+                            parameters: CarServicesParameters(
+                              addressText: cubit.controller.query,
+                              latitude: cubit.cameraPosition.target.latitude.toString(),
+                              longitude: cubit.cameraPosition.target.longitude.toString(),
+                              orderDate: cubit.serviceDateSelected?.toIso8601String(),
+                              orderTime: cubit.serviceTimeSelected?.toString(),
+                              sectionId: cubit.selectedSubServiceList?.sectionId,
+                              serviceId: cubit.selectedSubServiceList?.id,
+                            ),
+                          );
+                        }
+                      : null,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         "${cubit.selectedSubServiceList?.price} SAR",
-                        style:
-                            CustomThemes.whiteColoTextTheme(context).copyWith(
+                        style: CustomThemes.whiteColoTextTheme(context).copyWith(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w700,
                         ),
@@ -423,8 +407,7 @@ class ServicesCartScreen extends StatelessWidget {
                         children: [
                           Text(
                             LocaleKeys.buyNow.tr(),
-                            style: CustomThemes.whiteColoTextTheme(context)
-                                .copyWith(
+                            style: CustomThemes.whiteColoTextTheme(context).copyWith(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w700,
                             ),

@@ -26,10 +26,7 @@ class FormUploadItemWidget extends StatelessWidget {
           text: TextSpan(
             text: title.tr(),
             style: CustomThemes.greyColor16TextStyle(context).copyWith(
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w700,
-                fontStyle: FontStyle.normal
-            ),
+                fontSize: 14.sp, fontWeight: FontWeight.w700, fontStyle: FontStyle.normal),
             children: [
               if (isRequired)
                 TextSpan(
@@ -45,7 +42,7 @@ class FormUploadItemWidget extends StatelessWidget {
         const CustomSizedBox(
           height: 8,
         ),
-        UploadFileContainer(),
+        const UploadFileContainer(),
       ],
     );
   }

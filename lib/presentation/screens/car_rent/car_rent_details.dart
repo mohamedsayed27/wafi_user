@@ -93,7 +93,7 @@ class _CarRentDetailsState extends State<CarRentDetails> {
             height: 16,
           ),
           CustomSizedBox(
-            height: 32,
+            height: 38,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemBuilder: (_, index) {

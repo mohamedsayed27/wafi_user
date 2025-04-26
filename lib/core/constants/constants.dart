@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:lottie/lottie.dart';
 
 import '../app_theme/app_colors.dart';
+import '../app_theme/custom_themes.dart';
 import '../assets_path/lottie_path.dart';
 import '../cache_helper/cache_keys.dart';
 import '../cache_helper/shared_pref_methods.dart';
@@ -15,6 +16,47 @@ import '../cache_helper/shared_pref_methods.dart';
 //   List<int> bytes = image.readAsBytesSync();
 //   return base64Encode(bytes);
 // }
+
+SnackBar customSnackBar(
+  BuildContext context, {
+  required String text,
+  TextStyle? textStyle,
+  Widget? content,
+  SnackBarAction? snackBarAction,
+  TextAlign textAlign = TextAlign.start,
+}) {
+  return SnackBar(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(8.r),
+    ),
+    elevation: 0,
+    action: snackBarAction,
+    behavior: SnackBarBehavior.fixed,
+    backgroundColor: Colors.transparent,
+    duration: const Duration(seconds: 1),
+    content: Container(
+      padding: EdgeInsets.all(12.w),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8.r),
+        gradient: LinearGradient(
+          colors: AppColors.gradientColorsList.reversed.toList(),
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
+      child: content ??
+          Text(
+            text,
+            textAlign: textAlign,
+            style: textStyle ??
+                CustomThemes.whiteColoTextTheme(context).copyWith(
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w500,
+                ),
+          ),
+    ),
+  );
+}
 
 void showProgressIndicator(BuildContext context) {
   AlertDialog alertDialog = AlertDialog(
@@ -68,8 +110,7 @@ void showToast({required int errorType, required String message}) {
 // String? onboarding = CacheHelper.getData(key: CacheKeys.onboarding);
 // String? userId = CacheHelper.getData(key: CacheKeys.userId);
 // String? userType = CacheHelper.getData(key: CacheKeys.userType);
-String initialLocale =
-    CacheHelper.getData(key: CacheKeys.initialLocale) ?? "en";
+String initialLocale = CacheHelper.getData(key: CacheKeys.initialLocale) ?? "en";
 
 double calculateTextSize(BuildContext context, double baseSize) {
   double screenWidth = MediaQuery.of(context).size.width;

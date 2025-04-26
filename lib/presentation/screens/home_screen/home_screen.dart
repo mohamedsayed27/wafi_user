@@ -1,4 +1,3 @@
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,7 +7,7 @@ import 'package:wafi_user/core/assets_path/fonts_path.dart';
 import 'package:wafi_user/core/constants/dummy_data.dart';
 import 'package:wafi_user/core/constants/extensions.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/gradient%20widgets.dart';
+import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_widgets.dart';
 
 import '../../../translations/locale_keys.g.dart';
 import '../../widgets/home_screen_widgets/categories_widget.dart';
@@ -46,11 +45,13 @@ class HomeScreen extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (_, index) {
                 return InkWell(
-                  onTap: (){
-                    if(index==0)Navigator.pushNamed(context, ScreenName.servicesAndMaintenanceScreen);
-                    if(index==1)Navigator.pushNamed(context, ScreenName.sparePartsScreen);
-                    if(index==2)Navigator.pushNamed(context, ScreenName.searchToRentCarScreen);
-                    if(index==3){
+                  onTap: () {
+                    if (index == 0) {
+                      Navigator.pushNamed(context, ScreenName.servicesAndMaintenanceScreen);
+                    }
+                    if (index == 1) Navigator.pushNamed(context, ScreenName.sparePartsScreen);
+                    if (index == 2) Navigator.pushNamed(context, ScreenName.searchToRentCarScreen);
+                    if (index == 3) {
                       Navigator.pushNamed(context, ScreenName.carInsuranceScreen);
                     }
                   },

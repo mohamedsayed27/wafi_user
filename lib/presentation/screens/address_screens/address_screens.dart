@@ -14,7 +14,7 @@ import '../../../presentation/widgets/shared_widgets/custom_sized_box.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../../widgets/address_widget/address_item_widget.dart';
 import '../../widgets/shared_widgets/custom_app_bar.dart';
-import '../../widgets/shared_widgets/gradient widgets.dart';
+import '../../widgets/shared_widgets/gradient_widgets.dart';
 
 class AddressScreen extends StatefulWidget {
   const AddressScreen({super.key});
@@ -27,12 +27,11 @@ class _AddressScreenState extends State<AddressScreen> {
   @override
   void initState() {
     super.initState();
-    print("context_readAddressCubit_addressCameraPosition");
-    print(context.read<AddressCubit>().addressCameraPosition);
     if (context.read<AddressCubit>().addressCameraPosition == null) {
       context.read<AddressCubit>().getUserCurrentLocation();
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AddressCubit, AddressState>(
@@ -47,7 +46,8 @@ class _AddressScreenState extends State<AddressScreen> {
         } else if (state is ChangeStatusAddressError) {
           Navigator.pop(context);
           showToast(errorType: 0, message: state.message);
-        }if (state is DeleteAddressLoading) {
+        }
+        if (state is DeleteAddressLoading) {
           showProgressIndicator(context);
         } else if (state is DeleteAddressSuccess) {
           Navigator.pop(context);
@@ -67,7 +67,7 @@ class _AddressScreenState extends State<AddressScreen> {
               TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, ScreenName.addAddressScreen,
-                      arguments: [cubit,null]);
+                      arguments: [cubit, null]);
                 },
                 child: GradientWidget(
                   gradientList: AppColors.gradientColorsList,
@@ -101,16 +101,15 @@ class _AddressScreenState extends State<AddressScreen> {
                         Navigator.pushNamed(
                           context,
                           ScreenName.addAddressScreen,
-                          arguments: [cubit,cubit.addressList[index]],
+                          arguments: [cubit, cubit.addressList[index]],
                         );
                       },
-                      onDeleteAddressClicked: (){
+                      onDeleteAddressClicked: () {
                         cubit.deleteAddress(cubit.addressList[index].id.toString());
                         Navigator.pop(context);
                       },
                       onChangeAddressClicked: () {
-                        cubit.changeAddressStatus(
-                            cubit.addressList[index].id ?? 0);
+                        cubit.changeAddressStatus(cubit.addressList[index].id ?? 0);
                       },
                     );
                   },

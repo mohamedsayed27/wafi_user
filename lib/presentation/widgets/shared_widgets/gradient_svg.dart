@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wafi_user/core/app_theme/app_colors.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/gradient%20widgets.dart';
+import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_widgets.dart';
 
 class GradientSvg extends StatelessWidget {
   final String svgPath;
@@ -14,7 +14,8 @@ class GradientSvg extends StatelessWidget {
     required this.svgPath,
     this.height,
     this.width,
-    this.isSelected = true,  this.svgDisabledColor = AppColors.greyColor9,
+    this.isSelected = true,
+    this.svgDisabledColor = AppColors.greyColor9,
   });
 
   @override

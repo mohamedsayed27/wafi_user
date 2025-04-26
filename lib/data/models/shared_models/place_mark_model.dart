@@ -1,5 +1,3 @@
-
-
 import 'package:equatable/equatable.dart';
 
 class PlaceResult extends Equatable {
@@ -25,13 +23,12 @@ class PlaceResult extends Equatable {
   }
 
   @override
-  // TODO: implement props
   List<Object?> get props => [
-    id,
-    name,
-    formattedAddress,
-    geometry,
-  ];
+        id,
+        name,
+        formattedAddress,
+        geometry,
+      ];
 }
 
 class Geometry extends Equatable {
@@ -46,10 +43,9 @@ class Geometry extends Equatable {
   }
 
   @override
-  // TODO: implement props
   List<Object?> get props => [
-    location
-  ];
+        location,
+      ];
 }
 
 class Location extends Equatable {
@@ -60,14 +56,14 @@ class Location extends Equatable {
 
   factory Location.fromJson(Map<String, dynamic> json) {
     return Location(
-      lat: json['lat'] ,
-      lng: json['lng'] ,
+      lat: json['lat'],
+      lng: json['lng'],
     );
   }
 
   @override
-  // TODO: implement props
   List<Object?> get props => [
-    lat,  lng
-  ];
+        lat,
+        lng,
+      ];
 }

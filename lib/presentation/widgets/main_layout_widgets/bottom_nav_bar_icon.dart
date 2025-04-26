@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/gradient%20widgets.dart';
+import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_widgets.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart';
 
 import '../../../core/app_theme/app_colors.dart';
@@ -39,7 +39,12 @@ class BottomNavBarIcon extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          GradientSvg(svgPath: iconPath, isSelected: isSelected,height: 22.h,width: 22.w,),
+          GradientSvg(
+            svgPath: iconPath,
+            isSelected: isSelected,
+            height: 22.h,
+            width: 22.w,
+          ),
           SizedBox(
             height: 4.h,
           ),

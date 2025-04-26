@@ -12,33 +12,73 @@ class VisitorComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-
         IntrinsicHeight(
           child: Row(
             children: [
-              Expanded(child: FormItemWidget(title: LocaleKeys.nationalIdIqama.tr(), hintText: "**************",),),
-              CustomSizedBox(width: 16,),
-              Expanded(child: FormItemWidget(title: LocaleKeys.driverLicense.tr(), hintText: "**************",),),
+              Expanded(
+                child: FormItemWidget(
+                  title: LocaleKeys.nationalIdIqama.tr(),
+                  hintText: "**************",
+                ),
+              ),
+              const CustomSizedBox(
+                width: 16,
+              ),
+              Expanded(
+                child: FormItemWidget(
+                  title: LocaleKeys.driverLicense.tr(),
+                  hintText: "**************",
+                ),
+              ),
             ],
           ),
         ),
-        CustomSizedBox(height: 24,),
+        const CustomSizedBox(
+          height: 24,
+        ),
         FormDateWidget(title: LocaleKeys.driverLicenseExpiryDate.tr()),
-        CustomSizedBox(height: 24,),
-        FormDateWidget(title: LocaleKeys.passportExpiryDate.tr(),),
-        CustomSizedBox(height: 24,),
-        FormDateWidget(title: LocaleKeys.dateOfBirth.tr(),),
-        CustomSizedBox(height: 24,),
-        FormItemWidget(title: LocaleKeys.citizenship.tr(), hintText: LocaleKeys.citizenship.tr(),),
-        CustomSizedBox(height: 24,),
-        FormUploadItemWidget(title:LocaleKeys.internationalDriverLicenseImage.tr(),isRequired: true,),
-        CustomSizedBox(height: 24,),
-        FormUploadItemWidget(title:LocaleKeys.passportFrontImage.tr(),isRequired: true,),
-        CustomSizedBox(height: 24,),
-        FormUploadItemWidget(title:LocaleKeys.driverLicenseWithSelfie.tr(),),
+        const CustomSizedBox(
+          height: 24,
+        ),
+        FormDateWidget(
+          title: LocaleKeys.passportExpiryDate.tr(),
+        ),
+        const CustomSizedBox(
+          height: 24,
+        ),
+        FormDateWidget(
+          title: LocaleKeys.dateOfBirth.tr(),
+        ),
+        const CustomSizedBox(
+          height: 24,
+        ),
+        FormItemWidget(
+          title: LocaleKeys.citizenship.tr(),
+          hintText: LocaleKeys.citizenship.tr(),
+        ),
+        const CustomSizedBox(
+          height: 24,
+        ),
+        FormUploadItemWidget(
+          title: LocaleKeys.internationalDriverLicenseImage.tr(),
+          isRequired: true,
+        ),
+        const CustomSizedBox(
+          height: 24,
+        ),
+        FormUploadItemWidget(
+          title: LocaleKeys.passportFrontImage.tr(),
+          isRequired: true,
+        ),
+        const CustomSizedBox(
+          height: 24,
+        ),
+        FormUploadItemWidget(
+          title: LocaleKeys.driverLicenseWithSelfie.tr(),
+        ),
       ],
     );
   }
