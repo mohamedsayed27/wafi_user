@@ -22,21 +22,22 @@ class SpareByQuotationParameters extends Equatable {
     required this.images,
     required this.addressId,
   });
-
   Future<Map<String, dynamic>> toJson() async {
+    final imageFiles = await Future.wait(
+      images.map(
+        (element) => MultipartFile.fromFile(
+          element.path,
+          filename: path.basename(element.path),
+        ),
+      ),
+    );
+
     return {
       'name': name,
       if (partNum != null) 'product_num': partNum,
       'notes': notes,
       'used': used.name,
-      'images': images.map(
-        (element) async {
-          return await MultipartFile.fromFile(
-            element.path,
-            filename: path.basename(element.path),
-          );
-        },
-      ).toList(),
+      'images[]': imageFiles,
       'address_id': addressId,
     };
   }

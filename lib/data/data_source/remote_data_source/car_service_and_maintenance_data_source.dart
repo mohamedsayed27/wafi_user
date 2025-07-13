@@ -15,14 +15,13 @@ class CarServiceAndMaintenanceDataSource {
     required this.dioHelper,
   });
 
-  Future<Either<ErrorException, List<CarServiceModel>?>>
-      getServiceList() async {
+  Future<Either<ErrorException, List<CarServiceModel>?>> getServiceList() async {
     try {
       final response = await dioHelper.getData(
         url: EndPoints.carServiceAndMaintenance,
       );
-      return Right(List.from(response.data["data"]
-          .map((element) => CarServiceModel.fromJson(element))));
+      return Right(
+          List.from(response.data["data"].map((element) => CarServiceModel.fromJson(element))));
     } catch (e) {
       rethrow;
     }
@@ -35,13 +34,12 @@ class CarServiceAndMaintenanceDataSource {
       final response = await dioHelper.getData(
         url: "${EndPoints.carServiceAndMaintenance}/$id",
       );
-      return Right(List.from(response.data["data"].map((element) => SubServiceModel.fromJson(element))));
+      return Right(
+          List.from(response.data["data"].map((element) => SubServiceModel.fromJson(element))));
     } catch (e) {
       rethrow;
     }
   }
-
-
 
   Future<Either<ErrorException, BaseResponseModel>> addOrderService({
     required CarServicesParameters addCarParameters,
@@ -53,7 +51,6 @@ class CarServiceAndMaintenanceDataSource {
           addCarParameters.toJson(),
         ),
       );
-      print("response ====> ${response.data}");
       return Right(BaseResponseModel.fromJson(response.data));
     } catch (e) {
       rethrow;

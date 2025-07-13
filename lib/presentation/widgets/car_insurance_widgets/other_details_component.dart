@@ -9,7 +9,7 @@ import '../../../translations/locale_keys.g.dart';
 import '../../widgets/car_insurance_widgets/add_driver_button_widget.dart';
 import '../../widgets/shared_widgets/switch_button_and_title_widget.dart';
 import '../shared_widgets/custom_sized_box.dart';
-import '../shared_widgets/form_drom_down_widget.dart';
+import '../shared_widgets/form_drop_down_widget.dart';
 import '../shared_widgets/form_item_widget.dart';
 import '../spare_parts/check_box_with_title.dart';
 

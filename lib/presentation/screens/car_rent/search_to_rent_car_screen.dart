@@ -6,7 +6,7 @@ import 'package:wafi_user/core/app_theme/app_colors.dart';
 import 'package:wafi_user/core/assets_path/images_path.dart';
 import 'package:wafi_user/core/assets_path/svg_path.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/custom_drop_down_button.dart';
+// import 'package:wafi_user/presentation/widgets/shared_widgets/custom_drop_down_button.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradient_svg.dart';
 import 'package:wafi_user/translations/locale_keys.g.dart';
@@ -23,20 +23,22 @@ class SearchToRentCarScreen extends StatefulWidget {
 }
 
 class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
-  String? value;
-  List<String> items = [
-    "Cairo",
-    "Giza",
-    "Alexandria",
-  ];
-
   bool isPickUpChecked = false;
   bool isDeliverChecked = false;
 
   List<Map<String, dynamic>> carsList = [
-    {"image": ImagesPath.all, "title": "All Types"},
-    {"image": ImagesPath.car1, "title": "Economy"},
-    {"image": ImagesPath.car2, "title": "Economy"},
+    {
+      "image": ImagesPath.all,
+      "title": "All Types",
+    },
+    {
+      "image": ImagesPath.car1,
+      "title": "Economy",
+    },
+    {
+      "image": ImagesPath.car2,
+      "title": "A-class",
+    },
   ];
   int? selectedIndex;
 
@@ -49,87 +51,35 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
         children: [
-          Text(
-            LocaleKeys.servicesAdded.tr(),
-            style: CustomThemes.greyColor16TextStyle(context).copyWith(
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w700,
-              fontStyle: FontStyle.normal,
-            ),
-          ),
-          const CustomSizedBox(
-            height: 8,
-          ),
-          CustomDropDownButton(
-            hintText: LocaleKeys.selectCity.tr(),
-            onChanged: (value) {
-              setState(() {
-                this.value = value;
-              });
-            },
-            items: items.map((e) {
-              return DropdownMenuItem(
-                value: e,
-                child: Text(e),
-              );
-            }).toList(),
-            value: value,
-          ),
-          const CustomSizedBox(
-            height: 8,
-          ),
-          Row(
-            children: [
-              Container(
-                height: 20,
-                width: 20,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(2.r),
-                  gradient: LinearGradient(
-                    colors: AppColors.gradientColorsList,
-                    begin: AlignmentDirectional.topStart,
-                    end: AlignmentDirectional.bottomEnd,
-                  ),
-                ),
-                alignment: Alignment.center,
-                child: Checkbox(
-                  value: isPickUpChecked,
-                  onChanged: (value) {
-                    setState(() {
-                      isPickUpChecked = value!;
-                    });
-                  },
-                  visualDensity: const VisualDensity(
-                      horizontal: VisualDensity.maximumDensity,
-                      vertical: VisualDensity.maximumDensity),
-                  focusColor: AppColors.whiteColor,
-                  fillColor: MaterialStateProperty.all(
-                    isPickUpChecked ? Colors.transparent : AppColors.whiteColor,
-                  ),
-                  checkColor: AppColors.whiteColor,
-                  side: const BorderSide(color: AppColors.whiteColor),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(2.r),
-                    side: const BorderSide(color: AppColors.whiteColor),
-                  ),
-                ),
-              ),
-              const CustomSizedBox(
-                width: 8,
-              ),
-              Text(
-                LocaleKeys.pickUpAtAirport.tr(),
-                style: CustomThemes.greyColor16TextStyle(context).copyWith(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w700,
-                  fontStyle: FontStyle.normal,
-                ),
-              ),
-            ],
-          ),
-          const CustomSizedBox(
-            height: 16,
-          ),
+          // Text(
+          //   LocaleKeys.selectCity.tr(),
+          //   style: CustomThemes.greyColor16TextStyle(context).copyWith(
+          //     fontSize: 14.sp,
+          //     fontWeight: FontWeight.w700,
+          //     fontStyle: FontStyle.normal,
+          //   ),
+          // ),
+          // const CustomSizedBox(
+          //   height: 8,
+          // ),
+          // CustomDropDownButton(
+          //   hintText: LocaleKeys.selectCity.tr(),
+          //   onChanged: (value) {
+          //     setState(() {
+          //       this.value = value;
+          //     });
+          //   },
+          //   items: items.map((e) {
+          //     return DropdownMenuItem(
+          //       value: e,
+          //       child: Text(e),
+          //     );
+          //   }).toList(),
+          //   value: value,
+          // ),
+          // const CustomSizedBox(
+          //   height: 8,
+          // ),
           Text(
             LocaleKeys.selectDateTime.tr(),
             style: CustomThemes.greyColor16TextStyle(context).copyWith(
@@ -143,10 +93,12 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
           ),
           InkWell(
             onTap: () {
-              showDialog(
+              showDialog<CarRentDateArgs>(
                 context: context,
                 builder: (_) => const CarRentDateTimePickerDialog(),
-              );
+              ).then((value) {
+                print(value);
+              });
             },
             child: Ink(
               height: 48.h,
@@ -177,6 +129,58 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
                 ],
               ),
             ),
+          ),
+          const CustomSizedBox(
+            height: 16,
+          ),
+          Row(
+            children: [
+              Container(
+                height: 20,
+                width: 20,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(2.r),
+                  gradient: LinearGradient(
+                    colors: AppColors.gradientColorsList,
+                    begin: AlignmentDirectional.topStart,
+                    end: AlignmentDirectional.bottomEnd,
+                  ),
+                ),
+                alignment: Alignment.center,
+                child: Checkbox(
+                  value: isPickUpChecked,
+                  onChanged: (value) {
+                    setState(() {
+                      isPickUpChecked = value!;
+                    });
+                  },
+                  visualDensity: const VisualDensity(
+                      horizontal: VisualDensity.maximumDensity,
+                      vertical: VisualDensity.maximumDensity),
+                  focusColor: AppColors.whiteColor,
+                  fillColor: WidgetStateProperty.all(
+                    isPickUpChecked ? Colors.transparent : AppColors.whiteColor,
+                  ),
+                  checkColor: AppColors.whiteColor,
+                  side: const BorderSide(color: AppColors.whiteColor),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(2.r),
+                    side: const BorderSide(color: AppColors.whiteColor),
+                  ),
+                ),
+              ),
+              const CustomSizedBox(
+                width: 8,
+              ),
+              Text(
+                LocaleKeys.pickUpAtAirport.tr(),
+                style: CustomThemes.greyColor16TextStyle(context).copyWith(
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w700,
+                  fontStyle: FontStyle.normal,
+                ),
+              ),
+            ],
           ),
           const CustomSizedBox(
             height: 16,
@@ -286,10 +290,11 @@ class _SearchToRentCarScreenState extends State<SearchToRentCarScreen> {
                     });
                   },
                   visualDensity: const VisualDensity(
-                      horizontal: VisualDensity.maximumDensity,
-                      vertical: VisualDensity.maximumDensity),
+                    horizontal: VisualDensity.maximumDensity,
+                    vertical: VisualDensity.maximumDensity,
+                  ),
                   focusColor: AppColors.whiteColor,
-                  fillColor: MaterialStateProperty.all(
+                  fillColor: WidgetStateProperty.all(
                     isDeliverChecked ? Colors.transparent : AppColors.whiteColor,
                   ),
                   checkColor: AppColors.whiteColor,

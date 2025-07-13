@@ -5,6 +5,7 @@ import 'package:wafi_user/data/models/base_response_model.dart';
 
 import '../../../core/error/error_exception.dart';
 import '../../../core/network/api_end_points.dart';
+import '../../../core/network/error_message_model.dart';
 import '../../../core/parameters/spare_by_quotation_parameters.dart';
 import '../../models/car_spare_parts_model/car_spare_part_model.dart';
 
@@ -19,8 +20,16 @@ class CarSparePartsRemoteDataSource {
         url: EndPoints.carSparePartsProduct,
       );
       return Right(GetCarSparePartsProducts.fromJson(response.data));
-    } catch (e) {
-      rethrow;
+    } on DioException catch (e) {
+      return Left(
+        ErrorException(
+          baseErrorModel: BaseErrorModel(
+            message: e.error.toString(),
+            status: e.response?.statusCode?.toString() ?? "",
+            data: e.response.toString(),
+          ),
+        ),
+      );
     }
   }
 
@@ -30,8 +39,16 @@ class CarSparePartsRemoteDataSource {
         url: "${EndPoints.carSparePartsProduct}/$id",
       );
       return Right(CarSparePartModel.fromJson(response.data));
-    } catch (e) {
-      rethrow;
+    } on DioException catch (e) {
+      return Left(
+        ErrorException(
+          baseErrorModel: BaseErrorModel(
+            message: e.error.toString(),
+            status: e.response?.statusCode?.toString() ?? "",
+            data: e.response.toString(),
+          ),
+        ),
+      );
     }
   }
 
@@ -39,10 +56,23 @@ class CarSparePartsRemoteDataSource {
       {required SpareByQuotationParameters parameters}) async {
     try {
       final response = await dioHelper.postData(
-          url: EndPoints.sendQuotationRequest, data: FormData.fromMap(await parameters.toJson()));
+        url: EndPoints.sendQuotationRequest,
+        data: FormData.fromMap(
+          await parameters.toJson(),
+        ),
+      );
       return Right(BaseResponseModel.fromJson(response.data));
-    } catch (e) {
-      rethrow;
+    } on DioException catch (e) {
+      print(e);
+      return Left(
+        ErrorException(
+          baseErrorModel: BaseErrorModel(
+            message: e.error.toString(),
+            status: e.response?.statusCode?.toString() ?? "",
+            data: e.response.toString(),
+          ),
+        ),
+      );
     }
   }
 }

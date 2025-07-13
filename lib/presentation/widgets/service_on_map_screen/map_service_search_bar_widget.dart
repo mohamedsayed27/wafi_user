@@ -60,7 +60,7 @@ class MapServiceSearchBarWidget extends StatelessWidget {
               ),
             ),
           ],
-          actions: [],
+          actions: const [],
           builder: (context, transition) {
             return state is GetSearchedLocationsLoading
                 ? Center(

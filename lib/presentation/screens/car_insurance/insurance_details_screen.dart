@@ -6,7 +6,7 @@ import 'package:wafi_user/presentation/widgets/car_insurance_widgets/add_driver_
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_app_bar.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/form_date_item.dart';
-import 'package:wafi_user/presentation/widgets/shared_widgets/form_drom_down_widget.dart';
+import 'package:wafi_user/presentation/widgets/shared_widgets/form_drop_down_widget.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/form_item_widget.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/gradiant_color_button.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/switch_button_and_title_widget.dart';

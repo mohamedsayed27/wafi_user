@@ -310,7 +310,6 @@ class ServicesCartScreen extends StatelessWidget {
                       ).then((value) {
                         cubit.selectTime(value);
                       });
-                      ;
                     },
                     child: Container(
                       padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 15.h),

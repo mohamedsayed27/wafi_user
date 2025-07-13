@@ -1,4 +1,3 @@
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,8 +25,7 @@ class ChatTextField extends StatelessWidget {
         SizedBox(
           height: 40.h,
           child: TextField(
-            style: CustomThemes.greyColor1CTextStyle(context)
-                .copyWith(fontSize: 12.sp),
+            style: CustomThemes.greyColor1CTextStyle(context).copyWith(fontSize: 12.sp),
             decoration: InputDecoration(
               border: border,
               enabledBorder: border,
@@ -40,8 +38,7 @@ class ChatTextField extends StatelessWidget {
                 vertical: 11.h,
               ),
               hintText: LocaleKeys.send.tr(),
-              hintStyle:  CustomThemes.greyColor1CTextStyle(context)
-                  .copyWith(fontSize: 12.sp),
+              hintStyle: CustomThemes.greyColor1CTextStyle(context).copyWith(fontSize: 12.sp),
             ),
           ),
         ).onlyDirectionalPadding(end: 8.w),
@@ -56,7 +53,10 @@ class ChatTextField extends StatelessWidget {
             shadowColor: Colors.transparent,
             foregroundColor: AppColors.whiteColor,
           ),
-          child: Icon(Icons.send,color: AppColors.whiteColor,),
+          child: const Icon(
+            Icons.send,
+            color: AppColors.whiteColor,
+          ),
         )
       ],
     );

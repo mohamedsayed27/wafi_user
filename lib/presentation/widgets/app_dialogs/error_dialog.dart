@@ -54,7 +54,7 @@ class ErrorDialog extends StatelessWidget {
               fontSize: 16.sp,
             ),
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 4,
           ),
           Text(
@@ -64,16 +64,17 @@ class ErrorDialog extends StatelessWidget {
               fontSize: 16.sp,
             ),
           ),
-          CustomSizedBox(
+          const CustomSizedBox(
             height: 16,
           ),
           Row(
             children: [
               Expanded(
                 child: CustomGradientButton(
-                  onPressed: successClicked??() {
-                    Navigator.pop(context);
-                  },
+                  onPressed: successClicked ??
+                      () {
+                        Navigator.pop(context);
+                      },
                   child: Text(
                     successText,
                     style: CustomThemes.whiteColoTextTheme(context).copyWith(
@@ -89,14 +90,17 @@ class ErrorDialog extends StatelessWidget {
               Expanded(
                 child: CustomOutlinedButton(
                   borderColor: AppColors.primaryColor,
-                  onPressed: cancelClicked??() {
-                    Navigator.pushNamedAndRemoveUntil(
-                      context,
-                      ScreenName.mainLayoutScreen,
-                      (route) => false,
-                    );
-                  },
+                  onPressed: cancelClicked ??
+                      () {
+                        Navigator.pushNamedAndRemoveUntil(
+                          context,
+                          ScreenName.mainLayoutScreen,
+                          (route) => false,
+                        );
+                      },
                   padding: EdgeInsets.zero,
+                  style: CustomThemes.primaryTextStyle(context),
+                  borderRadius: 6,
                   child: Text(
                     cancelText,
                     style: CustomThemes.primaryTextStyle(context).copyWith(
@@ -104,8 +108,6 @@ class ErrorDialog extends StatelessWidget {
                       fontSize: 16.sp,
                     ),
                   ),
-                  style: CustomThemes.primaryTextStyle(context),
-                  borderRadius: 6,
                 ),
               ),
             ],

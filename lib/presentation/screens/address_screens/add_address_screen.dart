@@ -51,8 +51,6 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
     if (widget.addressModel != null) {
       initEditFields();
     }
-    print("context_readAddressCubit_addressCameraPosition");
-    print(context.read<AddressCubit>().addressCameraPosition);
     if (context.read<AddressCubit>().addressCameraPosition == null) {
       context.read<AddressCubit>().getUserCurrentLocation();
     }

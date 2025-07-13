@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:wafi_user/core/network/error_message_model.dart';
 import 'package:wafi_user/data/models/address_model/country_model.dart';
 import 'package:wafi_user/data/models/base_response_model.dart';
 
@@ -17,8 +18,7 @@ class AddressDataSource {
     required this.dioHelper,
   });
 
-  Future<Either<ErrorException, List<AddressModel>>>
-      getUsersAddressList() async {
+  Future<Either<ErrorException, List<AddressModel>>> getUsersAddressList() async {
     try {
       final response = await dioHelper.getData(
         url: EndPoints.myAddress,
@@ -28,8 +28,12 @@ class AddressDataSource {
           response.data?["data"]?.map((e) => AddressModel.fromJson(e)) ?? [],
         ),
       );
-    } catch (e) {
-      rethrow;
+    } on DioException catch (e) {
+      return Left(ErrorException(
+          baseErrorModel: BaseErrorModel(
+              message: e.error.toString(),
+              status: e.response?.statusCode?.toString() ?? "",
+              data: e.response.toString())));
     }
   }
 
@@ -39,20 +43,27 @@ class AddressDataSource {
         url: EndPoints.country,
       );
       return Right(GetCountriesModel.fromJson(response.data));
-    } catch (e) {
-      rethrow;
+    } on DioException catch (e) {
+      return Left(ErrorException(
+          baseErrorModel: BaseErrorModel(
+              message: e.error.toString(),
+              status: e.response?.statusCode?.toString() ?? "",
+              data: e.response.toString())));
     }
   }
 
-  Future<Either<ErrorException, GetCitiesModel>> getCitiesList(
-      {required int id}) async {
+  Future<Either<ErrorException, GetCitiesModel>> getCitiesList({required int id}) async {
     try {
       final response = await dioHelper.getData(
         url: "${EndPoints.city}/$id",
       );
       return Right(GetCitiesModel.fromJson(response.data));
-    } catch (e) {
-      rethrow;
+    } on DioException catch (e) {
+      return Left(ErrorException(
+          baseErrorModel: BaseErrorModel(
+              message: e.error.toString(),
+              status: e.response?.statusCode?.toString() ?? "",
+              data: e.response.toString())));
     }
   }
 
@@ -67,8 +78,12 @@ class AddressDataSource {
           response.data,
         ),
       );
-    } catch (e) {
-      rethrow;
+    } on DioException catch (e) {
+      return Left(ErrorException(
+          baseErrorModel: BaseErrorModel(
+              message: e.error.toString(),
+              status: e.response?.statusCode?.toString() ?? "",
+              data: e.response.toString())));
     }
   }
 
@@ -83,8 +98,12 @@ class AddressDataSource {
           response.data,
         ),
       );
-    } catch (e) {
-      rethrow;
+    } on DioException catch (e) {
+      return Left(ErrorException(
+          baseErrorModel: BaseErrorModel(
+              message: e.error.toString(),
+              status: e.response?.statusCode?.toString() ?? "",
+              data: e.response.toString())));
     }
   }
 
@@ -93,21 +112,26 @@ class AddressDataSource {
   }) async {
     try {
       final response = await dioHelper.postData(
-        url:"${EndPoints.addressStatus}/$id",
+        url: "${EndPoints.addressStatus}/$id",
         data: FormData.fromMap(
           {
             "status": "active",
           },
         ),
       );
-      print(response);
       return Right(
         BaseResponseModel.fromJson(
           response.data,
         ),
       );
-    } catch (e) {
-      rethrow;
+    } on DioException catch (e) {
+      return Left(ErrorException(
+        baseErrorModel: BaseErrorModel(
+          message: e.error.toString(),
+          status: e.response?.statusCode?.toString() ?? "",
+          data: e.response.toString(),
+        ),
+      ));
     }
   }
 
@@ -128,8 +152,16 @@ class AddressDataSource {
           response.data,
         ),
       );
-    } catch (e) {
-      rethrow;
+    } on DioException catch (e) {
+      return Left(
+        ErrorException(
+          baseErrorModel: BaseErrorModel(
+            message: e.error.toString(),
+            status: e.response?.statusCode?.toString() ?? "",
+            data: e.response.toString(),
+          ),
+        ),
+      );
     }
   }
 }

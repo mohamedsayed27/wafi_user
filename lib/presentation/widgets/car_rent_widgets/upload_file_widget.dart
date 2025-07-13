@@ -18,7 +18,7 @@ class UploadFileContainer extends StatelessWidget {
       color: AppColors.dashedBorderColor,
       borderType: BorderType.RRect,
       dashPattern: const [8, 4],
-      padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 16.h),
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
       radius: const Radius.circular(16),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
@@ -29,7 +29,9 @@ class UploadFileContainer extends StatelessWidget {
               width: 70.w,
               height: 70.h,
             ),
-            CustomSizedBox(height: 16,),
+            const CustomSizedBox(
+              height: 16,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -37,7 +39,9 @@ class UploadFileContainer extends StatelessWidget {
                   Icons.add_circle_outline_sharp,
                   color: AppColors.color1C,
                 ),
-                const CustomSizedBox(width: 8,),
+                const CustomSizedBox(
+                  width: 8,
+                ),
                 Text(
                   LocaleKeys.uploadDriversLicense.tr(),
                   style: CustomThemes.greyColor1CTextStyle(context).copyWith(

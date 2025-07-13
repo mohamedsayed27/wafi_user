@@ -11,7 +11,6 @@ import '../../../core/app_theme/custom_themes.dart';
 import '../../widgets/orders_container/ordrs_container.dart';
 import '../../widgets/shared_widgets/custom_divider.dart';
 
-
 class PastContainer extends StatefulWidget {
   const PastContainer({
     super.key,
@@ -21,8 +20,7 @@ class PastContainer extends StatefulWidget {
   State<PastContainer> createState() => _PastContainerState();
 }
 
-class _PastContainerState extends State<PastContainer>
-    with SingleTickerProviderStateMixin {
+class _PastContainerState extends State<PastContainer> with SingleTickerProviderStateMixin {
   late AnimationController expandController;
   late Animation<double> animation;
 
@@ -209,24 +207,18 @@ class _PastContainerState extends State<PastContainer>
                   children: [
                     Text(
                       "Total Price:",
-                      style:
-                      CustomThemes.greyColor1CTextStyle(context).copyWith(
+                      style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,
-                        color: CustomThemes.greyColor1CTextStyle(context)
-                            .color!
-                            .withOpacity(0.8),
+                        color: CustomThemes.greyColor1CTextStyle(context).color!.withOpacity(0.8),
                       ),
                     ),
                     Text(
                       "250.00 SAR",
-                      style:
-                      CustomThemes.greyColor1CTextStyle(context).copyWith(
+                      style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                         fontSize: 12.sp,
                         fontWeight: FontWeight.w700,
-                        color: CustomThemes.greyColor1CTextStyle(context)
-                            .color!
-                            .withOpacity(0.8),
+                        color: CustomThemes.greyColor1CTextStyle(context).color!.withOpacity(0.8),
                       ),
                     ),
                   ],
@@ -234,7 +226,9 @@ class _PastContainerState extends State<PastContainer>
               ],
             ),
           ),
-          CustomSizedBox(height: 12,),
+          const CustomSizedBox(
+            height: 12,
+          ),
           Row(
             children: [
               Expanded(
@@ -249,7 +243,8 @@ class _PastContainerState extends State<PastContainer>
                     style: CustomThemes.primaryTextStyle(context).copyWith(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w700,
-                    ),),
+                    ),
+                  ),
                 ),
               ),
               const CustomSizedBox(
@@ -311,10 +306,9 @@ class _OfferCheckItemState extends State<OfferCheckItem> {
               });
             },
             visualDensity: const VisualDensity(
-                horizontal: VisualDensity.maximumDensity,
-                vertical: VisualDensity.maximumDensity),
+                horizontal: VisualDensity.maximumDensity, vertical: VisualDensity.maximumDensity),
             focusColor: AppColors.whiteColor,
-            fillColor: MaterialStateProperty.all(
+            fillColor: WidgetStateProperty.all(
               isChecked ? Colors.transparent : AppColors.whiteColor,
             ),
             checkColor: AppColors.whiteColor,
@@ -333,9 +327,7 @@ class _OfferCheckItemState extends State<OfferCheckItem> {
           style: CustomThemes.greyColor1CTextStyle(context).copyWith(
             fontSize: 14.sp,
             fontWeight: FontWeight.w700,
-            color: CustomThemes.greyColor1CTextStyle(context)
-                .color!
-                .withOpacity(0.6),
+            color: CustomThemes.greyColor1CTextStyle(context).color!.withOpacity(0.6),
           ),
         ),
         const Spacer(),
@@ -344,9 +336,7 @@ class _OfferCheckItemState extends State<OfferCheckItem> {
           style: CustomThemes.greyColor1CTextStyle(context).copyWith(
             fontSize: 14.sp,
             fontWeight: FontWeight.w700,
-            color: CustomThemes.greyColor1CTextStyle(context)
-                .color!
-                .withOpacity(0.6),
+            color: CustomThemes.greyColor1CTextStyle(context).color!.withOpacity(0.6),
           ),
         ),
       ],

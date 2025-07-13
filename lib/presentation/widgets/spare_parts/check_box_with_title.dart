@@ -8,7 +8,11 @@ import '../../../core/app_theme/app_colors.dart';
 class TitledCheckBox extends StatefulWidget {
   final String title;
   final CrossAxisAlignment crossAxisAlignment;
-  const TitledCheckBox({super.key, required this.title, this.crossAxisAlignment = CrossAxisAlignment.center,});
+  const TitledCheckBox({
+    super.key,
+    required this.title,
+    this.crossAxisAlignment = CrossAxisAlignment.center,
+  });
 
   @override
   State<TitledCheckBox> createState() => _TitledCheckBoxState();
@@ -42,10 +46,9 @@ class _TitledCheckBoxState extends State<TitledCheckBox> {
               });
             },
             visualDensity: const VisualDensity(
-                horizontal: VisualDensity.maximumDensity,
-                vertical: VisualDensity.maximumDensity),
+                horizontal: VisualDensity.maximumDensity, vertical: VisualDensity.maximumDensity),
             focusColor: AppColors.whiteColor,
-            fillColor: MaterialStateProperty.all(
+            fillColor: WidgetStateProperty.all(
               isChecked ? Colors.transparent : AppColors.whiteColor,
             ),
             checkColor: AppColors.whiteColor,
@@ -56,7 +59,9 @@ class _TitledCheckBoxState extends State<TitledCheckBox> {
             ),
           ),
         ),
-        const CustomSizedBox(width: 12,),
+        const CustomSizedBox(
+          width: 12,
+        ),
         Expanded(
           child: Text(
             widget.title,

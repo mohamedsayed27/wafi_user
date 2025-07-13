@@ -11,7 +11,7 @@ import '../../presentation/business_logic/auth_cubit/auth_cubit.dart';
 import '../../presentation/business_logic/car_service_cubit/car_service_cubit.dart';
 import '../../presentation/business_logic/car_spare_parts_cubit/car_spare_by_parts_cubit.dart';
 import '../../presentation/business_logic/car_spare_parts_cubit/car_spare_by_quotation_cubit.dart';
-import '../../presentation/business_logic/cars_cubti/cars_cubit.dart';
+import '../../presentation/business_logic/cars_cubit/cars_cubit.dart';
 import '../network/dio_helper.dart';
 import 'google_maps_services.dart';
 

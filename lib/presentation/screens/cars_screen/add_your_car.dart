@@ -9,11 +9,11 @@ import '../../../core/constants/constants.dart';
 import '../../../core/parameters/add_user_car_parameters.dart';
 import '../../../core/services/services_locator.dart';
 import '../../../translations/locale_keys.g.dart';
-import '../../business_logic/cars_cubti/cars_cubit.dart';
+import '../../business_logic/cars_cubit/cars_cubit.dart';
 import '../../widgets/shared_widgets/cached_network_image_widget.dart';
 import '../../widgets/shared_widgets/custom_app_bar.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
-import '../../widgets/shared_widgets/form_drom_down_widget.dart';
+import '../../widgets/shared_widgets/form_drop_down_widget.dart';
 import '../../widgets/shared_widgets/form_item_widget.dart';
 import '../../widgets/shared_widgets/gradiant_color_button.dart';
 
@@ -56,18 +56,17 @@ class _AddYourCarState extends State<AddYourCar> {
           ..getCarModels(),
         child: BlocBuilder<CarsCubit, CarsState>(
           builder: (context, state) {
-            return CarsCubit.get(context).initCarLoading!=null&&CarsCubit.get(context).initCarLoading==true
+            return CarsCubit.get(context).initCarLoading != null &&
+                    CarsCubit.get(context).initCarLoading == true
                 ? const Center(
                     child: CircularProgressIndicator.adaptive(),
                   )
                 : ListView(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 16.w, vertical: 32.h),
+                    padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 32.h),
                     children: [
                       Text(
                         LocaleKeys.enterCarDetails.tr(),
-                        style:
-                            CustomThemes.greyColor1CTextStyle(context).copyWith(
+                        style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w700,
                         ),
@@ -76,10 +75,10 @@ class _AddYourCarState extends State<AddYourCar> {
                         height: 24,
                       ),
                       BlocBuilder<CarsCubit, CarsState>(
-                        buildWhen: (prav, curr) {
+                        buildWhen: (prev, curr) {
                           if (curr is GetCarTypesLoading ||
                               curr is GetCarTypesError ||
-                              curr != prav ||
+                              curr != prev ||
                               curr is GetCarTypesSuccess) {
                             return true;
                           } else {
@@ -108,9 +107,7 @@ class _AddYourCarState extends State<AddYourCar> {
                                             ),
                                             Text(
                                               e.title ?? "",
-                                              style: CustomThemes
-                                                      .greyColor1CTextStyle(
-                                                          context)
+                                              style: CustomThemes.greyColor1CTextStyle(context)
                                                   .copyWith(
                                                 fontSize: 16.sp,
                                               ),
@@ -149,9 +146,7 @@ class _AddYourCarState extends State<AddYourCar> {
                                         child: Text(
                                           e.title ?? "",
                                           style:
-                                              CustomThemes.greyColor1CTextStyle(
-                                                      context)
-                                                  .copyWith(
+                                              CustomThemes.greyColor1CTextStyle(context).copyWith(
                                             fontSize: 16.sp,
                                           ),
                                         ),
@@ -168,11 +163,10 @@ class _AddYourCarState extends State<AddYourCar> {
                       ),
                       Text(
                         LocaleKeys.yearOfManufacture.tr(),
-                        style: CustomThemes.greyColor16TextStyle(context)
-                            .copyWith(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w700,
-                                fontStyle: FontStyle.normal),
+                        style: CustomThemes.greyColor16TextStyle(context).copyWith(
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w700,
+                            fontStyle: FontStyle.normal),
                       ),
                       const CustomSizedBox(
                         height: 8,
@@ -219,16 +213,12 @@ class _AddYourCarState extends State<AddYourCar> {
                                       LocaleKeys.yearOfManufacture.tr(),
                                   textAlign: TextAlign.start,
                                   style: cubit.dateTime == null
-                                      ? CustomThemes.greyColor99TextStyle(
-                                              context)
-                                          .copyWith(
+                                      ? CustomThemes.greyColor99TextStyle(context).copyWith(
                                           fontSize: 14.sp,
                                           fontWeight: FontWeight.normal,
                                           fontStyle: FontStyle.normal,
                                         )
-                                      : CustomThemes.greyColor1CTextStyle(
-                                              context)
-                                          .copyWith(
+                                      : CustomThemes.greyColor1CTextStyle(context).copyWith(
                                           fontSize: 14.sp,
                                           fontWeight: FontWeight.normal,
                                           fontStyle: FontStyle.normal,
@@ -294,8 +284,7 @@ class _AddYourCarState extends State<AddYourCar> {
                           return CustomGradientButton(
                             child: Text(
                               LocaleKeys.submit.tr(),
-                              style: CustomThemes.whiteColoTextTheme(context)
-                                  .copyWith(
+                              style: CustomThemes.whiteColoTextTheme(context).copyWith(
                                 fontSize: 16.sp,
                                 fontWeight: FontWeight.w700,
                               ),
@@ -304,38 +293,32 @@ class _AddYourCarState extends State<AddYourCar> {
                               if (cubit.carType == null) {
                                 showToast(
                                     errorType: 1,
-                                    message:
-                                        "${LocaleKeys.PleaseSelect.tr()} ${LocaleKeys.make}");
+                                    message: "${LocaleKeys.PleaseSelect.tr()} ${LocaleKeys.make}");
                               } else if (cubit.carModel == null) {
                                 showToast(
                                     errorType: 1,
-                                    message:
-                                        "${LocaleKeys.PleaseSelect.tr()} ${LocaleKeys.model}");
+                                    message: "${LocaleKeys.PleaseSelect.tr()} ${LocaleKeys.model}");
                               } else if (cubit.dateTime == null) {
                                 showToast(
                                     errorType: 1,
                                     message:
                                         "${LocaleKeys.PleaseSelect.tr()} ${LocaleKeys.yearOfManufacture}");
                               } else if (formKey.currentState!.validate()) {
-                                if(cubit.initCarLoading==null) {
+                                if (cubit.initCarLoading == null) {
                                   cubit.addUserCar(
-                                  addCarParameters: AddCarParameters(
-                                    carTypeId:
-                                        cubit.carType?.id?.toString() ?? "",
-                                    carModelId:
-                                        cubit.carModel?.id?.toString() ?? "",
-                                    year: cubit.dateTime?.year.toString() ?? "",
-                                    structureNumber: cubit.controller.text,
-                                  ),
-                                );
-                                }else{
+                                    addCarParameters: AddCarParameters(
+                                      carTypeId: cubit.carType?.id?.toString() ?? "",
+                                      carModelId: cubit.carModel?.id?.toString() ?? "",
+                                      year: cubit.dateTime?.year.toString() ?? "",
+                                      structureNumber: cubit.controller.text,
+                                    ),
+                                  );
+                                } else {
                                   cubit.updateUserCar(
                                     addCarParameters: AddCarParameters(
-                                      carTypeId:
-                                      cubit.carType?.id?.toString() ?? "",
-                                      carModelId:
-                                      cubit.carModel?.id?.toString() ?? "",
-                                      carUserId: cubit.carId?.toString()??"",
+                                      carTypeId: cubit.carType?.id?.toString() ?? "",
+                                      carModelId: cubit.carModel?.id?.toString() ?? "",
+                                      carUserId: cubit.carId?.toString() ?? "",
                                       year: cubit.dateTime?.year.toString() ?? "",
                                       structureNumber: cubit.controller.text,
                                     ),

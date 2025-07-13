@@ -36,19 +36,20 @@ class CategoriesWidget extends StatelessWidget {
               height: 55.h,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Color(0xffD8D8D8),
+                color: const Color(0xffD8D8D8),
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(8.r),
                   bottomLeft: Radius.circular(8.r),
-                ),gradient:  LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter, colors: [
-                AppColors.whiteColor.withOpacity(0.01),
-                const Color(0xFF000000).withOpacity(0.4),
-                const Color(0xFF000000).withOpacity(0.8),
-              ],
-
-              ),
+                ),
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    AppColors.whiteColor.withOpacity(0.01),
+                    const Color(0xFF000000).withOpacity(0.4),
+                    const Color(0xFF000000).withOpacity(0.8),
+                  ],
+                ),
               ),
             ),
           ),
@@ -58,7 +59,7 @@ class CategoriesWidget extends StatelessWidget {
               fontSize: 16.sp,
               fontWeight: FontWeight.w700,
             ),
-          ).onlyDirectionalPadding(bottom: 16,start: 16)
+          ).onlyDirectionalPadding(bottom: 16, start: 16)
         ],
       ),
     );

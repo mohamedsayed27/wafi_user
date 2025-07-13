@@ -32,7 +32,7 @@ class MainLayout extends StatefulWidget {
 final advancedDrawerController = AdvancedDrawerController();
 
 class _MainLayoutState extends State<MainLayout> {
-  List<Widget> _screens = [
+  final List<Widget> _screens = [
     const HomeScreen(),
     const OrdersScreen(),
     const CartScreen(),
@@ -127,8 +127,6 @@ class _MainLayoutState extends State<MainLayout> {
             builder: (context, state) {
               var cubit = MainLayoutCubit.get(context);
               return Scaffold(
-                // extendBodyBehindAppBar: true,
-                // extendBody: true,
                 body: _screens[cubit.currentIndex],
                 floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
                 floatingActionButton: SizedBox(
@@ -188,14 +186,5 @@ class _MainLayoutState extends State<MainLayout> {
             }),
       ),
     );
-  }
-}
-
-class BottomNavBarIconButton extends StatelessWidget {
-  const BottomNavBarIconButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }

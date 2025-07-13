@@ -26,15 +26,12 @@ class AppTheme {
     ),
     timePickerTheme: const TimePickerThemeData(
       backgroundColor: AppColors.whiteColor,
-
     ),
     dropdownMenuTheme: DropdownMenuThemeData(
-      menuStyle: MenuStyle(
-        backgroundColor: MaterialStateProperty.all(AppColors.whiteColor),
-        surfaceTintColor: MaterialStateProperty.all(AppColors.whiteColor),
-
-      )
-    ),
+        menuStyle: MenuStyle(
+      backgroundColor: WidgetStateProperty.all(AppColors.whiteColor),
+      surfaceTintColor: WidgetStateProperty.all(AppColors.whiteColor),
+    )),
     bottomSheetTheme: BottomSheetThemeData(
       backgroundColor: AppColors.whiteColor,
       surfaceTintColor: Colors.transparent,
@@ -66,38 +63,38 @@ class AppTheme {
       ),
     ),
     textTheme: const TextTheme(
-        headlineMedium:TextStyle(
-          fontFamily: FontsPath.almarai,
-          color: AppColors.whiteColor,
-        ),
-        headlineLarge:TextStyle(
-          fontFamily: FontsPath.almarai,
-          color: AppColors.color1C,
-        ),
-        headlineSmall:TextStyle(
-          fontFamily: FontsPath.almarai,
-          color: AppColors.color16,
-        ),
-        titleLarge:TextStyle(
-          fontFamily: FontsPath.almarai,
-          color: AppColors.colorE02,
-        ),
-        titleMedium:TextStyle(
-          fontFamily: FontsPath.almarai,
-          color: AppColors.greyColor9,
-        ),
-        titleSmall:TextStyle(
-          fontFamily: FontsPath.almarai,
-          color: AppColors.blueColor,
-        ),
-        bodyLarge: TextStyle(
-          fontFamily: FontsPath.almarai,
-          color: AppColors.greyColor75,
-        ),
-        bodyMedium: TextStyle(
-          fontFamily: FontsPath.almarai,
-          color: AppColors.primaryColor,
-        ),
+      headlineMedium: TextStyle(
+        fontFamily: FontsPath.almarai,
+        color: AppColors.whiteColor,
+      ),
+      headlineLarge: TextStyle(
+        fontFamily: FontsPath.almarai,
+        color: AppColors.color1C,
+      ),
+      headlineSmall: TextStyle(
+        fontFamily: FontsPath.almarai,
+        color: AppColors.color16,
+      ),
+      titleLarge: TextStyle(
+        fontFamily: FontsPath.almarai,
+        color: AppColors.colorE02,
+      ),
+      titleMedium: TextStyle(
+        fontFamily: FontsPath.almarai,
+        color: AppColors.greyColor9,
+      ),
+      titleSmall: TextStyle(
+        fontFamily: FontsPath.almarai,
+        color: AppColors.blueColor,
+      ),
+      bodyLarge: TextStyle(
+        fontFamily: FontsPath.almarai,
+        color: AppColors.greyColor75,
+      ),
+      bodyMedium: TextStyle(
+        fontFamily: FontsPath.almarai,
+        color: AppColors.primaryColor,
+      ),
       bodySmall: TextStyle(
         fontFamily: FontsPath.almarai,
         color: AppColors.dashedBorderColor,

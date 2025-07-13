@@ -4,7 +4,7 @@ import 'package:wafi_user/core/app_theme/app_colors.dart';
 import 'package:wafi_user/core/app_theme/custom_themes.dart';
 import '../../../core/constants/constants.dart' as preferred;
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final double elevation;
   final bool centerTitle;
@@ -14,7 +14,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
     super.key,
     required this.title,
     this.elevation = 2,
-    this.centerTitle = false, this.actions,
+    this.centerTitle = false,
+    this.actions,
   });
 
   @override
@@ -37,6 +38,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
   }
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => preferred.preferredSize;
 }

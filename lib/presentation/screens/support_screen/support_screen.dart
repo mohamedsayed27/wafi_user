@@ -44,7 +44,7 @@ class SupportScreen extends StatelessWidget {
                         child: BackButton(
                           color: AppColors.whiteColor,
                           style: ButtonStyle(
-                            padding: MaterialStatePropertyAll(
+                            padding: WidgetStatePropertyAll(
                               EdgeInsets.zero,
                             ),
                           ),
@@ -53,10 +53,7 @@ class SupportScreen extends StatelessWidget {
                       Text(
                         LocaleKeys.support.tr(),
                         style: CustomThemes.whiteColoTextTheme(context)
-                            .copyWith(
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.bold,
-                                height: 1),
+                            .copyWith(fontSize: 16.sp, fontWeight: FontWeight.bold, height: 1),
                       )
                     ],
                   ).onlyDirectionalPadding(
@@ -69,17 +66,15 @@ class SupportScreen extends StatelessWidget {
                     tabAlignment: TabAlignment.start,
                     labelColor: AppColors.whiteColor,
                     unselectedLabelColor: AppColors.greyColor9,
-                    labelStyle:
-                        CustomThemes.whiteColoTextTheme(context).copyWith(
+                    labelStyle: CustomThemes.whiteColoTextTheme(context).copyWith(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.bold,
                     ),
-                    unselectedLabelStyle:
-                        CustomThemes.whiteColoTextTheme(context).copyWith(
+                    unselectedLabelStyle: CustomThemes.whiteColoTextTheme(context).copyWith(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.bold,
                     ),
-                    tabs:  [
+                    tabs: [
                       Tab(
                         text: "${LocaleKeys.open.tr()} ",
                       ),
@@ -96,8 +91,7 @@ class SupportScreen extends StatelessWidget {
               child: TabBarView(
                 children: [
                   ListView.separated(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+                    padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
                     itemBuilder: (_, index) => const ItemWidget(),
                     separatorBuilder: (_, index) => const CustomSizedBox(
                       height: 16,
@@ -105,8 +99,7 @@ class SupportScreen extends StatelessWidget {
                     itemCount: 3,
                   ),
                   ListView.separated(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+                    padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
                     itemBuilder: (_, index) => const ItemWidget(),
                     separatorBuilder: (_, index) => const CustomSizedBox(
                       height: 16,
@@ -173,8 +166,8 @@ class ItemWidget extends StatelessWidget {
           ),
           Text(
             "Dec 02, 2020  ·  03:00 pm",
-            style: CustomThemes.greyColor99TextStyle(context).copyWith(
-                fontSize: 12.sp, fontWeight: FontWeight.w700, height: 1),
+            style: CustomThemes.greyColor99TextStyle(context)
+                .copyWith(fontSize: 12.sp, fontWeight: FontWeight.w700, height: 1),
           ),
         ],
       ),

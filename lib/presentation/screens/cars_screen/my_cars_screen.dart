@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wafi_user/core/app_router/screens_name.dart';
 import 'package:wafi_user/core/app_theme/custom_themes.dart';
-import 'package:wafi_user/presentation/business_logic/cars_cubti/cars_cubit.dart';
+import 'package:wafi_user/presentation/business_logic/cars_cubit/cars_cubit.dart';
 import 'package:wafi_user/presentation/widgets/cars_widget/my_car_widget.dart';
 import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.dart';
 
@@ -51,10 +51,7 @@ class MyCarsScreen extends StatelessWidget {
                 ),
               ),
             ),
-            BlocConsumer<CarsCubit, CarsState>(
-              listener: (context, state) {
-                // TODO: implement listener
-              },
+            BlocBuilder<CarsCubit, CarsState>(
               builder: (context, state) {
                 CarsCubit cubit = sl<CarsCubit>();
                 return Expanded(
@@ -63,8 +60,7 @@ class MyCarsScreen extends StatelessWidget {
                           child: CircularProgressIndicator.adaptive(),
                         )
                       : ListView.separated(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 16.w, vertical: 32.h),
+                          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 32.h),
                           itemBuilder: (context, index) {
                             return MyCarWidget(
                               model: cubit.carsList[index],

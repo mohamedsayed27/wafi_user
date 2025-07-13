@@ -9,16 +9,14 @@ import 'package:wafi_user/presentation/widgets/shared_widgets/custom_sized_box.d
 
 import '../../../translations/locale_keys.g.dart';
 
-
 class InsuranceTypeContainerWidget extends StatelessWidget {
   const InsuranceTypeContainerWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          color: AppColors.whiteColor,
-          borderRadius: BorderRadius.circular(8.r)),
+      decoration:
+          BoxDecoration(color: AppColors.whiteColor, borderRadius: BorderRadius.circular(8.r)),
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
       child: IntrinsicHeight(
         child: Row(
@@ -43,20 +41,19 @@ class InsuranceTypeContainerWidget extends StatelessWidget {
                         fit: BoxFit.contain,
                       ),
                     ),
-                    CustomSizedBox(
+                    const CustomSizedBox(
                       width: 4,
                     ),
                     Text(
                       "Malath",
-                      style:
-                      CustomThemes.greyColor1CTextStyle(context).copyWith(
+                      style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                         fontWeight: FontWeight.w700,
                         fontSize: 16.sp,
                       ),
                     ),
                   ],
                 ),
-                CustomSizedBox(
+                const CustomSizedBox(
                   height: 5,
                 ),
                 Text(
@@ -66,7 +63,7 @@ class InsuranceTypeContainerWidget extends StatelessWidget {
                     fontSize: 12.sp,
                   ),
                 ),
-                CustomSizedBox(
+                const CustomSizedBox(
                   height: 5,
                 ),
                 Text(
@@ -89,7 +86,7 @@ class InsuranceTypeContainerWidget extends StatelessWidget {
                     fontSize: 12.sp,
                   ),
                 ),
-                CustomSizedBox(
+                const CustomSizedBox(
                   height: 5,
                 ),
                 Text(
@@ -99,7 +96,7 @@ class InsuranceTypeContainerWidget extends StatelessWidget {
                     fontSize: 14.sp,
                   ),
                 ),
-                CustomSizedBox(
+                const CustomSizedBox(
                   height: 5,
                 ),
                 Text(
@@ -109,7 +106,7 @@ class InsuranceTypeContainerWidget extends StatelessWidget {
                     fontSize: 14.sp,
                   ),
                 ),
-                CustomSizedBox(
+                const CustomSizedBox(
                   height: 5,
                 ),
                 GradientText(

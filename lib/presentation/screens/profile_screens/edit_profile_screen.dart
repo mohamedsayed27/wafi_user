@@ -148,9 +148,7 @@ class EditProfileScreen extends StatelessWidget {
             ),
 
             initialCountryCode: 'US',
-            onChanged: (phone) {
-              print(phone.completeNumber); // Prints complete number including country code
-            },
+            onChanged: (phone) {},
           ),
           FormItemWidget(
             title: LocaleKeys.password.tr(),

@@ -8,14 +8,13 @@ class LocationService {
 
   LocationService(this._dioHelper);
 
-   Future<Position> determinePosition() async {
+  Future<Position> determinePosition() async {
     bool serviceEnabled;
     LocationPermission permission;
 
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      throw LocationException(
-          'Location services are disabled. Please enable them in settings.');
+      throw LocationException('Location services are disabled. Please enable them in settings.');
     }
 
     permission = await Geolocator.checkPermission();
@@ -41,17 +40,16 @@ class LocationService {
 
   Future<List<PlaceResult>> searchPlaces(String query) async {
     const apiKey = 'AIzaSyDcWIxw6lRSHR9O8ts9R76d9Z7ZzsFmDa0';
-    final url = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=$query&key=$apiKey';
+    final url =
+        'https://maps.googleapis.com/maps/api/place/textsearch/json?query=$query&key=$apiKey';
 
     final response = await _dioHelper.getData(
       url: url,
     );
     List<PlaceResult> searchResults = [];
     if (response.statusCode == 200) {
-      print(response.data);
       final predictions = response.data['results'] as List<dynamic>;
-      searchResults =
-          predictions.map((result) => PlaceResult.fromJson(result)).toList();
+      searchResults = predictions.map((result) => PlaceResult.fromJson(result)).toList();
     } else {
       searchResults = [];
     }

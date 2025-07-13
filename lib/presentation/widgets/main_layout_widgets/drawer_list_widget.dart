@@ -77,12 +77,14 @@ class _DrawerListWidgetState extends State<DrawerListWidget> {
               if (index == 1) Navigator.pushNamed(context, ScreenName.myCarsScreen);
               if (index == 2) Navigator.pushNamed(context, ScreenName.walletScreen);
               if (index == 3) Navigator.pushNamed(context, ScreenName.supportChatScreen);
-              if (index == 7)
+              if (index == 7) {
                 Navigator.pushNamed(context, ScreenName.termsAndConditions,
                     arguments: LocaleKeys.termsConditions.tr());
-              if (index == 8)
+              }
+              if (index == 8) {
                 Navigator.pushNamed(context, ScreenName.termsAndConditions,
                     arguments: LocaleKeys.privacyPolicy.tr());
+              }
             },
             child: Row(
               children: [

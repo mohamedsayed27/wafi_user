@@ -5,9 +5,10 @@ import 'package:wafi_user/data/models/cars_models/car_model.dart';
 import '../../../core/network/dio_helper.dart';
 import '../../../core/error/error_exception.dart';
 import '../../../core/network/api_end_points.dart';
+import '../../../core/network/error_message_model.dart';
 import '../../../core/parameters/add_user_car_parameters.dart';
 import '../../models/base_response_model.dart';
-import '../../models/cars_models/get_all_car_types_models_model;.dart';
+import '../../models/cars_models/get_all_car_types_models_model.dart';
 
 class CarsRemoteDataSource {
   final DioHelper dioHelper;
@@ -22,8 +23,16 @@ class CarsRemoteDataSource {
         url: EndPoints.carTypes,
       );
       return Right(GetAllCarTypesAndModels.fromJson(response.data));
-    } catch (e) {
-      rethrow;
+    } on DioException catch (e) {
+      return Left(
+        ErrorException(
+          baseErrorModel: BaseErrorModel(
+            message: e.error.toString(),
+            status: e.response?.statusCode?.toString() ?? "",
+            data: e.response.toString(),
+          ),
+        ),
+      );
     }
   }
 
@@ -33,8 +42,16 @@ class CarsRemoteDataSource {
         url: EndPoints.carModels,
       );
       return Right(GetAllCarTypesAndModels.fromJson(response.data));
-    } catch (e) {
-      rethrow;
+    } on DioException catch (e) {
+      return Left(
+        ErrorException(
+          baseErrorModel: BaseErrorModel(
+            message: e.error.toString(),
+            status: e.response?.statusCode?.toString() ?? "",
+            data: e.response.toString(),
+          ),
+        ),
+      );
     }
   }
 
@@ -43,9 +60,18 @@ class CarsRemoteDataSource {
       final response = await dioHelper.getData(
         url: EndPoints.myUserCars,
       );
-      return Right(List<CarModel>.from(response.data?["data"]?.map((e)=>CarModel.fromJson(e))??[]));
-    } catch (e) {
-      rethrow;
+      return Right(
+          List<CarModel>.from(response.data?["data"]?.map((e) => CarModel.fromJson(e)) ?? []));
+    } on DioException catch (e) {
+      return Left(
+        ErrorException(
+          baseErrorModel: BaseErrorModel(
+            message: e.error.toString(),
+            status: e.response?.statusCode?.toString() ?? "",
+            data: e.response.toString(),
+          ),
+        ),
+      );
     }
   }
 
@@ -59,10 +85,17 @@ class CarsRemoteDataSource {
           addCarParameters.toMap(),
         ),
       );
-      print("response ====> ${response.data}");
       return Right(BaseResponseModel.fromJson(response.data));
-    } catch (e) {
-      rethrow;
+    } on DioException catch (e) {
+      return Left(
+        ErrorException(
+          baseErrorModel: BaseErrorModel(
+            message: e.error.toString(),
+            status: e.response?.statusCode?.toString() ?? "",
+            data: e.response.toString(),
+          ),
+        ),
+      );
     }
   }
 
@@ -76,10 +109,17 @@ class CarsRemoteDataSource {
           addCarParameters.toMap(),
         ),
       );
-      print("response ====> ${response.data}");
       return Right(BaseResponseModel.fromJson(response.data));
-    } catch (e) {
-      rethrow;
+    } on DioException catch (e) {
+      return Left(
+        ErrorException(
+          baseErrorModel: BaseErrorModel(
+            message: e.error.toString(),
+            status: e.response?.statusCode?.toString() ?? "",
+            data: e.response.toString(),
+          ),
+        ),
+      );
     }
   }
 
@@ -91,14 +131,21 @@ class CarsRemoteDataSource {
         url: EndPoints.deleteCar,
         data: FormData.fromMap(
           {
-            "user_car_id":carId,
+            "user_car_id": carId,
           },
         ),
       );
-      print("response ====> ${response.data}");
       return Right(BaseResponseModel.fromJson(response.data));
-    } catch (e) {
-      rethrow;
+    } on DioException catch (e) {
+      return Left(
+        ErrorException(
+          baseErrorModel: BaseErrorModel(
+            message: e.error.toString(),
+            status: e.response?.statusCode?.toString() ?? "",
+            data: e.response.toString(),
+          ),
+        ),
+      );
     }
   }
 }

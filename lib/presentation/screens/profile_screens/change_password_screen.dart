@@ -62,7 +62,7 @@ class ChangePasswordScreen extends StatelessWidget {
 class PasswordVisibilityWidget extends StatefulWidget {
   final String title;
   final String hintText;
-  PasswordVisibilityWidget({super.key, required this.title, required this.hintText});
+  const PasswordVisibilityWidget({super.key, required this.title, required this.hintText});
 
   @override
   State<PasswordVisibilityWidget> createState() => _PasswordVisibilityWidgetState();

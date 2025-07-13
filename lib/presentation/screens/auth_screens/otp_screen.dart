@@ -38,18 +38,17 @@ class _OtpScreenState extends State<OtpScreen> {
           } else if (state is OtpSuccess) {
             Navigator.pop(context);
             showToast(
-                errorType: state.otpModel.status! ? 0 : 1,
-                message: state.otpModel.message ?? "");
+                errorType: state.otpModel.status! ? 0 : 1, message: state.otpModel.message ?? "");
             await CacheHelper.saveData(
               key: CacheKeys.token,
               value: state.otpModel.data?.token ?? "",
             ).then(
-                  (value) {
+              (value) {
                 if (state.otpModel.status!) {
                   Navigator.pushNamedAndRemoveUntil(
                     context,
                     ScreenName.mainLayoutScreen,
-                        (routes) => false,
+                    (routes) => false,
                   );
                 }
               },
@@ -69,8 +68,7 @@ class _OtpScreenState extends State<OtpScreen> {
             child: Stack(
               children: [
                 ListView(
-                  padding:
-                  EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
+                  padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
                   children: [
                     ScreenTitleWidget(
                       title: LocaleKeys.verification.tr(),
@@ -80,8 +78,7 @@ class _OtpScreenState extends State<OtpScreen> {
                     ),
                     Text(
                       LocaleKeys.enterOtp.tr(),
-                      style:
-                      CustomThemes.greyColor16TextStyle(context).copyWith(
+                      style: CustomThemes.greyColor16TextStyle(context).copyWith(
                         fontWeight: FontWeight.w400,
                         fontSize: 12.sp,
                       ),
@@ -110,8 +107,7 @@ class _OtpScreenState extends State<OtpScreen> {
                   child: CustomGradientButton(
                     child: Text(
                       LocaleKeys.submit.tr(),
-                      style: CustomThemes.whiteColoTextTheme(context)
-                          .copyWith(
+                      style: CustomThemes.whiteColoTextTheme(context).copyWith(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,
                       ),
@@ -121,9 +117,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         if (controller.text.length >= 4) {
                           cubit.otp(code: controller.text);
                         } else {
-                          showToast(
-                              errorType: 1,
-                              message: LocaleKeys.pleaseEnterCode.tr());
+                          showToast(errorType: 1, message: LocaleKeys.pleaseEnterCode.tr());
                         }
                       }
                     },

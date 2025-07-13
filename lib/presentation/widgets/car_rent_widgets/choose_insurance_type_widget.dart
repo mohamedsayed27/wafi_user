@@ -7,13 +7,11 @@ import 'package:wafi_user/translations/locale_keys.g.dart';
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/app_theme/custom_themes.dart';
 
-
 class InsuranceTypeRadioGroup extends StatefulWidget {
   const InsuranceTypeRadioGroup({super.key});
 
   @override
-  _InsuranceTypeRadioGroupState createState() =>
-      _InsuranceTypeRadioGroupState();
+  State<InsuranceTypeRadioGroup> createState() => _InsuranceTypeRadioGroupState();
 }
 
 class _InsuranceTypeRadioGroupState extends State<InsuranceTypeRadioGroup> {
@@ -44,8 +42,7 @@ class _InsuranceTypeRadioGroupState extends State<InsuranceTypeRadioGroup> {
                   children: [
                     TextSpan(
                       text: " @ 50.00 SR",
-                      style:
-                      CustomThemes.greyColor1CTextStyle(context).copyWith(
+                      style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,
                         color: AppColors.greenColor,
@@ -53,12 +50,11 @@ class _InsuranceTypeRadioGroupState extends State<InsuranceTypeRadioGroup> {
                     ),
                   ]),
             ),
-            visualDensity:
-            const VisualDensity(horizontal: VisualDensity.minimumDensity),
+            visualDensity: const VisualDensity(horizontal: VisualDensity.minimumDensity),
             contentPadding: EdgeInsets.zero,
             dense: true,
             value: LocaleKeys.standardInsuranceDeductible.tr(),
-            fillColor: const MaterialStatePropertyAll(AppColors.primaryColor),
+            fillColor: const WidgetStatePropertyAll(AppColors.primaryColor),
             groupValue: selectedOption,
             onChanged: (value) {
               setState(() {
@@ -80,8 +76,7 @@ class _InsuranceTypeRadioGroupState extends State<InsuranceTypeRadioGroup> {
                   children: [
                     TextSpan(
                       text: " @ 110.00 SR",
-                      style:
-                      CustomThemes.greyColor1CTextStyle(context).copyWith(
+                      style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,
                         color: AppColors.greenColor,
@@ -89,9 +84,8 @@ class _InsuranceTypeRadioGroupState extends State<InsuranceTypeRadioGroup> {
                     ),
                   ]),
             ),
-            visualDensity:
-            const VisualDensity(horizontal: VisualDensity.minimumDensity),
-            fillColor: const MaterialStatePropertyAll(AppColors.primaryColor),
+            visualDensity: const VisualDensity(horizontal: VisualDensity.minimumDensity),
+            fillColor: const WidgetStatePropertyAll(AppColors.primaryColor),
             contentPadding: EdgeInsets.zero,
             dense: true,
             value: LocaleKeys.fullInsurance.tr(),

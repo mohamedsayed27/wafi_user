@@ -126,9 +126,10 @@ class SparePartsItemWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      cubit.cartList.any((element) => element.id == carSparePartModel.id)
-                          ? "${cubit.cartList.firstWhere((element) => element.id == carSparePartModel.id).counter * cubit.cartList.firstWhere((element) => element.id == carSparePartModel.id).price!}"
-                          : "${carSparePartModel.price} SAR",
+                      // cubit.cartList.any((element) => element.id == carSparePartModel.id)
+                      //     ? "${cubit.cartList.firstWhere((element) => element.id == carSparePartModel.id).counter * cubit.cartList.firstWhere((element) => element.id == carSparePartModel.id).price!}"
+                      //     : "${carSparePartModel.price} SAR",
+                      "${carSparePartModel.price} SAR",
                       style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                         fontSize: 20.sp,
                         fontWeight: FontWeight.bold,

@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart' as tr;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -36,7 +35,8 @@ class _LoginScreenState extends State<LoginScreen> {
             showProgressIndicator(context);
           } else if (state is LoginSuccess) {
             Navigator.pop(context);
-            showToast(errorType: state.baseResponseModel!.status! ? 0 : 1,
+            showToast(
+                errorType: state.baseResponseModel!.status! ? 0 : 1,
                 message: state.baseResponseModel?.message ?? "");
             if (state.baseResponseModel!.status!) {
               Navigator.pushNamed(
@@ -59,8 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Stack(
               children: [
                 ListView(
-                  padding:
-                  EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
+                  padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
                   children: [
                     ScreenTitleWidget(
                       title: LocaleKeys.login.tr(),
@@ -85,13 +84,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Text(
                       LocaleKeys.otpMessage.tr(),
-                      style:
-                      CustomThemes.greyColor1CTextStyle(context).copyWith(
+                      style: CustomThemes.greyColor1CTextStyle(context).copyWith(
                         fontWeight: FontWeight.w400,
-                        color: CustomThemes
-                            .greyColor1CTextStyle(context)
-                            .color!
-                            .withOpacity(0.5),
+                        color: CustomThemes.greyColor1CTextStyle(context).color!.withOpacity(0.5),
                         fontSize: 12.sp,
                       ),
                     ),
@@ -107,8 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: CustomGradientButton(
                     child: Text(
                       LocaleKeys.proceed.tr(),
-                      style: CustomThemes.whiteColoTextTheme(context)
-                          .copyWith(
+                      style: CustomThemes.whiteColoTextTheme(context).copyWith(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,
                       ),

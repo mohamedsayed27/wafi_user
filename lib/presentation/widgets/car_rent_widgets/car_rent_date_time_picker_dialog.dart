@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
@@ -10,6 +11,28 @@ import '../../../core/app_theme/custom_themes.dart';
 import '../../../translations/locale_keys.g.dart';
 import '../shared_widgets/gradiant_color_button.dart';
 
+class CarRentDateArgs extends Equatable {
+  final String fromDate;
+  final String fromTime;
+  final String toDate;
+  final String toTime;
+
+  const CarRentDateArgs({
+    required this.fromDate,
+    required this.fromTime,
+    required this.toDate,
+    required this.toTime,
+  });
+
+  @override
+  List<Object?> get props => [
+        fromDate,
+        fromTime,
+        toDate,
+        toTime,
+      ];
+}
+
 class CarRentDateTimePickerDialog extends StatefulWidget {
   const CarRentDateTimePickerDialog({super.key});
 
@@ -18,11 +41,16 @@ class CarRentDateTimePickerDialog extends StatefulWidget {
 }
 
 class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialog> {
-  String _selectedDate = '';
-  String _dateCount = '';
-  String _range = '';
-  String _rangeCount = '';
-  List<String> timeList = List.generate(24, (index) => '${index.toString().padLeft(2, '0')}:00 AM');
+  DateTime? fromDate;
+  DateTime? toDate;
+  String fromTime = '';
+  String toTime = '';
+
+  final List<String> timeList = List.generate(24, (index) {
+    final hour = index % 12 == 0 ? 12 : index % 12;
+    final suffix = index < 12 ? 'AM' : 'PM';
+    return '${hour.toString().padLeft(2, '0')}:00 $suffix';
+  });
 
   int selectedTimeIndex1 = 0;
   int selectedTimeIndex2 = 0;
@@ -30,17 +58,17 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
   void _onSelectionChanged(DateRangePickerSelectionChangedArgs args) {
     setState(() {
       if (args.value is PickerDateRange) {
-        _range = '${DateFormat('dd/MM/yyyy').format(args.value.startDate)} -'
-            // ignore: lines_longer_than_80_chars
-            ' ${DateFormat('dd/MM/yyyy').format(args.value.endDate ?? args.value.startDate)}';
-      } else if (args.value is DateTime) {
-        _selectedDate = args.value.toString();
-      } else if (args.value is List<DateTime>) {
-        _dateCount = args.value.length.toString();
-      } else {
-        _rangeCount = args.value.length.toString();
+        fromDate = args.value.startDate;
+        toDate = args.value.endDate ?? args.value.startDate;
       }
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fromTime = timeList[selectedTimeIndex1];
+    toTime = timeList[selectedTimeIndex2];
   }
 
   @override
@@ -64,22 +92,21 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
               rangeSelectionColor: AppColors.locationDetailsContainer,
               endRangeSelectionColor: AppColors.homeScreenGradientFirstColor,
               startRangeSelectionColor: AppColors.thirdGradientColor,
-              // selectionColor: AppColors.secondGradientColor,
+              minDate: DateTime.now(),
+              maxDate: DateTime.now().add(const Duration(days: 365)),
               initialSelectedRange: PickerDateRange(
-                  DateTime.now().subtract(const Duration(days: 4)),
-                  DateTime.now().add(const Duration(days: 3))),
+                DateTime.now(),
+                DateTime.now().add(const Duration(days: 3)),
+              ),
             ),
             Text(
               LocaleKeys.setTime.tr(),
               style: CustomThemes.greyColor16TextStyle(context).copyWith(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w700,
-                fontStyle: FontStyle.normal,
               ),
             ),
-            const CustomSizedBox(
-              height: 16,
-            ),
+            const CustomSizedBox(height: 16),
             Row(
               children: [
                 Expanded(
@@ -90,52 +117,18 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
                         style: CustomThemes.greyColor16TextStyle(context).copyWith(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w700,
-                          fontStyle: FontStyle.normal,
                         ),
                       ),
-                      const CustomSizedBox(
-                        height: 8,
-                      ),
-                      SizedBox(
-                        height: 100.h,
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Container(
-                              height: 19.h,
-                              width: 80.w,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4.r),
-                                gradient: LinearGradient(
-                                  colors: AppColors.gradientColorsList,
-                                  begin: AlignmentDirectional.topStart,
-                                  end: AlignmentDirectional.bottomEnd,
-                                ),
-                              ),
-                            ),
-                            ListWheelScrollView.useDelegate(
-                              itemExtent: 20,
-                              //// Height of each item
-                              physics: const FixedExtentScrollPhysics(),
-                              useMagnifier: true,
-                              magnification: 1.2,
-                              childDelegate: ListWheelChildBuilderDelegate(
-                                  builder: (context, index) {
-                                    return buildTimeItem(
-                                        timeList[index], selectedTimeIndex1 == index, context);
-                                  },
-                                  childCount: timeList.length),
-                              // timeList.map((time) {
-                              //   return buildTimeItem(time,selectedTimeIndex1==time.);
-                              // }).toList(),
-                              onSelectedItemChanged: (index) {
-                                setState(() {
-                                  selectedTimeIndex1 = index;
-                                });
-                              },
-                            ),
-                          ],
-                        ),
+                      const CustomSizedBox(height: 8),
+                      buildTimeWheel(
+                        context,
+                        selectedTimeIndex1,
+                        (index) {
+                          setState(() {
+                            selectedTimeIndex1 = index;
+                            fromTime = timeList[index];
+                          });
+                        },
                       ),
                     ],
                   ),
@@ -148,61 +141,25 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
                         style: CustomThemes.greyColor16TextStyle(context).copyWith(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w700,
-                          fontStyle: FontStyle.normal,
                         ),
                       ),
-                      const CustomSizedBox(
-                        height: 8,
-                      ),
-                      SizedBox(
-                        height: 100.h,
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Container(
-                              height: 19.h,
-                              width: 80.w,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4.r),
-                                gradient: LinearGradient(
-                                  colors: AppColors.gradientColorsList,
-                                  begin: AlignmentDirectional.topStart,
-                                  end: AlignmentDirectional.bottomEnd,
-                                ),
-                              ),
-                            ),
-                            ListWheelScrollView.useDelegate(
-                              itemExtent: 20,
-                              //// Height of each item
-                              physics: const FixedExtentScrollPhysics(),
-                              useMagnifier: true,
-                              magnification: 1.2,
-                              childDelegate: ListWheelChildBuilderDelegate(
-                                  builder: (context, index) {
-                                    return buildTimeItem(
-                                        timeList[index], selectedTimeIndex2 == index, context);
-                                  },
-                                  childCount: timeList.length),
-                              // timeList.map((time) {
-                              //   return buildTimeItem(time,selectedTimeIndex2==time.);
-                              // }).toList(),
-                              onSelectedItemChanged: (index) {
-                                setState(() {
-                                  selectedTimeIndex2 = index;
-                                });
-                              },
-                            ),
-                          ],
-                        ),
+                      const CustomSizedBox(height: 8),
+                      buildTimeWheel(
+                        context,
+                        selectedTimeIndex2,
+                        (index) {
+                          setState(() {
+                            selectedTimeIndex2 = index;
+                            toTime = timeList[index];
+                          });
+                        },
                       ),
                     ],
                   ),
                 ),
               ],
             ),
-            const CustomSizedBox(
-              height: 16,
-            ),
+            const CustomSizedBox(height: 16),
             CustomGradientButton(
               borderRadius: 6,
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -214,28 +171,71 @@ class _CarRentDateTimePickerDialogState extends State<CarRentDateTimePickerDialo
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              onPressed: () {},
-            ).symmetricPadding(
-              horizontal: 72,
-            )
+              onPressed: () {
+                if (fromDate != null && toDate != null) {
+                  Navigator.pop<CarRentDateArgs>(
+                    context,
+                    CarRentDateArgs(
+                      fromDate: DateFormat('yyyy-MM-dd').format(fromDate!),
+                      fromTime: fromTime,
+                      toDate: DateFormat('yyyy-MM-dd').format(toDate!),
+                      toTime: toTime,
+                    ),
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Please select a date range')),
+                  );
+                }
+              },
+            ).symmetricPadding(horizontal: 72),
           ],
-        ).symmetricPadding(
-          horizontal: 16,
-          vertical: 24,
-        ),
+        ).symmetricPadding(horizontal: 16, vertical: 24),
       ),
     );
   }
 
-  Widget buildTimeItem(String time, bool isSelected, BuildContext context) {
-    return Center(
-      child: Text(
-        time,
-        style: CustomThemes.whiteColoTextTheme(context).copyWith(
-            fontSize: 12.sp,
-            fontWeight: FontWeight.w700,
-            fontStyle: FontStyle.normal,
-            color: isSelected ? null : AppColors.color16),
+  Widget buildTimeWheel(BuildContext context, int selectedIndex, ValueChanged<int> onSelected) {
+    return SizedBox(
+      height: 100.h,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Container(
+            height: 19.h,
+            width: 80.w,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(4.r),
+              gradient: LinearGradient(
+                colors: AppColors.gradientColorsList,
+                begin: AlignmentDirectional.topStart,
+                end: AlignmentDirectional.bottomEnd,
+              ),
+            ),
+          ),
+          ListWheelScrollView.useDelegate(
+            itemExtent: 20,
+            physics: const FixedExtentScrollPhysics(),
+            useMagnifier: true,
+            magnification: 1.2,
+            childDelegate: ListWheelChildBuilderDelegate(
+              builder: (context, index) {
+                return Center(
+                  child: Text(
+                    timeList[index],
+                    style: CustomThemes.whiteColoTextTheme(context).copyWith(
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w700,
+                      color: selectedIndex == index ? null : AppColors.color16,
+                    ),
+                  ),
+                );
+              },
+              childCount: timeList.length,
+            ),
+            onSelectedItemChanged: onSelected,
+          ),
+        ],
       ),
     );
   }
