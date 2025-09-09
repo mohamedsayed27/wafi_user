@@ -98,14 +98,18 @@ class _DrawerListWidgetState extends State<DrawerListWidget> {
                 const CustomSizedBox(
                   width: 16,
                 ),
-                GradientWidget(
-                  gradientList: AppColors.gradientTextList,
-                  isGradient: currentIndex == index,
-                  child: Text(
-                    items(context)[index]["title"],
-                    style: CustomThemes.whiteColoTextTheme(context).copyWith(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w700,
+                Expanded(
+                  child: GradientWidget(
+                    gradientList: AppColors.gradientTextList,
+                    isGradient: currentIndex == index,
+                    child: Text(
+                      items(context)[index]["title"],
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: CustomThemes.whiteColoTextTheme(context).copyWith(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                   ),
                 ),

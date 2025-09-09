@@ -7,6 +7,7 @@ import 'package:wafi_user/core/cache_helper/cache_keys.dart';
 import 'package:wafi_user/core/services/services_locator.dart';
 import 'package:wafi_user/presentation/business_logic/address_cubit/address_cubit.dart';
 import 'package:wafi_user/presentation/business_logic/auth_cubit/auth_cubit.dart';
+import 'package:wafi_user/presentation/business_logic/profile_cubit/profile_cubit.dart';
 import 'package:wafi_user/translations/codegen_loader.g.dart';
 
 import 'bloc_observer.dart';
@@ -66,10 +67,13 @@ class MyApp extends StatelessWidget {
             BlocProvider(
               create: (context) => MainLayoutCubit(),
             ),
+            BlocProvider(
+              create: (context) => sl<ProfileCubit>()..fetchProfile(),
+            ),
           ],
           child: MaterialApp(
             navigatorKey: navigatorKey,
-            title: 'Flutter Demo',
+            title: 'Wafi User',
             localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
             locale: context.locale,

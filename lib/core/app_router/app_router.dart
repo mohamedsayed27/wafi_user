@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wafi_user/core/app_router/screens_name.dart';
+import 'package:wafi_user/data/models/profile_model/user_data_model.dart';
 import 'package:wafi_user/presentation/business_logic/address_cubit/address_cubit.dart';
 import 'package:wafi_user/presentation/business_logic/car_service_cubit/car_service_cubit.dart';
 import 'package:wafi_user/presentation/business_logic/car_spare_parts_cubit/car_spare_by_parts_cubit.dart';
@@ -185,7 +186,9 @@ class AppRouter {
         case ScreenName.sparePartsDetailsScreen:
           final args = settings.arguments as List;
           return MaterialPageRoute(
-            builder: (_) =>  SparePartsDetailsScreen(carSparePartModel: args[0],),
+            builder: (_) => SparePartsDetailsScreen(
+              carSparePartModel: args[0],
+            ),
           );
         case ScreenName.servicesOnMapScreen:
           final args = settings.arguments as ServiceOnMapScreenArgs;
@@ -222,8 +225,11 @@ class AppRouter {
             builder: (_) => const WalletScreen(),
           );
         case ScreenName.editProfileScreen:
+          final args = settings.arguments as UserDataModel?;
           return MaterialPageRoute(
-            builder: (_) => const EditProfileScreen(),
+            builder: (_) => EditProfileScreen(
+              userDataModel: args,
+            ),
           );
         case ScreenName.savedCardsScreen:
           return MaterialPageRoute(

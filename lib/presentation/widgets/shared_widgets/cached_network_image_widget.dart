@@ -8,11 +8,12 @@ class CachedNetworkImageWidget extends StatelessWidget {
   final BoxFit? fit;
   final double? width;
   final double? height;
-
+  final Widget? errorWidget;
   const CachedNetworkImageWidget({
     super.key,
     required this.imageUrl,
     this.fit,
+    this.errorWidget,
     this.width,
     this.height,
   });
@@ -39,7 +40,7 @@ class CachedNetworkImageWidget extends StatelessWidget {
           ),
         ),
       ),
-      errorWidget: (context, url, error) => const Icon(Icons.error),
+      errorWidget: (context, url, error) => errorWidget ?? const Icon(Icons.error),
     );
   }
 }

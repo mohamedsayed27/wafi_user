@@ -22,4 +22,6 @@ class EndPoints {
   static const addOrderService = '/post_orders_service';
   static const carSparePartsProduct = '/car-spare-parts/product';
   static const sendQuotationRequest = '/post_offer';
+  static const userData = '/user_data';
+  static const updateData = '/update_data';
 }

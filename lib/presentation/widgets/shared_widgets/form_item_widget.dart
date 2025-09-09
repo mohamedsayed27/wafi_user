@@ -19,6 +19,7 @@ class FormItemWidget extends StatelessWidget {
   final int? maxLines;
   final TextDirection? textDirection;
   final String? Function(String?)? validator;
+  final String? Function(String?)? onChanged;
   const FormItemWidget({
     super.key,
     this.controller,
@@ -27,7 +28,12 @@ class FormItemWidget extends StatelessWidget {
     required this.hintText,
     this.isRequired = false,
     this.isOptional = false,
-    this.enabled = true, this.suffixIcon, this.isNotVisible = false, this.validator, this.textDirection,
+    this.onChanged,
+    this.enabled = true,
+    this.suffixIcon,
+    this.isNotVisible = false,
+    this.validator,
+    this.textDirection,
   });
 
   @override
@@ -39,10 +45,7 @@ class FormItemWidget extends StatelessWidget {
           text: TextSpan(
             text: title.tr(),
             style: CustomThemes.greyColor16TextStyle(context).copyWith(
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w700,
-              fontStyle: FontStyle.normal
-            ),
+                fontSize: 14.sp, fontWeight: FontWeight.w700, fontStyle: FontStyle.normal),
             children: [
               if (isRequired)
                 TextSpan(
@@ -55,25 +58,37 @@ class FormItemWidget extends StatelessWidget {
               if (isOptional)
                 TextSpan(
                   text: " (${LocaleKeys.optional.tr()})",
-                  style: CustomThemes.greyColor75TextStyle(context).copyWith(fontSize: 12.sp,fontWeight: FontWeight.w700,),
+                  style: CustomThemes.greyColor75TextStyle(context).copyWith(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w700,
+                  ),
                 )
             ],
           ),
         ),
-        const CustomSizedBox(
-          height: 8,
-        ),
-        CustomTextField(
-          hintText: hintText,
-          enabled: enabled,
-          maxlines: maxLines,
-          textDirection: textDirection,
-          validator:validator,
-          filled: null,
-          isNotVisible: isNotVisible,
-          suffixIcon: suffixIcon,
-          fillColor: null,
-          controller: controller,
+        const CustomSizedBox(height: 8),
+        Stack(
+          alignment: Alignment.centerRight,
+          children: [
+            CustomTextField(
+              hintText: hintText,
+              enabled: enabled,
+              maxlines: maxLines,
+              textDirection: textDirection,
+              onChanged: onChanged,
+              validator: validator,
+              filled: null,
+              isNotVisible: isNotVisible,
+              suffixIcon: suffixIcon != null ? const SizedBox(width: 48) : null,
+              fillColor: null,
+              controller: controller,
+            ),
+            if (suffixIcon != null)
+              Positioned(
+                right: 0,
+                child: suffixIcon!,
+              ),
+          ],
         ),
       ],
     );
