@@ -271,7 +271,6 @@
   "pleaseEnterCode": "Please enter the code",
   "carSpareParts": "Car Spare Parts",
   "carServiceAndMaintenance": "Car Service & Maintenance",
+  "thisFieldCannotBeEmpty": "this field cannot be empty",
   "address": "Address"
 }
-
-

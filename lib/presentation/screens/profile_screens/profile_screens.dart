@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wafi_user/core/app_router/screens_name.dart';
@@ -12,6 +13,8 @@ import '../../../core/app_theme/custom_themes.dart';
 import '../../../core/assets_path/svg_path.dart';
 import '../../../core/constants/constants.dart';
 import '../../../translations/locale_keys.g.dart';
+import '../../business_logic/profile_cubit/profile_cubit.dart';
+import '../../widgets/shared_widgets/cached_network_image_widget.dart';
 import '../../widgets/shared_widgets/custom_sized_box.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -68,48 +71,64 @@ class ProfileScreen extends StatelessWidget {
                   height: 24,
                 ),
                 Center(
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 120.h,
-                        width: 120.w,
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16.r),
-                          border: Border.all(
-                            color: AppColors.whiteColor,
-                            width: 2.w,
-                          ),
-                        ),
-                        child: Image.asset(
-                          ImagesPath.userNullImage,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      const CustomSizedBox(
-                        height: 16,
-                      ),
-                      Text(
-                        "Riyad Mahrez",
-                        style: CustomThemes.whiteColoTextTheme(context).copyWith(
-                          fontSize: 24.sp,
-                          fontWeight: FontWeight.bold,
-                          height: 1,
-                        ),
-                      ),
-                      const CustomSizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        "riyadmahrez@gmail.com",
-                        style: CustomThemes.greyColor99TextStyle(context).copyWith(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.bold,
-                          height: 1,
-                        ),
-                      ),
-                    ],
-                  ),
+                  child: BlocConsumer<ProfileCubit, ProfileState>(
+                      listener: (cubit, state) {},
+                      builder: (cubit, state) {
+                        ProfileCubit cubit = ProfileCubit.get(context);
+                        return state is FetchUserDataLoading
+                            ? const CircularProgressIndicator.adaptive()
+                            : Column(
+                                children: [
+                                  Container(
+                                    height: 120.h,
+                                    width: 120.w,
+                                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16.r),
+                                      border: Border.all(
+                                        color: AppColors.whiteColor,
+                                        width: 2.w,
+                                      ),
+                                    ),
+                                    child: cubit.userDataModel?.image != null
+                                        ? CachedNetworkImageWidget(
+                                            imageUrl: cubit.userDataModel?.image ?? '',
+                                            errorWidget: Image.asset(
+                                              ImagesPath.userNullImage,
+                                              fit: BoxFit.scaleDown,
+                                            ),
+                                          )
+                                        : Image.asset(
+                                            ImagesPath.userNullImage,
+                                            fit: BoxFit.scaleDown,
+                                          ),
+                                  ),
+                                  const CustomSizedBox(
+                                    height: 16,
+                                  ),
+                                  Text(
+                                    cubit.userDataModel?.name ?? '',
+                                    style: CustomThemes.whiteColoTextTheme(context).copyWith(
+                                      fontSize: 24.sp,
+                                      fontWeight: FontWeight.bold,
+                                      height: 1,
+                                    ),
+                                  ),
+                                  const CustomSizedBox(
+                                    height: 8,
+                                  ),
+                                  if (cubit.userDataModel?.email != null)
+                                    Text(
+                                      cubit.userDataModel?.email ?? '',
+                                      style: CustomThemes.greyColor99TextStyle(context).copyWith(
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.bold,
+                                        height: 1,
+                                      ),
+                                    ),
+                                ],
+                              );
+                      }),
                 )
               ],
             ),
@@ -118,7 +137,13 @@ class ProfileScreen extends StatelessWidget {
             title: LocaleKeys.editProfile.tr(),
             svgPath: SvgPath.editProfile,
             onTap: () {
-              Navigator.pushNamed(context, ScreenName.editProfileScreen);
+              if (ProfileCubit.get(context).userDataModel != null) {
+                Navigator.pushNamed(
+                  context,
+                  ScreenName.editProfileScreen,
+                  arguments: ProfileCubit.get(context).userDataModel,
+                );
+              }
             },
           ),
           ItemWidget(

@@ -275,6 +275,7 @@ abstract class  LocaleKeys {
   static const pleaseEnterCode = 'pleaseEnterCode';
   static const carSpareParts = 'carSpareParts';
   static const carServiceAndMaintenance = 'carServiceAndMaintenance';
+  static const thisFieldCannotBeEmpty = 'thisFieldCannotBeEmpty';
   static const address = 'address';
 
 }

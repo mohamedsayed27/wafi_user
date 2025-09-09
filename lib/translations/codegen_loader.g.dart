@@ -287,6 +287,7 @@ class CodegenLoader extends AssetLoader{
   "pleaseEnterCode": "Please enter the code",
   "carSpareParts": "Car Spare Parts",
   "carServiceAndMaintenance": "Car Service & Maintenance",
+  "thisFieldCannotBeEmpty": "this field cannot be empty",
   "address": "Address"
 };
 static const Map<String,dynamic> _ar = {
@@ -556,6 +557,7 @@ static const Map<String,dynamic> _ar = {
   "pleaseEnterCode": "الرجاء إدخال الكود",
   "carSpareParts": "قطع غيار السيارات",
   "carServiceAndMaintenance": "خدمة وصيانة السيارات",
+  "thisFieldCannotBeEmpty": "هذا الحقل لا يمكن أن يكون فارغًا",
   "address": "العنوان"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": _en, "ar": _ar};

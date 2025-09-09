@@ -79,6 +79,7 @@ class AddressDataSource {
         ),
       );
     } on DioException catch (e) {
+      print(e.response);
       return Left(ErrorException(
           baseErrorModel: BaseErrorModel(
               message: e.error.toString(),

@@ -4,7 +4,11 @@ import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:wafi_user/core/cache_helper/shared_pref_methods.dart';
+import 'package:wafi_user/core/constants/constants.dart';
 import 'package:wafi_user/presentation/business_logic/main_layout_cubit/main_layout_cubit.dart';
+import 'package:wafi_user/presentation/business_logic/profile_cubit/profile_cubit.dart';
+import 'package:wafi_user/presentation/widgets/shared_widgets/cached_network_image_widget.dart';
 import 'package:wafi_user/translations/locale_keys.g.dart';
 
 import '../../../core/app_router/screens_name.dart';
@@ -56,38 +60,59 @@ class _MainLayoutState extends State<MainLayout> {
             start: 16.w,
           ),
           children: [
-            Align(
-              alignment: AlignmentDirectional.centerStart,
-              child: Container(
-                height: 54.h,
-                width: 54.w,
-                clipBehavior: Clip.antiAlias,
-                decoration: const BoxDecoration(
-                  color: AppColors.greyColorF3,
-                  shape: BoxShape.circle,
-                ),
-                child: Image.asset(
-                  ImagesPath.userNullImage,
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
-            const CustomSizedBox(
-              height: 16,
-            ),
-            Text(
-              LocaleKeys.hello.tr(),
-              style: CustomThemes.whiteColoTextTheme(context).copyWith(
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            Text(
-              "William Wilson 👋🏻",
-              style: CustomThemes.whiteColoTextTheme(context).copyWith(
-                fontSize: 16.sp,
-                fontWeight: FontWeight.w700,
-              ),
+            BlocConsumer<ProfileCubit, ProfileState>(
+              listener: (cubit, state) {},
+              builder: (cubit, state) {
+                ProfileCubit cubit = ProfileCubit.get(context);
+                return state is FetchUserDataLoading
+                    ? const CircularProgressIndicator.adaptive()
+                    : Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional.centerStart,
+                            child: Container(
+                              height: 54.h,
+                              width: 54.w,
+                              clipBehavior: Clip.antiAlias,
+                              decoration: const BoxDecoration(
+                                color: AppColors.greyColorF3,
+                                shape: BoxShape.circle,
+                              ),
+                              child: cubit.userDataModel?.image != null
+                                  ? CachedNetworkImageWidget(
+                                      imageUrl: cubit.userDataModel?.image ?? '',
+                                      errorWidget: Image.asset(
+                                        ImagesPath.userNullImage,
+                                        fit: BoxFit.scaleDown,
+                                      ),
+                                    )
+                                  : Image.asset(
+                                      ImagesPath.userNullImage,
+                                      fit: BoxFit.scaleDown,
+                                    ),
+                            ),
+                          ),
+                          const CustomSizedBox(
+                            height: 16,
+                          ),
+                          Text(
+                            LocaleKeys.hello.tr(),
+                            style: CustomThemes.whiteColoTextTheme(context).copyWith(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Text(
+                            "${cubit.userDataModel?.name ?? ''} 👋🏻",
+                            style: CustomThemes.whiteColoTextTheme(context).copyWith(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
+                      );
+              },
             ),
             const CustomSizedBox(
               height: 16,
@@ -99,7 +124,19 @@ class _MainLayoutState extends State<MainLayout> {
             ListTile(
               titleAlignment: ListTileTitleAlignment.center,
               contentPadding: EdgeInsets.zero,
-              onTap: () {},
+              onTap: () async {
+                advancedDrawerController.hideDrawer();
+                showProgressIndicator(context);
+                final cleared = await CacheHelper.clear();
+                if (cleared && context.mounted) {
+                  Navigator.pop(context);
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    ScreenName.loginScreen,
+                    (route) => false,
+                  );
+                }
+              },
               leading: GradientSvg(
                 svgDisabledColor: AppColors.whiteColor,
                 svgPath: SvgPath.logout,

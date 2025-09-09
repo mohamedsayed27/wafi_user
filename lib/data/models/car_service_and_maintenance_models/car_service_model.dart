@@ -53,14 +53,14 @@ class CarServiceModel extends Equatable {
 
   @override
   List<Object?> get props => [
-    id,
-    titleAr,
-    titleEn,
-    icon,
-    active,
-    createdAt,
-    title,
-    titleWeb,
-    imageUrl,
-  ];
+        id,
+        titleAr,
+        titleEn,
+        icon,
+        active,
+        createdAt,
+        title,
+        titleWeb,
+        imageUrl,
+      ];
 }
