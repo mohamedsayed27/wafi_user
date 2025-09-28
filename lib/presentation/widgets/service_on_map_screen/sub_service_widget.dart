@@ -62,23 +62,21 @@ class SubServiceWidget extends StatelessWidget {
                   : cubit.subServiceList!.isNotEmpty
                       ? GridView.builder(
                           padding: EdgeInsets.zero,
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
-                            childAspectRatio: 168.w / 50.h,
-                            crossAxisSpacing: 8.w,
-                            mainAxisSpacing: 16.h,
+                            childAspectRatio: 168 / 50,
+                            crossAxisSpacing: 8,
+                            mainAxisSpacing: 16,
                           ),
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
                           itemBuilder: (_, index) {
                             return SubServicesDetailsWidget(
                               onTab: () {
-                                cubit.selectServiceList(
-                                    cubit.subServiceList![index]);
+                                cubit.selectServiceList(cubit.subServiceList![index]);
                               },
-                              isSelected: cubit.selectedSubServiceList ==
-                                  cubit.subServiceList?[index],
+                              isSelected:
+                                  cubit.selectedSubServiceList == cubit.subServiceList?[index],
                               serviceModel: cubit.subServiceList?[index],
                             );
                           },
@@ -102,26 +100,25 @@ class SubServiceWidget extends StatelessWidget {
               return cubit.getSubServiceLoading
                   ? const CustomSizedBox()
                   : CustomGradientButton(
-                      onPressed: cubit.subServiceList!.isNotEmpty &&
-                              cubit.selectedSubServiceList != null
-                          ? () {
-                              Navigator.pushNamed(
-                                context,
-                                ScreenName.servicesCartScreen,
-                                arguments: [
-                                  "${cubit.selectedSubServiceList?.title}",
-                                  cubit,
-                                ],
-                              );
-                            }
-                          : null,
+                      onPressed:
+                          cubit.subServiceList!.isNotEmpty && cubit.selectedSubServiceList != null
+                              ? () {
+                                  Navigator.pushNamed(
+                                    context,
+                                    ScreenName.servicesCartScreen,
+                                    arguments: [
+                                      "${cubit.selectedSubServiceList?.title}",
+                                      cubit,
+                                    ],
+                                  );
+                                }
+                              : null,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             LocaleKeys.continueText.tr(),
-                            style: CustomThemes.whiteColoTextTheme(context)
-                                .copyWith(
+                            style: CustomThemes.whiteColoTextTheme(context).copyWith(
                               fontSize: 14.sp,
                               // 29.282031462834418, 31.198616065084934
                               fontWeight: FontWeight.w700,

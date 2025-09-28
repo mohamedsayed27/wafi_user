@@ -1,6 +1,5 @@
 import 'package:dotlottie_loader/dotlottie_loader.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:wafi_user/core/app_theme/custom_themes.dart';
 
@@ -32,7 +31,7 @@ class EmptyContentWidget extends StatelessWidget {
         Text(
           title ?? "",
           style: CustomThemes.greyColor1CTextStyle(context).copyWith(
-            fontSize: 16.sp,
+            fontSize: 16,
             fontWeight: FontWeight.w700,
           ),
         )

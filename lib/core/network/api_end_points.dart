@@ -24,4 +24,7 @@ class EndPoints {
   static const sendQuotationRequest = '/post_offer';
   static const userData = '/user_data';
   static const updateData = '/update_data';
+  static const getSettings = '/get_settings';
 }
+
+// /post_offer , /post_orders_service
